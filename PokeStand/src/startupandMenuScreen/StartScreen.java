@@ -52,14 +52,14 @@ public class StartScreen extends FullFunctionScreen {
 				AudioTest.stopSound(AudioTest.sound);
 			}
 		});
-		//continueButton.getBackground();
-		//continueButton.setBackground(Color.white);
 		viewObjects.add(background);
 		viewObjects.add(title);
 		viewObjects.add(titleBorder);
 		viewObjects.add(continueButton);
 		viewObjects.add(newGameButton);
-		AudioTest.playSound("resources/Pokemon.wav");
+		continueButton.setBackground(new Color(0,0,0,140));
+		continueButton.update();
+		//AudioTest.playSound("resources/Pokemon.wav");
 	}
 	
 	public void initPokemonFont(float f) {
