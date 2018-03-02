@@ -16,7 +16,6 @@ import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
-import startGame.GameStarter;
 
 public class StartScreen extends FullFunctionScreen {
 	
