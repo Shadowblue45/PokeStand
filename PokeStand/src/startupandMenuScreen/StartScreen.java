@@ -34,22 +34,22 @@ public class StartScreen extends FullFunctionScreen {
 		initPokemonHollowFont(100f);
 		String txt = "Pokemon Rivalry";
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/open field.jpg");
-		titleBorder = new TextArea(250,75,1000,400,txt);
+		titleBorder = new TextArea(190,75,900,400,txt);
 		titleBorder.setCustomTextColor(new Color(59, 76, 202));
 		initPokemonFont(100f);
-		title = new TextArea(250,75,1000,400,txt);
+		title = new TextArea(190,75,1000,400,txt);
 		title.setCustomTextColor(new Color(255, 222, 0));
 		setPokemonTextFont(32f);
-		Button continueButton = new Button(500, 250, 400, 50, "Continue",new Action() {
+		Button continueButton = new Button(440, 250, 400, 50, "Continue",new Action() {
 			
 			public void act() {
-				AudioTest.playSound(null);
 			}
 		});
-		Button newGameButton = new Button(500, 300, 400, 50, "New Game",new Action() {
+		Button newGameButton = new Button(440, 325, 400, 50, "New Game",new Action() {
 			
 			public void act() {
 				AudioTest.stopSound(AudioTest.sound);
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 			}
 		});
 		viewObjects.add(background);
@@ -59,7 +59,9 @@ public class StartScreen extends FullFunctionScreen {
 		viewObjects.add(newGameButton);
 		continueButton.setBackground(new Color(0,0,0,140));
 		continueButton.update();
-		//AudioTest.playSound("resources/Pokemon.wav");
+		newGameButton.setBackground(new Color(0,0,0,140));
+		newGameButton.update();
+		AudioTest.playSound("resources/Pokemon.wav");
 	}
 	
 	public void initPokemonFont(float f) {

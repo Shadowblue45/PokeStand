@@ -6,8 +6,9 @@ import audioPlayer.AudioTest;
 
 public class PokeStart extends GUIApplication {
 	
-	public static Screen backScreen;
-	public static PokeStart boss;
+	public static StartScreen startScreen;
+	public static PokeStart start;
+	protected static MainMenuScreen mainMenuScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -16,16 +17,18 @@ public class PokeStart extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		StartScreen s = new StartScreen(getWidth(), getHeight());
-		setScreen(s);
+		startScreen = new StartScreen(getWidth(), getHeight());
+		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
+		
+		setScreen(startScreen);
 
 	}
 
 	public static void main(String[] args) {
-		boss = new PokeStart(1400, 780);
-		Thread go = new Thread(boss);
+		start = new PokeStart(1280, 720);
+		Thread go = new Thread(start);
 		go.start();
-		//AudioTest.changeVolume(.6);
+		AudioTest.changeVolume(.6);
 	}
 
 }
