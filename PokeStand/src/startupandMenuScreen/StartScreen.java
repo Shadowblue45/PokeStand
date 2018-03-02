@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.io.File;
 import java.util.List;
 
+import audioPlayer.AudioTest;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Component;
@@ -15,6 +16,7 @@ import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import startGame.GameStarter;
 
 public class StartScreen extends FullFunctionScreen {
 	
@@ -38,9 +40,27 @@ public class StartScreen extends FullFunctionScreen {
 		initPokemonFont(100f);
 		title = new TextArea(250,75,1000,400,txt);
 		title.setCustomTextColor(new Color(255, 222, 0));
+		setPokemonTextFont(32f);
+		Button continueButton = new Button(500, 250, 400, 50, "Continue",new Action() {
+			
+			public void act() {
+				AudioTest.playSound(null);
+			}
+		});
+		Button newGameButton = new Button(500, 300, 400, 50, "New Game",new Action() {
+			
+			public void act() {
+				AudioTest.stopSound(AudioTest.sound);
+			}
+		});
+		//continueButton.getBackground();
+		//continueButton.setBackground(Color.white);
 		viewObjects.add(background);
 		viewObjects.add(title);
 		viewObjects.add(titleBorder);
+		viewObjects.add(continueButton);
+		viewObjects.add(newGameButton);
+		AudioTest.playSound("resources/Pokemon.wav");
 	}
 	
 	public void initPokemonFont(float f) {
@@ -57,6 +77,17 @@ public class StartScreen extends FullFunctionScreen {
 	public void initPokemonHollowFont(float f) {
 		try {
 		File fontFile = new File("resources/Pokemon Hollow.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+		Font baseFont=font.deriveFont(f);
+		StyledComponent.setBaseFont(baseFont);
+	} catch (Exception e) {
+		e.printStackTrace();
+		}
+	}
+	
+	public void setPokemonTextFont(float f) {
+		try {
+		File fontFile = new File("resources/Pokemon Text.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(f);
 		StyledComponent.setBaseFont(baseFont);

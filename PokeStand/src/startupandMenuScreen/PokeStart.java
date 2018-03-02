@@ -1,7 +1,8 @@
 package startupandMenuScreen;
 
-import guiTeacher.GUIApplication; 
+import guiTeacher.GUIApplication;   
 import guiTeacher.userInterfaces.Screen;
+import audioPlayer.AudioTest; 
 
 public class PokeStart extends GUIApplication {
 	
@@ -24,6 +25,7 @@ public class PokeStart extends GUIApplication {
 		boss = new PokeStart(1400, 780);
 		Thread go = new Thread(boss);
 		go.start();
+		AudioTest.changeVolume(.6);
 	}
 
 }
