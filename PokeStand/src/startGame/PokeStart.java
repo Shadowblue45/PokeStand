@@ -10,7 +10,7 @@ public class PokeStart extends GUIApplication {
 	
 	public static StartScreen startScreen;
 	public static PokeStart start;
-	protected static MainMenuScreen mainMenuScreen;
+	public static MainMenuScreen mainMenuScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
