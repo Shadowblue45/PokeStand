@@ -3,12 +3,12 @@ package startGame;
 import guiTeacher.GUIApplication;   
 import guiTeacher.userInterfaces.Screen;
 import startupandMenuScreen.MainMenuScreen;
-import startupandMenuScreen.StartScreen;
+import startupandMenuScreen.LoadScreen;
 import audioPlayer.AudioTest; 
 
 public class PokeStart extends GUIApplication {
 	
-	public static StartScreen startScreen;
+	public static LoadScreen startScreen;
 	public static PokeStart start;
 	public static MainMenuScreen mainMenuScreen;
 
@@ -19,7 +19,7 @@ public class PokeStart extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		startScreen = new StartScreen(getWidth(), getHeight());
+		startScreen = new LoadScreen(getWidth(), getHeight());
 		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);

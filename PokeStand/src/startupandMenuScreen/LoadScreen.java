@@ -18,14 +18,14 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import startGame.PokeStart;
 
-public class StartScreen extends FullFunctionScreen {
+public class LoadScreen extends FullFunctionScreen {
 	
 	private TextArea title;
 	private TextArea titleBorder;
 	
 	
 
-	public StartScreen(int width, int height) {
+	public LoadScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}

@@ -17,7 +17,6 @@ public class MainMenuScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
 		viewObjects.add(background);
-
 	}
 
 	public static void main(String[] args) {
