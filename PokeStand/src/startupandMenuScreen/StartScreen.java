@@ -16,6 +16,7 @@ import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import startGame.PokeStart;
 
 public class StartScreen extends FullFunctionScreen {
 	

@@ -1,7 +1,9 @@
-package startupandMenuScreen;
+package startGame;
 
 import guiTeacher.GUIApplication;   
 import guiTeacher.userInterfaces.Screen;
+import startupandMenuScreen.MainMenuScreen;
+import startupandMenuScreen.StartScreen;
 import audioPlayer.AudioTest; 
 
 public class PokeStart extends GUIApplication {
