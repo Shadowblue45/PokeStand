@@ -10,7 +10,7 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import startupandMenuScreen.PokeStart;
+import startGame.PokeStart;
 
 public class AudioPlayer {
 
