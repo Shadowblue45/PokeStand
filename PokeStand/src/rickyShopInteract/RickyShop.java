@@ -1,26 +1,27 @@
 package rickyShopInteract;
 
-import java.util.List;
+import guiTeacher.GUIApplication;
 
-import guiTeacher.interfaces.Visible;
-import guiTeacher.userInterfaces.FullFunctionScreen;
-
-public class RickyShop extends FullFunctionScreen {
+public class RickyShop extends GUIApplication{
+	
+	private static final long serialVersionUID = 7184253047922088672L;
+	private static RickyShop runner;
 
 	public RickyShop(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		setVisible(true);
 	}
 
 	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-		
+	public void initScreen() {
+		RickyScreen Rs = new RickyScreen(getWidth(),getHeight());
+		setScreen(Rs);
+	}
+	
+	public static void main(String[] args) {
+		runner = new RickyShop(1280,720);
+		Thread go = new Thread(runner);
+		go.start();
 	}
 
 }
