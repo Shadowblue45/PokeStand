@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.io.File;
 import java.util.List;
 
+import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
@@ -12,6 +13,16 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class SelectionScreen extends FullFunctionScreen {
+	
+	AnimatedComponent charmander;
+	AnimatedComponent chimchar;
+	AnimatedComponent cyndaquil;
+	AnimatedComponent froakie;
+	AnimatedComponent mudkip;
+	AnimatedComponent popplio;
+	AnimatedComponent snivy;
+	AnimatedComponent treecko;
+	AnimatedComponent turtwig;
 
 	public SelectionScreen(int width, int height) {
 		super(width, height);
@@ -28,6 +39,13 @@ public class SelectionScreen extends FullFunctionScreen {
 		TextArea title = new TextArea(350,10,600,50,"CHOOSE YOUR STARTER");
 		title.setCustomTextColor(Color.WHITE);
 		viewObjects.add(title);
+		
+		
+		charmander = new AnimatedComponent(250, 265, 29, 34);
+		charmander.addSequence("resources/spritesheets/charmander sprite sheet.png", 150, 234, 50, 29, 34, 3);
+		Thread run = new Thread(charmander);
+		run.start();
+		viewObjects.add(charmander);
 		
 		
 	}
