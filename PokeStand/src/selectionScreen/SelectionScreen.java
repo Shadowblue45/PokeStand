@@ -72,10 +72,28 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(popplio);
 		
 		mudkip = new AnimatedComponent(450, 450, 75, 75);
-		mudkip.addSequence("resources/spritesheetsTrans/mudkip sprite.png", 150, 0, 0,49, 38, 3);
+		mudkip.addSequence("resources/spritesheetsTrans/mudkip sprite.png", 150, 0, 115,38, 36, 5);
 		Thread run6 = new Thread(mudkip);
 		run6.start();
 		viewObjects.add(mudkip);
+		
+		snivy = new AnimatedComponent(850, 265, 75, 75);
+		snivy.addSequence("resources/spritesheetsTrans/sinvvy sprite.png", 150, 2, 98, 48, 49, 9);
+		Thread run7 = new Thread(snivy);
+		run7.start();
+		viewObjects.add(snivy);
+		
+		treecko = new AnimatedComponent(850, 350, 75, 75);
+		treecko.addSequence("resources/spritesheetsTrans/treecko spriteN.png", 150, 92,7, 26,23, 4);
+		Thread run8= new Thread(treecko);
+		run8.start();
+		viewObjects.add(treecko);
+		
+		turtwig = new AnimatedComponent(850, 450, 75, 75);
+		turtwig.addSequence("resources/spritesheetsTrans/turtwig spriteN.png", 150, 5, 4,25, 26, 4);
+		Thread run9 = new Thread(turtwig);
+		run9.start();
+		viewObjects.add(turtwig);
 		
 		
 		
