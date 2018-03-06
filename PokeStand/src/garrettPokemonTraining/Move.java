@@ -1,13 +1,13 @@
 package garrettPokemonTraining;
 
 public class Move {
-	
+
 	private String type;
 	private int power;
 	private int accuracy;
 	private int pp;
 	private boolean isSpecial;
-	
+
 	public Move(String type, int power, int accuracy, int pp, boolean isSpecial) {
 		this.type = type;
 		setPower(power);
