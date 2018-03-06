@@ -41,11 +41,43 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(title);
 		
 		
-		charmander = new AnimatedComponent(250, 265, 29, 34);
-		charmander.addSequence("resources/spritesheets/charmander sprite sheet.png", 150, 234, 50, 29, 34, 3);
+		charmander = new AnimatedComponent(250, 265, 75, 75);
+		charmander.addSequence("resources/spritesheetsTrans/charmander sprite.png", 150, 0, 0, 40, 39, 3);
 		Thread run = new Thread(charmander);
 		run.start();
 		viewObjects.add(charmander);
+		
+		chimchar = new AnimatedComponent(250, 350, 75, 75);
+		chimchar.addSequence("resources/spritesheetsTrans/chimchar sprite.png", 150, 11,54, 56, 49, 10);
+		Thread run2 = new Thread(chimchar);
+		run2.start();
+		viewObjects.add(chimchar);
+		
+		cyndaquil = new AnimatedComponent(250, 450, 75, 75);
+		cyndaquil.addSequence("resources/spritesheetsTrans/cyndaquil sprite.png", 150, 0, 0,49, 38, 10);
+		Thread run3 = new Thread(cyndaquil);
+		run3.start();
+		viewObjects.add(cyndaquil);
+		
+		froakie = new AnimatedComponent(450, 265, 75, 75);
+		froakie.addSequence("resources/spritesheetsTrans/froakie sprite sheet.png", 150, 8, 25, 62, 41, 4);
+		Thread run4 = new Thread(froakie);
+		run4.start();
+		viewObjects.add(froakie);
+		
+		popplio = new AnimatedComponent(450, 350, 75, 75);
+		popplio.addSequence("resources/spritesheetsTrans/popplio sprite.png", 150, 2,3, 62, 50, 4);
+		Thread run5= new Thread(popplio);
+		run5.start();
+		viewObjects.add(popplio);
+		
+		mudkip = new AnimatedComponent(450, 450, 75, 75);
+		mudkip.addSequence("resources/spritesheetsTrans/mudkip sprite.png", 150, 0, 0,49, 38, 3);
+		Thread run6 = new Thread(mudkip);
+		run6.start();
+		viewObjects.add(mudkip);
+		
+		
 		
 		
 	}
