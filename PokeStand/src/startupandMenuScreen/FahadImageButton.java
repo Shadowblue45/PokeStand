@@ -1,24 +1,16 @@
 package startupandMenuScreen;
 
-import java.awt.Graphics2D;
+import java.awt.Color;
 
 import guiTeacher.components.Action;
-import guiTeacher.components.CustomImageButton;
+import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
-import guiTeacher.interfaces.DrawInstructions;
 
-public class FahadImageButton extends CustomImageButton {
+public class FahadImageButton extends Button {
 
-	public FahadImageButton(int x, int y, int w, int h, String imageAddress, Action action) {
-		super(x, y, w, h, new DrawInstructions() {
-
-			Graphic image = new Graphic(0,0,imageAddress);
-			
-			
-			public void draw(Graphics2D g, boolean highlight) {
-				g.drawImage(image.getImage(), 0, 0, null);
-			}
-		}, action);
+	public FahadImageButton(int x, int y, int w, int h, Graphic g, String text, String link, Action action) {
+		super(x, y, w, h, text, action);
+		g = new Graphic(x, y, w, h, link);
 	}
 
 }

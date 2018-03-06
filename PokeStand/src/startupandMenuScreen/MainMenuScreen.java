@@ -1,19 +1,23 @@
 package startupandMenuScreen;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
+import audioPlayer.AudioTest;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
+import guiTeacher.components.CustomImageButton;
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import guiTeacher.userInterfaces.Screen;
+import startGame.PokeStart;
 
 public class MainMenuScreen extends FullFunctionScreen {
 	
-	private String[] resourceLinks;
 	private int xCord;
 	private int yCord;
-	private Button button;
+	private int forLoopPos;
 
 	public MainMenuScreen(int width, int height) {
 		super(width, height);
@@ -22,29 +26,44 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		initAllValues();
+		resetCoordinates();
+		Screen[] screens = {PokeStart.loadScreen, PokeStart.loadScreen};
+		String[] resourceLinks = {"resources/fire/Charizard.png", "resources/fire/Charizard.png"};
+		String[] names = {"Charizard", "Charizard"};
+		resetCoordinates();
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
 		viewObjects.add(background);
-		initButtons(viewObjects);
-	}
-	
-	public void initAllValues() {
-		xCord = 40;
-		yCord = 600;
-		resourceLinks[0] = "resources/Pokemon Arena.jpg";
+		initImages(resourceLinks,viewObjects);
+		resetCoordinates();
+		initButtons(names, viewObjects, screens);
 	}
 
-	public void initButtons(List<Visible> viewObjects) {
+	public void resetCoordinates() {
+		xCord = 40;
+		yCord = 450;
+		forLoopPos = 0;
+	}
+	
+	public void initImages(String[] resourceLinks, List<Visible> viewObjects) {
 		for(int i = 0; i < resourceLinks.length; i++) {
-			button = new Button(xCord, yCord, 100,100,links[i],null);
-			xCord = xCord + 120;
-			viewObjects.add(button);
+			Graphic icon = new Graphic(xCord, yCord, 250,250,resourceLinks[i]);
+			xCord = xCord + 270;
+			viewObjects.add(icon);
 		}
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public void initButtons(String[] names, List<Visible> viewObjects, Screen[] screens) {
+		for(int i = 0; i < names.length; i++) {
+			Screen temp = screens[i];
+			Button button = new Button (xCord, yCord, 250,250,names[i],new Action() {
+				
+				public void act() {
+					PokeStart.start.setScreen(temp);
+				}
+			});
+			xCord = xCord + 270;
+			viewObjects.add(button);
+		}
 	}
 
 }
