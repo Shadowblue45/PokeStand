@@ -41,9 +41,9 @@ public class PokeStart extends GUIApplication {
 		AudioTest.changeVolume(.6);
 	}
 	
-	public static void setPokemonUnkownFont(float f) {
+	public static void setPokemonGBFont(float f) {
 		try {
-		File fontFile = new File("resources/Pokemon Unkown.ttf");
+		File fontFile = new File("resources/Pokemon GB.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(f);
 		StyledComponent.setBaseFont(baseFont);

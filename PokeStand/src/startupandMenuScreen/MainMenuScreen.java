@@ -37,7 +37,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		String[] names = {"Charizard", "Charizard"};
 		resetCoordinates();
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
-		PokeStart.setPokemonUnkownFont(100f);
+		PokeStart.setPokemonGBFont(100f);
 		TextArea daysNum = new TextArea(100,100, 500, 300, "30");
 		PokeStart.setPokemonTextFont(32f);
 		TextArea daysRemaining = new TextArea(100,200, 500, 300, "Days Left");
@@ -46,7 +46,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 //		blackBkgd.setEnabled(false);
 //		blackBkgd.setBackground(new Color(0,0,0,140));
 //		blackBkgd.update();
-		daysNum.setCustomTextColor(Color.yellow);
+//		daysNum.setCustomTextColor(Color.yellow);
 		viewObjects.add(background);
 		viewObjects.add(daysNum);
 		viewObjects.add(daysRemaining);
