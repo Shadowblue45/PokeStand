@@ -7,9 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Inventory {
+	
+	private Pokemon pokemon;
+	private String[] pokemonForms = {"Charmander","Charmeleon","Charizard"};
+	private String[] pokemonImages;
 
 	public Inventory() {
-
+		pokemon = new Pokemon("Charmander", "Fire", null, 50,50,50,50,50,50);
 	}
 
 	public void save() {
@@ -52,7 +56,7 @@ public class Inventory {
 					PokemonTest.pokemon.setSpd(Integer.parseInt(param[8]));
 				}
 				else {
-					PokemonTest.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
+					//PokemonTest.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
 				}
 			}
 			br.close();
@@ -65,6 +69,24 @@ public class Inventory {
 
 	public void load() {
 
+	}
+
+	public String[] getNames() {
+		// TODO Auto-generated method stub
+		return pokemonForms;
+	}
+	
+	public int getNameIndex() {
+		for(int i = 0; i < pokemonForms.length; i++) {
+			if(pokemon.getName().equals(pokemonForms[i])) {
+				return i;
+			}
+		}
+		return 0;
+	}
+	
+	public Pokemon getPokemon() {
+		return pokemon;
 	}
 
 }

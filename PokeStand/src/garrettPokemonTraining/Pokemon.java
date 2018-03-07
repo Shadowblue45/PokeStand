@@ -14,9 +14,9 @@ public class Pokemon {
 	private int sDef;
 	private int spd;
 	private ArrayList<Move> moves;
-	private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
-	private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
-	private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
+//	private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
+//	private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
+//	private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
 
 	public Pokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd) {
 		setName(name);
@@ -31,9 +31,17 @@ public class Pokemon {
 		setMoves();
 	}
 
-	private void setMoves() {
-		// TODO Auto-generated method stub
+	public void evolve() {
+		String[] pokemonNames = PokemonTest.inventory.getNames();
+		if(PokemonTest.inventory.getNameIndex() < 2) {
+			setName(pokemonNames[PokemonTest.inventory.getNameIndex() + 1]);
+		}
+	}
 
+	private void setMoves() {
+		for(int i = 0; i < 4; i++) {
+			
+		}
 	}
 
 	public ArrayList<Move> getMoves(){
