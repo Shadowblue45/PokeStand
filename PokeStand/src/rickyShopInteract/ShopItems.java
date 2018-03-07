@@ -1,5 +1,5 @@
 package rickyShopInteract;
 
-public interface Heal {
+public class ShopItems {
 
 }

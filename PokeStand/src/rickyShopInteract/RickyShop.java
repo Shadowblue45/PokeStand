@@ -1,9 +1,11 @@
 package rickyShopInteract;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import guiTeacher.components.Graphic;
+import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
@@ -20,8 +22,9 @@ public class RickyShop extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		addItemsToArrayList();
-		System.out.println(itemsInShop);
+		//System.out.println(itemsInShop);
 		addImagestoShop(viewObjects);
+		itemDescriptions(viewObjects);
 		
 	}
 	
@@ -44,16 +47,27 @@ public class RickyShop extends FullFunctionScreen {
 	}
 	
 	public void addImagestoShop(List<Visible> viewObjects) {
-		/*
-		Graphic antidote = new Graphic(100,100,20,20,itemsInShop.get(0));
-		viewObjects.add(antidote);
-		Graphic awakening = new Graphic(100,150,20,20,itemsInShop.get(1));
-		viewObjects.add(awakening);
-		*/
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			Graphic a = new Graphic(100+ i*50 , 50 ,20,20,itemsInShop.get(i));
+			Graphic a = new Graphic(50, 100+ i*100, 50, 50, itemsInShop.get(i));
 			viewObjects.add(a);
 		}
-
+		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
+			Graphic b = new Graphic(650, -600 + i*100, 50, 50, itemsInShop.get(i));
+			viewObjects.add(b);
+		}
+	}
+	
+	public void itemDescriptions(List<Visible> viewObjects) {
+		for(int i = 0; i < itemsInShop.size()/2; i++) {
+			TextArea c = new TextArea(200, 100+ i*100, 100, 100, "SampleText");
+			c.setCustomTextColor(Color.MAGENTA);
+			viewObjects.add(c);
+			c.setText("Changed Text");
+		}
+		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
+			TextArea d = new TextArea(800, -600 + i*100, 100, 100, "SampleText");
+			d.setCustomTextColor(Color.MAGENTA);
+			viewObjects.add(d);
+		}
 	}
 }
