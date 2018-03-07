@@ -32,15 +32,15 @@ public class LoadScreen extends FullFunctionScreen {
 
 	
 	public void initAllObjects(List<Visible> viewObjects) {
-		initPokemonHollowFont(100f);
+		PokeStart.setPokemonHollowFont(100f);
 		String txt = "Pokemon Rivalry";
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/open field.jpg");
 		titleBorder = new TextArea(190,75,900,400,txt);
 		titleBorder.setCustomTextColor(new Color(59, 76, 202));
-		initPokemonFont(100f);
+		PokeStart.setPokemonFont(100f);
 		title = new TextArea(190,75,1000,400,txt);
 		title.setCustomTextColor(new Color(255, 222, 0));
-		setPokemonTextFont(32f);
+		PokeStart.setPokemonTextFont(32f);
 		Button continueButton = new Button(440, 250, 400, 50, "Continue",new Action() {
 			
 			public void act() {
@@ -63,39 +63,6 @@ public class LoadScreen extends FullFunctionScreen {
 		newGameButton.setBackground(new Color(0,0,0,140));
 		newGameButton.update();
 		AudioTest.playSound("resources/Pokemon.wav");
-	}
-	
-	public void initPokemonFont(float f) {
-		try {
-		File fontFile = new File("resources/Pokemon Solid.ttf");
-		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-		Font baseFont=font.deriveFont(f);
-		StyledComponent.setBaseFont(baseFont);
-	} catch (Exception e) {
-		e.printStackTrace();
-		}
-	}
-	
-	public void initPokemonHollowFont(float f) {
-		try {
-		File fontFile = new File("resources/Pokemon Hollow.ttf");
-		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-		Font baseFont=font.deriveFont(f);
-		StyledComponent.setBaseFont(baseFont);
-	} catch (Exception e) {
-		e.printStackTrace();
-		}
-	}
-	
-	public void setPokemonTextFont(float f) {
-		try {
-		File fontFile = new File("resources/Pokemon Text.ttf");
-		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-		Font baseFont=font.deriveFont(f);
-		StyledComponent.setBaseFont(baseFont);
-	} catch (Exception e) {
-		e.printStackTrace();
-		}
 	}
 
 }

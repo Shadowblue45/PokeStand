@@ -1,10 +1,15 @@
 package startGame;
 
-import guiTeacher.GUIApplication;   
+import guiTeacher.GUIApplication;
+import guiTeacher.components.StyledComponent;
 import guiTeacher.userInterfaces.Screen;
 import startupandMenuScreen.MainMenuScreen;
 import startupandMenuScreen.StartScreen;
 import startupandMenuScreen.LoadScreen;
+
+import java.awt.Font;
+import java.io.File;
+
 import audioPlayer.AudioTest; 
 
 public class PokeStart extends GUIApplication {
@@ -34,6 +39,50 @@ public class PokeStart extends GUIApplication {
 		Thread go = new Thread(start);
 		go.start();
 		AudioTest.changeVolume(.6);
+	}
+	
+	public static void setPokemonUnkownFont(float f) {
+		try {
+		File fontFile = new File("resources/Pokemon Unkown.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+		Font baseFont=font.deriveFont(f);
+		StyledComponent.setBaseFont(baseFont);
+	} catch (Exception e) {
+		e.printStackTrace();
+		}
+	}
+	
+	public static void setPokemonTextFont(float f) {
+		try {
+		File fontFile = new File("resources/Pokemon Text.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+		Font baseFont=font.deriveFont(f);
+		StyledComponent.setBaseFont(baseFont);
+	} catch (Exception e) {
+		e.printStackTrace();
+		}
+	}
+	
+	public static void setPokemonFont(float f) {
+		try {
+		File fontFile = new File("resources/Pokemon Solid.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+		Font baseFont=font.deriveFont(f);
+		StyledComponent.setBaseFont(baseFont);
+	} catch (Exception e) {
+		e.printStackTrace();
+		}
+	}
+	
+	public static void setPokemonHollowFont(float f) {
+		try {
+		File fontFile = new File("resources/Pokemon Hollow.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+		Font baseFont=font.deriveFont(f);
+		StyledComponent.setBaseFont(baseFont);
+	} catch (Exception e) {
+		e.printStackTrace();
+		}
 	}
 
 }
