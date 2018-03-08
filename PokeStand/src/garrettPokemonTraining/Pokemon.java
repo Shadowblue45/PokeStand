@@ -14,6 +14,8 @@ public class Pokemon {
 	private int sDef;
 	private int spd;
 	private ArrayList<Move> moves;
+	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
+	private String[] secondTypes = {"Ground","Flying","Fighting","Fairy","Dark","Ground"};
 //	private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
 //	private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
 //	private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
@@ -34,6 +36,11 @@ public class Pokemon {
 	public void evolve() {
 		String[] pokemonNames = PokemonTest.inventory.getNames();
 		if(PokemonTest.inventory.getNameIndex() < 2) {
+			for(int i = 0; i < twoTypePokemon.length; i++) {
+				if(pokemonNames[PokemonTest.inventory.getNameIndex() + 1].equals(twoTypePokemon[i])) {
+					setType2(secondTypes[i]);
+				}
+			}
 			setName(pokemonNames[PokemonTest.inventory.getNameIndex() + 1]);
 		}
 	}

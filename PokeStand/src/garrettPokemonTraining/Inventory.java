@@ -13,7 +13,7 @@ public class Inventory {
 	private String[] pokemonImages;
 
 	public Inventory() {
-		pokemon = new Pokemon("Charmander", "Fire", null, 25,10,8,12,11,14);
+		setPokemon("Charmander", "Fire", null, 25,10,8,12,11,14);
 	}
 
 	public void save() {
@@ -96,6 +96,10 @@ public class Inventory {
 	
 	public Pokemon getPokemon() {
 		return pokemon;
+	}
+	
+	public void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd) {
+		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd);
 	}
 
 }
