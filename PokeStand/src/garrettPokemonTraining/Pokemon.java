@@ -39,8 +39,9 @@ public class Pokemon {
 	}
 
 	private void setMoves() {
+		moves = new ArrayList<Move>();
 		for(int i = 0; i < 4; i++) {
-			
+			moves.add(new Move("Tackle","Normal",50,100,30,false));
 		}
 	}
 

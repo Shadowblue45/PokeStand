@@ -5,7 +5,7 @@ import guiTeacher.GUIApplication;
 public class PokemonTest extends GUIApplication {
 	
 	public static PokemonTest test;
-	public static PokemonScreen screen;
+	public static TrainingScreen screen;
 	public static Inventory inventory;
 	public static Pokemon pokemon;
 
@@ -16,7 +16,7 @@ public class PokemonTest extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		screen = new PokemonScreen(getWidth(),getHeight());
+		screen = new TrainingScreen(getWidth(),getHeight());
 		setScreen(screen);
 	}
 

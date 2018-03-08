@@ -13,16 +13,16 @@ public class Inventory {
 	private String[] pokemonImages;
 
 	public Inventory() {
-		pokemon = new Pokemon("Charmander", "Fire", null, 50,50,50,50,50,50);
+		pokemon = new Pokemon("Charmander", "Fire", null, 25,10,8,12,11,14);
 	}
 
 	public void save() {
 		try{    
 			FileWriter fw=new FileWriter("resources/pokemon.csv");
-			fw.write(PokemonTest.pokemon.getName()+","+ PokemonTest.pokemon.getType1() +","+PokemonTest.pokemon.getType2()+
-					","+Integer.toString(PokemonTest.pokemon.getHp())+","+Integer.toString(PokemonTest.pokemon.getAtk())+","+Integer.toString(PokemonTest.pokemon.getDef())
-					+","+Integer.toString(PokemonTest.pokemon.getsAtk())+","+Integer.toString(PokemonTest.pokemon.getsDef())+","+Integer.toString(PokemonTest.pokemon.getSpd())+"\n");
-			for(Move m: PokemonTest.pokemon.getMoves()){
+			fw.write(pokemon.getName()+","+ pokemon.getType1() +","+pokemon.getType2()+
+					","+Integer.toString(pokemon.getHp())+","+Integer.toString(pokemon.getAtk())+","+Integer.toString(pokemon.getDef())
+					+","+Integer.toString(pokemon.getsAtk())+","+Integer.toString(pokemon.getsDef())+","+Integer.toString(pokemon.getSpd())+"\n");
+			for(Move m: pokemon.getMoves()){
 				fw.write(m+"\n");    	
 			}
 
@@ -45,15 +45,15 @@ public class Inventory {
 
 				String[] param = line.split(",");
 				if(param.length == 9) {
-					PokemonTest.pokemon.setName(param[0]);
-					PokemonTest.pokemon.setType1(param[1]);
-					PokemonTest.pokemon.setType2(param[2]);
-					PokemonTest.pokemon.setHp(Integer.parseInt(param[3]));
-					PokemonTest.pokemon.setAtk(Integer.parseInt(param[4]));
-					PokemonTest.pokemon.setDef(Integer.parseInt(param[5]));
-					PokemonTest.pokemon.setsAtk(Integer.parseInt(param[6]));
-					PokemonTest.pokemon.setsDef(Integer.parseInt(param[7]));
-					PokemonTest.pokemon.setSpd(Integer.parseInt(param[8]));
+					pokemon.setName(param[0]);
+					pokemon.setType1(param[1]);
+					pokemon.setType2(param[2]);
+					pokemon.setHp(Integer.parseInt(param[3]));
+					pokemon.setAtk(Integer.parseInt(param[4]));
+					pokemon.setDef(Integer.parseInt(param[5]));
+					pokemon.setsAtk(Integer.parseInt(param[6]));
+					pokemon.setsDef(Integer.parseInt(param[7]));
+					pokemon.setSpd(Integer.parseInt(param[8]));
 				}
 				else {
 					//PokemonTest.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
@@ -68,7 +68,16 @@ public class Inventory {
 	}
 
 	public void load() {
+		String fileName = "";
+		//empty the catalog to prepare for a new load
+		//use this boolean to control the while loop. The user should have multiple chances to enter a correct filename
+		boolean opened = false;
+		while(!opened){
 
+			fileName = "resources/pokemon.csv";
+			opened = read(new File(fileName));
+
+		}
 	}
 
 	public String[] getNames() {
