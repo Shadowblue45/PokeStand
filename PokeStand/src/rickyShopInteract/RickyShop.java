@@ -6,12 +6,14 @@ import java.util.List;
 
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
+import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class RickyShop extends FullFunctionScreen {
 
 	private ArrayList<String> itemsInShop;
+	private ArrayList<String> itemDesc;
 	
 	private static final long serialVersionUID = 5855860528658762993L;
 
@@ -30,17 +32,14 @@ public class RickyShop extends FullFunctionScreen {
 	
 	public void addItemsToArrayList() {
 		itemsInShop = new ArrayList<String>();
-		itemsInShop.add("resources/ShopItems/Antidote.png");
-		itemsInShop.add("resources/ShopItems/Awakening.png");
-		itemsInShop.add("resources/ShopItems/BurnHeal.png");
 		itemsInShop.add("resources/ShopItems/Ether.png");
 		itemsInShop.add("resources/ShopItems/FullHeal.png");
 		itemsInShop.add("resources/ShopItems/FullRestore.png");
 		itemsInShop.add("resources/ShopItems/HyperPotion.png");
-		itemsInShop.add("resources/ShopItems/IceHeal.png");
 		itemsInShop.add("resources/ShopItems/MaxEther.png");
+		
 		itemsInShop.add("resources/ShopItems/MaxPotion.png");
-		itemsInShop.add("resources/ShopItems/MaxRevive.png");
+		itemsInShop.add("resources/ShopItems/MaxRevive.png"); //Max Revives CANNOT BE BOUGHT//
 		itemsInShop.add("resources/ShopItems/Potion.png");
 		itemsInShop.add("resources/ShopItems/Revive.png");
 		itemsInShop.add("resources/ShopItems/SuperPotion.png");
@@ -52,22 +51,52 @@ public class RickyShop extends FullFunctionScreen {
 			viewObjects.add(a);
 		}
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Graphic b = new Graphic(650, -600 + i*100, 50, 50, itemsInShop.get(i));
+			Graphic b = new Graphic(650, -400 + i*100, 50, 50, itemsInShop.get(i));
 			viewObjects.add(b);
 		}
 	}
 	
 	public void itemDescriptions(List<Visible> viewObjects) {
+		System.out.println("About to launch populateDescriptions");
+		populateDescriptions();
+		System.out.println("Finished launching populateDescriptions");
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			TextArea c = new TextArea(200, 100+ i*100, 100, 100, "SampleText");
-			c.setCustomTextColor(Color.MAGENTA);
+			TextArea c = new TextArea(200, 100+ i*100, 250, 100, itemDesc.get(i));
+			c.setCustomTextColor(Color.BLACK);
 			viewObjects.add(c);
-			c.setText("Changed Text");
 		}
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			TextArea d = new TextArea(800, -600 + i*100, 100, 100, "SampleText");
-			d.setCustomTextColor(Color.MAGENTA);
+			TextArea d = new TextArea(800, -400 + i*100, 250, 100, itemDesc.get(i));
+			d.setCustomTextColor(Color.BLACK);
 			viewObjects.add(d);
 		}
 	}
+
+	public void populateDescriptions() {
+		itemDesc = new ArrayList<String>();
+		itemDesc.add("Restores 10 PP of a single move of a Pokémon");
+		itemDesc.add("Fully heals any status problems that a Pokémon holds");
+		itemDesc.add("Fully restores the HP and heals any Status ailments of a Pokémon");
+		itemDesc.add("Heals a Pokémon by 200 HP");
+		itemDesc.add("Fully restores the PP of one of the player's selected Pokémon's move");
+		
+		itemDesc.add("Fully restores the HP of a Pokémon");
+		itemDesc.add("If used on a fainted Pokémon, the Pokémon will be revived as well as have its health fully restored");
+		itemDesc.add("Heals 20 HP of a Pokémon");
+		itemDesc.add("Revives your fainted Pokémon by half of its HP");
+		itemDesc.add("Heals 50 HP of a Pokémon");
+	}
+	
+	
+	 public void addBackgroundLabel(List<Visible> viewObjects) {
+	 
+		for(int i = 0; i < itemsInShop.size()/2; i++) {
+			new TextLabel(50, 100+ i*100, 300, 100, "");
+		}
+		
+		//for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
+			
+		//}
+	}
+	
 }
