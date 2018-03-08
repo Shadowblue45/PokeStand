@@ -152,7 +152,7 @@ public abstract class StyledComponent extends Component {
 
 
 
-	public void setActiveBorderColor(Color activeBorderColor) {
+	public static void setActiveBorderColor(Color activeBorderColor) {
 		StyledComponent.activeBorderColor = activeBorderColor;
 	}
 
