@@ -47,9 +47,10 @@ public class Pokemon {
 
 	private void setMoves() {
 		moves = new ArrayList<Move>();
-		for(int i = 0; i < 4; i++) {
-			moves.add(new Move("Tackle","Normal",50,100,30,false));
-		}
+		moves.add(new Move("Scratch","Normal",35,100,30,false));
+		moves.add(new Move("Ember","Fire",40,100,30,true));
+		moves.add(new Move("Leer","Normal",0,100,30,false));
+		moves.add(new Move("Dragon Rage","Dragon",40,100,30,true));
 	}
 
 	public ArrayList<Move> getMoves(){

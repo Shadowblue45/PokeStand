@@ -1,5 +1,5 @@
-Charmeleon,Fire,null,25,10,8,12,11,14
-Tackle,Normal,50,100,30,false
-Tackle,Normal,50,100,30,false
-Tackle,Normal,50,100,30,false
-Tackle,Normal,50,100,30,false
+Charizard,Fire,Flying,25,10,8,12,11,14
+Scratch,Normal,35,100,30,false
+Ember,Fire,40,100,30,true
+Leer,Normal,0,100,30,false
+Dragon Rage,Dragon,40,100,30,true
