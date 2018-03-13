@@ -16,6 +16,7 @@ public class RickyShop extends FullFunctionScreen {
 
 	private ArrayList<String> itemsInShop;
 	private ArrayList<String> itemDesc;
+	private int dollars = 0;
 	
 	private static final long serialVersionUID = 5855860528658762993L;
 
@@ -55,6 +56,9 @@ public class RickyShop extends FullFunctionScreen {
 			Graphic b = new Graphic(650, -400 + i*100, 50, 50, itemsInShop.get(i));
 			viewObjects.add(b);
 		}
+		Graphic a = new Graphic(1235,40,25,25,"resources/dollar.png");
+		viewObjects.add(a);
+		
 	}
 	
 	public void itemDescriptions(List<Visible> viewObjects) {
@@ -107,5 +111,18 @@ public class RickyShop extends FullFunctionScreen {
 			b.update();
 			viewObjects.add(b);
 		}
+		StyledComponent.setButtonOutline(false);
+		Button b = new Button(1175,25,100,50,Integer.toString(getDollars()),null);
+		b.setEnabled(false);
+		b.update();
+		viewObjects.add(b);
+	}
+
+	public int getDollars() {
+		return dollars;
+	}
+
+	public void setDollars(int dollars) {
+		this.dollars = dollars;
 	}
 }
