@@ -4,10 +4,12 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
+import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
-import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
+
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class RickyShop extends FullFunctionScreen {
@@ -24,10 +26,9 @@ public class RickyShop extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		addItemsToArrayList();
-		//System.out.println(itemsInShop);
+		addBackgroundLabel(viewObjects);
 		addImagestoShop(viewObjects);
-		itemDescriptions(viewObjects);
-		
+		itemDescriptions(viewObjects);		
 	}
 	
 	public void addItemsToArrayList() {
@@ -47,7 +48,7 @@ public class RickyShop extends FullFunctionScreen {
 	
 	public void addImagestoShop(List<Visible> viewObjects) {
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			Graphic a = new Graphic(50, 100+ i*100, 50, 50, itemsInShop.get(i));
+			Graphic a = new Graphic(50, 100 + i*100, 50, 50, itemsInShop.get(i));
 			viewObjects.add(a);
 		}
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
@@ -57,14 +58,13 @@ public class RickyShop extends FullFunctionScreen {
 	}
 	
 	public void itemDescriptions(List<Visible> viewObjects) {
-		System.out.println("About to launch populateDescriptions");
-		populateDescriptions();
-		System.out.println("Finished launching populateDescriptions");
+		populateDescriptions();		
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			TextArea c = new TextArea(200, 100+ i*100, 250, 100, itemDesc.get(i));
 			c.setCustomTextColor(Color.BLACK);
 			viewObjects.add(c);
 		}
+		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
 			TextArea d = new TextArea(800, -400 + i*100, 250, 100, itemDesc.get(i));
 			d.setCustomTextColor(Color.BLACK);
@@ -74,6 +74,7 @@ public class RickyShop extends FullFunctionScreen {
 
 	public void populateDescriptions() {
 		itemDesc = new ArrayList<String>();
+		
 		itemDesc.add("Restores 10 PP of a single move of a Pokémon");
 		itemDesc.add("Fully heals any status problems that a Pokémon holds");
 		itemDesc.add("Fully restores the HP and heals any Status ailments of a Pokémon");
@@ -87,16 +88,24 @@ public class RickyShop extends FullFunctionScreen {
 		itemDesc.add("Heals 50 HP of a Pokémon");
 	}
 	
-	
-	 public void addBackgroundLabel(List<Visible> viewObjects) {
+	public void addBackgroundLabel(List<Visible> viewObjects) {
 	 
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			new TextLabel(50, 100+ i*100, 300, 100, "");
+			StyledComponent.setButtonOutline(true);
+			Button b = new Button(40, 100 + i*100, 500, 100, "",null);
+			b.setEnabled(false);
+			b.setBackground(Color.ORANGE);
+			b.update();
+			viewObjects.add(b);
 		}
 		
-		//for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			
-		//}
+		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
+			StyledComponent.setButtonOutline(true);
+			Button b = new Button(640, -400 + i*100, 500, 100, "",null);
+			b.setEnabled(false);
+			b.setBackground(Color.ORANGE);
+			b.update();
+			viewObjects.add(b);
+		}
 	}
-	
 }
