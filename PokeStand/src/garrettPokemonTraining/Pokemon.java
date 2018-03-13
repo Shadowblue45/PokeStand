@@ -41,11 +41,21 @@ public class Pokemon {
 					setType2(secondTypes[i]);
 				}
 			}
+			increaseStats();
 			setName(pokemonNames[PokemonTest.inventory.getNameIndex() + 1]);
 		}
 	}
 
-	private void setMoves() {
+	public void increaseStats() {
+		setHp(getHp() + 10);
+		setAtk(getAtk() + 5);
+		setDef(getDef() + 5);
+		setsAtk(getsAtk() + 5);
+		setsDef(getsDef() + 5);
+		setSpd(getSpd() + 5);
+	}
+
+	public void setMoves() {
 		moves = new ArrayList<Move>();
 		moves.add(new Move("Scratch","Normal",35,100,30,false));
 		moves.add(new Move("Ember","Fire",40,100,30,true));

@@ -10,7 +10,9 @@ public class Inventory {
 	
 	private Pokemon pokemon;
 	private String[] pokemonForms = {"Charmander","Charmeleon","Charizard"};
-	private String[] pokemonImages;
+	private String[] pokemonImages = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charizard.png"};
+	private int abilityPoints;
+	private int fatigue;
 
 	public Inventory() {
 		setPokemon("Charmander", "Fire", null, 25,10,8,12,11,14);
@@ -91,7 +93,7 @@ public class Inventory {
 				return i;
 			}
 		}
-		return 0;
+		return -1;
 	}
 	
 	public Pokemon getPokemon() {
@@ -100,6 +102,16 @@ public class Inventory {
 	
 	public void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd) {
 		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd);
+	}
+	
+	public String getPicture(int n) {
+		return pokemonImages[n];
+	}
+	
+	public void setImages(String[] pics) {
+		for(int i = 0; i < pics.length; i++) {
+			pokemonImages[i] = pics[i];
+		}
 	}
 
 }

@@ -15,6 +15,8 @@ public class TrainingScreen extends FullFunctionScreen {
 	private Button evolveButton;
 	private Button saveButton;
 	private TextArea info;
+	private Graphic poke;
+	private Pokemon p;
 
 	public TrainingScreen(int width, int height) {
 		super(width, height);
@@ -23,26 +25,28 @@ public class TrainingScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		
-		Graphic poke = new Graphic(125, 105, 300, 300,"resources/fire/Charmander.png");
+		p = PokemonTest.inventory.getPokemon();
+		poke = new Graphic(625, 105, 300, 300,"resources/fire/" + PokemonTest.inventory.getPokemon().getName() + ".png");
 		viewObjects.add(poke);
-		info = new TextArea(400,200,200,500,"Name: " + PokemonTest.inventory.getPokemon().getName() + "\n" + "Type1: " + PokemonTest.inventory.getPokemon().getType1() + "\n" +
-				"Type2: " + PokemonTest.inventory.getPokemon().getType2() + "\n" + "HP: " + PokemonTest.inventory.getPokemon().getHp() + "\n" + 
-				"Atk: " + PokemonTest.inventory.getPokemon().getAtk() + "\n" + "Def: " + PokemonTest.inventory.getPokemon().getDef() + "\n" +
-				"Special Atk: " + PokemonTest.inventory.getPokemon().getsAtk() + "\n" + "Special Def: " + PokemonTest.inventory.getPokemon().getsDef() + "\n" +
-				"Spd: " + PokemonTest.inventory.getPokemon().getSpd() + "\n");
+		info = new TextArea(400,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+				"Special Atk: " + p.getsAtk() + "\n" + "Special Def: " + p.getsDef() + "\n" +
+				"Spd: " + p.getSpd() + "\n");
 		viewObjects.add(info);
 		evolveButton = new Button(100,100,50,50,"Evolve", new Action() {
 
 			@Override
 			public void act() {
-				PokemonTest.inventory.getPokemon().evolve();
-				info.setText("Name: " + PokemonTest.inventory.getPokemon().getName() + "\n" + "Type1: " + PokemonTest.inventory.getPokemon().getType1() + "\n" +
-						"Type2: " + PokemonTest.inventory.getPokemon().getType2() + "\n" + "HP: " + PokemonTest.inventory.getPokemon().getHp() + "\n" + 
-						"Atk: " + PokemonTest.inventory.getPokemon().getAtk() + "\n" + "Def: " + PokemonTest.inventory.getPokemon().getDef() + "\n" +
-						"Special Atk: " + PokemonTest.inventory.getPokemon().getsAtk() + "\n" + "Special Def: " + PokemonTest.inventory.getPokemon().getsDef() + "\n" +
-						"Spd: " + PokemonTest.inventory.getPokemon().getSpd() + "\n");
-				
+				p.evolve();
+				info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Special Atk: " + p.getsAtk() + "\n" + "Special Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				viewObjects.remove(poke);
+				poke = new Graphic(625, 105, 300, 300,"resources/fire/" + PokemonTest.inventory.getPokemon().getName() + ".png");
+				viewObjects.add(poke);
 			}
 			
 		});
