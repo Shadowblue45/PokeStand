@@ -29,6 +29,16 @@ public class SelectionScreen extends FullFunctionScreen {
 	AnimatedComponent snivy;
 	AnimatedComponent treecko;
 	AnimatedComponent turtwig;
+	
+	Button buttonF1;
+	Button buttonF2;
+	Button buttonF3;
+	Button buttonG1;
+	Button buttonG2;
+	Button buttonG3;
+	Button buttonW1;
+	Button buttonW2;
+	Button buttonW3;
 
 	public SelectionScreen(int width, int height) {
 		super(width, height);
@@ -107,17 +117,22 @@ public class SelectionScreen extends FullFunctionScreen {
 		
 	//FIRE POKEMON	
 		
-		Button buttonF1 = new Button (150, 165, 100,100,"",new Action() {
+		  buttonF1 = new Button (150, 165, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/004 - Charmander.wav");
-				//sets selectetd pokemon to starter pokemon
+				CustomRect rect = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(rect);
+				viewObjects.remove(charmander);
+				viewObjects.add(charmander);
+				buttonF1.setEnabled(false);
+				
 				
 			}
 		});
 		viewObjects.add(buttonF1);
 		
-		Button buttonF2 = new Button (150, 365, 100,100,"",new Action() {
+		 buttonF2 = new Button (150, 365, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/390 - Chimchar.wav");
@@ -128,7 +143,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(buttonF2);
 		
 		
-		Button buttonF3 = new Button (150,565, 100,100,"",new Action() {
+		 buttonF3 = new Button (150,565, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/155 - Cyndaquil.wav");
@@ -141,7 +156,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		
 		//GRASS POKEMON
 		
-		Button buttonG1 = new Button (550, 165, 100,100,"",new Action() {
+		 buttonG1 = new Button (550, 165, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/495 - Snivy.wav");
@@ -151,7 +166,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		});
 		viewObjects.add(buttonG1);
 		
-		Button buttonG2 = new Button (550, 365, 100,100,"",new Action() {
+		 buttonG2 = new Button (550, 365, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/252 - Treecko.wav");
@@ -162,7 +177,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(buttonG2);
 		
 		
-		Button buttonG3 = new Button (550,565, 100,100,"",new Action() {
+		 buttonG3 = new Button (550,565, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/387 - Turtwig.wav");
@@ -176,7 +191,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		
 		//WATER POKEMON
 		
-		Button buttonW1 = new Button (950, 165, 100,100,"",new Action() {
+		 buttonW1 = new Button (950, 165, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/656 - Froakie.wav");
@@ -186,7 +201,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		});
 		viewObjects.add(buttonW1);
 		
-		Button buttonW2 = new Button (950, 365, 100,100,"",new Action() {
+		 buttonW2 = new Button (950, 365, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/728 - Popplio.wav");
@@ -196,7 +211,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		});
 		viewObjects.add(buttonW2);
 		
-		Button buttonW3 = new Button (950, 565, 100,100,"",new Action() {
+		 buttonW3 = new Button (950, 565, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/258 - Mudkip.wav");
