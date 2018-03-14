@@ -57,5 +57,4 @@ public class Move {
 	public String toString() {
 		return name + "," + type + "," + power + "," + accuracy + "," + pp + "," + isSpecial;
 	}
-
 }

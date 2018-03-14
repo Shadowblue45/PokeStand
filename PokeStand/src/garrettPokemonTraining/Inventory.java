@@ -9,14 +9,13 @@ import java.io.IOException;
 public class Inventory {
 	
 	private Pokemon pokemon;
-	private String[] pokemonForms = {"Charmander","Charmeleon","Charizard"};
-	private String[] pokemonImages = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charizard.png"};
+	private String[] pokemonForms = {"Popplio","Brionne","Primarina"};
+	private String[] pokemonImages = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
 	private int abilityPoints;
 	private int fatigue;
 
 	public Inventory() {
-		setPokemon("Charmander", "Fire", null, 25,10,8,12,11,14);
-		setNames("Charmander","Charmeleon","Charizard");
+		setPokemon("Popplio", "Water", null, 25,10,8,12,11,14);
 	}
 
 	public void save() {

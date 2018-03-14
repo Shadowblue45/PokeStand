@@ -26,7 +26,7 @@ public class TrainingScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		p = PokemonTest.inventory.getPokemon();
-		poke = new Graphic(625, 105, 300, 300,"resources/fire/" + PokemonTest.inventory.getPokemon().getName() + ".png");
+		poke = new Graphic(625, 105, 300, 300,"resources/" + p.getType1().toLowerCase() + "/" + PokemonTest.inventory.getPokemon().getName() + ".png");
 		viewObjects.add(poke);
 		info = new TextArea(400,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
 				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
@@ -45,7 +45,7 @@ public class TrainingScreen extends FullFunctionScreen {
 						"Special Atk: " + p.getsAtk() + "\n" + "Special Def: " + p.getsDef() + "\n" +
 						"Spd: " + p.getSpd() + "\n");
 				viewObjects.remove(poke);
-				poke = new Graphic(625, 105, 300, 300,"resources/fire/" + PokemonTest.inventory.getPokemon().getName() + ".png");
+				poke = new Graphic(625, 105, 300, 300,"resources/" + p.getType1().toLowerCase() + "/" + PokemonTest.inventory.getPokemon().getName() + ".png");
 				viewObjects.add(poke);
 			}
 			
