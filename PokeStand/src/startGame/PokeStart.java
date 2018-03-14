@@ -18,10 +18,10 @@ public class PokeStart extends GUIApplication {
 	
 	public static LoadScreen loadScreen;
 	public static PokeStart start;
-	public static MainMenuScreen mainMenuScreen;
 	public static StartScreen startScreen;
 	public static TrainingScreen trainingScreen;
 	public static SelectionScreen selectionScreen;
+	public static MainMenuScreen mainMenuScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -31,10 +31,10 @@ public class PokeStart extends GUIApplication {
 	@Override
 	public void initScreen() {
 		loadScreen = new LoadScreen(getWidth(), getHeight());
-		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
-		startScreen = new StartScreen(getWidth(), getHeight());
 		trainingScreen = new TrainingScreen(getWidth(), getHeight());
+		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
+		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
 
@@ -56,6 +56,14 @@ public class PokeStart extends GUIApplication {
 	} catch (Exception e) {
 		e.printStackTrace();
 		}
+	}
+	
+	public static Screen getScreen(int i) {
+		Screen[] screens = {trainingScreen, loadScreen,null,null,null,null};
+		if (i < screens.length) {
+		return screens[i];
+		}
+		return null;
 	}
 	
 	public static void setPokemonTextFont(float f) {

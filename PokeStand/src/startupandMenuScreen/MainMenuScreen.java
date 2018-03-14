@@ -20,7 +20,7 @@ import guiTeacher.userInterfaces.Screen;
 import startGame.PokeStart;
 
 public class MainMenuScreen extends FullFunctionScreen {
-	
+
 	private int xCord;
 	private int yCord;
 	private Graphics2D g;
@@ -55,7 +55,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		daysRemaining.setCustomTextColor(Color.white);
 		setMenuButtons(names, viewObjects, screens);
 	}
-	
+
 	public void setMenuButtons(String[] names, List<Visible> viewObjects, Screen[] screens) {
 		PokeStart.setPokemonTextFont(24f);
 		initButtons(names, viewObjects, screens);
@@ -66,17 +66,20 @@ public class MainMenuScreen extends FullFunctionScreen {
 	public void resetCoordinates() {
 		xCord = 10;
 		yCord = 600;
+		temp = 0;
 	}
 
 	public void initButtons(String[] names, List<Visible> viewObjects, Screen[] screens) {
 		for(int i = 0; i < names.length; i++) {
-			 temp = i;
 			Button button = new Button (xCord, yCord, 200,70,names[i],new Action() {
-				
+
 				public void act() {
-					PokeStart.start.setScreen(screens[temp]);
+					//					if(screens[temp]!= null) {
+					PokeStart.start.setScreen(PokeStart.getScreen(temp));
+					//					}
 				}
 			});
+			temp++;
 			xCord += 210;
 			viewObjects.add(button);
 			button.setBackground(new Color(0,0,0,140));
