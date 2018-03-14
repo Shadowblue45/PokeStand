@@ -1,6 +1,8 @@
 package rickyShopInteract;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,9 @@ public class RickyShop extends FullFunctionScreen {
 		addItemsToArrayList();
 		addBackgroundLabel(viewObjects);
 		addImagestoShop(viewObjects);
+		setPokemonFont(16);
 		itemDescriptions(viewObjects);		
+		addButtons(viewObjects);
 	}
 	
 	public void addItemsToArrayList() {
@@ -61,16 +65,17 @@ public class RickyShop extends FullFunctionScreen {
 		
 	}
 	
+
 	public void itemDescriptions(List<Visible> viewObjects) {
 		populateDescriptions();		
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			TextArea c = new TextArea(200, 100+ i*100, 250, 100, itemDesc.get(i));
+			TextArea c = new TextArea(150, 100+ i*100, 250, 100, itemDesc.get(i));
 			c.setCustomTextColor(Color.BLACK);
 			viewObjects.add(c);
 		}
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			TextArea d = new TextArea(800, -400 + i*100, 250, 100, itemDesc.get(i));
+			TextArea d = new TextArea(750, -400 + i*100, 250, 100, itemDesc.get(i));
 			d.setCustomTextColor(Color.BLACK);
 			viewObjects.add(d);
 		}
@@ -86,11 +91,12 @@ public class RickyShop extends FullFunctionScreen {
 		itemDesc.add("Fully restores the PP of one of the player's selected Pokémon's move");
 		
 		itemDesc.add("Fully restores the HP of a Pokémon");
-		itemDesc.add("If used on a fainted Pokémon, the Pokémon will be revived as well as have its health fully restored");
+		itemDesc.add("If used on a fainted Pokémon, the Pokémon will be revived and have its health restored");
 		itemDesc.add("Heals 20 HP of a Pokémon");
 		itemDesc.add("Revives your fainted Pokémon by half of its HP");
 		itemDesc.add("Heals 50 HP of a Pokémon");
 	}
+
 	
 	public void addBackgroundLabel(List<Visible> viewObjects) {
 	 
@@ -117,7 +123,19 @@ public class RickyShop extends FullFunctionScreen {
 		b.update();
 		viewObjects.add(b);
 	}
-
+	
+	public void addButtons(List<Visible> viewObjects) {
+		for (int i = 0; i < itemsInShop.size()/2; i++) {
+			Button b = new Button(400,75+ i*100, 50, 100,"Buy",null);
+			viewObjects.add(b);
+		}
+		
+		for (int i = 0; i < itemsInShop.size()/2; i++) {
+			Button b = new Button(1000, 75+ i*100, 50, 100,"Buy",null);
+			viewObjects.add(b);
+		}
+	}
+	
 	public int getDollars() {
 		return dollars;
 	}
@@ -125,4 +143,16 @@ public class RickyShop extends FullFunctionScreen {
 	public void setDollars(int dollars) {
 		this.dollars = dollars;
 	}
+
+	public static void setPokemonFont(float f) {
+		try {
+			File fontFile = new File("resources/Pokemon Solid.ttf");
+			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+			Font baseFont=font.deriveFont(f);
+			StyledComponent.setBaseFont(baseFont);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
+
