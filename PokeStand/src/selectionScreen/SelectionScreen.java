@@ -16,6 +16,7 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import guiTeacher.userInterfaces.Screen;
 import startGame.PokeStart;
+import startupandMenuScreen.CustomRect;
 
 public class SelectionScreen extends FullFunctionScreen {
 	
@@ -39,6 +40,9 @@ public class SelectionScreen extends FullFunctionScreen {
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/selectionbgrnd.jpg");
 		viewObjects.add(background);
 		
+		CustomRect rect = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,100));
+		viewObjects.add(rect);
+		
 		setPokemon();
 		
 		TextArea title = new TextArea(350,10,600,50,"CHOOSE YOUR STARTER");
@@ -59,7 +63,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(chimchar);
 		
 		cyndaquil = new AnimatedComponent(150, 565, 100, 100);
-		cyndaquil.addSequence("resources/spritesheetsTrans/cyndaquil sprite.png", 150, 0, 0,49, 38, 10);
+		cyndaquil.addSequence("resources/spritesheetsTrans/cyndaquil sprite.png", 150, 2, 0,49, 38, 10);
 		Thread run3 = new Thread(cyndaquil);
 		run3.start();
 		viewObjects.add(cyndaquil);
@@ -77,7 +81,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(popplio);
 		
 		mudkip = new AnimatedComponent(950, 565, 100, 100);
-		mudkip.addSequence("resources/spritesheetsTrans/mudkip sprite.png", 150, 0, 115,38, 36, 5);
+		mudkip.addSequence("resources/spritesheets/mudkip sprite sheet.png", 150, 1, 115,38, 36, 5);
 		Thread run6 = new Thread(mudkip);
 		run6.start();
 		viewObjects.add(mudkip);
@@ -89,7 +93,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(snivy);
 		
 		treecko = new AnimatedComponent(550, 365, 100, 100);
-		treecko.addSequence("resources/spritesheetsTrans/treecko spriteN.png", 150, 92,7, 26,23, 4);
+		treecko.addSequence("resources/spritesheetsTrans/treecko spriteN.png", 150, 94,7, 26,23, 4);
 		Thread run8= new Thread(treecko);
 		run8.start();
 		viewObjects.add(treecko);
@@ -101,32 +105,114 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(turtwig);
 		
 		
-		Button button = new Button (150, 165, 100,100,"",new Action() {
+	//FIRE POKEMON	
+		
+		Button buttonF1 = new Button (150, 165, 100,100,"",new Action() {
 			
 			public void act() {
-				AudioTest.playSound("resources/pokemonSounds/252 - Treecko.wav");
+				AudioTest.playSound("resources/pokemonSounds/004 - Charmander.wav");
+				//sets selectetd pokemon to starter pokemon
 				
 			}
 		});
-		viewObjects.add(button);
+		viewObjects.add(buttonF1);
 		
+		Button buttonF2 = new Button (150, 365, 100,100,"",new Action() {
+			
+			public void act() {
+				AudioTest.playSound("resources/pokemonSounds/390 - Chimchar.wav");
+				//sets selectetd pokemon to starter pokemon
+				
+			}
+		});
+		viewObjects.add(buttonF2);
+		
+		
+		Button buttonF3 = new Button (150,565, 100,100,"",new Action() {
+			
+			public void act() {
+				AudioTest.playSound("resources/pokemonSounds/155 - Cyndaquil.wav");
+				//sets selectetd pokemon to starter pokemon
+				
+			}
+		});
+		viewObjects.add(buttonF3);
+		////////////////////////////////////////////////////////////////////////////////////////
+		
+		//GRASS POKEMON
+		
+		Button buttonG1 = new Button (550, 165, 100,100,"",new Action() {
+			
+			public void act() {
+				AudioTest.playSound("resources/pokemonSounds/495 - Snivy.wav");
+				//sets selectetd pokemon to starter pokemon
+				
+			}
+		});
+		viewObjects.add(buttonG1);
+		
+		Button buttonG2 = new Button (550, 365, 100,100,"",new Action() {
+			
+			public void act() {
+				AudioTest.playSound("resources/pokemonSounds/252 - Treecko.wav");
+				//sets selectetd pokemon to starter pokemon
+				
+			}
+		});
+		viewObjects.add(buttonG2);
+		
+		
+		Button buttonG3 = new Button (550,565, 100,100,"",new Action() {
+			
+			public void act() {
+				AudioTest.playSound("resources/pokemonSounds/387 - Turtwig.wav");
+				//sets selectetd pokemon to starter pokemon
+				
+			}
+		});
+		viewObjects.add(buttonG3);
+		
+		////////////////////////////////////////////////////////////////////////////////////////
+		
+		//WATER POKEMON
+		
+		Button buttonW1 = new Button (950, 165, 100,100,"",new Action() {
+			
+			public void act() {
+				AudioTest.playSound("resources/pokemonSounds/656 - Froakie.wav");
+				//sets selectetd pokemon to starter pokemon
+				
+			}
+		});
+		viewObjects.add(buttonW1);
+		
+		Button buttonW2 = new Button (950, 365, 100,100,"",new Action() {
+			
+			public void act() {
+				AudioTest.playSound("resources/pokemonSounds/728 - Popplio.wav");
+				//sets selectetd pokemon to starter pokemon
+				
+			}
+		});
+		viewObjects.add(buttonW2);
+		
+		Button buttonW3 = new Button (950, 565, 100,100,"",new Action() {
+			
+			public void act() {
+				AudioTest.playSound("resources/pokemonSounds/258 - Mudkip.wav");
+				//sets selectetd pokemon to starter pokemon
+				
+			}
+		});
+		viewObjects.add(buttonW3);
+		
+		
+	
 		
 		
 	}
 
-	public void initButtons(String[] names, List<Visible> viewObjects, Screen[] screens) {
-		for(int i = 0; i < names.length; i++) {
-			//Screen temp = ;
-			Button button = new Button (0, 0, 250,250,"",new Action() {
-				
-				public void act() {
-				}
-			});
-			viewObjects.add(button);
-			button.setBackground(new Color(0,0,0,140));
-			button.update();
-		}
-	}
+
 	
 	public void setPokemon() {
 		try {
