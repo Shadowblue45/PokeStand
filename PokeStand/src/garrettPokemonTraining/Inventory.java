@@ -16,6 +16,7 @@ public class Inventory {
 
 	public Inventory() {
 		setPokemon("Charmander", "Fire", null, 25,10,8,12,11,14);
+		setNames("Charmander","Charmeleon","Charizard");
 	}
 
 	public void save() {
@@ -111,6 +112,12 @@ public class Inventory {
 	public void setImages(String[] pics) {
 		for(int i = 0; i < pics.length; i++) {
 			pokemonImages[i] = pics[i];
+		}
+	}
+	
+	public void setNames(String[] names) {
+		for(int i = 0; i < names.length; i++) {
+			pokemonForms[i] = names[i];
 		}
 	}
 
