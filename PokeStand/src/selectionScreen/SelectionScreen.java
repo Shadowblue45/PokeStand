@@ -127,7 +127,10 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(charmander);
 				buttonF1.setEnabled(false);
 				
+				setPokemonGB();
 				
+				TextArea infoBox = new TextArea(170, 185, 500, 500, "STUFF");
+				viewObjects.add(infoBox);
 			}
 		});
 		viewObjects.add(buttonF1);
@@ -234,6 +237,17 @@ public class SelectionScreen extends FullFunctionScreen {
 		File fontFile = new File("resources/Pokemon Text.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(35f);
+		StyledComponent.setBaseFont(baseFont);
+	} catch (Exception e) {
+		e.printStackTrace();
+		}
+	}
+	
+	public void setPokemonGB() {
+		try {
+		File fontFile = new File("resources/Pokemon GB.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+		Font baseFont=font.deriveFont(25f);
 		StyledComponent.setBaseFont(baseFont);
 	} catch (Exception e) {
 		e.printStackTrace();
