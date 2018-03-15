@@ -61,7 +61,7 @@ public class RickyScreen extends FullFunctionScreen {
 			Graphic b = new Graphic(650, -400 + i*100, 50, 50, itemsInShop.get(i));
 			viewObjects.add(b);
 		}
-		Graphic a = new Graphic(1235,40,25,25,"resources/dollar.png");
+		Graphic a = new Graphic(1235,40,30,30,"resources/dollar.png");
 		viewObjects.add(a);
 		
 	}
@@ -69,13 +69,13 @@ public class RickyScreen extends FullFunctionScreen {
 	public void itemDescriptions(List<Visible> viewObjects) {
 		populateDescriptions();		
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			TextArea c = new TextArea(150, 100+ i*100, 250, 100, itemDesc.get(i));
+			TextArea c = new TextArea(125, 100+ i*100, 250, 100, itemDesc.get(i));
 			c.setCustomTextColor(Color.BLACK);
 			viewObjects.add(c);
 		}
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			TextArea d = new TextArea(750, -400 + i*100, 250, 100, itemDesc.get(i));
+			TextArea d = new TextArea(725, -400 + i*100, 250, 100, itemDesc.get(i));
 			d.setCustomTextColor(Color.BLACK);
 			viewObjects.add(d);
 		}
@@ -117,7 +117,7 @@ public class RickyScreen extends FullFunctionScreen {
 			viewObjects.add(b);
 		}
 		StyledComponent.setButtonOutline(false);
-		setPokemonFont(16);
+		setPokemonFont(18);
 		Button b = new Button(1175,25,100,50,Integer.toString(getDollars()),null);
 		b.setEnabled(false);
 		b.update();
@@ -126,12 +126,22 @@ public class RickyScreen extends FullFunctionScreen {
 	
 	public void addButtons(List<Visible> viewObjects) {
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
-			Button b = new Button(400,75+ i*100, 50, 100,"Buy",null);
+			Button b = new Button(375, 75 + i*100, 50, 75,"Buy",null);
 			viewObjects.add(b);
 		}
 		
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
-			Button b = new Button(1000, 75+ i*100, 50, 100,"Buy", null);
+			Button b = new Button(450, 75 + i*100, 50, 75,"Sell",null);
+			viewObjects.add(b);
+		}
+		
+		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
+			Button b = new Button(975, -425 + i*100, 50, 75,"Buy", null);
+			viewObjects.add(b);
+		}
+		
+		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
+			Button b = new Button(1050, -425 + i*100, 50, 75,"Sell", null);
 			viewObjects.add(b);
 		}
 	}
@@ -146,10 +156,10 @@ public class RickyScreen extends FullFunctionScreen {
 
 	public static void setPokemonFont(float f) {
 		try {
-			File fontFile = new File("resources/Pokemon Solid.ttf");
-			Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-			Font baseFont=font.deriveFont(f);
-			StyledComponent.setBaseFont(baseFont);
+			//File fontFile = new File("resources/Pokemon Solid.ttf");
+			//Font font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/Pokemon Solid.ttf"));
+			//Font baseFont = Font.createFont(Font.TRUETYPE_FONT, new File("resources/Pokemon Solid.ttf")).deriveFont(f);
+			StyledComponent.setBaseFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/Pokemon Solid.ttf")).deriveFont(f));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
