@@ -15,7 +15,7 @@ public class Inventory {
 	private int fatigue;
 
 	public Inventory() {
-		setPokemon("Popplio", "Water", null, 25,10,8,12,11,14);
+		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20);
 	}
 
 	public void save() {
