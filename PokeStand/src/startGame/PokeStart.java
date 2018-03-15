@@ -12,7 +12,8 @@ import startupandMenuScreen.LoadScreen;
 import java.awt.Font;
 import java.io.File;
 
-import audioPlayer.AudioTest; 
+import audioPlayer.AudioTest;
+import battle.BattleScreen; 
 
 public class PokeStart extends GUIApplication {
 	
@@ -22,6 +23,7 @@ public class PokeStart extends GUIApplication {
 	public static TrainingScreen trainingScreen;
 	public static SelectionScreen selectionScreen;
 	public static MainMenuScreen mainMenuScreen;
+	public static BattleScreen battleScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -35,6 +37,7 @@ public class PokeStart extends GUIApplication {
 		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
 		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
+		battleScreen = new BattleScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
 
