@@ -39,6 +39,8 @@ public class SelectionScreen extends FullFunctionScreen {
 	Button buttonW1;
 	Button buttonW2;
 	Button buttonW3;
+	
+	
 
 	public SelectionScreen(int width, int height) {
 		super(width, height);
@@ -125,12 +127,42 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(rect);
 				viewObjects.remove(charmander);
 				viewObjects.add(charmander);
-				buttonF1.setEnabled(false);
 				
+				buttonF1.setEnabled(false);
 				setPokemonGB();
 				
-				TextArea infoBox = new TextArea(170, 185, 500, 500, "STUFF");
+				Graphic background = new Graphic(250,165, 300, 400, "resources/text box.png");
+				viewObjects.add(background);
+				
+				
+				TextArea infoBox = new TextArea(275, 180, 300, 400, "Are you sure you want Charmander to be your pokemon?");
+				infoBox.setCustomTextColor(Color.black);
 				viewObjects.add(infoBox);
+				
+				
+				Button buttonY = new Button(275,200,100,100,"Yes", new Action() {
+					
+					@Override
+					public void act() {
+						System.out.println("YES");
+						
+						
+						
+					}
+				});
+				
+				Button buttonN = new Button(375,200,100,100,"No", new Action() {
+					
+					
+					public void act() {
+						System.out.println("No");
+						
+					}
+				});
+				viewObjects.add(buttonY);
+				viewObjects.add(buttonN);
+				
+				
 			}
 		});
 		viewObjects.add(buttonF1);
@@ -226,7 +258,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		
 		
 	
-		
+	    
 		
 	}
 
@@ -247,7 +279,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		try {
 		File fontFile = new File("resources/Pokemon GB.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-		Font baseFont=font.deriveFont(25f);
+		Font baseFont=font.deriveFont(12f);
 		StyledComponent.setBaseFont(baseFont);
 	} catch (Exception e) {
 		e.printStackTrace();
