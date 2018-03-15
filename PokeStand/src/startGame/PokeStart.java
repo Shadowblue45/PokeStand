@@ -3,6 +3,8 @@ package startGame;
 import guiTeacher.GUIApplication;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.userInterfaces.Screen;
+import rickyShopInteract.RickyScreen;
+import rickyShopInteract.RickyShop;
 import selectionScreen.SelectionScreen;
 import startupandMenuScreen.MainMenuScreen;
 import startupandMenuScreen.StartScreen;
@@ -12,7 +14,8 @@ import startupandMenuScreen.LoadScreen;
 import java.awt.Font;
 import java.io.File;
 
-import audioPlayer.AudioTest; 
+import audioPlayer.AudioTest;
+import battle.BattleScreen; 
 
 public class PokeStart extends GUIApplication {
 	
@@ -21,7 +24,10 @@ public class PokeStart extends GUIApplication {
 	public static StartScreen startScreen;
 	public static TrainingScreen trainingScreen;
 	public static SelectionScreen selectionScreen;
+	public static BattleScreen battleScreen;
+	public static RickyShop shopScreen;
 	public static MainMenuScreen mainMenuScreen;
+	public static boolean mainScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -34,6 +40,7 @@ public class PokeStart extends GUIApplication {
 		trainingScreen = new TrainingScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
+		shopScreen = new RickyShop(getWidth(), getHeight());
 		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
@@ -45,6 +52,23 @@ public class PokeStart extends GUIApplication {
 		Thread go = new Thread(start);
 		go.start();
 		AudioTest.changeVolume(.6);
+		mainScreen = true;
+	}
+	
+	public static Screen getScreen(int i) {
+		Screen[] mainScreens = {trainingScreen, loadScreen,null,null,null,shopScreen};
+		Screen[] trainingScreens = {mainMenuScreen, loadScreen,null,null,null,shopScreen};
+		if(mainScreen) {
+			if (i < mainScreens.length) {
+				return mainScreens[i];
+			}
+		}
+		else {
+			if (i < trainingScreens.length) {
+				return trainingScreens[i];
+			}
+		}
+		return null;
 	}
 	
 	public static void setPokemonGBFont(float f) {
@@ -56,14 +80,6 @@ public class PokeStart extends GUIApplication {
 	} catch (Exception e) {
 		e.printStackTrace();
 		}
-	}
-	
-	public static Screen getScreen(int i) {
-		Screen[] screens = {trainingScreen, loadScreen,null,null,null,null};
-		if (i < screens.length) {
-		return screens[i];
-		}
-		return null;
 	}
 	
 	public static void setPokemonTextFont(float f) {

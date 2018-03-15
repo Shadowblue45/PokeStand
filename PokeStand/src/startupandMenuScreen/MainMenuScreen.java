@@ -42,11 +42,13 @@ public class MainMenuScreen extends FullFunctionScreen {
 		CustomRect square = new CustomRect(980,0,300,200);
 		resetCoordinates();
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
+		Graphic pokemon = new Graphic(880, 200, 400, 400, "resources/grass/Torterra.png");
 		PokeStart.setPokemonGBFont(100f);
 		TextArea daysNum = new TextArea(1050,40, 500, 300, "30");
 		PokeStart.setPokemonTextFont(32f);
 		TextArea daysRemaining = new TextArea(1000,140, 500, 300, "Days Left");
 		viewObjects.add(background);
+		viewObjects.add(pokemon);
 		viewObjects.add(rect);
 		viewObjects.add(square);
 		viewObjects.add(daysNum);
@@ -71,15 +73,14 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	public void initButtons(String[] names, List<Visible> viewObjects, Screen[] screens) {
 		for(int i = 0; i < names.length; i++) {
+			final int temp = i;
 			Button button = new Button (xCord, yCord, 200,70,names[i],new Action() {
 
 				public void act() {
-					//					if(screens[temp]!= null) {
 					PokeStart.start.setScreen(PokeStart.getScreen(temp));
-					//					}
+					PokeStart.mainScreen =! PokeStart.mainScreen;
 				}
 			});
-			temp++;
 			xCord += 210;
 			viewObjects.add(button);
 			button.setBackground(new Color(0,0,0,140));

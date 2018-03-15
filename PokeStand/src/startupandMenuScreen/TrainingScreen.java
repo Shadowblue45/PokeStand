@@ -18,6 +18,7 @@ public class TrainingScreen extends FullFunctionScreen {
 
 	private int xCord;
 	private int yCord;
+	private int temp;
 
 	public TrainingScreen(int width, int height) {
 		super(width, height);
@@ -59,17 +60,19 @@ public class TrainingScreen extends FullFunctionScreen {
 	public void resetCoordinates() {
 		xCord = 10;
 		yCord = 600;
+		temp=0;
 	}
 
 	public void initButtons(String[] names, List<Visible> viewObjects, Screen[] screens) {
 		for(int i = 0; i < names.length; i++) {
-			Screen temp = screens[i];
 			Button button = new Button (xCord, yCord, 200,70,names[i],new Action() {
-				
+
 				public void act() {
-					PokeStart.start.setScreen(temp);
+					PokeStart.start.setScreen(PokeStart.getScreen(temp));
+					PokeStart.mainScreen =! PokeStart.mainScreen;
 				}
 			});
+			temp++;
 			xCord += 210;
 			viewObjects.add(button);
 			button.setBackground(new Color(0,0,0,140));
