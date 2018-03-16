@@ -39,26 +39,25 @@ public class RickyScreen extends FullFunctionScreen {
 	
 	public void addItemsToArrayList() {
 		itemsInShop = new ArrayList<String>();
+		
 		itemsInShop.add("resources/ShopItems/Ether.png");
 		itemsInShop.add("resources/ShopItems/FullHeal.png");
-		itemsInShop.add("resources/ShopItems/FullRestore.png");
+		itemsInShop.add("resources/ShopItems/FullRestore.png");		
 		itemsInShop.add("resources/ShopItems/HyperPotion.png");
-		itemsInShop.add("resources/ShopItems/MaxEther.png");
 		
+		itemsInShop.add("resources/ShopItems/MaxEther.png");
 		itemsInShop.add("resources/ShopItems/MaxPotion.png");
-		itemsInShop.add("resources/ShopItems/MaxRevive.png"); //Max Revives CANNOT BE BOUGHT//
 		itemsInShop.add("resources/ShopItems/Potion.png");
-		itemsInShop.add("resources/ShopItems/Revive.png");
 		itemsInShop.add("resources/ShopItems/SuperPotion.png");
 	}
 	
 	public void addImagestoShop(List<Visible> viewObjects) {
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			Graphic a = new Graphic(50, 100 + i*100, 50, 50, itemsInShop.get(i));
+			Graphic a = new Graphic(60, 100 + i*100, 50, 50, itemsInShop.get(i));
 			viewObjects.add(a);
 		}
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Graphic b = new Graphic(650, -400 + i*100, 50, 50, itemsInShop.get(i));
+			Graphic b = new Graphic(665, -300 + i*100, 50, 50, itemsInShop.get(i));
 			viewObjects.add(b);
 		}
 		Graphic a = new Graphic(1235,40,30,30,"resources/dollar.png");
@@ -75,7 +74,7 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			TextArea d = new TextArea(725, -400 + i*100, 250, 100, itemDesc.get(i));
+			TextArea d = new TextArea(730, -300 + i*100, 250, 100, itemDesc.get(i));
 			d.setCustomTextColor(Color.BLACK);
 			viewObjects.add(d);
 		}
@@ -90,18 +89,17 @@ public class RickyScreen extends FullFunctionScreen {
 		itemDesc.add("Heals a Pokémon by 200 HP");
 		itemDesc.add("Fully restores the PP of one of the player's selected Pokémon's move");
 		
-		itemDesc.add("Fully restores the HP of a Pokémon");
 		itemDesc.add("If used on a fainted Pokémon, the Pokémon will be revived and have its health restored");
+		itemDesc.add("Fully restores the HP of a Pokémon");
 		itemDesc.add("Heals 20 HP of a Pokémon");
 		itemDesc.add("Revives your fainted Pokémon by half of its HP");
 		itemDesc.add("Heals 50 HP of a Pokémon");
 	}
 
 	public void addBackgroundLabel(List<Visible> viewObjects) {
-	 
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			StyledComponent.setButtonOutline(true);
-			Button b = new Button(40, 100 + i*100, 500, 100, "",null);
+			Button b = new Button(50, 100 + i*100, 565, 100, "",null);
 			b.setEnabled(false);
 			b.setBackground(Color.ORANGE);
 			b.update();
@@ -110,7 +108,7 @@ public class RickyScreen extends FullFunctionScreen {
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
 			StyledComponent.setButtonOutline(true);
-			Button b = new Button(640, -400 + i*100, 500, 100, "",null);
+			Button b = new Button(655, -300 + i*100, 565, 100, "",null);
 			b.setEnabled(false);
 			b.setBackground(Color.ORANGE);
 			b.update();
@@ -126,22 +124,22 @@ public class RickyScreen extends FullFunctionScreen {
 	
 	public void addButtons(List<Visible> viewObjects) {
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
-			Button b = new Button(375, 75 + i*100, 50, 75,"Buy",null);
+			Button b = new Button(375, 75 + i*100, 75, 75,"Buy",null);
 			viewObjects.add(b);
 		}
 		
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
-			Button b = new Button(450, 75 + i*100, 50, 75,"Sell",null);
+			Button b = new Button(500, 75 + i*100, 75, 75,"Sell",null);
 			viewObjects.add(b);
 		}
 		
 		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Button b = new Button(975, -425 + i*100, 50, 75,"Buy", null);
+			Button b = new Button(980, -325 + i*100, 75, 75,"Buy", null);
 			viewObjects.add(b);
 		}
 		
 		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Button b = new Button(1050, -425 + i*100, 50, 75,"Sell", null);
+			Button b = new Button(1105, -325 + i*100, 75, 75,"Sell", null);
 			viewObjects.add(b);
 		}
 	}
