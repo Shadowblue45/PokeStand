@@ -12,7 +12,6 @@ public class PokemonTest extends GUIApplication {
 	public static PokemonScreen screen;
 	public static StatTrainingScreen screen2;
 	public static Inventory inventory;
-	public static Pokemon pokemon;
 
 	public PokemonTest(int width, int height) {
 		super(width, height);
@@ -21,10 +20,10 @@ public class PokemonTest extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		//screen = new PokemonScreen(getWidth(),getHeight());
-		//setScreen(screen);
-		screen2 = new StatTrainingScreen(getWidth(),getHeight());
-		setScreen(screen2);
+		screen = new PokemonScreen(getWidth(),getHeight());
+		setScreen(screen);
+		//screen2 = new StatTrainingScreen(getWidth(),getHeight());
+		//setScreen(screen2);
 		
 	}
 

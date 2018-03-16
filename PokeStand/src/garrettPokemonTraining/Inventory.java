@@ -104,8 +104,8 @@ public class Inventory {
 		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd);
 	}
 	
-	public String getPicture(int n) {
-		return pokemonImages[n];
+	public String[] getPokemonImages() {
+		return pokemonImages;
 	}
 	
 	public void setImages(String[] pics) {

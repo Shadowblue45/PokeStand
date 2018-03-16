@@ -13,12 +13,13 @@ public class Pokemon {
 	private int sAtk;
 	private int sDef;
 	private int spd;
+	private String image;
 	private ArrayList<Move> moves;
 	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
 	private String[] secondTypes = {"Ground","Flying","Fighting","Fairy","Dark","Ground"};
-//	private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
-//	private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
-//	private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
+	//	private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
+	//	private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
+	//	private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
 
 	public Pokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd) {
 		setName(name);
@@ -31,10 +32,21 @@ public class Pokemon {
 		setsDef(sDef);
 		setSpd(spd);
 		setMoves();
+		setImage();
+	}
+
+	public void setImage() {
+		String[] images = PokemonTest.inventory.getPokemonImages();
+		image = images[PokemonTest.inventory.getNameIndex()];
+	}
+
+	public String getImage() {
+		return image;
 	}
 
 	public void evolve() {
 		String[] pokemonNames = PokemonTest.inventory.getNames();
+		System.out.println(pokemonNames.toString());
 		if(PokemonTest.inventory.getNameIndex() < 2) {
 			for(int i = 0; i < twoTypePokemon.length; i++) {
 				if(pokemonNames[PokemonTest.inventory.getNameIndex() + 1].equals(twoTypePokemon[i])) {
