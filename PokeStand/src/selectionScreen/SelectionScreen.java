@@ -669,7 +669,31 @@ public class SelectionScreen extends FullFunctionScreen {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/656 - Froakie.wav");
-				//sets selectetd pokemon to starter pokemon
+				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(froakie);
+				viewObjects.remove(froakie);
+				viewObjects.add(froakie);
+				
+				buttonW3.setEnabled(false);
+				setPokemonGB();
+				
+				textB = new Graphic(1050,165, 300, 400, "resources/text box.png");
+				viewObjects.add(textB);
+				
+				
+			    infoBox = new TextArea(1075, 180, 300, 400, "Are you sure you want Froakie to be your pokemon?");
+				infoBox.setCustomTextColor(Color.black);
+				viewObjects.add(infoBox);
+				
+	
+				
+				viewObjects.remove(buttonYW1);
+				viewObjects.add(buttonYW1);
+				buttonYW1.setVisible(true);
+				
+				viewObjects.remove(buttonNW1);
+				viewObjects.add(buttonNW1);
+				buttonNW1.setVisible(true);
 				
 			}
 		});
