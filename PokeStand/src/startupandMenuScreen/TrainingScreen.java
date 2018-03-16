@@ -1,16 +1,11 @@
 package startupandMenuScreen;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics2D;
-import java.io.File;
-import java.lang.reflect.Array;
 import java.util.List;
 
-import audioPlayer.AudioTest;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
-import guiTeacher.components.CustomImageButton;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
@@ -19,14 +14,12 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 import guiTeacher.userInterfaces.Screen;
 import startGame.PokeStart;
 
-public class MainMenuScreen extends FullFunctionScreen {
-	
+public class TrainingScreen extends FullFunctionScreen {
+
 	private int xCord;
 	private int yCord;
-	private Graphics2D g;
-	private int temp;
 
-	public MainMenuScreen(int width, int height) {
+	public TrainingScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
@@ -36,8 +29,8 @@ public class MainMenuScreen extends FullFunctionScreen {
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
-		Screen[] screens = {PokeStart.trainingScreen, PokeStart.loadScreen,null,null,null,null};
-		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
+		Screen[] screens = {PokeStart.mainMenuScreen, PokeStart.loadScreen,null,null,null,null};
+		String[] names = {"Back", "Train ATK", "Train DEF", "Train SATK", "Train SDEF", "Train SPD"};
 		CustomRect rect = new CustomRect(0,yCord-20,getWidth(),120);
 		CustomRect square = new CustomRect(980,0,300,200);
 		resetCoordinates();
@@ -70,11 +63,11 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	public void initButtons(String[] names, List<Visible> viewObjects, Screen[] screens) {
 		for(int i = 0; i < names.length; i++) {
-			 temp = i;
+			Screen temp = screens[i];
 			Button button = new Button (xCord, yCord, 200,70,names[i],new Action() {
 				
 				public void act() {
-					PokeStart.start.setScreen(screens[temp]);
+					PokeStart.start.setScreen(temp);
 				}
 			});
 			xCord += 210;
@@ -84,5 +77,4 @@ public class MainMenuScreen extends FullFunctionScreen {
 			button.setForeground(Color.white);
 		}
 	}
-
 }

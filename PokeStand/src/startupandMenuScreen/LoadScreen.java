@@ -44,13 +44,15 @@ public class LoadScreen extends FullFunctionScreen {
 		Button continueButton = new Button(440, 250, 400, 50, "Continue",new Action() {
 			
 			public void act() {
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+				AudioTest.stopSound(AudioTest.sound);
 			}
 		});
 		Button newGameButton = new Button(440, 325, 400, 50, "New Game",new Action() {
 			
 			public void act() {
+				PokeStart.start.setScreen(PokeStart.selectionScreen);
 				AudioTest.stopSound(AudioTest.sound);
-				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 			}
 		});
 		viewObjects.add(background);
