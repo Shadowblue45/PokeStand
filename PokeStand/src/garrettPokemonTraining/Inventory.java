@@ -9,20 +9,22 @@ import java.io.IOException;
 public class Inventory {
 	
 	private Pokemon pokemon;
-	private String[] pokemonForms = {"Charmander","Charmeleon","Charizard"};
-	private String[] pokemonImages;
+	private String[] pokemonForms = {"Popplio","Brionne","Primarina"};
+	private String[] pokemonImages = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
+	private int abilityPoints;
+	private int fatigue;
 
 	public Inventory() {
-		pokemon = new Pokemon("Charmander", "Fire", null, 50,50,50,50,50,50);
+		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20);
 	}
 
 	public void save() {
 		try{    
 			FileWriter fw=new FileWriter("resources/pokemon.csv");
-			fw.write(PokemonTest.pokemon.getName()+","+ PokemonTest.pokemon.getType1() +","+PokemonTest.pokemon.getType2()+
-					","+Integer.toString(PokemonTest.pokemon.getHp())+","+Integer.toString(PokemonTest.pokemon.getAtk())+","+Integer.toString(PokemonTest.pokemon.getDef())
-					+","+Integer.toString(PokemonTest.pokemon.getsAtk())+","+Integer.toString(PokemonTest.pokemon.getsDef())+","+Integer.toString(PokemonTest.pokemon.getSpd())+"\n");
-			for(Move m: PokemonTest.pokemon.getMoves()){
+			fw.write(pokemon.getName()+","+ pokemon.getType1() +","+pokemon.getType2()+
+					","+Integer.toString(pokemon.getHp())+","+Integer.toString(pokemon.getAtk())+","+Integer.toString(pokemon.getDef())
+					+","+Integer.toString(pokemon.getsAtk())+","+Integer.toString(pokemon.getsDef())+","+Integer.toString(pokemon.getSpd())+"\n");
+			for(Move m: pokemon.getMoves()){
 				fw.write(m+"\n");    	
 			}
 
@@ -45,15 +47,15 @@ public class Inventory {
 
 				String[] param = line.split(",");
 				if(param.length == 9) {
-					PokemonTest.pokemon.setName(param[0]);
-					PokemonTest.pokemon.setType1(param[1]);
-					PokemonTest.pokemon.setType2(param[2]);
-					PokemonTest.pokemon.setHp(Integer.parseInt(param[3]));
-					PokemonTest.pokemon.setAtk(Integer.parseInt(param[4]));
-					PokemonTest.pokemon.setDef(Integer.parseInt(param[5]));
-					PokemonTest.pokemon.setsAtk(Integer.parseInt(param[6]));
-					PokemonTest.pokemon.setsDef(Integer.parseInt(param[7]));
-					PokemonTest.pokemon.setSpd(Integer.parseInt(param[8]));
+					pokemon.setName(param[0]);
+					pokemon.setType1(param[1]);
+					pokemon.setType2(param[2]);
+					pokemon.setHp(Integer.parseInt(param[3]));
+					pokemon.setAtk(Integer.parseInt(param[4]));
+					pokemon.setDef(Integer.parseInt(param[5]));
+					pokemon.setsAtk(Integer.parseInt(param[6]));
+					pokemon.setsDef(Integer.parseInt(param[7]));
+					pokemon.setSpd(Integer.parseInt(param[8]));
 				}
 				else {
 					//PokemonTest.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
@@ -68,7 +70,16 @@ public class Inventory {
 	}
 
 	public void load() {
+		String fileName = "";
+		//empty the catalog to prepare for a new load
+		//use this boolean to control the while loop. The user should have multiple chances to enter a correct filename
+		boolean opened = false;
+		while(!opened){
 
+			fileName = "resources/pokemon.csv";
+			opened = read(new File(fileName));
+
+		}
 	}
 
 	public String[] getNames() {
@@ -82,11 +93,31 @@ public class Inventory {
 				return i;
 			}
 		}
-		return 0;
+		return -1;
 	}
 	
 	public Pokemon getPokemon() {
 		return pokemon;
+	}
+	
+	public void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd) {
+		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd);
+	}
+	
+	public String getPicture(int n) {
+		return pokemonImages[n];
+	}
+	
+	public void setImages(String[] pics) {
+		for(int i = 0; i < pics.length; i++) {
+			pokemonImages[i] = pics[i];
+		}
+	}
+	
+	public void setNames(String[] names) {
+		for(int i = 0; i < names.length; i++) {
+			pokemonForms[i] = names[i];
+		}
 	}
 
 }
