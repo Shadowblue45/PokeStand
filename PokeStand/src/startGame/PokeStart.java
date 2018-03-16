@@ -4,7 +4,7 @@ import guiTeacher.GUIApplication;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.userInterfaces.Screen;
 import rickyShopInteract.RickyScreen;
-import rickyShopInteract.RickyShop;
+import rickyShopInteract.RickyScreen;
 import selectionScreen.SelectionScreen;
 import startupandMenuScreen.MainMenuScreen;
 import startupandMenuScreen.StartScreen;
@@ -25,7 +25,7 @@ public class PokeStart extends GUIApplication {
 	public static TrainingScreen trainingScreen;
 	public static SelectionScreen selectionScreen;
 	public static BattleScreen battleScreen;
-	public static RickyShop shopScreen;
+	public static RickyScreen shopScreen;
 	public static MainMenuScreen mainMenuScreen;
 	public static boolean mainScreen;
 
@@ -40,7 +40,7 @@ public class PokeStart extends GUIApplication {
 		trainingScreen = new TrainingScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
-		shopScreen = new RickyShop(getWidth(), getHeight());
+		shopScreen = new RickyScreen(getWidth(), getHeight());
 		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 		battleScreen = new BattleScreen(getWidth(), getHeight());
 		
