@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.List;
 
 import audioPlayer.AudioTest;
+import garrettPokemonTraining.Inventory;
 import guiTeacher.components.Action;
 import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Button;
@@ -39,6 +40,30 @@ public class SelectionScreen extends FullFunctionScreen {
 	Button buttonW1;
 	Button buttonW2;
 	Button buttonW3;
+	
+	Button buttonYF1;
+	Button buttonYF2;
+	Button buttonYF3;
+	Button buttonYG1;
+	Button buttonYG2;
+	Button buttonYG3;
+	Button buttonYW1;
+	Button buttonYW2;
+	Button buttonYW3;
+	
+	Button buttonNF1;
+	Button buttonNF2;
+	Button buttonNF3;
+	Button buttonNG1;
+	Button buttonNG2;
+	Button buttonNG3;
+	Button buttonNW1;
+	Button buttonNW2;
+	Button buttonNW3;
+	
+	Graphic textB;
+	TextArea infoBox;
+	CustomRect rectT;
 	
 	
 
@@ -116,62 +141,380 @@ public class SelectionScreen extends FullFunctionScreen {
 		run9.start();
 		viewObjects.add(turtwig);
 		
+		//CONFIRMATION BUTTONS FOR EACH POKEMON [ WILL MAKE FOR LOOP FUNCTION FOR IT AFTER PROJECT IS COMPLETE ]
+		
+		setPokemonGB();
+		
+		//FIRE POKEMON CONFIRMATION BUTTONS
+		buttonYF1 = new Button(275,200,100,100,"Yes", new Action() {
+			
+			@Override
+			public void act() {
+				System.out.println("YES");
+			
+				
+			
+				
+				
+			}
+		});
+		
+		 buttonNF1 = new Button(375,200,100,100,"No", new Action() {
+			
+			
+			public void act() {
+				System.out.println("No");
+				viewObjects.remove(rectT);
+				viewObjects.remove(textB);
+				viewObjects.remove(infoBox);
+				buttonNF1.setVisible(false);
+				buttonYF1.setVisible(false);
+				buttonF1.setEnabled(true);
+			
+				
+			}
+		});
+		viewObjects.add(buttonYF1);
+		viewObjects.add(buttonNF1);
+		buttonYF1.setVisible(false);
+		buttonNF1.setVisible(false);
+		
+		buttonYF2 = new Button(275,400,100,100,"Yes", new Action() {
+			
+			@Override
+			public void act() {
+				System.out.println("YES");
+
+				
+			
+				
+				
+			}
+		});
+		
+		 buttonNF2 = new Button(375,400,100,100,"No", new Action() {
+			
+			
+			public void act() {
+				System.out.println("No");
+				viewObjects.remove(rectT);
+				viewObjects.remove(textB);
+				viewObjects.remove(infoBox);
+				buttonNF2.setVisible(false);
+				buttonYF2.setVisible(false);
+				buttonF2.setEnabled(true);
+			
+				
+			}
+		});
+		viewObjects.add(buttonYF2);
+		viewObjects.add(buttonNF2);
+		buttonYF2.setVisible(false);
+		buttonNF2.setVisible(false);
+		
+		buttonYF3 = new Button(275,600,100,100,"Yes", new Action() {
+			
+			@Override
+			public void act() {
+				System.out.println("YES");
+
+				
+			
+				
+				
+			}
+		});
+		
+		 buttonNF3 = new Button(375,600,100,100,"No", new Action() {
+			
+			
+			public void act() {
+				System.out.println("No");
+				viewObjects.remove(rectT);
+				viewObjects.remove(textB);
+				viewObjects.remove(infoBox);
+				buttonNF3.setVisible(false);
+				buttonYF3.setVisible(false);
+				buttonF3.setEnabled(true);
+			
+				
+			}
+		});
+		viewObjects.add(buttonYF3);
+		viewObjects.add(buttonNF3);
+		buttonYF3.setVisible(false);
+		buttonNF3.setVisible(false);
+	
+		//WATER POKEMON CONFIRMATION BUTTONS
+	buttonYW1 = new Button(275,200,100,100,"Yes", new Action() {
+			
+			@Override
+			public void act() {
+				System.out.println("YES");
+
+				
+			
+				
+				
+			}
+		});
+		
+		 buttonNW1 = new Button(375,200,100,100,"No", new Action() {
+			
+			
+			public void act() {
+				System.out.println("No");
+				viewObjects.remove(rectT);
+				viewObjects.remove(textB);
+				viewObjects.remove(infoBox);
+				buttonNW1.setVisible(false);
+				buttonYW1.setVisible(false);
+				buttonW1.setEnabled(true);
+			
+				
+			}
+		});
+		viewObjects.add(buttonYW1);
+		viewObjects.add(buttonNW1);
+		buttonYW1.setVisible(false);
+		buttonNW1.setVisible(false);
+		
+		buttonYW2 = new Button(275,200,100,100,"Yes", new Action() {
+			
+			@Override
+			public void act() {
+				System.out.println("YES");
+
+				
+			
+				
+				
+			}
+		});
+		
+		 buttonNW2 = new Button(375,200,100,100,"No", new Action() {
+			
+			
+			public void act() {
+				System.out.println("No");
+				viewObjects.remove(rectT);
+				viewObjects.remove(textB);
+				viewObjects.remove(infoBox);
+				buttonNW2.setVisible(false);
+				buttonYW2.setVisible(false);
+				buttonW2.setEnabled(true);
+			
+				
+			}
+		});
+		viewObjects.add(buttonYW2);
+		viewObjects.add(buttonNW2);
+		buttonYW2.setVisible(false);
+		buttonNW2.setVisible(false);
+		
+		buttonYW3 = new Button(275,200,100,100,"Yes", new Action() {
+			
+			@Override
+			public void act() {
+				System.out.println("YES");
+
+				
+			
+				
+				
+			}
+		});
+		
+		 buttonNW3 = new Button(375,200,100,100,"No", new Action() {
+			
+			
+			public void act() {
+				System.out.println("No");
+				viewObjects.remove(rectT);
+				viewObjects.remove(textB);
+				viewObjects.remove(infoBox);
+				buttonNW3.setVisible(false);
+				buttonYW3.setVisible(false);
+				buttonW3.setEnabled(true);
+			
+				
+			}
+		});
+		viewObjects.add(buttonYW3);
+		viewObjects.add(buttonNW3);
+		buttonYW3.setVisible(false);
+		buttonNW3.setVisible(false);
+		
+		//GRASS POKEMON CONFIRMATION BUTTONS
+	buttonYG1 = new Button(675,200,100,100,"Yes", new Action() {
+			
+			@Override
+			public void act() {
+				System.out.println("YES");
+
+				
+			
+				
+				
+			}
+		});
+		
+		 buttonNG1 = new Button(775,200,100,100,"No", new Action() {
+			
+			
+			public void act() {
+				System.out.println("No");
+				viewObjects.remove(rectT);
+				viewObjects.remove(textB);
+				viewObjects.remove(infoBox);
+				buttonNG1.setVisible(false);
+				buttonYG1.setVisible(false);
+				buttonG1.setEnabled(true);
+			
+				
+			}
+		});
+		viewObjects.add(buttonYG1);
+		viewObjects.add(buttonNG1);
+		buttonYG1.setVisible(false);
+		buttonNG1.setVisible(false);
+		
+		buttonYG2 = new Button(675,400,100,100,"Yes", new Action() {
+			
+			@Override
+			public void act() {
+				System.out.println("YES");
+
+				
+			
+				
+				
+			}
+		});
+		
+		 buttonNG2 = new Button(775,400,100,100,"No", new Action() {
+			
+			
+			public void act() {
+				System.out.println("No");
+				viewObjects.remove(rectT);
+				viewObjects.remove(textB);
+				viewObjects.remove(infoBox);
+				buttonNG2.setVisible(false);
+				buttonYG2.setVisible(false);
+				buttonG2.setEnabled(true);
+			
+				
+			}
+		});
+		viewObjects.add(buttonYG2);
+		viewObjects.add(buttonNG2);
+		buttonYG2.setVisible(false);
+		buttonNG2.setVisible(false);
+		
+		buttonYG3 = new Button(675,600,100,100,"Yes", new Action() {
+			
+			@Override
+			public void act() {
+				System.out.println("YES");
+
+				
+			
+				
+				
+			}
+		});
+		
+		 buttonNG3 = new Button(775,600,100,100,"No", new Action() {
+			
+			
+			public void act() {
+				System.out.println("No");
+				viewObjects.remove(rectT);
+				viewObjects.remove(textB);
+				viewObjects.remove(infoBox);
+				buttonNG3.setVisible(false);
+				buttonYG3.setVisible(false);
+				buttonG3.setEnabled(true);
+			
+				
+			}
+		});
+		viewObjects.add(buttonYG3);
+		viewObjects.add(buttonNG3);
+		buttonYG3.setVisible(false);
+		buttonNG3.setVisible(false);
+
+		
 		
 	//FIRE POKEMON	
-		
+		//275 200
 		  buttonF1 = new Button (150, 165, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/004 - Charmander.wav");
-				CustomRect rect = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
-				viewObjects.add(rect);
+				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(rectT);
 				viewObjects.remove(charmander);
 				viewObjects.add(charmander);
 				
 				buttonF1.setEnabled(false);
 				setPokemonGB();
 				
-				Graphic background = new Graphic(250,165, 300, 400, "resources/text box.png");
-				viewObjects.add(background);
+				textB = new Graphic(250,165, 300, 400, "resources/text box.png");
+				viewObjects.add(textB);
 				
 				
-				TextArea infoBox = new TextArea(275, 180, 300, 400, "Are you sure you want Charmander to be your pokemon?");
+			    infoBox = new TextArea(275, 180, 300, 400, "Are you sure you want Charmander to be your pokemon?");
 				infoBox.setCustomTextColor(Color.black);
 				viewObjects.add(infoBox);
 				
+	
 				
-				Button buttonY = new Button(275,200,100,100,"Yes", new Action() {
-					
-					@Override
-					public void act() {
-						System.out.println("YES");
-						
-						
-						
-					}
-				});
+				viewObjects.remove(buttonYF1);
+				viewObjects.add(buttonYF1);
+				buttonYF1.setVisible(true);
 				
-				Button buttonN = new Button(375,200,100,100,"No", new Action() {
-					
-					
-					public void act() {
-						System.out.println("No");
-						
-					}
-				});
-				viewObjects.add(buttonY);
-				viewObjects.add(buttonN);
+				viewObjects.remove(buttonNF1);
+				viewObjects.add(buttonNF1);
+				buttonNF1.setVisible(true);
+
 				
 				
 			}
 		});
 		viewObjects.add(buttonF1);
-		
+		// 275 400
+		//+125 + 35
 		 buttonF2 = new Button (150, 365, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/390 - Chimchar.wav");
-				//sets selectetd pokemon to starter pokemon
+				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(rectT);
+				viewObjects.remove(chimchar);
+				viewObjects.add(chimchar);
+				
+				buttonF2.setEnabled(false);
+				setPokemonGB();
+				
+				textB = new Graphic(250,365, 300, 400, "resources/text box.png");
+				viewObjects.add(textB);
+				
+				
+			    infoBox = new TextArea(275, 380, 300, 400, "Are you sure you want Chimchar to be your pokemon?");
+				infoBox.setCustomTextColor(Color.black);
+				viewObjects.add(infoBox);
+				
+	
+				
+				viewObjects.remove(buttonYF2);
+				viewObjects.add(buttonYF2);
+				buttonYF2.setVisible(true);
+				
+				viewObjects.remove(buttonNF2);
+				viewObjects.add(buttonNF2);
+				buttonNF2.setVisible(true);
 				
 			}
 		});
@@ -182,7 +525,31 @@ public class SelectionScreen extends FullFunctionScreen {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/155 - Cyndaquil.wav");
-				//sets selectetd pokemon to starter pokemon
+				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(rectT);
+				viewObjects.remove(cyndaquil);
+				viewObjects.add(cyndaquil);
+				
+				buttonF3.setEnabled(false);
+				setPokemonGB();
+				
+				textB = new Graphic(250,565, 300, 400, "resources/text box.png");
+				viewObjects.add(textB);
+				
+				
+			    infoBox = new TextArea(275, 580, 300, 400, "Are you sure you want Cyndaquil to be your pokemon?");
+				infoBox.setCustomTextColor(Color.black);
+				viewObjects.add(infoBox);
+				
+	
+				
+				viewObjects.remove(buttonYF3);
+				viewObjects.add(buttonYF3);
+				buttonYF3.setVisible(true);
+				
+				viewObjects.remove(buttonNF3);
+				viewObjects.add(buttonNF3);
+				buttonNF3.setVisible(true);
 				
 			}
 		});
@@ -195,7 +562,31 @@ public class SelectionScreen extends FullFunctionScreen {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/495 - Snivy.wav");
-				//sets selectetd pokemon to starter pokemon
+				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(rectT);
+				viewObjects.remove(snivy);
+				viewObjects.add(snivy);
+				
+				buttonF3.setEnabled(false);
+				setPokemonGB();
+				
+				textB = new Graphic(650,165, 300, 400, "resources/text box.png");
+				viewObjects.add(textB);
+				
+				
+			    infoBox = new TextArea(675, 180, 300, 400, "Are you sure you want Snivy to be your pokemon?");
+				infoBox.setCustomTextColor(Color.black);
+				viewObjects.add(infoBox);
+				
+	
+				
+				viewObjects.remove(buttonYG1);
+				viewObjects.add(buttonYG1);
+				buttonYG1.setVisible(true);
+				
+				viewObjects.remove(buttonNG1);
+				viewObjects.add(buttonNG1);
+				buttonNG1.setVisible(true);
 				
 			}
 		});
@@ -205,7 +596,31 @@ public class SelectionScreen extends FullFunctionScreen {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/252 - Treecko.wav");
-				//sets selectetd pokemon to starter pokemon
+				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(rectT);
+				viewObjects.remove(treecko);
+				viewObjects.add(treecko);
+				
+				buttonG2.setEnabled(false);
+				setPokemonGB();
+				
+				textB = new Graphic(650,365, 300, 400, "resources/text box.png");
+				viewObjects.add(textB);
+				
+				
+			    infoBox = new TextArea(675, 380, 300, 400, "Are you sure you want Treecko to be your pokemon?");
+				infoBox.setCustomTextColor(Color.black);
+				viewObjects.add(infoBox);
+				
+	
+				
+				viewObjects.remove(buttonYG2);
+				viewObjects.add(buttonYG2);
+				buttonYG2.setVisible(true);
+				
+				viewObjects.remove(buttonNG2);
+				viewObjects.add(buttonNG2);
+				buttonNG2.setVisible(true);
 				
 			}
 		});
@@ -216,7 +631,31 @@ public class SelectionScreen extends FullFunctionScreen {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/387 - Turtwig.wav");
-				//sets selectetd pokemon to starter pokemon
+				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(rectT);
+				viewObjects.remove(turtwig);
+				viewObjects.add(turtwig);
+				
+				buttonG3.setEnabled(false);
+				setPokemonGB();
+				
+				textB = new Graphic(650,565, 300, 400, "resources/text box.png");
+				viewObjects.add(textB);
+				
+				
+			    infoBox = new TextArea(676, 580, 300, 400, "Are you sure you want Turtwig to be your pokemon?");
+				infoBox.setCustomTextColor(Color.black);
+				viewObjects.add(infoBox);
+				
+	
+				
+				viewObjects.remove(buttonYG3);
+				viewObjects.add(buttonYG3);
+				buttonYG3.setVisible(true);
+				
+				viewObjects.remove(buttonNG3);
+				viewObjects.add(buttonNG3);
+				buttonNG3.setVisible(true);
 				
 			}
 		});
