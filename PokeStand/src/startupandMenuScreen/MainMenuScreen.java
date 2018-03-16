@@ -36,33 +36,42 @@ public class MainMenuScreen extends FullFunctionScreen {
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
-		Screen[] screens = {PokeStart.trainingScreen, PokeStart.loadScreen,null,null,null,null};
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
-		CustomRect rect = new CustomRect(0,yCord-20,getWidth(),120);
-		CustomRect square = new CustomRect(980,0,300,200);
-		resetCoordinates();
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
 		Graphic pokemon = new Graphic(880, 200, 400, 400, "resources/grass/Torterra.png");
 		PokeStart.setPokemonGBFont(100f);
 		TextArea daysNum = new TextArea(1050,40, 500, 300, "30");
 		PokeStart.setPokemonTextFont(32f);
+		TextArea name = new TextArea(10,20, 500, 300, "Torterra");
 		TextArea daysRemaining = new TextArea(1000,140, 500, 300, "Days Left");
 		viewObjects.add(background);
 		viewObjects.add(pokemon);
-		viewObjects.add(rect);
-		viewObjects.add(square);
+		createBlackBackground(viewObjects);
+		viewObjects.add(name);
 		viewObjects.add(daysNum);
 		viewObjects.add(daysRemaining);
 		daysNum.setCustomTextColor(Color.white);
 		daysRemaining.setCustomTextColor(Color.white);
-		setMenuButtons(names, viewObjects, screens);
+		name.setCustomTextColor(Color.white);
+		setMenuButtons(names, viewObjects);
 	}
 
-	public void setMenuButtons(String[] names, List<Visible> viewObjects, Screen[] screens) {
+	public void setMenuButtons(String[] names, List<Visible> viewObjects) {
 		PokeStart.setPokemonTextFont(24f);
-		initButtons(names, viewObjects, screens);
+		initButtons(names, viewObjects);
 		resetCoordinates();
 		PokeStart.setPokemonTextFont(32f);
+	}
+	
+	public void createBlackBackground(List<Visible> viewObjects) {
+		CustomRect rect = new CustomRect(0,yCord-20,getWidth(),120);
+		CustomRect square = new CustomRect(980,0,300,200);
+		CustomRect textArea = new CustomRect(0,0,250,400);
+		CustomRect fatigueArea = new CustomRect(250,0,730,150);
+		viewObjects.add(rect);
+		viewObjects.add(square);
+		viewObjects.add(textArea);
+		viewObjects.add(fatigueArea);
 	}
 
 	public void resetCoordinates() {
@@ -71,7 +80,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		temp = 0;
 	}
 
-	public void initButtons(String[] names, List<Visible> viewObjects, Screen[] screens) {
+	public void initButtons(String[] names, List<Visible> viewObjects) {
 		for(int i = 0; i < names.length; i++) {
 			final int temp = i;
 			Button button = new Button (xCord, yCord, 200,70,names[i],new Action() {
