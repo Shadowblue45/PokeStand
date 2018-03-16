@@ -6,6 +6,7 @@ public class PokemonTest extends GUIApplication {
 	
 	public static PokemonTest test;
 	public static PokemonScreen screen;
+	public static TrainingScreen screen2;
 	public static Inventory inventory;
 	public static Pokemon pokemon;
 
@@ -18,6 +19,9 @@ public class PokemonTest extends GUIApplication {
 	public void initScreen() {
 		screen = new PokemonScreen(getWidth(),getHeight());
 		setScreen(screen);
+		//screen2 = new TrainingScreen(getWidth(),getHeight());
+		//setScreen(screen2);
+		
 	}
 
 	public static void main(String[] args) {
