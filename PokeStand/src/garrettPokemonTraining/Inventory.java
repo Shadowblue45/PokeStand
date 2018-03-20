@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Inventory {
 	
@@ -15,7 +16,7 @@ public class Inventory {
 	private int fatigue;
 
 	public Inventory() {
-		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20);
+		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20, "resources/water/Popplio.png");
 	}
 
 	public void save() {
@@ -100,8 +101,8 @@ public class Inventory {
 		return pokemon;
 	}
 	
-	public void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd) {
-		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd);
+	public void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd, String url) {
+		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd, url);
 	}
 	
 	public String[] getPokemonImages() {

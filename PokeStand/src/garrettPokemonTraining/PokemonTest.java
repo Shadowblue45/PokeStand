@@ -22,8 +22,8 @@ public class PokemonTest extends GUIApplication {
 	public void initScreen() {
 		screen = new PokemonScreen(getWidth(),getHeight());
 		setScreen(screen);
-		//screen2 = new StatTrainingScreen(getWidth(),getHeight());
-		//setScreen(screen2);
+		screen2 = new StatTrainingScreen(getWidth(),getHeight());
+		setScreen(screen2);
 		
 	}
 

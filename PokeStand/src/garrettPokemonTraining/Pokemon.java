@@ -1,5 +1,6 @@
 package garrettPokemonTraining;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Pokemon {
@@ -21,7 +22,7 @@ public class Pokemon {
 	//	private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
 	//	private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
 
-	public Pokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd) {
+	public Pokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd, String url) {
 		setName(name);
 		setType1(type1);
 		setType2(type2);
@@ -32,12 +33,11 @@ public class Pokemon {
 		setsDef(sDef);
 		setSpd(spd);
 		setMoves();
-		setImage();
+		setImage(url);
 	}
 
-	public void setImage() {
-		String[] images = PokemonTest.inventory.getPokemonImages();
-		image = images[PokemonTest.inventory.getNameIndex()];
+	public void setImage(String s) {
+		image = s;
 	}
 
 	public String getImage() {
@@ -46,7 +46,7 @@ public class Pokemon {
 
 	public void evolve() {
 		String[] pokemonNames = PokemonTest.inventory.getNames();
-		System.out.println(pokemonNames.toString());
+		System.out.println(Arrays.toString(pokemonNames));
 		if(PokemonTest.inventory.getNameIndex() < 2) {
 			for(int i = 0; i < twoTypePokemon.length; i++) {
 				if(pokemonNames[PokemonTest.inventory.getNameIndex() + 1].equals(twoTypePokemon[i])) {
@@ -56,6 +56,7 @@ public class Pokemon {
 			increaseStats();
 			setName(pokemonNames[PokemonTest.inventory.getNameIndex() + 1]);
 		}
+		setImage(PokemonTest.inventory.getPokemonImages()[PokemonTest.inventory.getNameIndex()]);
 	}
 
 	public void increaseStats() {
@@ -65,6 +66,10 @@ public class Pokemon {
 		setsAtk(getsAtk() + 5);
 		setsDef(getsDef() + 5);
 		setSpd(getSpd() + 5);
+	}
+	
+	public void trainStat(String s) {
+		setHp(getHp() + 5);
 	}
 
 	public void setMoves() {

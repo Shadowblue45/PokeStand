@@ -61,7 +61,15 @@ public class PokemonScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(saveButton);
-		
+		Button test = new Button(200,200,50,50,"Test",new Action() {
+
+			@Override
+			public void act() {
+				PokemonTest.inventory.getPokemonImages();
+			}
+			
+		});
+		viewObjects.add(test);
 	}
 
 }
