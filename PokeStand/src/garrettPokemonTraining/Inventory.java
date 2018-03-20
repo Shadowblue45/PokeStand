@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class Inventory {
 	
 	private static Pokemon pokemon;
-	private String[] pokemonForms = {"Popplio","Brionne","Primarina"};
-	private String[] pokemonImages = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
+	public static String[] pokemonForms = {"Popplio","Brionne","Primarina"};
+	public static String[] pokemonImages = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
 	private int abilityPoints;
 	private int fatigue;
 
@@ -109,13 +109,13 @@ public class Inventory {
 		return pokemonImages;
 	}
 	
-	public void setImages(String[] pics) {
+	public static void setImages(String[] pics) {
 		for(int i = 0; i < pics.length; i++) {
 			pokemonImages[i] = pics[i];
 		}
 	}
 	
-	public void setNames(String[] names) {
+	public static void setNames(String[] names) {
 		for(int i = 0; i < names.length; i++) {
 			pokemonForms[i] = names[i];
 		}
