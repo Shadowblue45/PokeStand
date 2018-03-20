@@ -74,6 +74,8 @@ public class SelectionScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+
+		StyledComponent.setButtonOutline(false);
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/selectionbgrnd.jpg");
 		viewObjects.add(background);
 		
@@ -151,7 +153,12 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-			
+				Inventory.setPokemon("Charmander", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Charmander.png");
+				String[] F1= {"Charmander","Charmeleon","Charzard"};
+				String[] FP1 = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charzard.png"};
+				Inventory.setNames(F1);
+				Inventory.setImages(FP1);
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 				
 			
 				
@@ -453,6 +460,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		  buttonF1 = new Button (50, 165, 100,100,"",new Action() {
 			
 			public void act() {
+				StyledComponent.setButtonOutline(false);
 				AudioTest.playSound("resources/pokemonSounds/004 - Charmander.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
 				viewObjects.add(rectT);
@@ -490,6 +498,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		 buttonF2 = new Button (50, 365, 100,100,"",new Action() {
 			
 			public void act() {
+				StyledComponent.setButtonOutline(false);
 				AudioTest.playSound("resources/pokemonSounds/390 - Chimchar.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
 				viewObjects.add(rectT);
@@ -525,6 +534,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		 buttonF3 = new Button (50,565, 100,100,"",new Action() {
 			
 			public void act() {
+				StyledComponent.setButtonOutline(false);
 				AudioTest.playSound("resources/pokemonSounds/155 - Cyndaquil.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
 				viewObjects.add(rectT);
@@ -562,6 +572,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		 buttonG1 = new Button (450, 165, 100,100,"",new Action() {
 			
 			public void act() {
+				StyledComponent.setButtonOutline(false);
 				AudioTest.playSound("resources/pokemonSounds/495 - Snivy.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
 				viewObjects.add(rectT);
@@ -596,6 +607,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		 buttonG2 = new Button (450, 365, 100,100,"",new Action() {
 			
 			public void act() {
+				StyledComponent.setButtonOutline(false);
 				AudioTest.playSound("resources/pokemonSounds/252 - Treecko.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
 				viewObjects.add(rectT);
@@ -631,6 +643,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		 buttonG3 = new Button (450,565, 100,100,"",new Action() {
 			
 			public void act() {
+				StyledComponent.setButtonOutline(false);
 				AudioTest.playSound("resources/pokemonSounds/387 - Turtwig.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
 				viewObjects.add(rectT);
@@ -669,6 +682,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		 buttonW1 = new Button (850, 165, 100,100,"",new Action() {
 			
 			public void act() {
+				StyledComponent.setButtonOutline(false);
 				AudioTest.playSound("resources/pokemonSounds/656 - Froakie.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
 				viewObjects.add(rectT);
@@ -703,6 +717,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		 buttonW2 = new Button (850, 365, 100,100,"",new Action() {
 			
 			public void act() {
+				StyledComponent.setButtonOutline(false);
 				AudioTest.playSound("resources/pokemonSounds/728 - Popplio.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
 				viewObjects.add(rectT);
@@ -737,6 +752,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		 buttonW3 = new Button (850, 565, 100,100,"",new Action() {
 			
 			public void act() {
+				StyledComponent.setButtonOutline(false);
 				AudioTest.playSound("resources/pokemonSounds/258 - Mudkip.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
 				viewObjects.add(rectT);
