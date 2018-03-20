@@ -87,55 +87,55 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(title);
 		
 		
-		charmander = new AnimatedComponent(150, 165, 100, 100);
+		charmander = new AnimatedComponent(50, 165, 100, 100);
 		charmander.addSequence("resources/spritesheetsTrans/charmander sprite.png", 150, 0, 0, 40, 39, 3);
 		Thread run = new Thread(charmander);
 		run.start();
 		viewObjects.add(charmander);
 		
-		chimchar = new AnimatedComponent(150, 365, 100, 100);
+		chimchar = new AnimatedComponent(50, 365, 100, 100);
 		chimchar.addSequence("resources/spritesheetsTrans/chimchar sprite.png", 150, 11,54, 56, 49, 10);
 		Thread run2 = new Thread(chimchar);
 		run2.start();
 		viewObjects.add(chimchar);
 		
-		cyndaquil = new AnimatedComponent(150, 565, 100, 100);
+		cyndaquil = new AnimatedComponent(50, 565, 100, 100);
 		cyndaquil.addSequence("resources/spritesheetsTrans/cyndaquil sprite.png", 150, 2, 0,49, 38, 10);
 		Thread run3 = new Thread(cyndaquil);
 		run3.start();
 		viewObjects.add(cyndaquil);
 		
-		froakie = new AnimatedComponent(950, 165, 100, 100);
+		froakie = new AnimatedComponent(850, 165, 100, 100);
 		froakie.addSequence("resources/spritesheetsTrans/froakie sprite sheet.png", 150, 8, 25, 62, 41, 4);
 		Thread run4 = new Thread(froakie);
 		run4.start();
 		viewObjects.add(froakie);
 		
-		popplio = new AnimatedComponent(950, 365, 100, 100);
+		popplio = new AnimatedComponent(850, 365, 100, 100);
 		popplio.addSequence("resources/spritesheetsTrans/popplio sprite.png", 150, 2,3, 62, 50, 4);
 		Thread run5= new Thread(popplio);
 		run5.start();
 		viewObjects.add(popplio);
 		
-		mudkip = new AnimatedComponent(950, 565, 100, 100);
+		mudkip = new AnimatedComponent(850, 565, 100, 100);
 		mudkip.addSequence("resources/spritesheets/mudkip sprite sheet.png", 150, 1, 115,38, 36, 5);
 		Thread run6 = new Thread(mudkip);
 		run6.start();
 		viewObjects.add(mudkip);
 		
-		snivy = new AnimatedComponent(550, 165, 100, 100);
+		snivy = new AnimatedComponent(450, 165, 100, 100);
 		snivy.addSequence("resources/spritesheetsTrans/sinvvy sprite.png", 150, 2, 98, 48, 49, 9);
 		Thread run7 = new Thread(snivy);
 		run7.start();
 		viewObjects.add(snivy);
 		
-		treecko = new AnimatedComponent(550, 365, 100, 100);
+		treecko = new AnimatedComponent(450, 365, 100, 100);
 		treecko.addSequence("resources/spritesheetsTrans/treecko spriteN.png", 150, 94,7, 26,23, 4);
 		Thread run8= new Thread(treecko);
 		run8.start();
 		viewObjects.add(treecko);
 		
-		turtwig = new AnimatedComponent(550, 565, 100, 100);
+		turtwig = new AnimatedComponent(450, 565, 100, 100);
 		turtwig.addSequence("resources/spritesheetsTrans/turtwig spriteN.png", 150, 5, 4,25, 26, 4);
 		Thread run9 = new Thread(turtwig);
 		run9.start();
@@ -146,7 +146,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		setPokemonGB();
 		
 		//FIRE POKEMON CONFIRMATION BUTTONS
-		buttonYF1 = new Button(275,200,100,100,"Yes", new Action() {
+		buttonYF1 = new Button(175,200,100,100,"Yes", new Action() {
 			
 			@Override
 			public void act() {
@@ -159,7 +159,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			}
 		});
 		
-		 buttonNF1 = new Button(375,200,100,100,"No", new Action() {
+		 buttonNF1 = new Button(275,200,100,100,"No", new Action() {
 			
 			
 			public void act() {
@@ -179,7 +179,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		buttonYF1.setVisible(false);
 		buttonNF1.setVisible(false);
 		
-		buttonYF2 = new Button(275,400,100,100,"Yes", new Action() {
+		buttonYF2 = new Button(175,400,100,100,"Yes", new Action() {
 			
 			@Override
 			public void act() {
@@ -192,7 +192,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			}
 		});
 		
-		 buttonNF2 = new Button(375,400,100,100,"No", new Action() {
+		 buttonNF2 = new Button(275,400,100,100,"No", new Action() {
 			
 			
 			public void act() {
@@ -212,7 +212,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		buttonYF2.setVisible(false);
 		buttonNF2.setVisible(false);
 		
-		buttonYF3 = new Button(275,600,100,100,"Yes", new Action() {
+		buttonYF3 = new Button(175,600,100,100,"Yes", new Action() {
 			
 			@Override
 			public void act() {
@@ -225,7 +225,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			}
 		});
 		
-		 buttonNF3 = new Button(375,600,100,100,"No", new Action() {
+		 buttonNF3 = new Button(275,600,100,100,"No", new Action() {
 			
 			
 			public void act() {
@@ -246,7 +246,8 @@ public class SelectionScreen extends FullFunctionScreen {
 		buttonNF3.setVisible(false);
 	
 		//WATER POKEMON CONFIRMATION BUTTONS
-	buttonYW1 = new Button(275,200,100,100,"Yes", new Action() {
+		//1075, 180
+	buttonYW1 = new Button(975,200,100,100,"Yes", new Action() {
 			
 			@Override
 			public void act() {
@@ -258,8 +259,8 @@ public class SelectionScreen extends FullFunctionScreen {
 				
 			}
 		});
-		
-		 buttonNW1 = new Button(375,200,100,100,"No", new Action() {
+
+		 buttonNW1 = new Button(1075,200,100,100,"No", new Action() {
 			
 			
 			public void act() {
@@ -279,7 +280,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		buttonYW1.setVisible(false);
 		buttonNW1.setVisible(false);
 		
-		buttonYW2 = new Button(275,200,100,100,"Yes", new Action() {
+		buttonYW2 = new Button(975,400,100,100,"Yes", new Action() {
 			
 			@Override
 			public void act() {
@@ -292,7 +293,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			}
 		});
 		
-		 buttonNW2 = new Button(375,200,100,100,"No", new Action() {
+		 buttonNW2 = new Button(1075,400,100,100,"No", new Action() {
 			
 			
 			public void act() {
@@ -312,7 +313,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		buttonYW2.setVisible(false);
 		buttonNW2.setVisible(false);
 		
-		buttonYW3 = new Button(275,200,100,100,"Yes", new Action() {
+		buttonYW3 = new Button(975,600,100,100,"Yes", new Action() {
 			
 			@Override
 			public void act() {
@@ -325,7 +326,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			}
 		});
 		
-		 buttonNW3 = new Button(375,200,100,100,"No", new Action() {
+		 buttonNW3 = new Button(1075,600,100,100,"No", new Action() {
 			
 			
 			public void act() {
@@ -346,7 +347,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		buttonNW3.setVisible(false);
 		
 		//GRASS POKEMON CONFIRMATION BUTTONS
-	buttonYG1 = new Button(675,200,100,100,"Yes", new Action() {
+	buttonYG1 = new Button(575,200,100,100,"Yes", new Action() {
 			
 			@Override
 			public void act() {
@@ -359,7 +360,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			}
 		});
 		
-		 buttonNG1 = new Button(775,200,100,100,"No", new Action() {
+		 buttonNG1 = new Button(675,200,100,100,"No", new Action() {
 			
 			
 			public void act() {
@@ -379,7 +380,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		buttonYG1.setVisible(false);
 		buttonNG1.setVisible(false);
 		
-		buttonYG2 = new Button(675,400,100,100,"Yes", new Action() {
+		buttonYG2 = new Button(575,400,100,100,"Yes", new Action() {
 			
 			@Override
 			public void act() {
@@ -392,7 +393,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			}
 		});
 		
-		 buttonNG2 = new Button(775,400,100,100,"No", new Action() {
+		 buttonNG2 = new Button(675,400,100,100,"No", new Action() {
 			
 			
 			public void act() {
@@ -412,7 +413,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		buttonYG2.setVisible(false);
 		buttonNG2.setVisible(false);
 		
-		buttonYG3 = new Button(675,600,100,100,"Yes", new Action() {
+		buttonYG3 = new Button(575,600,100,100,"Yes", new Action() {
 			
 			@Override
 			public void act() {
@@ -425,7 +426,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			}
 		});
 		
-		 buttonNG3 = new Button(775,600,100,100,"No", new Action() {
+		 buttonNG3 = new Button(675,600,100,100,"No", new Action() {
 			
 			
 			public void act() {
@@ -449,7 +450,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		
 	//FIRE POKEMON	
 		//275 200
-		  buttonF1 = new Button (150, 165, 100,100,"",new Action() {
+		  buttonF1 = new Button (50, 165, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/004 - Charmander.wav");
@@ -461,11 +462,11 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonF1.setEnabled(false);
 				setPokemonGB();
 				
-				textB = new Graphic(250,165, 300, 400, "resources/text box.png");
+				textB = new Graphic(150,165, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
 				
 				
-			    infoBox = new TextArea(275, 180, 300, 400, "Are you sure you want Charmander to be your pokemon?");
+			    infoBox = new TextArea(175, 180, 300, 400, "Are you sure you want Charmander to be your pokemon?");
 				infoBox.setCustomTextColor(Color.black);
 				viewObjects.add(infoBox);
 				
@@ -486,7 +487,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(buttonF1);
 		// 275 400
 		//+125 + 35
-		 buttonF2 = new Button (150, 365, 100,100,"",new Action() {
+		 buttonF2 = new Button (50, 365, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/390 - Chimchar.wav");
@@ -498,11 +499,11 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonF2.setEnabled(false);
 				setPokemonGB();
 				
-				textB = new Graphic(250,365, 300, 400, "resources/text box.png");
+				textB = new Graphic(150,365, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
 				
 				
-			    infoBox = new TextArea(275, 380, 300, 400, "Are you sure you want Chimchar to be your pokemon?");
+			    infoBox = new TextArea(175, 380, 300, 400, "Are you sure you want Chimchar to be your pokemon?");
 				infoBox.setCustomTextColor(Color.black);
 				viewObjects.add(infoBox);
 				
@@ -521,7 +522,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(buttonF2);
 		
 		
-		 buttonF3 = new Button (150,565, 100,100,"",new Action() {
+		 buttonF3 = new Button (50,565, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/155 - Cyndaquil.wav");
@@ -533,11 +534,11 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonF3.setEnabled(false);
 				setPokemonGB();
 				
-				textB = new Graphic(250,565, 300, 400, "resources/text box.png");
+				textB = new Graphic(150,565, 300, 400, "resources/text box.png");
 				viewObjects.add(textB);
 				
 				
-			    infoBox = new TextArea(275, 580, 300, 400, "Are you sure you want Cyndaquil to be your pokemon?");
+			    infoBox = new TextArea(175, 580, 300, 400, "Are you sure you want Cyndaquil to be your pokemon?");
 				infoBox.setCustomTextColor(Color.black);
 				viewObjects.add(infoBox);
 				
@@ -558,7 +559,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		
 		//GRASS POKEMON
 		
-		 buttonG1 = new Button (550, 165, 100,100,"",new Action() {
+		 buttonG1 = new Button (450, 165, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/495 - Snivy.wav");
@@ -567,14 +568,14 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(snivy);
 				viewObjects.add(snivy);
 				
-				buttonF3.setEnabled(false);
+				buttonG1.setEnabled(false);
 				setPokemonGB();
 				
-				textB = new Graphic(650,165, 300, 400, "resources/text box.png");
+				textB = new Graphic(550,165, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
 				
 				
-			    infoBox = new TextArea(675, 180, 300, 400, "Are you sure you want Snivy to be your pokemon?");
+			    infoBox = new TextArea(575, 180, 275, 400, "Are you sure you want Snivy to be your pokemon?");
 				infoBox.setCustomTextColor(Color.black);
 				viewObjects.add(infoBox);
 				
@@ -592,7 +593,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		});
 		viewObjects.add(buttonG1);
 		
-		 buttonG2 = new Button (550, 365, 100,100,"",new Action() {
+		 buttonG2 = new Button (450, 365, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/252 - Treecko.wav");
@@ -604,11 +605,11 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonG2.setEnabled(false);
 				setPokemonGB();
 				
-				textB = new Graphic(650,365, 300, 400, "resources/text box.png");
+				textB = new Graphic(550,365, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
 				
 				
-			    infoBox = new TextArea(675, 380, 300, 400, "Are you sure you want Treecko to be your pokemon?");
+			    infoBox = new TextArea(575, 380, 275, 400, "Are you sure you want Treecko to be your pokemon?");
 				infoBox.setCustomTextColor(Color.black);
 				viewObjects.add(infoBox);
 				
@@ -627,7 +628,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		viewObjects.add(buttonG2);
 		
 		
-		 buttonG3 = new Button (550,565, 100,100,"",new Action() {
+		 buttonG3 = new Button (450,565, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/387 - Turtwig.wav");
@@ -639,11 +640,11 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonG3.setEnabled(false);
 				setPokemonGB();
 				
-				textB = new Graphic(650,565, 300, 400, "resources/text box.png");
+				textB = new Graphic(550,565, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
 				
 				
-			    infoBox = new TextArea(676, 580, 300, 400, "Are you sure you want Turtwig to be your pokemon?");
+			    infoBox = new TextArea(576, 580, 275, 400, "Are you sure you want Turtwig to be your pokemon?");
 				infoBox.setCustomTextColor(Color.black);
 				viewObjects.add(infoBox);
 				
@@ -665,23 +666,23 @@ public class SelectionScreen extends FullFunctionScreen {
 		
 		//WATER POKEMON
 		
-		 buttonW1 = new Button (950, 165, 100,100,"",new Action() {
+		 buttonW1 = new Button (850, 165, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/656 - Froakie.wav");
 				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
-				viewObjects.add(froakie);
+				viewObjects.add(rectT);
 				viewObjects.remove(froakie);
 				viewObjects.add(froakie);
 				
-				buttonW3.setEnabled(false);
+				buttonW1.setEnabled(false);
 				setPokemonGB();
 				
-				textB = new Graphic(1050,165, 300, 400, "resources/text box.png");
+				textB = new Graphic(950,165, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
 				
 				
-			    infoBox = new TextArea(1075, 180, 300, 400, "Are you sure you want Froakie to be your pokemon?");
+			    infoBox = new TextArea(975, 180, 275, 400, "Are you sure you want Froakie to be your pokemon?");
 				infoBox.setCustomTextColor(Color.black);
 				viewObjects.add(infoBox);
 				
@@ -699,21 +700,69 @@ public class SelectionScreen extends FullFunctionScreen {
 		});
 		viewObjects.add(buttonW1);
 		
-		 buttonW2 = new Button (950, 365, 100,100,"",new Action() {
+		 buttonW2 = new Button (850, 365, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/728 - Popplio.wav");
-				//sets selectetd pokemon to starter pokemon
+				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(rectT);
+				viewObjects.remove(popplio);
+				viewObjects.add(popplio);
+				
+				buttonW2.setEnabled(false);
+				setPokemonGB();
+				
+				textB = new Graphic(950,365, 275, 400, "resources/text box.png");
+				viewObjects.add(textB);
+				
+				
+			    infoBox = new TextArea(975, 380, 275, 400, "Are you sure you want Popplio to be your pokemon?");
+				infoBox.setCustomTextColor(Color.black);
+				viewObjects.add(infoBox);
+				
+	
+				
+				viewObjects.remove(buttonYW2);
+				viewObjects.add(buttonYW2);
+				buttonYW2.setVisible(true);
+				
+				viewObjects.remove(buttonNW2);
+				viewObjects.add(buttonNW2);
+				buttonNW2.setVisible(true);
 				
 			}
 		});
 		viewObjects.add(buttonW2);
 		
-		 buttonW3 = new Button (950, 565, 100,100,"",new Action() {
+		 buttonW3 = new Button (850, 565, 100,100,"",new Action() {
 			
 			public void act() {
 				AudioTest.playSound("resources/pokemonSounds/258 - Mudkip.wav");
-				//sets selectetd pokemon to starter pokemon
+				rectT = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,150));
+				viewObjects.add(rectT);
+				viewObjects.remove(mudkip);
+				viewObjects.add(mudkip);
+				
+				buttonW3.setEnabled(false);
+				setPokemonGB();
+				
+				textB = new Graphic(950,565, 275, 400, "resources/text box.png");
+				viewObjects.add(textB);
+				
+				
+			    infoBox = new TextArea(975, 580, 275, 400, "Are you sure you want Mudkip to be your pokemon?");
+				infoBox.setCustomTextColor(Color.black);
+				viewObjects.add(infoBox);
+				
+	
+				
+				viewObjects.remove(buttonYW3);
+				viewObjects.add(buttonYW3);
+				buttonYW3.setVisible(true);
+				
+				viewObjects.remove(buttonNW3);
+				viewObjects.add(buttonNW3);
+				buttonNW3.setVisible(true);
 				
 			}
 		});
@@ -742,7 +791,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		try {
 		File fontFile = new File("resources/Pokemon GB.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-		Font baseFont=font.deriveFont(12f);
+		Font baseFont=font.deriveFont(11f);
 		StyledComponent.setBaseFont(baseFont);
 	} catch (Exception e) {
 		e.printStackTrace();
