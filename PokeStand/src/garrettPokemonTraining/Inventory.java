@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class Inventory {
 	
-	private Pokemon pokemon;
+	private static Pokemon pokemon;
 	private String[] pokemonForms = {"Popplio","Brionne","Primarina"};
 	private String[] pokemonImages = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
 	private int abilityPoints;
@@ -101,7 +101,7 @@ public class Inventory {
 		return pokemon;
 	}
 	
-	public void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd, String url) {
+	public static void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd, String url) {
 		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd, url);
 	}
 	

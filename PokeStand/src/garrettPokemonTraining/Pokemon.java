@@ -70,6 +70,21 @@ public class Pokemon {
 	
 	public void trainStat(String s) {
 		setHp(getHp() + 5);
+		if(s.equals("atk")) {
+			setAtk(getAtk() + 3);
+		}
+		if(s.equals("def")) {
+			setDef(getDef() + 3);
+		}
+		if(s.equals("sAtk")) {
+			setsAtk(getsAtk() + 3);
+		}
+		if(s.equals("sDef")) {
+			setsDef(getsDef() + 3);
+		}
+		if(s.equals("spd")) {
+			setSpd(getSpd() + 3);
+		}
 	}
 
 	public void setMoves() {

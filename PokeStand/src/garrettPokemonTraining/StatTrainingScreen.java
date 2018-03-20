@@ -6,7 +6,6 @@ import java.util.List;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
-import guiTeacher.components.SimpleTable;
 import guiTeacher.components.TextArea;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
@@ -15,7 +14,6 @@ import startupandMenuScreen.CustomRect;
 
 public class StatTrainingScreen extends FullFunctionScreen {
 
-	private SimpleTable stats;
 	private Graphic target;
 	private Button start;
 	private Button evolveButton;
@@ -23,6 +21,11 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	private TextArea info;
 	private Graphic poke;
 	private Pokemon p;
+	private Button attack;
+	private Button defense;
+	private Button sAttack;
+	private Button sDefense;
+	private Button speed;
 
 	public StatTrainingScreen(int width, int height) {
 		super(width, height);
@@ -60,7 +63,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				"Special Atk: " + p.getsAtk() + "\n" + "Special Def: " + p.getsDef() + "\n" +
 				"Spd: " + p.getSpd() + "\n");
 		viewObjects.add(info);
-		evolveButton = new Button(100,100,50,50,"Evolve", new Action() {
+		evolveButton = new Button(75,200,100,50,"Evolve", new Action() {
 
 			@Override
 			public void act() {
@@ -77,7 +80,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(evolveButton);
-		saveButton = new Button(100,200,50,50,"Save", new Action() {
+		saveButton = new Button(100,300,50,50,"Save", new Action() {
 
 			@Override
 			public void act() {
@@ -86,7 +89,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(saveButton);
-		Button test = new Button(200,200,50,50,"Test",new Action() {
+		Button test = new Button(200,300,50,50,"Test",new Action() {
 
 			@Override
 			public void act() {

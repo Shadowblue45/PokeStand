@@ -9,8 +9,7 @@ import guiTeacher.components.StyledComponent;
 public class PokemonTest extends GUIApplication {
 	
 	public static PokemonTest test;
-	public static PokemonScreen screen;
-	public static StatTrainingScreen screen2;
+	public static StatTrainingScreen screen;
 	public static Inventory inventory;
 
 	public PokemonTest(int width, int height) {
@@ -20,10 +19,8 @@ public class PokemonTest extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		screen = new PokemonScreen(getWidth(),getHeight());
+		screen = new StatTrainingScreen(getWidth(),getHeight());
 		setScreen(screen);
-		screen2 = new StatTrainingScreen(getWidth(),getHeight());
-		setScreen(screen2);
 		
 	}
 
