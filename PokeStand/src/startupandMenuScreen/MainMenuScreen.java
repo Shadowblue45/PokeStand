@@ -8,6 +8,7 @@ import java.lang.reflect.Array;
 import java.util.List;
 
 import audioPlayer.AudioTest;
+import garrettPokemonTraining.Inventory;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.CustomImageButton;
@@ -36,13 +37,17 @@ public class MainMenuScreen extends FullFunctionScreen {
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
+		
+		String[] pokeNames = PokeStart.inventory.getNames();
+		String[] pokeLink = PokeStart.inventory.getPokemonImages();
+		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
-		Graphic pokemon = new Graphic(880, 200, 400, 400, "resources/grass/Torterra.png");
+		Graphic pokemon = new Graphic(880, 200, 400, 400, pokeNames[0]);
 		PokeStart.setPokemonGBFont(100f);
 		TextArea daysNum = new TextArea(1050,40, 500, 300, "30");
 		PokeStart.setPokemonTextFont(32f);
-		TextArea name = new TextArea(10,20, 500, 300, "Torterra");
+		TextArea name = new TextArea(10,20, 500, 300, pokeLink[0]);
 		TextArea daysRemaining = new TextArea(1000,140, 500, 300, "Days Left");
 		viewObjects.add(background);
 		viewObjects.add(pokemon);
