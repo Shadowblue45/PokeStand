@@ -34,12 +34,15 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		System.out.println(PokeStart.inventory.pokemonImages[0]);
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
 		
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
+		
+		//setImages(viewObjects);
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
@@ -59,6 +62,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		daysRemaining.setCustomTextColor(Color.white);
 		name.setCustomTextColor(Color.white);
 		setMenuButtons(names, viewObjects);
+		pokemon.update();
 	}
 
 	public void setMenuButtons(String[] names, List<Visible> viewObjects) {
@@ -101,6 +105,12 @@ public class MainMenuScreen extends FullFunctionScreen {
 			button.update();
 			button.setForeground(Color.white);
 		}
+	}
+	
+	public void setImages(List<Visible> viewObjects) {
+		String[] images = PokeStart.inventory.getPokemonImages();
+		Graphic pokemon = new Graphic(880, 200, 400, 400, images[0]);
+		viewObjects.add(pokemon);
 	}
 
 }

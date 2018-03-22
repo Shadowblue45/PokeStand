@@ -27,8 +27,8 @@ public class PokeStart extends GUIApplication {
 	public static SelectionScreen selectionScreen;
 	public static BattleScreen battleScreen;
 	public static RickyScreen shopScreen;
+	public static Inventory inventory;
 	public static MainMenuScreen mainMenuScreen;
-	public static  Inventory inventory;
 	public static boolean mainScreen;
 
 	public PokeStart(int width, int height) {
