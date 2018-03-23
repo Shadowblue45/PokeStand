@@ -18,6 +18,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	private Button start;
 	private Button evolveButton;
 	private Button saveButton;
+	private Button loadButton;
 	private TextArea info;
 	private Graphic poke;
 	private Pokemon p;
@@ -60,7 +61,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		info = new TextArea(400,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
 				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-				"Special Atk: " + p.getsAtk() + "\n" + "Special Def: " + p.getsDef() + "\n" +
+				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 				"Spd: " + p.getSpd() + "\n");
 		viewObjects.add(info);
 		evolveButton = new Button(75,200,100,50,"Evolve", new Action() {
@@ -68,14 +69,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				p.evolve();
-				info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-						"Special Atk: " + p.getsAtk() + "\n" + "Special Def: " + p.getsDef() + "\n" +
-						"Spd: " + p.getSpd() + "\n");
-				viewObjects.remove(poke);
-				poke = new Graphic(625, 105, 300, 300,p.getImage());
-				viewObjects.add(poke);
+				setInfoText();
+				poke.loadImages(p.getImage(), 300, 300);
 			}
 			
 		});
@@ -89,15 +84,197 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(saveButton);
-		Button test = new Button(200,300,50,50,"Test",new Action() {
+		loadButton = new Button(300,300,50,50,"Load", new Action() {
 
 			@Override
 			public void act() {
-				PokemonTest.inventory.getPokemonImages();
+				System.out.println("Loading...");
+				PokemonTest.inventory.load();
+				setInfoText();
+				poke.loadImages(p.getImage(), 300, 300);
 			}
 			
 		});
-		viewObjects.add(test);
+		viewObjects.add(loadButton);
+		attack = new Button(100,600,100,50,"Attack",new Action() {
+
+			@Override
+			public void act() {
+				Thread train = new Thread(new Runnable() {
+
+					@Override
+					public void run() {
+						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
+								"Atk: " + p.getAtk() + " +3\n" + "Def: " + p.getDef() + "\n" +
+								"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+								"Spd: " + p.getSpd() + "\n");
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						p.trainStat("atk");
+						setInfoText();
+					}
+					
+				});
+				train.start();
+			}
+			
+		});
+		viewObjects.add(attack);
+		defense = new Button(300,600,100,50,"Defense",new Action() {
+
+			@Override
+			public void act() {
+				Thread train = new Thread(new Runnable() {
+
+					@Override
+					public void run() {
+						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
+								"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + " +3\n" +
+								"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+								"Spd: " + p.getSpd() + "\n");
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						p.trainStat("def");
+						setInfoText();
+					}
+					
+				});
+				train.start();
+			}
+			
+		});
+		viewObjects.add(defense);
+		sAttack = new Button(500,600,100,50,"Sp. Atk",new Action() {
+
+			@Override
+			public void act() {
+				Thread train = new Thread(new Runnable() {
+
+					@Override
+					public void run() {
+						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
+								"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+								"Sp. Atk: " + p.getsAtk() + " +3\n" + "Sp. Def: " + p.getsDef() + "\n" +
+								"Spd: " + p.getSpd() + "\n");
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						p.trainStat("sAtk");
+						setInfoText();
+					}
+					
+				});
+				train.start();
+			}
+			
+		});
+		viewObjects.add(sAttack);
+		sDefense = new Button(700,600,100,50,"Sp. Def",new Action() {
+
+			@Override
+			public void act() {
+				Thread train = new Thread(new Runnable() {
+
+					@Override
+					public void run() {
+						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
+								"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+								"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + " +3\n" +
+								"Spd: " + p.getSpd() + "\n");
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						p.trainStat("sDef");
+						setInfoText();
+					}
+					
+				});
+				train.start();
+			}
+			
+		});
+		viewObjects.add(sDefense);
+		speed = new Button(900,600,100,50,"Speed",new Action() {
+
+			@Override
+			public void act() {
+				Thread train = new Thread(new Runnable() {
+
+					@Override
+					public void run() {
+						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
+								"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+								"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+								"Spd: " + p.getSpd() + " +3\n");
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						p.trainStat("spd");
+						setInfoText();
+					}
+					
+				});
+				train.start();
+			}
+			
+		});
+		viewObjects.add(speed);
+	}
+	
+	public void setInfoText() {
+		info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+				"Spd: " + p.getSpd() + "\n");
+	}
+	
+	public void setTrainedInfoStat(String s) {
+		Thread train = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				if(s.equals("atk")) {
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
+							"Atk: " + p.getAtk() + " +3\n" + "Def: " + p.getDef() + "\n" +
+							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+							"Spd: " + p.getSpd() + "\n");
+					try {
+						Thread.sleep(750);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					p.trainStat("atk");
+					setInfoText();
+				}
+			}
+			
+		});
+		train.start();
 	}
 
 }

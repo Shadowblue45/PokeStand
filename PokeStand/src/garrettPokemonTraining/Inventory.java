@@ -24,7 +24,7 @@ public class Inventory {
 			FileWriter fw=new FileWriter("resources/pokemon.csv");
 			fw.write(pokemon.getName()+","+ pokemon.getType1() +","+pokemon.getType2()+
 					","+Integer.toString(pokemon.getHp())+","+Integer.toString(pokemon.getAtk())+","+Integer.toString(pokemon.getDef())
-					+","+Integer.toString(pokemon.getsAtk())+","+Integer.toString(pokemon.getsDef())+","+Integer.toString(pokemon.getSpd())+"\n");
+					+","+Integer.toString(pokemon.getsAtk())+","+Integer.toString(pokemon.getsDef())+","+Integer.toString(pokemon.getSpd())+","+pokemon.getImage()+"\n");
 			for(Move m: pokemon.getMoves()){
 				fw.write(m+"\n");    	
 			}
@@ -47,7 +47,7 @@ public class Inventory {
 
 
 				String[] param = line.split(",");
-				if(param.length == 9) {
+				if(param.length == 10) {
 					pokemon.setName(param[0]);
 					pokemon.setType1(param[1]);
 					pokemon.setType2(param[2]);
@@ -57,6 +57,7 @@ public class Inventory {
 					pokemon.setsAtk(Integer.parseInt(param[6]));
 					pokemon.setsDef(Integer.parseInt(param[7]));
 					pokemon.setSpd(Integer.parseInt(param[8]));
+					pokemon.setImage(param[9]);
 				}
 				else {
 					//PokemonTest.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
