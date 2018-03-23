@@ -19,7 +19,7 @@ public class RickyScreen extends FullFunctionScreen {
 
 	private ArrayList<String> itemsInShop;
 	private ArrayList<String> itemDesc;
-	private int dollars = 0;
+	private int dollars = 200;
 	private ArrayList<Integer> priceAmount;
 	
 	private static final long serialVersionUID = 5855860528658762993L;
@@ -57,14 +57,14 @@ public class RickyScreen extends FullFunctionScreen {
 	
 	public void addImagestoShop(List<Visible> viewObjects) {
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			Graphic a = new Graphic(60, 100 + i*150, 50, 50, itemsInShop.get(i));
+			Graphic a = new Graphic(60, 50 + i*150, 50, 50, itemsInShop.get(i));
 			viewObjects.add(a);
 		}
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Graphic b = new Graphic(665, -500 + i*150, 50, 50, itemsInShop.get(i));
+			Graphic b = new Graphic(665, -550 + i*150, 50, 50, itemsInShop.get(i));
 			viewObjects.add(b);
 		}
-		Graphic a = new Graphic(1235,40,30,30,"resources/dollar.png");
+		Graphic a = new Graphic(1235,20,30,30,"resources/dollar.png");
 		viewObjects.add(a);
 		
 	}
@@ -72,13 +72,13 @@ public class RickyScreen extends FullFunctionScreen {
 	public void itemDescriptions(List<Visible> viewObjects) {
 		populateDescriptions();		
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			TextArea c = new TextArea(125, 100+ i*150, 250, 150, itemDesc.get(i));
+			TextArea c = new TextArea(125, 50 + i*150, 250, 150, itemDesc.get(i));
 			c.setCustomTextColor(Color.BLACK);
 			viewObjects.add(c);
 		}
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			TextArea d = new TextArea(730, -500 + i*150, 250, 150, itemDesc.get(i));
+			TextArea d = new TextArea(730, -550 + i*150, 250, 150, itemDesc.get(i));
 			d.setCustomTextColor(Color.BLACK);
 			viewObjects.add(d);
 		}
@@ -101,7 +101,7 @@ public class RickyScreen extends FullFunctionScreen {
 	public void addBackgroundLabel(List<Visible> viewObjects) {
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			StyledComponent.setButtonOutline(true);
-			Button b = new Button(50, 100 + i*150, 565, 150, "",null);
+			Button b = new Button(50, 50 + i*150, 565, 150, "",null);
 			b.setEnabled(false);
 			b.setBackground(Color.ORANGE);
 			b.update();
@@ -110,7 +110,7 @@ public class RickyScreen extends FullFunctionScreen {
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
 			StyledComponent.setButtonOutline(true);
-			Button b = new Button(655, -500 + i*150, 565, 150, "",null);
+			Button b = new Button(655, -550 + i*150, 565, 150, "",null);
 			b.setEnabled(false);
 			b.setBackground(Color.ORANGE);
 			b.update();
@@ -118,7 +118,7 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 		StyledComponent.setButtonOutline(false);
 		setPokemonFont(18);
-		Button b = new Button(1175,25,100,50,Integer.toString(getDollars()),null);
+		Button b = new Button(1175,10,100,50,Integer.toString(getDollars()),null);
 		b.setEnabled(false);
 		b.update();
 		viewObjects.add(b);
@@ -126,22 +126,51 @@ public class RickyScreen extends FullFunctionScreen {
 	
 	public void addButtons(List<Visible> viewObjects) {
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
-			Button b = new Button(375, 75 + i*150, 75, 125,"Buy",null);
+			Button b = new Button(375, 25 + i*150, 75, 125,"Buy",new Action() {
+
+				@Override
+				public void act() {
+					// TODO Auto-generated method stub
+					
+				}
+
+			});
 			viewObjects.add(b);
 		}
 		
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
-			Button b = new Button(500, 75 + i*150, 75, 125,"Sell",null);
+			Button b = new Button(500, 25 + i*150, 75, 125,"Sell",new Action() {
+				
+				@Override
+				public void act() {
+					// TODO Auto-generated method stub
+					
+				}
+			});
 			viewObjects.add(b);
 		}
 		
 		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Button b = new Button(980, -525 + i*150, 75, 125,"Buy", null);
+			Button b = new Button(980, -575 + i*150, 75, 125,"Buy", new Action() {
+				
+				@Override
+				public void act() {
+					// TODO Auto-generated method stub
+					
+				}
+			});
 			viewObjects.add(b);
 		}
 		
 		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Button b = new Button(1105, -525 + i*150, 75, 125,"Sell", null);
+			Button b = new Button(1105, -575 + i*150, 75, 125,"Sell", new Action() {
+				
+				@Override
+				public void act() {
+					// TODO Auto-generated method stub
+					
+				}
+			});
 			viewObjects.add(b);
 		}
 	}
@@ -162,48 +191,48 @@ public class RickyScreen extends FullFunctionScreen {
 	
 	public void addPrices(List<Visible> viewObjects) {
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			Graphic c = new Graphic(425, 100 + i*150, 15, 15, "resources/dollar.png");
+			Graphic c = new Graphic(425, 50 + i*150, 15, 15, "resources/dollar.png");
 			viewObjects.add(c);
 		}
 		
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			Graphic c = new Graphic(550, 100 + i*150, 15, 15, "resources/dollar.png");
+			Graphic c = new Graphic(550, 50 + i*150, 15, 15, "resources/dollar.png");
 			viewObjects.add(c);
 		}
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Graphic c = new Graphic(1030, -500 + i*150, 15, 15, "resources/dollar.png");
+			Graphic c = new Graphic(1030, -550 + i*150, 15, 15, "resources/dollar.png");
 			viewObjects.add(c);
 		}
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Graphic c = new Graphic(1155, -500 + i*150, 15, 15, "resources/dollar.png");
+			Graphic c = new Graphic(1155, -550 + i*150, 15, 15, "resources/dollar.png");
 			viewObjects.add(c);
 		}
 		
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			Button d = new Button(300, 50 + i*150, 200, 125, Integer.toString(priceAmount.get(i)),null);
+			Button d = new Button(300, i*150, 200, 125, Integer.toString(priceAmount.get(i)),null);
 			d.setEnabled(false);
 			d.update();
 			viewObjects.add(d);
 		}
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Button d = new Button(910,-550 + i*150, 200, 125, Integer.toString(priceAmount.get(i)),null);
+			Button d = new Button(910,-600 + i*150, 200, 125, Integer.toString(priceAmount.get(i)),null);
 			d.setEnabled(false);
 			d.update();
 			viewObjects.add(d);
 		}
 		
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			Button d = new Button(425, 50 + i*150, 200, 125, Integer.toString(priceAmount.get(i)/2),null);
+			Button d = new Button(425, i*150, 200, 125, Integer.toString(priceAmount.get(i)/2),null);
 			d.setEnabled(false);
 			d.update();
 			viewObjects.add(d);
 		}
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			Button d = new Button(1025, -550 + i*150, 200, 125, Integer.toString(priceAmount.get(i)/2),null);
+			Button d = new Button(1025, -600 + i*150, 200, 125, Integer.toString(priceAmount.get(i)/2),null);
 			d.setEnabled(false);
 			d.update();
 			viewObjects.add(d);
