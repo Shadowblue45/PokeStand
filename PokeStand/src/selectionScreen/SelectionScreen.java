@@ -19,6 +19,7 @@ import guiTeacher.userInterfaces.Screen;
 import startGame.PokeStart;
 import startupandMenuScreen.CustomRect;
 import startupandMenuScreen.MainMenuScreen;
+import startupandMenuScreen.TrainingScreen;
 
 public class SelectionScreen extends FullFunctionScreen {
 	
@@ -162,6 +163,8 @@ public class SelectionScreen extends FullFunctionScreen {
 				System.out.println(PokeStart.inventory.pokemonImages[0]);
 				MainMenuScreen.name.setText(PokeStart.inventory.pokemonForms[0]);
 				MainMenuScreen.pokemon.loadImages(PokeStart.inventory.pokemonImages[0], 400, 400);
+				TrainingScreen.name.setText(PokeStart.inventory.pokemonForms[0]);
+				TrainingScreen.pokemon.loadImages(PokeStart.inventory.pokemonImages[0], 400, 400);
 				update();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 			}
