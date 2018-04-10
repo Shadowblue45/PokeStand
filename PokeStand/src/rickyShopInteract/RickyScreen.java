@@ -37,8 +37,9 @@ public class RickyScreen extends FullFunctionScreen {
 		itemDescriptions(viewObjects);		
 		addButtons(viewObjects);
 		setPokemonGBFont(13);
-		populatePrices();
+		addPrices();
 		addPrices(viewObjects);
+		addQuantityMarkers(viewObjects);
 	}
 	
 	public void addItemsToArrayList() {
@@ -70,7 +71,7 @@ public class RickyScreen extends FullFunctionScreen {
 	}
 	
 	public void itemDescriptions(List<Visible> viewObjects) {
-		populateDescriptions();		
+		addDescriptions();		
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			TextArea c = new TextArea(125, 50 + i*150, 250, 150, itemDesc.get(i));
 			c.setCustomTextColor(Color.BLACK);
@@ -84,18 +85,18 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 	}
 
-	public void populateDescriptions() {
+	public void addDescriptions() {
 		itemDesc = new ArrayList<String>();
 		
-		itemDesc.add("Restores 10 PP of a single move of a Pokémon");
-		itemDesc.add("Fully restores the PP of one of the player's selected Pokémon's move");
-		itemDesc.add("Fully heals any status problems that a Pokémon holds");
-		itemDesc.add("Fully restores the HP and heals any Status ailments of a Pokémon");
+		itemDesc.add("Restores 10 PP of a single move of a PokÃ©mon");
+		itemDesc.add("Fully restores the PP of one of the player's selected PokÃ©mon's move");
+		itemDesc.add("Fully heals any status problems that a PokÃ©mon holds");
+		itemDesc.add("Fully restores the HP and heals any Status ailments of a PokÃ©mon");
 		
-		itemDesc.add("Heals 20 HP of a Pokémon");
-		itemDesc.add("Heals 50 HP of a Pokémon");
-		itemDesc.add("Heals a Pokémon by 200 HP");		
-		itemDesc.add("Fully restores the HP of a Pokémon");
+		itemDesc.add("Heals 20 HP of a PokÃ©mon");
+		itemDesc.add("Heals 50 HP of a PokÃ©mon");
+		itemDesc.add("Heals a PokÃ©mon by 200 HP");		
+		itemDesc.add("Fully restores the HP of a PokÃ©mon");
 	}
 
 	public void addBackgroundLabel(List<Visible> viewObjects) {
@@ -131,7 +132,7 @@ public class RickyScreen extends FullFunctionScreen {
 				@Override
 				public void act() {
 					// TODO Auto-generated method stub
-					
+				
 				}
 
 			});
@@ -156,7 +157,7 @@ public class RickyScreen extends FullFunctionScreen {
 				@Override
 				public void act() {
 					// TODO Auto-generated method stub
-					
+			    	
 				}
 			});
 			viewObjects.add(b);
@@ -175,7 +176,7 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 	}
 	
-	public void populatePrices() {
+	public void addPrices() {
 		priceAmount = new ArrayList<Integer>();
 		
 		priceAmount.add(1200);
@@ -238,6 +239,61 @@ public class RickyScreen extends FullFunctionScreen {
 			viewObjects.add(d);
 		}
 	}
+
+	public void addQuantityMarkers(List<Visible> viewObjects) {
+		setPokemonGBFont(18);		 
+		 for(int i = 0; i < itemsInShop.size()/2; i++) {
+			 Button plus = new Button(325, 60 + i*150, 75, 125,"-",new Action() {
+
+			@Override
+			public void act() {
+				// TODO Auto-generated method stub
+				
+			}
+
+		});
+			viewObjects.add(plus);
+		}
+		 
+		 for(int i = 0; i < itemsInShop.size()/2; i++) {
+			 Button plus = new Button(930, 60 + i*150, 75, 125,"-",new Action() {
+
+			@Override
+			public void act() {
+				// TODO Auto-generated method stub
+				
+			}
+
+		});
+			viewObjects.add(plus);
+		}  
+		 
+		 for(int i = 0; i < itemsInShop.size()/2; i++) {
+			 Button plus = new Button(525, 60 + i*150, 75, 125,"+",new Action() {
+
+			@Override
+			public void act() {
+				// TODO Auto-generated method stub
+				
+			}
+
+		});
+			viewObjects.add(plus);
+		}  
+		 
+		 for(int i = 0; i < itemsInShop.size()/2; i++) {
+			 Button plus = new Button(1150, 60 + i*150, 75, 125,"+",new Action() {
+
+			@Override
+			public void act() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+			viewObjects.add(plus);
+		}   
+	}
 	
 	public int getDollars() {
 		return dollars;
@@ -268,4 +324,3 @@ public class RickyScreen extends FullFunctionScreen {
 	}
 
 }
-
