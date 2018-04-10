@@ -69,7 +69,7 @@ public class Pokemon {
 	}
 	
 	public void trainStat(String s) {
-		setHp(getHp() + 2);
+		setHp(getHp() + 1);
 		if(s.equals("atk")) {
 			setAtk(getAtk() + 3);
 		}

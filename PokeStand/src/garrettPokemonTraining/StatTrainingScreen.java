@@ -40,7 +40,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		viewObjects.add(battle);
 		p = PokemonTest.inventory.getPokemon();
-		poke = new Graphic(625, 105, 300, 300,p.getImage());
+		poke = new Graphic(75, 305, 300, 300,p.getImage());
 		viewObjects.add(poke);
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
@@ -100,27 +100,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				Thread train = new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
-								"Atk: " + p.getAtk() + " +3\n" + "Def: " + p.getDef() + "\n" +
-								"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-								"Spd: " + p.getSpd() + "\n");
-						try {
-							Thread.sleep(500);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						p.trainStat("atk");
-						setInfoText();
-					}
-					
-				});
-				train.start();
+				setTrainedInfoStat("atk", viewObjects);
 			}
 			
 		});
@@ -129,27 +109,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				Thread train = new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
-								"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + " +3\n" +
-								"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-								"Spd: " + p.getSpd() + "\n");
-						try {
-							Thread.sleep(500);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						p.trainStat("def");
-						setInfoText();
-					}
-					
-				});
-				train.start();
+				setTrainedInfoStat("def", viewObjects);
 			}
 			
 		});
@@ -158,27 +118,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				Thread train = new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
-								"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-								"Sp. Atk: " + p.getsAtk() + " +3\n" + "Sp. Def: " + p.getsDef() + "\n" +
-								"Spd: " + p.getSpd() + "\n");
-						try {
-							Thread.sleep(500);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						p.trainStat("sAtk");
-						setInfoText();
-					}
-					
-				});
-				train.start();
+				setTrainedInfoStat("sAtk", viewObjects);
 			}
 			
 		});
@@ -187,27 +127,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				Thread train = new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
-								"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-								"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + " +3\n" +
-								"Spd: " + p.getSpd() + "\n");
-						try {
-							Thread.sleep(500);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						p.trainStat("sDef");
-						setInfoText();
-					}
-					
-				});
-				train.start();
+				setTrainedInfoStat("sDef", viewObjects);
 			}
 			
 		});
@@ -216,27 +136,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				Thread train = new Thread(new Runnable() {
-
-					@Override
-					public void run() {
-						info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-								"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
-								"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-								"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-								"Spd: " + p.getSpd() + " +3\n");
-						try {
-							Thread.sleep(500);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						p.trainStat("spd");
-						setInfoText();
-					}
-					
-				});
-				train.start();
+				setTrainedInfoStat("spd", viewObjects);
 			}
 			
 		});
@@ -251,14 +151,43 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				"Spd: " + p.getSpd() + "\n");
 	}
 	
-	public void setTrainedInfoStat(String s) {
+	public void setTrainedInfoStat(String s, List<Visible> viewObjects) {
 		Thread train = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
+				Graphic pow = new Graphic(750,100,200,200,"resources/bam.png");
+				viewObjects.add(pow);
+				try {
+					Thread.sleep(750);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				viewObjects.remove(pow);
+				pow.setX(pow.getX()+175);
+				pow.setY(pow.getY()+40);
+				viewObjects.add(pow);
+				try {
+					Thread.sleep(750);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				viewObjects.remove(pow);
+				pow.setX(pow.getX()-75);
+				pow.setY(pow.getY()+20);
+				viewObjects.add(pow);
+				try {
+					Thread.sleep(750);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				viewObjects.remove(pow);
 				if(s.equals("atk")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +2\n" + 
+							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + " +3\n" + "Def: " + p.getDef() + "\n" +
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 							"Spd: " + p.getSpd() + "\n");
@@ -269,6 +198,66 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("atk");
+					setInfoText();
+				}
+				if(s.equals("def")) {
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
+							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + " +3\n" +
+							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+							"Spd: " + p.getSpd() + "\n");
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					p.trainStat("def");
+					setInfoText();
+				}
+				if(s.equals("sAtk")) {
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
+							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+							"Sp. Atk: " + p.getsAtk() + " +3\n" + "Sp. Def: " + p.getsDef() + "\n" +
+							"Spd: " + p.getSpd() + "\n");
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					p.trainStat("sAtk");
+					setInfoText();
+				}
+				if(s.equals("sDef")) {
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
+							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + " +3\n" +
+							"Spd: " + p.getSpd() + "\n");
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					p.trainStat("sDef");
+					setInfoText();
+				}
+				if(s.equals("spd")) {
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
+							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+							"Spd: " + p.getSpd() + " +3\n");
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					p.trainStat("spd");
 					setInfoText();
 				}
 			}
