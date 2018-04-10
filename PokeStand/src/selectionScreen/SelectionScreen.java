@@ -19,6 +19,7 @@ import guiTeacher.userInterfaces.Screen;
 import startGame.PokeStart;
 import startupandMenuScreen.CustomRect;
 import startupandMenuScreen.MainMenuScreen;
+import startupandMenuScreen.TrainingScreen;
 
 public class SelectionScreen extends FullFunctionScreen {
 	
