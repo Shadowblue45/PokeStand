@@ -32,11 +32,6 @@ public class BattleStart extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		loadScreen = new LoadScreen(getWidth(), getHeight());
-		trainingScreen = new TrainingScreen(getWidth(), getHeight());
-		startScreen = new StartScreen(getWidth(), getHeight());
-		selectionScreen = new SelectionScreen(getWidth(), getHeight());
-		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 		battleScreen = new BattleScreen(getWidth(), getHeight());
 		
 		setScreen(battleScreen);

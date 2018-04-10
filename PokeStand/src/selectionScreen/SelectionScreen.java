@@ -158,14 +158,14 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setPokemon("Charmander", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Charmander.png");
 				String[] F1= {"Charmander","Charmeleon","Charzard"};
 				String[] FP1 = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charzard.png"};
-				PokeStart.inventory.setNames(F1);
 				PokeStart.inventory.setImages(FP1);
 				System.out.println(PokeStart.inventory.pokemonImages[0]);
-				MainMenuScreen.name.setText(PokeStart.inventory.pokemonForms[0]);
-				MainMenuScreen.pokemon.loadImages(PokeStart.inventory.pokemonImages[0], 400, 400);
-				TrainingScreen.name.setText(PokeStart.inventory.pokemonForms[0]);
-				TrainingScreen.pokemon.loadImages(PokeStart.inventory.pokemonImages[0], 400, 400);
+				MainMenuScreen.name.setText(F1[0]);
+				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
+				TrainingScreen.name.setText(F1[0]);
+				TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
 				update();
+				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 			}
 		});
