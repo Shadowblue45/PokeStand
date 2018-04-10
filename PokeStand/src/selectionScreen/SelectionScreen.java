@@ -162,6 +162,11 @@ public class SelectionScreen extends FullFunctionScreen {
 				System.out.println(PokeStart.inventory.pokemonImages[0]);
 				PokeStart.mainMenuScreen.name.setText(PokeStart.inventory.pokemonForms[0]);
 				PokeStart.mainMenuScreen.pokemon.loadImages(PokeStart.inventory.pokemonImages[0], 400, 400);
+				MainMenuScreen.name.setText(F1[0]);
+				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
+				TrainingScreen.name.setText(F1[0]);
+				TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+				update();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 			}
 		});
