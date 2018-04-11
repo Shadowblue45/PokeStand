@@ -20,6 +20,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	private Button evolveButton;
 	private Button saveButton;
 	private Button loadButton;
+	private Button backButton;
 	private TextArea info;
 	private Graphic poke;
 	private Pokemon p;
@@ -36,7 +37,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		PokemonTest.setPokemonFont(20);
+		PokeStart.setPokemonFont(20);
 		CustomRect rect = new CustomRect(0,0,getWidth(),getHeight(),new Color(0,0,0,200));
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		viewObjects.add(battle);
@@ -80,7 +81,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				PokemonTest.inventory.save();
+				PokeStart.inventory.save();
 			}
 			
 		});
@@ -90,13 +91,23 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("Loading...");
-				PokemonTest.inventory.load();
+				PokeStart.inventory.load();
 				setInfoText();
 				poke.loadImages(p.getImage(), 300, 300);
 			}
 			
 		});
 		viewObjects.add(loadButton);
+		backButton = new Button(25,25,100,50,"Back", new Action() {
+
+			@Override
+			public void act() {
+				// TODO Auto-generated method stub
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+			}
+			
+		});
+		viewObjects.add(backButton);
 		attack = new Button(100,600,100,50,"Attack",new Action() {
 
 			@Override

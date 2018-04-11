@@ -60,7 +60,7 @@ public class Inventory {
 					pokemon.setImage(param[9]);
 				}
 				else {
-					//PokemonTest.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
+					//PokeStart.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
 				}
 			}
 			br.close();

@@ -1,6 +1,9 @@
 package garrettPokemonTraining;
 
 import java.util.Arrays;
+
+import startGame.PokeStart;
+
 import java.util.ArrayList;
 
 public class Pokemon {
@@ -45,18 +48,18 @@ public class Pokemon {
 	}
 
 	public void evolve() {
-		String[] pokemonNames = PokemonTest.inventory.getNames();
+		String[] pokemonNames = PokeStart.inventory.getNames();
 		System.out.println(Arrays.toString(pokemonNames));
-		if(PokemonTest.inventory.getNameIndex() < 2) {
+		if(PokeStart.inventory.getNameIndex() < 2) {
 			for(int i = 0; i < twoTypePokemon.length; i++) {
-				if(pokemonNames[PokemonTest.inventory.getNameIndex() + 1].equals(twoTypePokemon[i])) {
+				if(pokemonNames[PokeStart.inventory.getNameIndex() + 1].equals(twoTypePokemon[i])) {
 					setType2(secondTypes[i]);
 				}
 			}
 			increaseStats();
-			setName(pokemonNames[PokemonTest.inventory.getNameIndex() + 1]);
+			setName(pokemonNames[PokeStart.inventory.getNameIndex() + 1]);
 		}
-		setImage(PokemonTest.inventory.getPokemonImages()[PokemonTest.inventory.getNameIndex()]);
+		setImage(PokeStart.inventory.getPokemonImages()[PokeStart.inventory.getNameIndex()]);
 	}
 
 	public void increaseStats() {
