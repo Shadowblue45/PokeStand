@@ -16,14 +16,15 @@ import java.io.File;
 
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
-import garrettPokemonTraining.Inventory; 
+import garrettPokemonTraining.Inventory;
+import garrettPokemonTraining.StatTrainingScreen; 
 
 public class PokeStart extends GUIApplication {
 	
 	public static LoadScreen loadScreen;
 	public static PokeStart start;
 	public static StartScreen startScreen;
-	public static TrainingScreen trainingScreen;
+	public static StatTrainingScreen trainingScreen;
 	public static SelectionScreen selectionScreen;
 	public static BattleScreen battleScreen;
 	public static RickyScreen shopScreen;
@@ -40,7 +41,7 @@ public class PokeStart extends GUIApplication {
 	public void initScreen() {
 		inventory = new Inventory();
 		loadScreen = new LoadScreen(getWidth(), getHeight());
-		trainingScreen = new TrainingScreen(getWidth(), getHeight());
+		trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());

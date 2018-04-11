@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Primarina,Water,Fairy,45,37,37,43,38,30,resources/water/Primarina.png
-=======
-Charmander,Fire,,30,23,14,54,21,2333
->>>>>>> refs/remotes/origin/develop
+Charmander,Fire,,30,23,14,54,21,2333,resources/fire/Charmander.png
 Growl,Normal,0,100,40,false
 Scratch,Normal,40,100,35,false
 Ember,Fire,40,100,25,true

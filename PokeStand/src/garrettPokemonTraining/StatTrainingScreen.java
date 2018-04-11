@@ -10,6 +10,7 @@ import guiTeacher.components.TextArea;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import startGame.PokeStart;
 import startupandMenuScreen.CustomRect;
 
 public class StatTrainingScreen extends FullFunctionScreen {
@@ -39,7 +40,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		CustomRect rect = new CustomRect(0,0,getWidth(),getHeight(),new Color(0,0,0,200));
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		viewObjects.add(battle);
-		p = PokemonTest.inventory.getPokemon();
+		p = PokeStart.inventory.getPokemon();
 		poke = new Graphic(75, 305, 300, 300,p.getImage());
 		viewObjects.add(poke);
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
