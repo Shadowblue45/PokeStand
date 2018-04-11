@@ -30,7 +30,7 @@ public class RickyScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		addItemsToArrayList();
+		addImages();
 		addBackgroundLabel(viewObjects);
 		addImagestoShop(viewObjects);
 		setPokemonFont(16);
@@ -40,9 +40,10 @@ public class RickyScreen extends FullFunctionScreen {
 		addPrices();
 		addPrices(viewObjects);
 		addQuantityMarkers(viewObjects);
+		itemQuantity(viewObjects);
 	}
 	
-	public void addItemsToArrayList() {
+	public void addImages() {
 		itemsInShop = new ArrayList<String>();
 		
 		itemsInShop.add("resources/ShopItems/Ether.png");
@@ -88,15 +89,15 @@ public class RickyScreen extends FullFunctionScreen {
 	public void addDescriptions() {
 		itemDesc = new ArrayList<String>();
 		
-		itemDesc.add("Restores 10 PP of a single move of a Pokémon");
-		itemDesc.add("Fully restores the PP of one of the player's selected Pokémon's move");
-		itemDesc.add("Fully heals any status problems that a Pokémon holds");
-		itemDesc.add("Fully restores the HP and heals any Status ailments of a Pokémon");
+		itemDesc.add("Restores 10 PP of a single move of a Pokemon");
+		itemDesc.add("Fully restores the PP of one of the player's selected Pokemon's move");
+		itemDesc.add("Fully heals any status problems that a Pokemon holds");
+		itemDesc.add("Fully restores the HP and heals any Status ailments of a Pokemon");
 		
-		itemDesc.add("Heals 20 HP of a Pokémon");
-		itemDesc.add("Heals 50 HP of a Pokémon");
-		itemDesc.add("Heals a Pokémon by 200 HP");		
-		itemDesc.add("Fully restores the HP of a Pokémon");
+		itemDesc.add("Heals 20 HP of a Pokemon");
+		itemDesc.add("Heals 50 HP of a Pokemon");
+		itemDesc.add("Heals a Pokemon by 200 HP");		
+		itemDesc.add("Fully restores the HP of a Pokemon");
 	}
 
 	public void addBackgroundLabel(List<Visible> viewObjects) {
@@ -243,7 +244,7 @@ public class RickyScreen extends FullFunctionScreen {
 	public void addQuantityMarkers(List<Visible> viewObjects) {
 		setPokemonGBFont(18);		 
 		 for(int i = 0; i < itemsInShop.size()/2; i++) {
-			 Button plus = new Button(325, 60 + i*150, 75, 125,"-",new Action() {
+			 Button minus = new Button(375, 60 + i*150, 35, 125,"-",new Action() {
 
 			@Override
 			public void act() {
@@ -252,11 +253,24 @@ public class RickyScreen extends FullFunctionScreen {
 			}
 
 		});
-			viewObjects.add(plus);
+			viewObjects.add(minus);
 		}
 		 
 		 for(int i = 0; i < itemsInShop.size()/2; i++) {
-			 Button plus = new Button(930, 60 + i*150, 75, 125,"-",new Action() {
+			 Button minus = new Button(995, 60 + i*150, 35, 125,"-",new Action() {
+
+			@Override
+			public void act() {
+				// TODO Auto-generated method stub
+				
+			}
+
+		});
+			viewObjects.add(minus);
+		}  
+		 
+		 for(int i = 0; i < itemsInShop.size()/2; i++) {
+			 Button plus = new Button(475, 60 + i*150, 35, 125,"+",new Action() {
 
 			@Override
 			public void act() {
@@ -269,20 +283,7 @@ public class RickyScreen extends FullFunctionScreen {
 		}  
 		 
 		 for(int i = 0; i < itemsInShop.size()/2; i++) {
-			 Button plus = new Button(525, 60 + i*150, 75, 125,"+",new Action() {
-
-			@Override
-			public void act() {
-				// TODO Auto-generated method stub
-				
-			}
-
-		});
-			viewObjects.add(plus);
-		}  
-		 
-		 for(int i = 0; i < itemsInShop.size()/2; i++) {
-			 Button plus = new Button(1150, 60 + i*150, 75, 125,"+",new Action() {
+			 Button plus = new Button(1100, 60 + i*150, 35, 125,"+",new Action() {
 
 			@Override
 			public void act() {
@@ -293,6 +294,24 @@ public class RickyScreen extends FullFunctionScreen {
 		});
 			viewObjects.add(plus);
 		}   
+	}
+
+	
+	public void itemQuantity(List<Visible> viewObjects){
+		int[] itemQuantity = new int[itemsInShop.size()];
+		for(int i = 0; i < itemsInShop.size()/2; i++) {
+			Button item = new Button(410, 60 + i*150, 75, 125, Integer.toString(itemQuantity[i]), null);
+			System.out.println(Integer.toString(itemQuantity[i]));
+			item.setEnabled(false);
+			viewObjects.add(item);
+		}
+		
+		for(int i = 0; i < itemsInShop.size()/2; i++) {
+			Button item = new Button(1030, 60 + i*150, 75, 125, Integer.toString(itemQuantity[i]), null);
+			System.out.println(Integer.toString(itemQuantity[i]));
+			item.setEnabled(false);
+			viewObjects.add(item);
+		}
 	}
 	
 	public int getDollars() {
