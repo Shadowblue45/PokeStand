@@ -2,6 +2,8 @@ package displayAbilities;
 
 import java.util.List;
 
+import guiTeacher.components.Graphic;
+import guiTeacher.components.StyledComponent;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
@@ -14,7 +16,9 @@ public class AbilityScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		// TODO Auto-generated method stub
+
+		Graphic background = new Graphic(100, 0, getWidth(),getHeight(), "resources/good.png");
+		viewObjects.add(background);
 		
 	}
 
