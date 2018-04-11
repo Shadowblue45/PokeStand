@@ -15,7 +15,8 @@ import java.awt.Font;
 import java.io.File;
 
 import audioPlayer.AudioTest;
-import battle.BattleScreen; 
+import battle.BattleScreen;
+import garrettPokemonTraining.Inventory; 
 
 public class PokeStart extends GUIApplication {
 	
@@ -26,6 +27,7 @@ public class PokeStart extends GUIApplication {
 	public static SelectionScreen selectionScreen;
 	public static BattleScreen battleScreen;
 	public static RickyScreen shopScreen;
+	public static Inventory inventory;
 	public static MainMenuScreen mainMenuScreen;
 	public static boolean mainScreen;
 
@@ -36,13 +38,14 @@ public class PokeStart extends GUIApplication {
 
 	@Override
 	public void initScreen() {
+		inventory = new Inventory();
 		loadScreen = new LoadScreen(getWidth(), getHeight());
 		trainingScreen = new TrainingScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());
 		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
-		battleScreen = new BattleScreen(getWidth(), getHeight());
+		//battleScreen = new BattleScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
 

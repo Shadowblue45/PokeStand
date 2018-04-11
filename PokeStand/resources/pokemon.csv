@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 Primarina,Water,Fairy,45,37,37,43,38,30,resources/water/Primarina.png
+=======
+Charmander,Fire,,30,23,14,54,21,2333
+>>>>>>> refs/remotes/origin/develop
 Growl,Normal,0,100,40,false
-Pound,Normal,40,100,35,false
-Water Gun,Water,40,100,25,true
-Disarming Voice,Fairy,40,101,15,true
+Scratch,Normal,40,100,35,false
+Ember,Fire,40,100,25,true
+Smokescreen,Normal,0,100,20,false

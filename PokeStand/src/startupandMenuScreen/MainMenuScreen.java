@@ -8,6 +8,7 @@ import java.lang.reflect.Array;
 import java.util.List;
 
 import audioPlayer.AudioTest;
+import garrettPokemonTraining.Inventory;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.CustomImageButton;
@@ -25,6 +26,8 @@ public class MainMenuScreen extends FullFunctionScreen {
 	private int yCord;
 	private Graphics2D g;
 	private int temp;
+	public static Graphic pokemon;
+	public static TextArea name;
 
 	public MainMenuScreen(int width, int height) {
 		super(width, height);
@@ -33,16 +36,25 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		System.out.println(PokeStart.inventory.pokemonImages[0]);
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
+		
+		String[] pokeNames = PokeStart.inventory.getNames();
+		String[] pokeLink = PokeStart.inventory.getPokemonImages();
+		
+		int nameLength = pokeNames[0].length();
+		
+		//setImages(viewObjects);
+		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
-		Graphic pokemon = new Graphic(880, 200, 400, 400, "resources/grass/Torterra.png");
+		pokemon = new Graphic(880, 200, 400, 400, pokeLink[0]);
 		PokeStart.setPokemonGBFont(100f);
 		TextArea daysNum = new TextArea(1050,40, 500, 300, "30");
-		PokeStart.setPokemonTextFont(32f);
-		TextArea name = new TextArea(10,20, 500, 300, "Torterra");
+		PokeStart.setPokemonTextFont(24f);
+		name = new TextArea(10,20, 500, 300, pokeNames[0]);
 		TextArea daysRemaining = new TextArea(1000,140, 500, 300, "Days Left");
 		viewObjects.add(background);
 		viewObjects.add(pokemon);
@@ -54,6 +66,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		daysRemaining.setCustomTextColor(Color.white);
 		name.setCustomTextColor(Color.white);
 		setMenuButtons(names, viewObjects);
+		pokemon.update();
 	}
 
 	public void setMenuButtons(String[] names, List<Visible> viewObjects) {
@@ -96,6 +109,12 @@ public class MainMenuScreen extends FullFunctionScreen {
 			button.update();
 			button.setForeground(Color.white);
 		}
+	}
+	
+	public void setImages(List<Visible> viewObjects) {
+		String[] images = PokeStart.inventory.getPokemonImages();
+		Graphic pokemon = new Graphic(880, 200, 400, 400, images[0]);
+		viewObjects.add(pokemon);
 	}
 
 }

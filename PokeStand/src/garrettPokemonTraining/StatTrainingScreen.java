@@ -156,35 +156,17 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void run() {
-				Graphic pow = new Graphic(750,100,200,200,"resources/bam.png");
-				viewObjects.add(pow);
-				try {
-					Thread.sleep(750);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				for(int i = 0; i < 5; i++) {
+					Graphic pow = new Graphic((int)(Math.random()*100) + 800,(int)(Math.random()*100) + 100,200,200,"resources/bam.png");
+					viewObjects.add(pow);
+					try {
+						Thread.sleep(250);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					viewObjects.remove(pow);
 				}
-				viewObjects.remove(pow);
-				pow.setX(pow.getX()+175);
-				pow.setY(pow.getY()+40);
-				viewObjects.add(pow);
-				try {
-					Thread.sleep(750);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				viewObjects.remove(pow);
-				pow.setX(pow.getX()-75);
-				pow.setY(pow.getY()+20);
-				viewObjects.add(pow);
-				try {
-					Thread.sleep(750);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				viewObjects.remove(pow);
 				if(s.equals("atk")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
 							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
