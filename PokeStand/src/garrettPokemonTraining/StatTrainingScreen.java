@@ -156,6 +156,11 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void run() {
+				attack.setEnabled(false);
+				defense.setEnabled(false);
+				sAttack.setEnabled(false);
+				sDefense.setEnabled(false);
+				speed.setEnabled(false);
 				for(int i = 0; i < 5; i++) {
 					Graphic pow = new Graphic((int)(Math.random()*100) + 800,(int)(Math.random()*100) + 100,200,200,"resources/bam.png");
 					viewObjects.add(pow);
@@ -180,7 +185,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("atk");
-					setInfoText();
 				}
 				if(s.equals("def")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
@@ -195,7 +199,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("def");
-					setInfoText();
 				}
 				if(s.equals("sAtk")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
@@ -210,7 +213,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("sAtk");
-					setInfoText();
 				}
 				if(s.equals("sDef")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
@@ -225,7 +227,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("sDef");
-					setInfoText();
 				}
 				if(s.equals("spd")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
@@ -240,8 +241,14 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("spd");
-					setInfoText();
 				}
+				setInfoText();
+				attack.setEnabled(true);
+				defense.setEnabled(true);
+				sAttack.setEnabled(true);
+				sDefense.setEnabled(true);
+				speed.setEnabled(true);
+				
 			}
 			
 		});
