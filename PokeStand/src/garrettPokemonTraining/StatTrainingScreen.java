@@ -7,7 +7,6 @@ import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
-import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import startGame.PokeStart;
@@ -42,7 +41,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		viewObjects.add(battle);
 		p = PokeStart.inventory.getPokemon();
-		poke = new Graphic(75, 305, 300, 300,p.getImage());
+		poke = new Graphic(175, 305, 300, 300,p.getImage());
 		viewObjects.add(poke);
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
@@ -60,7 +59,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		start.setBackground(Color.WHITE);
 		start.update();
 		viewObjects.add(start);
-		info = new TextArea(400,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+		info = new TextArea(500,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
 				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
@@ -104,6 +103,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			public void act() {
 				// TODO Auto-generated method stub
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+				PokeStart.mainScreen = !PokeStart.mainScreen;
 			}
 			
 		});
@@ -117,7 +117,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(attack);
-		defense = new Button(300,600,100,50,"Defense",new Action() {
+		defense = new Button(350,600,100,50,"Defense",new Action() {
 
 			@Override
 			public void act() {
@@ -126,7 +126,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(defense);
-		sAttack = new Button(500,600,100,50,"Sp. Atk",new Action() {
+		sAttack = new Button(600,600,100,50,"Sp. Atk",new Action() {
 
 			@Override
 			public void act() {
@@ -135,7 +135,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(sAttack);
-		sDefense = new Button(700,600,100,50,"Sp. Def",new Action() {
+		sDefense = new Button(850,600,100,50,"Sp. Def",new Action() {
 
 			@Override
 			public void act() {
@@ -144,7 +144,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(sDefense);
-		speed = new Button(900,600,100,50,"Speed",new Action() {
+		speed = new Button(1100,600,100,50,"Speed",new Action() {
 
 			@Override
 			public void act() {
