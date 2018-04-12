@@ -32,7 +32,7 @@ public class LoadScreen extends FullFunctionScreen {
 
 	
 	public void initAllObjects(List<Visible> viewObjects) {
-		AudioTest.playSound("resources/Pokemon.wav");
+		AudioTest.playSound("resources/Lavender Town.wav");
 		PokeStart.setPokemonHollowFont(100f);
 		String txt = "Pokemon Rivalry";
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/open field.jpg");
