@@ -1,4 +1,4 @@
-Charmander,Fire,,30,23,14,54,21,2333
+Charmander,Fire,,30,23,14,54,21,2333,resources/fire/Charmander.png
 Growl,Normal,0,100,40,false
 Scratch,Normal,40,100,35,false
 Ember,Fire,40,100,25,true

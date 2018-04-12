@@ -9,6 +9,7 @@ import java.util.List;
 
 import audioPlayer.AudioTest;
 import garrettPokemonTraining.Inventory;
+import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.CustomImageButton;
@@ -26,6 +27,8 @@ public class MainMenuScreen extends FullFunctionScreen {
 	private int yCord;
 	private Graphics2D g;
 	private int temp;
+	private TextArea info;
+	public static Pokemon p;
 	public static Graphic pokemon;
 	public static TextArea name;
 
@@ -44,27 +47,40 @@ public class MainMenuScreen extends FullFunctionScreen {
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		
-		int nameLength = pokeNames[0].length();
 		
-		//setImages(viewObjects);
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
 		pokemon = new Graphic(880, 200, 400, 400, pokeLink[0]);
-		PokeStart.setPokemonGBFont(100f);
-		TextArea daysNum = new TextArea(1050,40, 500, 300, "30");
-		PokeStart.setPokemonTextFont(24f);
+		PokeStart.setPokemonSunFont(100f);
+		TextArea daysNum = new TextArea(1050,10, 500, 300, "30");
+		PokeStart.setPokemonTextFont(26f);
 		name = new TextArea(10,20, 500, 300, pokeNames[0]);
-		TextArea daysRemaining = new TextArea(1000,140, 500, 300, "Days Left");
+		TextArea daysRemaining = new TextArea(1000,110, 500, 300, "Days Left");
+		
+		//====================================================================
+		PokeStart.setPokemonSunFont(18f);
+		p = PokeStart.inventory.getPokemon();
+
+		info = new TextArea(10,60,500,360,"Type1: " + p.getType1() + "\n" +
+				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+				"Spd: " + p.getSpd() + "\n");
+		
+		//====================================================================
+		
 		viewObjects.add(background);
 		viewObjects.add(pokemon);
 		createBlackBackground(viewObjects);
 		viewObjects.add(name);
+		viewObjects.add(info);
 		viewObjects.add(daysNum);
 		viewObjects.add(daysRemaining);
 		daysNum.setCustomTextColor(Color.white);
 		daysRemaining.setCustomTextColor(Color.white);
 		name.setCustomTextColor(Color.white);
+		info.setCustomTextColor(Color.white);
 		setMenuButtons(names, viewObjects);
 		pokemon.update();
 	}
@@ -78,11 +94,11 @@ public class MainMenuScreen extends FullFunctionScreen {
 	
 	public void createBlackBackground(List<Visible> viewObjects) {
 		CustomRect rect = new CustomRect(0,yCord-20,getWidth(),120);
-		CustomRect square = new CustomRect(980,0,300,200);
+		//CustomRect square = new CustomRect(980,0,300,200);
 		CustomRect textArea = new CustomRect(0,0,250,400);
-		CustomRect fatigueArea = new CustomRect(250,0,730,150);
+		CustomRect fatigueArea = new CustomRect(250,0,1030,150);
 		viewObjects.add(rect);
-		viewObjects.add(square);
+		//viewObjects.add(square);
 		viewObjects.add(textArea);
 		viewObjects.add(fatigueArea);
 	}
@@ -109,12 +125,6 @@ public class MainMenuScreen extends FullFunctionScreen {
 			button.update();
 			button.setForeground(Color.white);
 		}
-	}
-	
-	public void setImages(List<Visible> viewObjects) {
-		String[] images = PokeStart.inventory.getPokemonImages();
-		Graphic pokemon = new Graphic(880, 200, 400, 400, images[0]);
-		viewObjects.add(pokemon);
 	}
 
 }
