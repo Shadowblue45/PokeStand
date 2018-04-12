@@ -45,7 +45,6 @@ public class StartScreen extends FullFunctionScreen{
 			
 			public void act() {
 				PokeStart.start.setScreen(PokeStart.loadScreen);
-				AudioTest.playSound("resources/Pokemon.wav");
 			}
 		});
 		viewObjects.add(startGameButton);
