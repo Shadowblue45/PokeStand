@@ -132,8 +132,11 @@ public class RickyScreen extends FullFunctionScreen {
 
 				@Override
 				public void act() {
-					// TODO Auto-generated method stub
-				
+					if(getDollars() > priceAmount.get(i)) {
+						setDollars(getDollars() - priceAmount.get(i));
+						
+						
+					}
 				}
 
 			});
