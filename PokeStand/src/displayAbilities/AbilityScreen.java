@@ -16,8 +16,9 @@ public class AbilityScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		
 
-		Graphic background = new Graphic(0, 0, getWidth()*2,getHeight(), "resources/template.png");
+		Graphic background = new Graphic(0, 0, 1280,720, "resources/template.png");
 		viewObjects.add(background);
 		
 	}
