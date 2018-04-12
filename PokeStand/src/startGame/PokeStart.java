@@ -119,5 +119,16 @@ public class PokeStart extends GUIApplication {
 		e.printStackTrace();
 		}
 	}
+	
+	public static void setPokemonSunFont(float f) {
+		try {
+		File fontFile = new File("resources/Pokemon Sun.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+		Font baseFont=font.deriveFont(f);
+		StyledComponent.setBaseFont(baseFont);
+	} catch (Exception e) {
+		e.printStackTrace();
+		}
+	}
 
 }
