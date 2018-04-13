@@ -202,7 +202,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Chimchar", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Chimchar.png");
+				PokeStart.inventory.setPokemon("Chimchar", "Fire", "", 30, 23, 14, 54, 21, 23, "resources/fire/Chimchar.png");
 				String[] F1= {"Chimchar","Monferno","Infernape"};
 				String[] FP1 = {"resources/fire/Chimchar.png","resources/fire/Monferno.png","resources/fire/Infernape.png"};
 				MainMenuScreen.name.setText(F1[0]);
@@ -249,7 +249,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Cyndaquil", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Cyndaquil.png");
+				PokeStart.inventory.setPokemon("Cyndaquil", "Fire", "", 30, 23, 14, 54, 21, 13, "resources/fire/Cyndaquil.png");
 				String[] F1= {"Cyndaquil","Quilava","Typhlosion"};
 				String[] FP1 = {"resources/fire/Cyndaquil.png","resources/fire/Quilava.png","resources/fire/Typhlosion.png"};
 				MainMenuScreen.name.setText(F1[0]);
@@ -297,7 +297,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Froakie", "Water", "", 30, 23, 14, 54, 21, 2333, "resources/water/Froakie.png");
+				PokeStart.inventory.setPokemon("Froakie", "Water", "", 30, 23, 14, 54, 21, 22, "resources/water/Froakie.png");
 				String[] F1= {"Froakie","Frogadier","Greninja"};
 				String[] FP1 = {"resources/water/Froakie.png","resources/water/Frogadier.png","resources/water/Greninja.png"};
 				MainMenuScreen.name.setText(F1[0]);
@@ -345,7 +345,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Popplio", "Water", "", 30, 23, 14, 54, 21, 2333, "resources/water/Popplio.png");
+				PokeStart.inventory.setPokemon("Popplio", "Water", "", 30, 23, 14, 54, 21, 24, "resources/water/Popplio.png");
 				String[] F1= {"Popplio","Brionne","Primarina"};
 				String[] FP1 = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
 				MainMenuScreen.name.setText(F1[0]);
@@ -392,7 +392,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Mudkip", "Water", "", 30, 23, 14, 54, 21, 2333, "resources/water/Mudkip.png");
+				PokeStart.inventory.setPokemon("Mudkip", "Water", "", 30, 23, 14, 54, 21, 22, "resources/water/Mudkip.png");
 				String[] F1= {"Mudkip","Marshtomp","Swampert"};
 				String[] FP1 = {"resources/water/Mudkip.png","resources/water/Marshtomp.png","resources/water/Swampert.png"};
 				MainMenuScreen.name.setText(F1[0]);
