@@ -42,6 +42,6 @@ public class BattleStart extends GUIApplication {
 		start = new BattleStart(1280, 720);
 		Thread go = new Thread(start);
 		go.start();
-		AudioTest.changeVolume(.6);
+		
 	}
 }
