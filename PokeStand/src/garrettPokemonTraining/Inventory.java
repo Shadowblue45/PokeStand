@@ -16,7 +16,7 @@ public class Inventory {
 	private int fatigue;
 
 	public Inventory() {
-		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20, "resources/water/Popplio.png");
+		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20, "resources/water/popplio.png");
 	}
 
 	public void save() {
@@ -60,7 +60,7 @@ public class Inventory {
 					pokemon.setImage(param[9]);
 				}
 				else {
-					//PokemonTest.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
+					//PokeStart.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
 				}
 			}
 			br.close();

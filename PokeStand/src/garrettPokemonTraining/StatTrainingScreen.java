@@ -7,7 +7,6 @@ import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
-import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import startGame.PokeStart;
@@ -20,6 +19,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	private Button evolveButton;
 	private Button saveButton;
 	private Button loadButton;
+	private Button backButton;
 	private TextArea info;
 	private Graphic poke;
 	private Pokemon p;
@@ -36,12 +36,12 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		PokemonTest.setPokemonFont(20);
+		PokeStart.setPokemonFont(20);
 		CustomRect rect = new CustomRect(0,0,getWidth(),getHeight(),new Color(0,0,0,200));
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		viewObjects.add(battle);
 		p = PokeStart.inventory.getPokemon();
-		poke = new Graphic(75, 305, 300, 300,p.getImage());
+		poke = new Graphic(175, 305, 300, 300,p.getImage());
 		viewObjects.add(poke);
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
@@ -59,7 +59,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		start.setBackground(Color.WHITE);
 		start.update();
 		viewObjects.add(start);
-		info = new TextArea(400,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+		info = new TextArea(500,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
 				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
@@ -80,7 +80,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				PokemonTest.inventory.save();
+				PokeStart.inventory.save();
 			}
 			
 		});
@@ -90,13 +90,24 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("Loading...");
-				PokemonTest.inventory.load();
+				PokeStart.inventory.load();
 				setInfoText();
 				poke.loadImages(p.getImage(), 300, 300);
 			}
 			
 		});
 		viewObjects.add(loadButton);
+		backButton = new Button(25,25,100,50,"Back", new Action() {
+
+			@Override
+			public void act() {
+				// TODO Auto-generated method stub
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+				PokeStart.mainScreen = !PokeStart.mainScreen;
+			}
+			
+		});
+		viewObjects.add(backButton);
 		attack = new Button(100,600,100,50,"Attack",new Action() {
 
 			@Override
@@ -106,7 +117,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(attack);
-		defense = new Button(300,600,100,50,"Defense",new Action() {
+		defense = new Button(350,600,100,50,"Defense",new Action() {
 
 			@Override
 			public void act() {
@@ -115,7 +126,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(defense);
-		sAttack = new Button(500,600,100,50,"Sp. Atk",new Action() {
+		sAttack = new Button(600,600,100,50,"Sp. Atk",new Action() {
 
 			@Override
 			public void act() {
@@ -124,7 +135,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(sAttack);
-		sDefense = new Button(700,600,100,50,"Sp. Def",new Action() {
+		sDefense = new Button(850,600,100,50,"Sp. Def",new Action() {
 
 			@Override
 			public void act() {
@@ -133,7 +144,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			
 		});
 		viewObjects.add(sDefense);
-		speed = new Button(900,600,100,50,"Speed",new Action() {
+		speed = new Button(1100,600,100,50,"Speed",new Action() {
 
 			@Override
 			public void act() {
@@ -157,6 +168,11 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void run() {
+				attack.setEnabled(false);
+				defense.setEnabled(false);
+				sAttack.setEnabled(false);
+				sDefense.setEnabled(false);
+				speed.setEnabled(false);
 				for(int i = 0; i < 5; i++) {
 					Graphic pow = new Graphic((int)(Math.random()*100) + 800,(int)(Math.random()*100) + 100,200,200,"resources/bam.png");
 					viewObjects.add(pow);
@@ -181,7 +197,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("atk");
-					setInfoText();
 				}
 				if(s.equals("def")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
@@ -196,7 +211,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("def");
-					setInfoText();
 				}
 				if(s.equals("sAtk")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
@@ -211,7 +225,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("sAtk");
-					setInfoText();
 				}
 				if(s.equals("sDef")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
@@ -226,7 +239,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("sDef");
-					setInfoText();
 				}
 				if(s.equals("spd")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
@@ -241,8 +253,14 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					p.trainStat("spd");
-					setInfoText();
 				}
+				setInfoText();
+				attack.setEnabled(true);
+				defense.setEnabled(true);
+				sAttack.setEnabled(true);
+				sDefense.setEnabled(true);
+				speed.setEnabled(true);
+				
 			}
 			
 		});

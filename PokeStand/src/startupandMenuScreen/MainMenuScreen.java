@@ -27,7 +27,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 	private int yCord;
 	private Graphics2D g;
 	private int temp;
-	private TextArea info;
+	public static TextArea info;
 	public static Pokemon p;
 	public static Graphic pokemon;
 	public static TextArea name;
@@ -51,7 +51,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
-		pokemon = new Graphic(880, 200, 400, 400, pokeLink[0]);
+		pokemon = new Graphic(440, 200, 400, 400, pokeLink[0]);
 		PokeStart.setPokemonSunFont(100f);
 		TextArea daysNum = new TextArea(1050,10, 500, 300, "30");
 		PokeStart.setPokemonTextFont(26f);
