@@ -19,8 +19,9 @@ public class RickyScreen extends FullFunctionScreen {
 
 	private ArrayList<String> itemsInShop;
 	private ArrayList<String> itemDesc;
-	private int dollars = 200;
+	private int dollars;
 	private ArrayList<Integer> priceAmount;
+	private int[] itemQuantity;
 	
 	private static final long serialVersionUID = 5855860528658762993L;
 
@@ -30,6 +31,7 @@ public class RickyScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		dollars = 2000;
 		addImages();
 		addBackgroundLabel(viewObjects);
 		addImagestoShop(viewObjects);
@@ -39,7 +41,7 @@ public class RickyScreen extends FullFunctionScreen {
 		setPokemonGBFont(13);
 		addPrices();
 		addPrices(viewObjects);
-		addQuantityMarkers(viewObjects);
+		//addQuantityMarkers(viewObjects);
 		itemQuantity(viewObjects);
 	}
 	
@@ -128,14 +130,14 @@ public class RickyScreen extends FullFunctionScreen {
 	
 	public void addButtons(List<Visible> viewObjects) {
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
+			int j = i;
 			Button b = new Button(375, 25 + i*150, 75, 125,"Buy",new Action() {
 
 				@Override
 				public void act() {
-					if(getDollars() > priceAmount.get(i)) {
-						setDollars(getDollars() - priceAmount.get(i));
-						
-						
+					if(getDollars() > priceAmount.get(j)) {
+						setDollars(getDollars() - priceAmount.get(j));
+						itemQuantity[j]++;
 					}
 				}
 
@@ -260,7 +262,7 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 		 
 		 for(int i = 0; i < itemsInShop.size()/2; i++) {
-			 Button minus = new Button(995, 60 + i*150, 35, 125,"-",new Action() {
+			 Button minus = new Button(1000, 60 + i*150, 35, 125,"-",new Action() {
 
 			@Override
 			public void act() {
@@ -285,7 +287,7 @@ public class RickyScreen extends FullFunctionScreen {
 			viewObjects.add(plus);
 		}  
 		 
-		 for(int i = 0; i < itemsInShop.size()/2; i++) {
+		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			 Button plus = new Button(1100, 60 + i*150, 35, 125,"+",new Action() {
 
 			@Override
@@ -299,19 +301,16 @@ public class RickyScreen extends FullFunctionScreen {
 		}   
 	}
 
-	
 	public void itemQuantity(List<Visible> viewObjects){
 		int[] itemQuantity = new int[itemsInShop.size()];
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			Button item = new Button(410, 60 + i*150, 75, 125, Integer.toString(itemQuantity[i]), null);
-			System.out.println(Integer.toString(itemQuantity[i]));
 			item.setEnabled(false);
 			viewObjects.add(item);
 		}
 		
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			Button item = new Button(1030, 60 + i*150, 75, 125, Integer.toString(itemQuantity[i]), null);
-			System.out.println(Integer.toString(itemQuantity[i]));
 			item.setEnabled(false);
 			viewObjects.add(item);
 		}
