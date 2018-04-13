@@ -5,17 +5,18 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Inventory {
 	
-	private Pokemon pokemon;
-	private String[] pokemonForms = {"Popplio","Brionne","Primarina"};
-	private String[] pokemonImages = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
+	public static Pokemon pokemon;
+	public static String[] pokemonForms = {"Popplio","Brionne","Primarina"};
+	public static String[] pokemonImages = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
 	private int abilityPoints;
 	private int fatigue;
 
 	public Inventory() {
-		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20);
+		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20, "resources/water/Popplio.png");
 	}
 
 	public void save() {
@@ -23,7 +24,7 @@ public class Inventory {
 			FileWriter fw=new FileWriter("resources/pokemon.csv");
 			fw.write(pokemon.getName()+","+ pokemon.getType1() +","+pokemon.getType2()+
 					","+Integer.toString(pokemon.getHp())+","+Integer.toString(pokemon.getAtk())+","+Integer.toString(pokemon.getDef())
-					+","+Integer.toString(pokemon.getsAtk())+","+Integer.toString(pokemon.getsDef())+","+Integer.toString(pokemon.getSpd())+"\n");
+					+","+Integer.toString(pokemon.getsAtk())+","+Integer.toString(pokemon.getsDef())+","+Integer.toString(pokemon.getSpd())+","+pokemon.getImage()+"\n");
 			for(Move m: pokemon.getMoves()){
 				fw.write(m+"\n");    	
 			}
@@ -46,7 +47,7 @@ public class Inventory {
 
 
 				String[] param = line.split(",");
-				if(param.length == 9) {
+				if(param.length == 10) {
 					pokemon.setName(param[0]);
 					pokemon.setType1(param[1]);
 					pokemon.setType2(param[2]);
@@ -56,6 +57,7 @@ public class Inventory {
 					pokemon.setsAtk(Integer.parseInt(param[6]));
 					pokemon.setsDef(Integer.parseInt(param[7]));
 					pokemon.setSpd(Integer.parseInt(param[8]));
+					pokemon.setImage(param[9]);
 				}
 				else {
 					//PokemonTest.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
@@ -100,21 +102,21 @@ public class Inventory {
 		return pokemon;
 	}
 	
-	public void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd) {
-		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd);
+	public void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd, String url) {
+		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd, url);
 	}
 	
-	public String getPicture(int n) {
-		return pokemonImages[n];
+	public String[] getPokemonImages() {
+		return pokemonImages;
 	}
 	
-	public void setImages(String[] pics) {
+	public static void setImages(String[] pics) {
 		for(int i = 0; i < pics.length; i++) {
 			pokemonImages[i] = pics[i];
 		}
 	}
 	
-	public void setNames(String[] names) {
+	public static void setNames(String[] names) {
 		for(int i = 0; i < names.length; i++) {
 			pokemonForms[i] = names[i];
 		}

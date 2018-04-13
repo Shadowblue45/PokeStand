@@ -15,17 +15,20 @@ import java.awt.Font;
 import java.io.File;
 
 import audioPlayer.AudioTest;
-import battle.BattleScreen; 
+import battle.BattleScreen;
+import garrettPokemonTraining.Inventory;
+import garrettPokemonTraining.StatTrainingScreen; 
 
 public class PokeStart extends GUIApplication {
 	
 	public static LoadScreen loadScreen;
 	public static PokeStart start;
 	public static StartScreen startScreen;
-	public static TrainingScreen trainingScreen;
+	public static StatTrainingScreen trainingScreen;
 	public static SelectionScreen selectionScreen;
 	public static BattleScreen battleScreen;
 	public static RickyScreen shopScreen;
+	public static Inventory inventory;
 	public static MainMenuScreen mainMenuScreen;
 	public static boolean mainScreen;
 
@@ -36,13 +39,14 @@ public class PokeStart extends GUIApplication {
 
 	@Override
 	public void initScreen() {
+		inventory = new Inventory();
 		loadScreen = new LoadScreen(getWidth(), getHeight());
-		trainingScreen = new TrainingScreen(getWidth(), getHeight());
+		trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());
 		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
-		battleScreen = new BattleScreen(getWidth(), getHeight());
+		//battleScreen = new BattleScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
 
@@ -108,6 +112,17 @@ public class PokeStart extends GUIApplication {
 	public static void setPokemonHollowFont(float f) {
 		try {
 		File fontFile = new File("resources/Pokemon Hollow.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+		Font baseFont=font.deriveFont(f);
+		StyledComponent.setBaseFont(baseFont);
+	} catch (Exception e) {
+		e.printStackTrace();
+		}
+	}
+	
+	public static void setPokemonSunFont(float f) {
+		try {
+		File fontFile = new File("resources/Pokemon Sun.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(f);
 		StyledComponent.setBaseFont(baseFont);

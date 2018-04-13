@@ -1,5 +1,6 @@
 package garrettPokemonTraining;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Pokemon {
@@ -13,14 +14,15 @@ public class Pokemon {
 	private int sAtk;
 	private int sDef;
 	private int spd;
+	private String image;
 	private ArrayList<Move> moves;
 	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
 	private String[] secondTypes = {"Ground","Flying","Fighting","Fairy","Dark","Ground"};
-//	private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
-//	private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
-//	private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
+	//private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
+	//private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
+	//private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
 
-	public Pokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd) {
+	public Pokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd, String url) {
 		setName(name);
 		setType1(type1);
 		setType2(type2);
@@ -31,10 +33,20 @@ public class Pokemon {
 		setsDef(sDef);
 		setSpd(spd);
 		setMoves();
+		setImage(url);
+	}
+
+	public void setImage(String s) {
+		image = s;
+	}
+
+	public String getImage() {
+		return image;
 	}
 
 	public void evolve() {
 		String[] pokemonNames = PokemonTest.inventory.getNames();
+		System.out.println(Arrays.toString(pokemonNames));
 		if(PokemonTest.inventory.getNameIndex() < 2) {
 			for(int i = 0; i < twoTypePokemon.length; i++) {
 				if(pokemonNames[PokemonTest.inventory.getNameIndex() + 1].equals(twoTypePokemon[i])) {
@@ -44,6 +56,7 @@ public class Pokemon {
 			increaseStats();
 			setName(pokemonNames[PokemonTest.inventory.getNameIndex() + 1]);
 		}
+		setImage(PokemonTest.inventory.getPokemonImages()[PokemonTest.inventory.getNameIndex()]);
 	}
 
 	public void increaseStats() {
@@ -53,6 +66,25 @@ public class Pokemon {
 		setsAtk(getsAtk() + 5);
 		setsDef(getsDef() + 5);
 		setSpd(getSpd() + 5);
+	}
+	
+	public void trainStat(String s) {
+		setHp(getHp() + 1);
+		if(s.equals("atk")) {
+			setAtk(getAtk() + 3);
+		}
+		if(s.equals("def")) {
+			setDef(getDef() + 3);
+		}
+		if(s.equals("sAtk")) {
+			setsAtk(getsAtk() + 3);
+		}
+		if(s.equals("sDef")) {
+			setsDef(getsDef() + 3);
+		}
+		if(s.equals("spd")) {
+			setSpd(getSpd() + 3);
+		}
 	}
 
 	public void setMoves() {
