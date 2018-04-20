@@ -158,8 +158,8 @@ public class SelectionScreen extends FullFunctionScreen {
 			public void act() {
 				//System.out.println("YES");
 				PokeStart.inventory.setPokemon("Charmander", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Charmander.png");
-				String[] F1= {"Charmander","Charmeleon","Charzard"};
-				String[] FP1 = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charzard.png"};
+				String[] F1= {"Charmander","Charmeleon","Charizard"};
+				String[] FP1 = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charizard.png"};
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
