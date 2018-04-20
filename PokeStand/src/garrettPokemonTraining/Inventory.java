@@ -10,13 +10,13 @@ import java.util.Arrays;
 public class Inventory {
 	
 	public static Pokemon pokemon;
-	public static String[] pokemonForms = {"Popplio","Brionne","Primarina"};
-	public static String[] pokemonImages = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
+	public static String[] pokemonForms = {"Charmander","Charmeleon","Charizard"};
+	public static String[] pokemonImages = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charizard.png"};
 	private int abilityPoints;
 	private int fatigue;
 
 	public Inventory() {
-		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20, "resources/water/popplio.png");
+		setPokemon("Charmander", "Fire", "-", 25,27,27,33,28,20, "resources/fire/Charmander.png");
 	}
 
 	public void save() {

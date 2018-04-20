@@ -14,14 +14,14 @@ import startupandMenuScreen.CustomRect;
 
 public class StatTrainingScreen extends FullFunctionScreen {
 
-	private Graphic target;
+	public static Graphic target;
 	private Button start;
 	private Button evolveButton;
 	private Button saveButton;
 	private Button loadButton;
 	private Button backButton;
-	private TextArea info;
-	private Graphic poke;
+	public static TextArea info;
+	public static Graphic poke;
 	private Pokemon p;
 	private Button attack;
 	private Button defense;
@@ -163,6 +163,10 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				"Spd: " + p.getSpd() + "\n");
 	}
 	
+	public void updatePokemon() {
+		p = PokeStart.inventory.getPokemon();
+	}
+	
 	public void setTrainedInfoStat(String s, List<Visible> viewObjects) {
 		Thread train = new Thread(new Runnable() {
 
@@ -173,6 +177,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				sAttack.setEnabled(false);
 				sDefense.setEnabled(false);
 				speed.setEnabled(false);
+				saveButton.setEnabled(false);
+				loadButton.setEnabled(false);
+				backButton.setEnabled(false);
 				for(int i = 0; i < 5; i++) {
 					Graphic pow = new Graphic((int)(Math.random()*100) + 800,(int)(Math.random()*100) + 100,200,200,"resources/bam.png");
 					viewObjects.add(pow);
@@ -260,7 +267,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				sAttack.setEnabled(true);
 				sDefense.setEnabled(true);
 				speed.setEnabled(true);
-				
+				saveButton.setEnabled(true);
+				loadButton.setEnabled(true);
+				backButton.setEnabled(true);
 			}
 			
 		});
