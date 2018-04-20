@@ -14,7 +14,7 @@ import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 
 import guiTeacher.userInterfaces.FullFunctionScreen;
-
+ 
 public class RickyScreen extends FullFunctionScreen {
 
 	private ArrayList<String> itemsInShop;
@@ -22,6 +22,7 @@ public class RickyScreen extends FullFunctionScreen {
 	private int dollars;
 	private ArrayList<Integer> priceAmount;
 	private int[] itemQuantity;
+	public static Button z;
 	
 	private static final long serialVersionUID = 5855860528658762993L;
 
@@ -42,7 +43,7 @@ public class RickyScreen extends FullFunctionScreen {
 		addPrices();
 		addPrices(viewObjects);
 		//addQuantityMarkers(viewObjects);
-		itemQuantity(viewObjects);
+		instanitatingArray(viewObjects);
 	}
 	
 	public void addImages() {
@@ -57,6 +58,7 @@ public class RickyScreen extends FullFunctionScreen {
 		itemsInShop.add("resources/ShopItems/SuperPotion.png");
 		itemsInShop.add("resources/ShopItems/HyperPotion.png");		
 		itemsInShop.add("resources/ShopItems/MaxPotion.png");
+		itemQuantity = new int[itemsInShop.size()];
 	}
 	
 	public void addImagestoShop(List<Visible> viewObjects) {
@@ -122,10 +124,10 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 		StyledComponent.setButtonOutline(false);
 		setPokemonFont(18);
-		Button b = new Button(1175,10,100,50,Integer.toString(getDollars()),null);
-		b.setEnabled(false);
-		b.update();
-		viewObjects.add(b);
+		z = new Button(1175,10,100,50,Integer.toString(getDollars()),null);
+		z.setEnabled(false);
+		z.update();
+		viewObjects.add(z);
 	}
 	
 	public void addButtons(List<Visible> viewObjects) {
@@ -135,9 +137,16 @@ public class RickyScreen extends FullFunctionScreen {
 
 				@Override
 				public void act() {
+					System.out.println(priceAmount.get(j));
 					if(getDollars() > priceAmount.get(j)) {
 						setDollars(getDollars() - priceAmount.get(j));
+						System.out.println(getDollars());
 						itemQuantity[j]++;
+						z.setText(Integer.toString(getDollars()));
+						z.update();
+						item.setText(Integer.toString(itemQuantity[j]));
+						item.update();
+						
 					}
 				}
 
@@ -146,36 +155,43 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 		
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
-			Button b = new Button(500, 25 + i*150, 75, 125,"Sell",new Action() {
-				
+			int j = i;
+			Button b = new Button(500, 25 + i*150, 75, 125,"Sell",new Action() {	
 				@Override
 				public void act() {
-					// TODO Auto-generated method stub
-					
+					if(itemQuantity[j] > 1) {
+						setDollars(getDollars() + priceAmount.get(j));
+						itemQuantity[j]--;
+					}
 				}
 			});
 			viewObjects.add(b);
 		}
 		
 		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
+			int j = i;
 			Button b = new Button(980, -575 + i*150, 75, 125,"Buy", new Action() {
-				
 				@Override
 				public void act() {
-					// TODO Auto-generated method stub
-			    	
+					if(getDollars() > priceAmount.get(j)) {
+						setDollars(getDollars() - priceAmount.get(j));
+						itemQuantity[j]++;
+					}
 				}
 			});
 			viewObjects.add(b);
 		}
 		
 		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
+			int j = i;
 			Button b = new Button(1105, -575 + i*150, 75, 125,"Sell", new Action() {
 				
 				@Override
 				public void act() {
-					// TODO Auto-generated method stub
-					
+					if(itemQuantity[j] > 1) {
+						setDollars(getDollars() + priceAmount.get(j));
+						itemQuantity[j]--;
+					}
 				}
 			});
 			viewObjects.add(b);
@@ -301,15 +317,14 @@ public class RickyScreen extends FullFunctionScreen {
 		}   
 	}
 
-	public void itemQuantity(List<Visible> viewObjects){
-		int[] itemQuantity = new int[itemsInShop.size()];
+	public void instanitatingArray(List<Visible> viewObjects){
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			Button item = new Button(410, 60 + i*150, 75, 125, Integer.toString(itemQuantity[i]), null);
 			item.setEnabled(false);
 			viewObjects.add(item);
 		}
 		
-		for(int i = 0; i < itemsInShop.size()/2; i++) {
+		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
 			Button item = new Button(1030, 60 + i*150, 75, 125, Integer.toString(itemQuantity[i]), null);
 			item.setEnabled(false);
 			viewObjects.add(item);
