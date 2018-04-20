@@ -166,11 +166,13 @@ public class SelectionScreen extends FullFunctionScreen {
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
 				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
 				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.updatePokemon();
 				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
 						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +

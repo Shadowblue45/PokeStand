@@ -22,7 +22,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	private Button backButton;
 	public static TextArea info;
 	public static Graphic poke;
-	private Pokemon p;
+	private static Pokemon p;
 	private Button attack;
 	private Button defense;
 	private Button sAttack;
@@ -161,6 +161,10 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 				"Spd: " + p.getSpd() + "\n");
+	}
+	
+	public static void updatePokemon() {
+		p = PokeStart.inventory.getPokemon();
 	}
 	
 	public void setTrainedInfoStat(String s, List<Visible> viewObjects) {
