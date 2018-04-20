@@ -40,6 +40,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		CustomRect rect = new CustomRect(0,0,getWidth(),getHeight(),new Color(0,0,0,200));
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		viewObjects.add(battle);
+		poke = new Graphic(175, 305, 300, 300,"resources/fire/Charmander.png");
+		viewObjects.add(poke);
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
 		viewObjects.add(rect);
@@ -56,16 +58,17 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		start.setBackground(Color.WHITE);
 		start.update();
 		viewObjects.add(start);
-		info = new TextArea(500,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-				"Spd: " + p.getSpd() + "\n");
-		viewObjects.add(info);
+//		info = new TextArea(500,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+//				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+//				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+//				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+//				"Spd: " + p.getSpd() + "\n");
+//		viewObjects.add(info);
 		evolveButton = new Button(75,200,100,50,"Evolve", new Action() {
 
 			@Override
 			public void act() {
+				updatePokemon();
 				p.evolve();
 				setInfoText();
 				poke.loadImages(p.getImage(), 300, 300);
@@ -153,6 +156,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	}
 	
 	public void setInfoText() {
+		updatePokemon();
 		info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
 				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
