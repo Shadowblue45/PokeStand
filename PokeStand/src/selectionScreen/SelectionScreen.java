@@ -8,6 +8,7 @@ import java.util.List;
 import audioPlayer.AudioTest;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
+import garrettPokemonTraining.StatTrainingScreen;
 import guiTeacher.components.Action;
 import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Button;
@@ -159,7 +160,8 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setPokemon("Charmander", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Charmander.png");
 				String[] F1= {"Charmander","Charmeleon","Charzard"};
 				String[] FP1 = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charzard.png"};
-//				PokeStart.inventory.setImages(FP1);
+				PokeStart.inventory.setImages(FP1);
+				PokeStart.inventory.setNames(F1);
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
@@ -169,6 +171,12 @@ public class SelectionScreen extends FullFunctionScreen {
 						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
 				//TrainingScreen.name.setText(F1[0]);
 				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
 				update();

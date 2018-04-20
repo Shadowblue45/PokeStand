@@ -20,8 +20,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	private Button saveButton;
 	private Button loadButton;
 	private Button backButton;
-	private TextArea info;
-	private Graphic poke;
+	public static TextArea info;
+	public static Graphic poke;
 	private Pokemon p;
 	private Button attack;
 	private Button defense;
