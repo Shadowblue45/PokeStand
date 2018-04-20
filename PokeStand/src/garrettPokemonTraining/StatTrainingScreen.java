@@ -40,9 +40,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		CustomRect rect = new CustomRect(0,0,getWidth(),getHeight(),new Color(0,0,0,200));
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		viewObjects.add(battle);
-		p = PokeStart.inventory.getPokemon();
-		poke = new Graphic(175, 305, 300, 300,p.getImage());
-		viewObjects.add(poke);
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
 		viewObjects.add(rect);
