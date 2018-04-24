@@ -144,8 +144,8 @@ public class RickyScreen extends FullFunctionScreen {
 						itemQuantity[j]++;
 						z.setText(Integer.toString(getDollars()));
 						z.update();
-						item.setText(Integer.toString(itemQuantity[j]));
-						item.update();
+						z.setText(Integer.toString(itemQuantity[j]));
+						z.update();
 						
 					}
 				}
