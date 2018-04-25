@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class Inventory {
 	
 	public static Pokemon pokemon;
-	public static String[] pokemonForms;
-	public static String[] pokemonImages;
+	public static String[] pokemonForms = new String[3];
+	public static String[] pokemonImages = new String[3];
 	private int abilityPoints;
 	public int fatigue;
 

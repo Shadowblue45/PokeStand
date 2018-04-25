@@ -222,6 +222,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
+
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
 				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
