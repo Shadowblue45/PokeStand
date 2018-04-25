@@ -334,8 +334,8 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setPokemon("Froakie", "Water", "", 30, 23, 14, 54, 21, 22, "resources/water/Froakie.png");
 				String[] F1= {"Froakie","Frogadier","Greninja"};
 				String[] FP1 = {"resources/water/Froakie.png","resources/water/Frogadier.png","resources/water/Greninja.png"};
-				PokeStart.inventory.setImages(FP1);
-				PokeStart.inventory.setNames(F1);
+				Inventory.setImages(FP1);
+				Inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
 				Pokemon p = PokeStart.inventory.getPokemon();

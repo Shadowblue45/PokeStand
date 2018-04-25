@@ -1,5 +1,5 @@
-Chimchar,Fire,,30,23,14,54,21,23,resources/fire/Chimchar.png
+Treecko,Grass,,30,23,14,54,21,2333,resources/grass/Treecko.png
 Leer,Normal,0,100,30,false
-Scratch,Normal,40,100,35,false
-Ember,Fire,40,100,25,true
-Taunt,Dark,0,100,20,false
+Pound,Normal,40,100,35,false
+Absorb,Grass,20,100,25,true
+Quick Attack,Normal,40,100,30,false
