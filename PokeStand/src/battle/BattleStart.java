@@ -4,16 +4,16 @@ import guiTeacher.GUIApplication;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.userInterfaces.Screen;
 import selectionScreen.SelectionScreen;
-import startupandMenuScreen.MainMenuScreen;
-import startupandMenuScreen.StartScreen;
-import startupandMenuScreen.TrainingScreen;
-import startupandMenuScreen.LoadScreen;
 
 import java.awt.Font;
 import java.io.File;
 
 import audioPlayer.AudioTest;
-import battle.BattleScreen; 
+import battle.BattleScreen;
+import fahadStartupandMenuScreen.LoadScreen;
+import fahadStartupandMenuScreen.MainMenuScreen;
+import fahadStartupandMenuScreen.StartScreen;
+import fahadStartupandMenuScreen.TrainingScreen; 
 
 public class BattleStart extends GUIApplication {
 	

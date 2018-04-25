@@ -3,6 +3,7 @@ package garrettPokemonTraining;
 import java.awt.Color;
 import java.util.List;
 
+import fahadStartupandMenuScreen.CustomRect;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
@@ -10,7 +11,6 @@ import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import startGame.PokeStart;
-import startupandMenuScreen.CustomRect;
 
 public class StatTrainingScreen extends FullFunctionScreen {
 

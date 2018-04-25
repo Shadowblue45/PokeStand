@@ -1,4 +1,4 @@
-package startupandMenuScreen;
+package fahadStartupandMenuScreen;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -83,6 +83,10 @@ public class MainMenuScreen extends FullFunctionScreen {
 		info.setCustomTextColor(Color.white);
 		setMenuButtons(names, viewObjects);
 		pokemon.update();
+	}
+	
+	public void fatigueBarDesign() {
+		
 	}
 
 	public void setMenuButtons(String[] names, List<Visible> viewObjects) {

@@ -6,6 +6,9 @@ import java.io.File;
 import java.util.List;
 
 import audioPlayer.AudioTest;
+import fahadStartupandMenuScreen.CustomRect;
+import fahadStartupandMenuScreen.MainMenuScreen;
+import fahadStartupandMenuScreen.TrainingScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Action;
@@ -18,9 +21,6 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import guiTeacher.userInterfaces.Screen;
 import startGame.PokeStart;
-import startupandMenuScreen.CustomRect;
-import startupandMenuScreen.MainMenuScreen;
-import startupandMenuScreen.TrainingScreen;
 
 public class SelectionScreen extends FullFunctionScreen {
 	
