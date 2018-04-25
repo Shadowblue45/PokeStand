@@ -40,6 +40,7 @@ public class PokeStart extends GUIApplication {
 	@Override
 	public void initScreen() {
 		inventory = new Inventory();
+		PokeStart.inventory.fatigue = 0;
 		loadScreen = new LoadScreen(getWidth(), getHeight());
 		trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
