@@ -8,6 +8,7 @@ import java.util.List;
 import audioPlayer.AudioTest;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
+import garrettPokemonTraining.StatTrainingScreen;
 import guiTeacher.components.Action;
 import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Button;
@@ -163,6 +164,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
+				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 

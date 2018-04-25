@@ -39,7 +39,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		System.out.println(PokeStart.inventory.pokemonImages[0]);
+		//System.out.println(PokeStart.inventory.pokemonImages[0]);
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
@@ -51,22 +51,26 @@ public class MainMenuScreen extends FullFunctionScreen {
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
-		pokemon = new Graphic(440, 200, 400, 400, pokeLink[0]);
+//		pokemon = new Graphic(440, 200, 400, 400, pokeLink[0]);
+		pokemon = new Graphic(440, 200, 400, 400, "");
 		PokeStart.setPokemonSunFont(100f);
 		TextArea daysNum = new TextArea(1050,10, 500, 300, "30");
 		PokeStart.setPokemonTextFont(26f);
-		name = new TextArea(10,20, 500, 300, pokeNames[0]);
+//		name = new TextArea(10,20, 500, 300, pokeNames[0]);
+		name = new TextArea(10,20, 500, 300, "");
 		TextArea daysRemaining = new TextArea(1000,110, 500, 300, "Days Left");
 		
 		//====================================================================
 		PokeStart.setPokemonSunFont(18f);
 		p = PokeStart.inventory.getPokemon();
+		
+		info = new TextArea(10,60,500,360,"");
 
-		info = new TextArea(10,60,500,360,"Type1: " + p.getType1() + "\n" +
-				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-				"Spd: " + p.getSpd() + "\n");
+//		info = new TextArea(10,60,500,360,"Type1: " + p.getType1() + "\n" +
+//				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+//				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+//				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+//				"Spd: " + p.getSpd() + "\n");
 		
 		//====================================================================
 		
