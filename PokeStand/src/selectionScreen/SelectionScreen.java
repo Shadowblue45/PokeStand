@@ -283,7 +283,6 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-<<<<<<< HEAD
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
 				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
@@ -346,7 +345,6 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-<<<<<<< HEAD
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
 				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
@@ -363,10 +361,6 @@ public class SelectionScreen extends FullFunctionScreen {
 				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
 				//TrainingScreen.name.setText(F1[0]);
 				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
-=======
-				 
-				 
->>>>>>> refs/heads/develop
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);

@@ -161,7 +161,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		poke.loadImages(p.getImage(), 300, 300);
 	}
 	
-	public void updatePokemon() {
+	public static void updatePokemon() {
 		p = PokeStart.inventory.getPokemon();
 	}
 	
