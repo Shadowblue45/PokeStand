@@ -51,6 +51,12 @@ public class MainMenuScreen extends FullFunctionScreen {
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
+		Button batttttleButton = new Button (600, 300, 200,70,"Battle",new Action() {
+
+			public void act() {
+				PokeStart.start.setScreen(PokeStart.battleScreen);
+			}
+		});
 		pokemon = new Graphic(440, 200, 400, 400, pokeLink[0]);
 		PokeStart.setPokemonSunFont(100f);
 		TextArea daysNum = new TextArea(1050,10, 500, 300, "30");
@@ -77,6 +83,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		viewObjects.add(info);
 		viewObjects.add(daysNum);
 		viewObjects.add(daysRemaining);
+		viewObjects.add(batttttleButton);
 		daysNum.setCustomTextColor(Color.white);
 		daysRemaining.setCustomTextColor(Color.white);
 		name.setCustomTextColor(Color.white);
@@ -85,7 +92,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		pokemon.update();
 	}
 	
-	public void fatigueBarDesign() {
+	public void fatigueBarDesign(List<Visible> viewObjects) {
 		
 	}
 
