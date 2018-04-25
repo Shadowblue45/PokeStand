@@ -39,6 +39,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		update();
 		System.out.println(PokeStart.inventory.pokemonImages[0]);
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
@@ -79,6 +80,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		viewObjects.add(background);
 		viewObjects.add(pokemon);
 		createBlackBackground(viewObjects);
+		fatigueBarDesign(viewObjects);
 		viewObjects.add(name);
 		viewObjects.add(info);
 		viewObjects.add(daysNum);
@@ -93,7 +95,10 @@ public class MainMenuScreen extends FullFunctionScreen {
 	}
 	
 	public void fatigueBarDesign(List<Visible> viewObjects) {
-		
+		CustomRect rect = new CustomRect(270,60,400,40,Color.white);
+		CustomRect fatigue = new CustomRect(270,60,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		viewObjects.add(rect);
+		viewObjects.add(fatigue);
 	}
 
 	public void setMenuButtons(String[] names, List<Visible> viewObjects) {
