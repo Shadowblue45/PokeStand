@@ -198,6 +198,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNF1.setVisible(false);
 				buttonYF1.setVisible(false);
 				buttonF1.setEnabled(true);
+				enableButtons();
 			
 				
 			}
@@ -254,7 +255,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNF2.setVisible(false);
 				buttonYF2.setVisible(false);
 				buttonF2.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -310,7 +311,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNF3.setVisible(false);
 				buttonYF3.setVisible(false);
 				buttonF3.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -370,7 +371,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNW1.setVisible(false);
 				buttonYW1.setVisible(false);
 				buttonW1.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -427,7 +428,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNW2.setVisible(false);
 				buttonYW2.setVisible(false);
 				buttonW2.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -485,7 +486,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNW3.setVisible(false);
 				buttonYW3.setVisible(false);
 				buttonW3.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -544,7 +545,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNG1.setVisible(false);
 				buttonYG1.setVisible(false);
 				buttonG1.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -602,7 +603,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNG2.setVisible(false);
 				buttonYG2.setVisible(false);
 				buttonG2.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -661,8 +662,8 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNG3.setVisible(false);
 				buttonYG3.setVisible(false);
 				buttonG3.setEnabled(true);
-			
-				
+				enableButtons();
+					
 			}
 		});
 		viewObjects.add(buttonYG3);
@@ -684,7 +685,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(charmander);
 				viewObjects.add(charmander);
 				
-				buttonF1.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(150,165, 275, 400, "resources/text box.png");
@@ -722,7 +723,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(chimchar);
 				viewObjects.add(chimchar);
 				
-				buttonF2.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(150,365, 275, 400, "resources/text box.png");
@@ -758,7 +759,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(cyndaquil);
 				viewObjects.add(cyndaquil);
 				
-				buttonF3.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(150,565, 300, 400, "resources/text box.png");
@@ -796,7 +797,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(snivy);
 				viewObjects.add(snivy);
 				
-				buttonG1.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(550,165, 275, 400, "resources/text box.png");
@@ -831,7 +832,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(treecko);
 				viewObjects.add(treecko);
 				
-				buttonG2.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(550,365, 275, 400, "resources/text box.png");
@@ -867,7 +868,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(turtwig);
 				viewObjects.add(turtwig);
 				
-				buttonG3.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(550,565, 275, 400, "resources/text box.png");
@@ -906,7 +907,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(froakie);
 				viewObjects.add(froakie);
 				
-				buttonW1.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(950,165, 275, 400, "resources/text box.png");
@@ -941,7 +942,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(popplio);
 				viewObjects.add(popplio);
 				
-				buttonW2.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(950,365, 275, 400, "resources/text box.png");
@@ -976,7 +977,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(mudkip);
 				viewObjects.add(mudkip);
 				
-				buttonW3.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(950,565, 275, 400, "resources/text box.png");
@@ -1006,7 +1007,28 @@ public class SelectionScreen extends FullFunctionScreen {
 	    
 		
 	}
-
+    public void disableButtons() {
+    	buttonF1.setEnabled(false);
+    	buttonF2.setEnabled(false);
+    	buttonF3.setEnabled(false);
+    	buttonW1.setEnabled(false);
+    	buttonW2.setEnabled(false);
+    	buttonW3.setEnabled(false);
+    	buttonG1.setEnabled(false);
+    	buttonG2.setEnabled(false);
+    	buttonG3.setEnabled(false);
+    }
+    public void enableButtons() {
+    	buttonF1.setEnabled(true);
+    	buttonF2.setEnabled(true);
+    	buttonF3.setEnabled(true);
+    	buttonW1.setEnabled(true);
+    	buttonW2.setEnabled(true);
+    	buttonW3.setEnabled(true);
+    	buttonG1.setEnabled(true);
+    	buttonG2.setEnabled(true);
+    	buttonG3.setEnabled(true);
+    }
 
 	
 	public void setPokemon() {
