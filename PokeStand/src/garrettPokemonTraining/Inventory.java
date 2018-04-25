@@ -13,7 +13,7 @@ public class Inventory {
 	public static String[] pokemonForms;
 	public static String[] pokemonImages;
 	private int abilityPoints;
-	private int fatigue;
+	public int fatigue;
 
 	public Inventory() {
 		
