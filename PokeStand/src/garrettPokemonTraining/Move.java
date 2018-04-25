@@ -53,7 +53,7 @@ public class Move {
 	public boolean isSpecial() {
 		return isSpecial;
 	}
-	
+
 	public String toString() {
 		return name + "," + type + "," + power + "," + accuracy + "," + pp + "," + isSpecial;
 	}
