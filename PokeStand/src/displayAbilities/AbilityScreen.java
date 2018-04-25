@@ -5,18 +5,22 @@ import java.awt.Font;
 import java.io.File;
 import java.util.List;
 
+import guiTeacher.components.Action;
 import guiTeacher.components.AnimatedComponent;
+import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import startGame.PokeStart;
 
 public class AbilityScreen extends FullFunctionScreen {
 	
 	Graphic pokemon;
 	TextArea pokemonN;
 	TextArea pokemonL;
+	Button back;
 	
 
 	public AbilityScreen(int width, int height) {
@@ -44,6 +48,17 @@ public class AbilityScreen extends FullFunctionScreen {
 		pokemonL = new TextArea(115,185,600,50,"4");
 		pokemonL.setCustomTextColor(Color.black);
 		viewObjects.add(pokemonL);
+		
+		back = new Button(300,10,150,100,"Back",new Action() {
+			
+			@Override
+			public void act() {
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+				
+			}
+		});
+		back.setForeground(Color.white);
+		viewObjects.add(back);
 		
 		
 	}
