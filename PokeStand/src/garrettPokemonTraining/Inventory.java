@@ -13,7 +13,7 @@ public class Inventory {
 	public static String[] pokemonForms = {"Popplio","Brionne","Primarina"};
 	public static String[] pokemonImages = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
 	private int abilityPoints;
-	private int fatigue;
+	public int fatigue;
 
 	public Inventory() {
 		setPokemon("Popplio", "Water", "-", 25,27,27,33,28,20, "resources/water/popplio.png");
