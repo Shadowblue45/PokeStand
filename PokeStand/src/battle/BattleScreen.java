@@ -9,11 +9,10 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class BattleScreen extends FullFunctionScreen{
 	
-	private String name;
+	private String name = Inventory.pokemon.getName();
 	
-	public BattleScreen(int width, int height, String poke) {
+	public BattleScreen(int width, int height) {
 		super(width, height);
-		name = poke;
 		Graphic userPokemon = new Graphic(150,250,getWidth()/2,getHeight()/2,"resources/pokebacks/ "+ name +" back.png");
 		addObject(userPokemon);
 	}
