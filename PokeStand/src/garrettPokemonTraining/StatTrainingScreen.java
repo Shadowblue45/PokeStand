@@ -98,6 +98,13 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				// TODO Auto-generated method stub
+				PokeStart.mainMenuScreen.pokemon.loadImages(p.getImage(),400,400);
+				PokeStart.mainMenuScreen.name.setText(p.getName());
+				PokeStart.mainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 				PokeStart.mainScreen = !PokeStart.mainScreen;
 			}
@@ -108,7 +115,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("atk", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("atk", viewObjects);
+				}
 			}
 
 		});
@@ -117,7 +126,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("def", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("def", viewObjects);
+				}
 			}
 
 		});
@@ -126,7 +137,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("sAtk", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("sAtk", viewObjects);
+				}
 			}
 
 		});
@@ -135,7 +148,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("sDef", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("sDef", viewObjects);
+				}
 			}
 
 		});
@@ -144,7 +159,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("spd", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("spd", viewObjects);
+				}
 			}
 
 		});
@@ -270,6 +287,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				saveButton.setEnabled(true);
 				loadButton.setEnabled(true);
 				backButton.setEnabled(true);
+				PokeStart.inventory.fatigue += 5;
+				System.out.println(PokeStart.inventory.fatigue);
 			}
 
 		});
