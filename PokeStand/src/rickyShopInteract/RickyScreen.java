@@ -15,6 +15,7 @@ import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import startGame.PokeStart;
  
 public class RickyScreen extends FullFunctionScreen {
 
@@ -24,7 +25,8 @@ public class RickyScreen extends FullFunctionScreen {
 	private ArrayList<Integer> priceAmount;
 	private int[] itemQuantity;
 	private ArrayList<Button> buttonList;
-	public static Button z;
+	public static Button z;//the amount of moneys
+	private Button backButton;
 	
 	private static final long serialVersionUID = 5855860528658762993L;
 
@@ -36,18 +38,20 @@ public class RickyScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		dollars = 2000;
 		addImages();
-		addBackgroundLabel(viewObjects);
+		addBackgroundLabels(viewObjects);
 		addImagestoShop(viewObjects);
 		setPokemonFont(16);
 		itemDescriptions(viewObjects);	
 		instanitatingArray(viewObjects);
-		addButtons(viewObjects);
+		addBuySellButtons(viewObjects);
 		setPokemonGBFont(13);
 		addPrices();
 		addPrices(viewObjects);
 		//addQuantityMarkers(viewObjects);
+		setPokemonFont(20);
+		addBackButton(viewObjects);
 	}
-	
+
 	public void addImages() {
 		itemsInShop = new ArrayList<String>();
 		
@@ -106,7 +110,7 @@ public class RickyScreen extends FullFunctionScreen {
 		itemDesc.add("Fully restores the HP of a Pokemon");
 	}
 
-	public void addBackgroundLabel(List<Visible> viewObjects) {
+	public void addBackgroundLabels(List<Visible> viewObjects) {
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			StyledComponent.setButtonOutline(true);
 			Button b = new Button(50, 50 + i*150, 565, 150, "",null);
@@ -126,13 +130,13 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 		StyledComponent.setButtonOutline(false);
 		setPokemonFont(18);
-		z = new Button(1175,10,100,50,Integer.toString(getDollars()),null);
+		z = new Button(1170,10,100,50,Integer.toString(getDollars()),null);
 		z.setEnabled(false);
 		viewObjects.add(z);
 		z.update();
 	}
 	
-	public void addButtons(List<Visible> viewObjects) {
+	public void addBuySellButtons(List<Visible> viewObjects) {
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
 			int j = i;
 			Button b = new Button(375, 25 + i*150, 75, 125,"Buy",new Action() {
@@ -147,7 +151,7 @@ public class RickyScreen extends FullFunctionScreen {
 						z.update();
 						buttonList.get(j).setText(Integer.toString(itemQuantity[j]));
 						buttonList.get(j).update();
-						
+						changedX();
 					}
 				}
 
@@ -167,7 +171,7 @@ public class RickyScreen extends FullFunctionScreen {
 						z.update();
 						buttonList.get(j).setText(Integer.toString(itemQuantity[j]));
 						buttonList.get(j).update();
-						
+						changedX();
 					}
 				}
 			});
@@ -186,6 +190,7 @@ public class RickyScreen extends FullFunctionScreen {
 						z.update();
 						buttonList.get(j).setText(Integer.toString(itemQuantity[j]));
 						buttonList.get(j).update();
+						changedX();
 					}
 				}
 			});
@@ -205,6 +210,7 @@ public class RickyScreen extends FullFunctionScreen {
 						z.update();
 						buttonList.get(j).setText(Integer.toString(itemQuantity[j]));
 						buttonList.get(j).update();
+						changedX();
 					}
 				}
 			});
@@ -276,75 +282,41 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 	}
 
-//	public void addQuantityMarkers(List<Visible> viewObjects) {
-//		setPokemonGBFont(18);		 
-//		 for(int i = 0; i < itemsInShop.size()/2; i++) {
-//			 Button minus = new Button(375, 60 + i*150, 35, 125,"-",new Action() {
-//
-//			@Override
-//			public void act() {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//		});
-//			viewObjects.add(minus);
-//		}
-//		 
-//		 for(int i = 0; i < itemsInShop.size()/2; i++) {
-//			 Button minus = new Button(1000, 60 + i*150, 35, 125,"-",new Action() {
-//
-//			@Override
-//			public void act() {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//		});
-//			viewObjects.add(minus);
-//		}  
-//		 
-//		 for(int i = 0; i < itemsInShop.size()/2; i++) {
-//			 Button plus = new Button(475, 60 + i*150, 35, 125,"+",new Action() {
-//
-//			@Override
-//			public void act() {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//		});
-//			viewObjects.add(plus);
-//		}  
-//		 
-//		for(int i = 0; i < itemsInShop.size()/2; i++) {
-//			 Button plus = new Button(1100, 60 + i*150, 35, 125,"+",new Action() {
-//
-//			@Override
-//			public void act() {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//			
-//		});
-//			viewObjects.add(plus);
-//		}   
-//	}
-
 	public void instanitatingArray(List<Visible> viewObjects){
 		itemQuantity = new int[itemsInShop.size()]; 
 		buttonList = new ArrayList<Button>();
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			buttonList.add(new Button(410, 60 + i*150, 75, 125, Integer.toString(itemQuantity[i]), null));
+			buttonList.add(new Button(440, 60 + i*150, 75, 125, Integer.toString(itemQuantity[i]), null));
 			buttonList.get(i).setEnabled(false);
 			viewObjects.add(buttonList.get(i));
 		}
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
 			System.out.print(Integer.toString(itemQuantity[i]));
-			buttonList.add(new Button(1030, -540 + i*150, 75, 125, "0", null));
+			buttonList.add(new Button(1040, -540 + i*150, 75, 125, Integer.toString(itemQuantity[i]) , null));
 			buttonList.get(i).setEnabled(false);
 			viewObjects.add(buttonList.get(i));
 		}
+	}
+	
+	public void changedX() {
+		if(z.getText().compareTo("1000") >= 0){
+			z.setX(1170);
+		}
+		else if(z.getText().compareTo("100") >= 0){
+			z.setX(1180);
+		}
+	}
+	
+	public void addBackButton(List<Visible> viewObjects) {
+		backButton = new Button(50,625,100,100, "Back", new Action() {
+			
+			@Override
+			public void act() {
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+				PokeStart.mainScreen = !PokeStart.mainScreen;
+			}
+		});
+		viewObjects.add(backButton);
 	}
 	
 	public int getDollars() {
