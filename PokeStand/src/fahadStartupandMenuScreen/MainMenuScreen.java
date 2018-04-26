@@ -8,6 +8,7 @@ import java.lang.reflect.Array;
 import java.util.List;
 
 import audioPlayer.AudioTest;
+import battle.BattleScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Action;
@@ -55,6 +56,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		Button batttttleButton = new Button (600, 300, 200,70,"Battle",new Action() {
 
 			public void act() {
+				PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.battleScreen);
 			}
 		});
