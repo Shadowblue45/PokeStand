@@ -50,6 +50,7 @@ public class Pokemon {
 	public void evolve() {
 		String[] pokemonNames = PokeStart.inventory.getNames();
 		System.out.println(Arrays.toString(pokemonNames));
+		System.out.println(type1);
 		if(PokeStart.inventory.getNameIndex() < 2) {
 			for(int i = 0; i < twoTypePokemon.length; i++) {
 				if(pokemonNames[PokeStart.inventory.getNameIndex() + 1].equals(twoTypePokemon[i])) {
@@ -60,6 +61,7 @@ public class Pokemon {
 			setName(pokemonNames[PokeStart.inventory.getNameIndex() + 1]);
 		}
 		setImage(PokeStart.inventory.getPokemonImages()[PokeStart.inventory.getNameIndex()]);
+		System.out.println(type1);
 	}
 
 	public void increaseStats() {

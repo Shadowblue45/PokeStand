@@ -11,6 +11,7 @@ import fahadStartupandMenuScreen.MainMenuScreen;
 import fahadStartupandMenuScreen.TrainingScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
+import garrettPokemonTraining.StatTrainingScreen;
 import guiTeacher.components.Action;
 import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Button;
@@ -157,20 +158,31 @@ public class SelectionScreen extends FullFunctionScreen {
 			public void act() {
 				//System.out.println("YES");
 				PokeStart.inventory.setPokemon("Charmander", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Charmander.png");
-				String[] F1= {"Charmander","Charmeleon","Charzard"};
-				String[] FP1 = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charzard.png"};
-//				PokeStart.inventory.setImages(FP1);
+				String[] F1= {"Charmander","Charmeleon","Charizard"};
+				String[] FP1 = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charizard.png"};
+				PokeStart.inventory.setImages(FP1);
+				PokeStart.inventory.setNames(F1);
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
+				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
 				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 						"Spd: " + p.getSpd() + "\n");
-				// 
-				// 
+				StatTrainingScreen.updatePokemon();
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+				//TrainingScreen.name.setText(F1[0]);
+				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
@@ -188,6 +200,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNF1.setVisible(false);
 				buttonYF1.setVisible(false);
 				buttonF1.setEnabled(true);
+				enableButtons();
 			
 				
 			}
@@ -202,20 +215,33 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Chimchar", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Chimchar.png");
+				PokeStart.inventory.setPokemon("Chimchar", "Fire", "", 30, 23, 14, 54, 21, 23, "resources/fire/Chimchar.png");
 				String[] F1= {"Chimchar","Monferno","Infernape"};
 				String[] FP1 = {"resources/fire/Chimchar.png","resources/fire/Monferno.png","resources/fire/Infernape.png"};
 				PokeStart.inventory.setImages(FP1);
-				System.out.println(PokeStart.inventory.pokemonImages[0]);
+				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-				 
-				 
+
+				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
+				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.updatePokemon();
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+				//TrainingScreen.name.setText(F1[0]);
+				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
-				
-			
 				
 				
 			}
@@ -232,7 +258,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNF2.setVisible(false);
 				buttonYF2.setVisible(false);
 				buttonF2.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -246,15 +272,30 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Cyndaquil", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Cyndaquil.png");
+				PokeStart.inventory.setPokemon("Cyndaquil", "Fire", "", 30, 23, 14, 54, 21, 13, "resources/fire/Cyndaquil.png");
 				String[] F1= {"Cyndaquil","Quilava","Typhlosion"};
 				String[] FP1 = {"resources/fire/Cyndaquil.png","resources/fire/Quilava.png","resources/fire/Typhlosion.png"};
 				PokeStart.inventory.setImages(FP1);
-				System.out.println(PokeStart.inventory.pokemonImages[0]);
+				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
- 
- 
+				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
+				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.updatePokemon();
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+				//TrainingScreen.name.setText(F1[0]);
+				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
@@ -274,7 +315,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNF3.setVisible(false);
 				buttonYF3.setVisible(false);
 				buttonF3.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -290,15 +331,29 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Froakie", "Water", "", 30, 23, 14, 54, 21, 2333, "resources/water/Froakie.png");
+				PokeStart.inventory.setPokemon("Froakie", "Water", "", 30, 23, 14, 54, 21, 22, "resources/water/Froakie.png");
 				String[] F1= {"Froakie","Frogadier","Greninja"};
 				String[] FP1 = {"resources/water/Froakie.png","resources/water/Frogadier.png","resources/water/Greninja.png"};
 				PokeStart.inventory.setImages(FP1);
-				System.out.println(PokeStart.inventory.pokemonImages[0]);
+				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-				 
-				 
+				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
+				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.updatePokemon();
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+				//TrainingScreen.name.setText(F1[0]);
+				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
@@ -320,7 +375,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNW1.setVisible(false);
 				buttonYW1.setVisible(false);
 				buttonW1.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -334,19 +389,32 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Popplio", "Water", "", 30, 23, 14, 54, 21, 2333, "resources/water/Popplio.png");
+				PokeStart.inventory.setPokemon("Popplio", "Water", "", 30, 23, 14, 54, 21, 24, "resources/water/Popplio.png");
 				String[] F1= {"Popplio","Brionne","Primarina"};
 				String[] FP1 = {"resources/water/Popplio.png","resources/water/Brionne.png","resources/water/Primarina.png"};
 				PokeStart.inventory.setImages(FP1);
-				System.out.println(PokeStart.inventory.pokemonImages[0]);
+				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-				 
-				 
+				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
+				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.updatePokemon();
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+				//TrainingScreen.name.setText(F1[0]);
+				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
-				
 			
 				
 				
@@ -364,7 +432,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNW2.setVisible(false);
 				buttonYW2.setVisible(false);
 				buttonW2.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -378,15 +446,30 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Mudkip", "Water", "", 30, 23, 14, 54, 21, 2333, "resources/water/Mudkip.png");
+				PokeStart.inventory.setPokemon("Mudkip", "Water", "", 30, 23, 14, 54, 21, 22, "resources/water/Mudkip.png");
 				String[] F1= {"Mudkip","Marshtomp","Swampert"};
 				String[] FP1 = {"resources/water/Mudkip.png","resources/water/Marshtomp.png","resources/water/Swampert.png"};
 				PokeStart.inventory.setImages(FP1);
-				System.out.println(PokeStart.inventory.pokemonImages[0]);
+				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-				 
-				 
+
+				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
+				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.updatePokemon();
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+				//TrainingScreen.name.setText(F1[0]);
+				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
@@ -408,7 +491,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNW3.setVisible(false);
 				buttonYW3.setVisible(false);
 				buttonW3.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -427,11 +510,27 @@ public class SelectionScreen extends FullFunctionScreen {
 				String[] F1= {"Snivy","Servine","Serperior"};
 				String[] FP1 = {"resources/grass/Snivy.png","resources/grass/Servine.png","resources/grass/Serperior.png"};
 				PokeStart.inventory.setImages(FP1);
-				System.out.println(PokeStart.inventory.pokemonImages[0]);
+				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-				 
-				 
+
+				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
+				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.updatePokemon();
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+				//TrainingScreen.name.setText(F1[0]);
+				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
@@ -453,7 +552,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNG1.setVisible(false);
 				buttonYG1.setVisible(false);
 				buttonG1.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -471,11 +570,27 @@ public class SelectionScreen extends FullFunctionScreen {
 				String[] F1= {"Treecko","Grovyle","Sceptile"};
 				String[] FP1 = {"resources/grass/Treecko.png","resources/grass/Grovyle.png","resources/grass/Sceptile.png"};
 				PokeStart.inventory.setImages(FP1);
-				System.out.println(PokeStart.inventory.pokemonImages[0]);
+				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-				 
-				 
+
+				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
+				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.updatePokemon();
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+				//TrainingScreen.name.setText(F1[0]);
+				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
@@ -497,7 +612,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNG2.setVisible(false);
 				buttonYG2.setVisible(false);
 				buttonG2.setEnabled(true);
-			
+				enableButtons();
 				
 			}
 		});
@@ -515,11 +630,26 @@ public class SelectionScreen extends FullFunctionScreen {
 				String[] F1= {"Turtwig","Grotle","Torterra"};
 				String[] FP1 = {"resources/grass/Turtwig.png","resources/grass/Grotle.png","resources/grass/Torterra.png"};
 				PokeStart.inventory.setImages(FP1);
-				System.out.println(PokeStart.inventory.pokemonImages[0]);
+				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-				 
-				 
+				Pokemon p = PokeStart.inventory.getPokemon();
+				System.out.println(p.getType1());
+				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.updatePokemon();
+				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
+				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+				//TrainingScreen.name.setText(F1[0]);
+				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
@@ -542,8 +672,8 @@ public class SelectionScreen extends FullFunctionScreen {
 				buttonNG3.setVisible(false);
 				buttonYG3.setVisible(false);
 				buttonG3.setEnabled(true);
-			
-				
+				enableButtons();
+					
 			}
 		});
 		viewObjects.add(buttonYG3);
@@ -565,7 +695,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(charmander);
 				viewObjects.add(charmander);
 				
-				buttonF1.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(150,165, 275, 400, "resources/text box.png");
@@ -603,7 +733,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(chimchar);
 				viewObjects.add(chimchar);
 				
-				buttonF2.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(150,365, 275, 400, "resources/text box.png");
@@ -639,7 +769,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(cyndaquil);
 				viewObjects.add(cyndaquil);
 				
-				buttonF3.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(150,565, 300, 400, "resources/text box.png");
@@ -677,7 +807,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(snivy);
 				viewObjects.add(snivy);
 				
-				buttonG1.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(550,165, 275, 400, "resources/text box.png");
@@ -712,7 +842,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(treecko);
 				viewObjects.add(treecko);
 				
-				buttonG2.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(550,365, 275, 400, "resources/text box.png");
@@ -748,7 +878,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(turtwig);
 				viewObjects.add(turtwig);
 				
-				buttonG3.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(550,565, 275, 400, "resources/text box.png");
@@ -787,7 +917,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(froakie);
 				viewObjects.add(froakie);
 				
-				buttonW1.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(950,165, 275, 400, "resources/text box.png");
@@ -822,7 +952,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(popplio);
 				viewObjects.add(popplio);
 				
-				buttonW2.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(950,365, 275, 400, "resources/text box.png");
@@ -857,7 +987,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.remove(mudkip);
 				viewObjects.add(mudkip);
 				
-				buttonW3.setEnabled(false);
+				disableButtons();
 				setPokemonGB();
 				
 				textB = new Graphic(950,565, 275, 400, "resources/text box.png");
@@ -887,7 +1017,28 @@ public class SelectionScreen extends FullFunctionScreen {
 	    
 		
 	}
-
+    public void disableButtons() {
+    	buttonF1.setEnabled(false);
+    	buttonF2.setEnabled(false);
+    	buttonF3.setEnabled(false);
+    	buttonW1.setEnabled(false);
+    	buttonW2.setEnabled(false);
+    	buttonW3.setEnabled(false);
+    	buttonG1.setEnabled(false);
+    	buttonG2.setEnabled(false);
+    	buttonG3.setEnabled(false);
+    }
+    public void enableButtons() {
+    	buttonF1.setEnabled(true);
+    	buttonF2.setEnabled(true);
+    	buttonF3.setEnabled(true);
+    	buttonW1.setEnabled(true);
+    	buttonW2.setEnabled(true);
+    	buttonW3.setEnabled(true);
+    	buttonG1.setEnabled(true);
+    	buttonG2.setEnabled(true);
+    	buttonG3.setEnabled(true);
+    }
 
 	
 	public void setPokemon() {
