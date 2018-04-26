@@ -14,6 +14,7 @@ public class Inventory {
 	public static String[] pokemonImages = new String[3];
 	private int abilityPoints;
 	public int fatigue;
+	public int pokemonIndex;
 
 	public Inventory() {
 

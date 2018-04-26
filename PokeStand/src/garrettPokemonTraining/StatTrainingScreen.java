@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.List;
 
 import fahadStartupandMenuScreen.CustomRect;
+import fahadStartupandMenuScreen.MainMenuScreen;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
@@ -37,32 +38,18 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		PokeStart.setPokemonFont(20);
-		CustomRect rect = new CustomRect(0,0,getWidth(),getHeight(),new Color(0,0,0,200));
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
+		viewObjects.add(battle);
 		
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		
-		viewObjects.add(battle);
-		poke = new Graphic(175, 305, 300, 300,pokeLink[0]);
-		viewObjects.add(poke);
+		
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
-		viewObjects.add(rect);
-		start = new Button(630,390,100,50,"Start",new Action() {
-
-			@Override
-			public void act() {
-				viewObjects.remove(rect);
-				viewObjects.remove(start);
-				start.setEnabled(false);
-			}
-
-		});
-		start.setBackground(Color.WHITE);
-		start.update();
-		viewObjects.add(start);
 		p = PokeStart.inventory.getPokemon();
+		poke = new Graphic(175, 305, 300, 300,p.getImage());
+		viewObjects.add(poke);
 		info = new TextArea(500,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
 				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
@@ -75,6 +62,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			public void act() {
 				updatePokemon();
 				p.evolve();
+				PokeStart.inventory.pokemonIndex++;
 				setInfoText();
 				poke.loadImages(p.getImage(), 300, 300);
 			}
@@ -107,15 +95,17 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				// TODO Auto-generated method stub
-				PokeStart.mainMenuScreen.pokemon.loadImages(p.getImage(),400,400);
-				PokeStart.mainMenuScreen.name.setText(p.getName());
-				PokeStart.mainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
-						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-						"Spd: " + p.getSpd() + "\n");
+//				PokeStart.mainMenuScreen.pokemon.loadImages(p.getImage(),400,400);
+//				PokeStart.mainMenuScreen.name.setText(p.getName());
+//				PokeStart.mainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+//						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+//						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+//						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+//						"Spd: " + p.getSpd() + "\n");
+
+				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
-				PokeStart.mainScreen = !PokeStart.mainScreen;
+//				PokeStart.mainScreen = !PokeStart.mainScreen;
 			}
 
 		});
@@ -203,6 +193,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				sAttack.setEnabled(false);
 				sDefense.setEnabled(false);
 				speed.setEnabled(false);
+				evolveButton.setEnabled(false);
 				saveButton.setEnabled(false);
 				loadButton.setEnabled(false);
 				backButton.setEnabled(false);
@@ -293,6 +284,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				sAttack.setEnabled(true);
 				sDefense.setEnabled(true);
 				speed.setEnabled(true);
+				evolveButton.setEnabled(true);
 				saveButton.setEnabled(true);
 				loadButton.setEnabled(true);
 				backButton.setEnabled(true);

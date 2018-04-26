@@ -12,6 +12,7 @@ public class Pokemon {
 	private String type1;
 	private String type2;
 	private int hp;
+	private int currentHp;
 	private int atk;
 	private int def;
 	private int sAtk;
@@ -223,6 +224,14 @@ public class Pokemon {
 
 	public void setType1(String type1) {
 		this.type1 = type1;
+	}
+
+	public int getCurrentHp() {
+		return currentHp;
+	}
+
+	public void setCurrentHp(int currentHp) {
+		this.currentHp = currentHp;
 	}
 
 }
