@@ -145,7 +145,6 @@ public class RickyScreen extends FullFunctionScreen {
 				public void act() {
 					if(getDollars() >= priceAmount.get(j)) {
 						setDollars(getDollars() - priceAmount.get(j));
-						//System.out.println(getDollars());
 						itemQuantity[j]++;
 						z.setText(Integer.toString(getDollars()));
 						z.update();
@@ -291,7 +290,6 @@ public class RickyScreen extends FullFunctionScreen {
 			viewObjects.add(buttonList.get(i));
 		}
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			System.out.print(Integer.toString(itemQuantity[i]));
 			buttonList.add(new Button(1040, -540 + i*150, 75, 125, Integer.toString(itemQuantity[i]) , null));
 			buttonList.get(i).setEnabled(false);
 			viewObjects.add(buttonList.get(i));
