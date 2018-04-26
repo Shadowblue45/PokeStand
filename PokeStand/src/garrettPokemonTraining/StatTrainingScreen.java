@@ -45,11 +45,11 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		
 		
-		poke = new Graphic(175, 305, 300, 300,pokeLink[0]);
-		viewObjects.add(poke);
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
 		p = PokeStart.inventory.getPokemon();
+		poke = new Graphic(175, 305, 300, 300,p.getImage());
+		viewObjects.add(poke);
 		info = new TextArea(500,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
 				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
