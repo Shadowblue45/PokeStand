@@ -42,11 +42,9 @@ public class PokeStart extends GUIApplication {
 		inventory = new Inventory();
 		PokeStart.inventory.fatigue = 0;
 		loadScreen = new LoadScreen(getWidth(), getHeight());
-		trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());
-		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 		//battleScreen = new BattleScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);

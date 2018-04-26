@@ -110,13 +110,13 @@ public class Inventory {
 		return pokemonImages;
 	}
 
-	public static void setImages(String[] pics) {
+	public void setImages(String[] pics) {
 		for(int i = 0; i < pics.length; i++) {
 			pokemonImages[i] = pics[i];
 		}
 	}
 
-	public static void setNames(String[] names) {
+	public void setNames(String[] names) {
 		for(int i = 0; i < names.length; i++) {
 			pokemonForms[i] = names[i];
 		}

@@ -11,6 +11,7 @@ import audioPlayer.AudioTest;
 import battle.BattleScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
+import garrettPokemonTraining.StatTrainingScreen;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.CustomImageButton;
@@ -41,7 +42,8 @@ public class MainMenuScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		update();
-		//System.out.println(PokeStart.inventory.pokemonImages[0]);
+		System.out.println(PokeStart.inventory.pokemonImages[0]);
+		PokeStart.trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
@@ -60,22 +62,22 @@ public class MainMenuScreen extends FullFunctionScreen {
 				PokeStart.start.setScreen(PokeStart.battleScreen);
 			}
 		});
-		//pokemon = new Graphic(440, 200, 400, 400, pokeLink[0]);
+		pokemon = new Graphic(440, 200, 400, 400, pokeLink[0]);
 		PokeStart.setPokemonSunFont(100f);
 		TextArea daysNum = new TextArea(1050,10, 500, 300, "30");
 		PokeStart.setPokemonTextFont(26f);
-		//name = new TextArea(10,20, 500, 300, pokeNames[0]);
+		name = new TextArea(10,20, 500, 300, pokeNames[0]);
 		TextArea daysRemaining = new TextArea(1000,110, 500, 300, "Days Left");
 		
 		//====================================================================
 		PokeStart.setPokemonSunFont(18f);
 		p = PokeStart.inventory.getPokemon();
 
-//		info = new TextArea(10,60,500,360,"Type1: " + p.getType1() + "\n" +
-//				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-//				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-//				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-//				"Spd: " + p.getSpd() + "\n");
+		info = new TextArea(10,60,500,360,"Type1: " + p.getType1() + "\n" +
+				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+				"Spd: " + p.getSpd() + "\n");
 		
 		//====================================================================
 		
@@ -90,10 +92,10 @@ public class MainMenuScreen extends FullFunctionScreen {
 		viewObjects.add(batttttleButton);
 		daysNum.setCustomTextColor(Color.white);
 		daysRemaining.setCustomTextColor(Color.white);
-//		name.setCustomTextColor(Color.white);
-//		info.setCustomTextColor(Color.white);
+		name.setCustomTextColor(Color.white);
+		info.setCustomTextColor(Color.white);
 		setMenuButtons(names, viewObjects);
-//		pokemon.update();
+		pokemon.update();
 	}
 	
 	public void fatigueBarDesign(List<Visible> viewObjects) {

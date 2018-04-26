@@ -39,8 +39,12 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		PokeStart.setPokemonFont(20);
 		CustomRect rect = new CustomRect(0,0,getWidth(),getHeight(),new Color(0,0,0,200));
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
+		
+		String[] pokeNames = PokeStart.inventory.getNames();
+		String[] pokeLink = PokeStart.inventory.getPokemonImages();
+		
 		viewObjects.add(battle);
-		poke = new Graphic(175, 305, 300, 300,"");
+		poke = new Graphic(175, 305, 300, 300,pokeLink[0]);
 		viewObjects.add(poke);
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
@@ -58,7 +62,12 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		start.setBackground(Color.WHITE);
 		start.update();
 		viewObjects.add(start);
-		info = new TextArea(500,200,200,500,"");
+		p = PokeStart.inventory.getPokemon();
+		info = new TextArea(500,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+				"Spd: " + p.getSpd() + "\n");
 		viewObjects.add(info);
 		evolveButton = new Button(75,200,100,50,"Evolve", new Action() {
 

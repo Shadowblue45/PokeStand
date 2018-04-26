@@ -163,25 +163,27 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
-				MainMenuScreen.name.setText(F1[0]);
-				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-				PokeStart.trainingScreen.setInfoText();
+//				MainMenuScreen.name.setText(F1[0]);
+//				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
+//				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
-				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
-						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-						"Spd: " + p.getSpd() + "\n");
-				StatTrainingScreen.updatePokemon();
-				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-						"Spd: " + p.getSpd() + "\n");
-				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
-				//TrainingScreen.name.setText(F1[0]);
-				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+//				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+//						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+//						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+//						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+//						"Spd: " + p.getSpd() + "\n");
+//				StatTrainingScreen.updatePokemon();
+//				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+//						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+//						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+//						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+//						"Spd: " + p.getSpd() + "\n");
+//				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+//				//TrainingScreen.name.setText(F1[0]);
+//				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+
+				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 
 				update();
 				PokeStart.inventory.save();
@@ -334,8 +336,8 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setPokemon("Froakie", "Water", "", 30, 23, 14, 54, 21, 22, "resources/water/Froakie.png");
 				String[] F1= {"Froakie","Frogadier","Greninja"};
 				String[] FP1 = {"resources/water/Froakie.png","resources/water/Frogadier.png","resources/water/Greninja.png"};
-				Inventory.setImages(FP1);
-				Inventory.setNames(F1);
+				PokeStart.inventory.setImages(FP1);
+				PokeStart.inventory.setNames(F1);
 				MainMenuScreen.name.setText(F1[0]);
 				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
 				Pokemon p = PokeStart.inventory.getPokemon();
