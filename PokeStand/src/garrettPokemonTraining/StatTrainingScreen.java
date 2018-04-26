@@ -3,6 +3,7 @@ package garrettPokemonTraining;
 import java.awt.Color;
 import java.util.List;
 
+import fahadStartupandMenuScreen.CustomRect;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
@@ -10,7 +11,6 @@ import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import startGame.PokeStart;
-import startupandMenuScreen.CustomRect;
 
 public class StatTrainingScreen extends FullFunctionScreen {
 
@@ -39,8 +39,12 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		PokeStart.setPokemonFont(20);
 		CustomRect rect = new CustomRect(0,0,getWidth(),getHeight(),new Color(0,0,0,200));
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
+		
+		String[] pokeNames = PokeStart.inventory.getNames();
+		String[] pokeLink = PokeStart.inventory.getPokemonImages();
+		
 		viewObjects.add(battle);
-		poke = new Graphic(175, 305, 300, 300,"resources/fire/Charmander.png");
+		poke = new Graphic(175, 305, 300, 300,pokeLink[0]);
 		viewObjects.add(poke);
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
@@ -58,7 +62,12 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		start.setBackground(Color.WHITE);
 		start.update();
 		viewObjects.add(start);
-		info = new TextArea(500,200,200,500,"");
+		p = PokeStart.inventory.getPokemon();
+		info = new TextArea(500,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+				"Spd: " + p.getSpd() + "\n");
 		viewObjects.add(info);
 		evolveButton = new Button(75,200,100,50,"Evolve", new Action() {
 
@@ -69,7 +78,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				setInfoText();
 				poke.loadImages(p.getImage(), 300, 300);
 			}
-			
+
 		});
 		viewObjects.add(evolveButton);
 		saveButton = new Button(100,300,50,50,"Save", new Action() {
@@ -78,7 +87,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			public void act() {
 				PokeStart.inventory.save();
 			}
-			
+
 		});
 		viewObjects.add(saveButton);
 		loadButton = new Button(300,300,50,50,"Load", new Action() {
@@ -90,7 +99,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				setInfoText();
 				poke.loadImages(p.getImage(), 300, 300);
 			}
-			
+
 		});
 		viewObjects.add(loadButton);
 		backButton = new Button(25,25,100,50,"Back", new Action() {
@@ -98,59 +107,76 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				// TODO Auto-generated method stub
+				PokeStart.mainMenuScreen.pokemon.loadImages(p.getImage(),400,400);
+				PokeStart.mainMenuScreen.name.setText(p.getName());
+				PokeStart.mainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+						"Spd: " + p.getSpd() + "\n");
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 				PokeStart.mainScreen = !PokeStart.mainScreen;
 			}
-			
+
 		});
 		viewObjects.add(backButton);
 		attack = new Button(100,600,100,50,"Attack",new Action() {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("atk", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("atk", viewObjects);
+				}
 			}
-			
+
 		});
 		viewObjects.add(attack);
 		defense = new Button(350,600,100,50,"Defense",new Action() {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("def", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("def", viewObjects);
+				}
 			}
-			
+
 		});
 		viewObjects.add(defense);
 		sAttack = new Button(600,600,100,50,"Sp. Atk",new Action() {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("sAtk", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("sAtk", viewObjects);
+				}
 			}
-			
+
 		});
 		viewObjects.add(sAttack);
 		sDefense = new Button(850,600,100,50,"Sp. Def",new Action() {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("sDef", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("sDef", viewObjects);
+				}
 			}
-			
+
 		});
 		viewObjects.add(sDefense);
 		speed = new Button(1100,600,100,50,"Speed",new Action() {
 
 			@Override
 			public void act() {
-				setTrainedInfoStat("spd", viewObjects);
+				if(PokeStart.inventory.fatigue < 100) {
+					setTrainedInfoStat("spd", viewObjects);
+				}
 			}
-			
+
 		});
 		viewObjects.add(speed);
 	}
-	
+
 	public void setInfoText() {
 		updatePokemon();
 		info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
@@ -160,13 +186,13 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				"Spd: " + p.getSpd() + "\n");
 		poke.loadImages(p.getImage(), 300, 300);
 	}
-	
+
 	public static void updatePokemon() {
 		p = PokeStart.inventory.getPokemon();
 	}
-	
 
-	
+
+
 	public void setTrainedInfoStat(String s, List<Visible> viewObjects) {
 		Thread train = new Thread(new Runnable() {
 
@@ -270,8 +296,10 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				saveButton.setEnabled(true);
 				loadButton.setEnabled(true);
 				backButton.setEnabled(true);
+				PokeStart.inventory.fatigue += 5;
+				System.out.println(PokeStart.inventory.fatigue);
 			}
-			
+
 		});
 		train.start();
 	}

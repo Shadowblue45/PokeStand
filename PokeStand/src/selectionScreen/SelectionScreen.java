@@ -6,6 +6,9 @@ import java.io.File;
 import java.util.List;
 
 import audioPlayer.AudioTest;
+import fahadStartupandMenuScreen.CustomRect;
+import fahadStartupandMenuScreen.MainMenuScreen;
+import fahadStartupandMenuScreen.TrainingScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
 import garrettPokemonTraining.StatTrainingScreen;
@@ -19,9 +22,6 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import guiTeacher.userInterfaces.Screen;
 import startGame.PokeStart;
-import startupandMenuScreen.CustomRect;
-import startupandMenuScreen.MainMenuScreen;
-import startupandMenuScreen.TrainingScreen;
 
 public class SelectionScreen extends FullFunctionScreen {
 	
@@ -163,25 +163,27 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
-				MainMenuScreen.name.setText(F1[0]);
-				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
-				PokeStart.trainingScreen.setInfoText();
+//				MainMenuScreen.name.setText(F1[0]);
+//				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
+//				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
-				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
-						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-						"Spd: " + p.getSpd() + "\n");
-				StatTrainingScreen.updatePokemon();
-				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-						"Spd: " + p.getSpd() + "\n");
-				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
-				//TrainingScreen.name.setText(F1[0]);
-				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+//				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
+//						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+//						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+//						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+//						"Spd: " + p.getSpd() + "\n");
+//				StatTrainingScreen.updatePokemon();
+//				StatTrainingScreen.info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
+//						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+//						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
+//						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
+//						"Spd: " + p.getSpd() + "\n");
+//				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
+//				//TrainingScreen.name.setText(F1[0]);
+//				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
+
+				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 
 				update();
 				PokeStart.inventory.save();

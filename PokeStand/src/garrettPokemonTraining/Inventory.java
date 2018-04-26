@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class Inventory {
-	
+
 	public static Pokemon pokemon;
 	public static String[] pokemonForms = new String[3];
 	public static String[] pokemonImages = new String[3];
@@ -16,7 +16,7 @@ public class Inventory {
 	public int fatigue;
 
 	public Inventory() {
-		
+
 	}
 
 	public void save() {
@@ -88,7 +88,7 @@ public class Inventory {
 		// TODO Auto-generated method stub
 		return pokemonForms;
 	}
-	
+
 	public int getNameIndex() {
 		for(int i = 0; i < pokemonForms.length; i++) {
 			if(pokemon.getName().equals(pokemonForms[i])) {
@@ -97,26 +97,26 @@ public class Inventory {
 		}
 		return -1;
 	}
-	
+
 	public Pokemon getPokemon() {
 		return pokemon;
 	}
-	
+
 	public void setPokemon(String name, String type1, String type2, int hp, int atk, int def, int sAtk, int sDef, int spd, String url) {
 		pokemon = new Pokemon(name, type1, type2, hp, atk, def, sAtk, sDef, spd, url);
 	}
-	
+
 	public String[] getPokemonImages() {
 		return pokemonImages;
 	}
-	
-	public static void setImages(String[] pics) {
+
+	public void setImages(String[] pics) {
 		for(int i = 0; i < pics.length; i++) {
 			pokemonImages[i] = pics[i];
 		}
 	}
-	
-	public static void setNames(String[] names) {
+
+	public void setNames(String[] names) {
 		for(int i = 0; i < names.length; i++) {
 			pokemonForms[i] = names[i];
 		}
