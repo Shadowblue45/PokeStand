@@ -15,6 +15,7 @@ public class Inventory {
 	private int abilityPoints;
 	public int fatigue;
 	public int pokemonIndex;
+	public int daysLeft;
 
 	public Inventory() {
 

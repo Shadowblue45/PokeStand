@@ -24,6 +24,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	public static TextArea info;
 	public static Graphic poke;
 	private static Pokemon p;
+	public static CustomRect fatigue;
+	public static CustomRect rect;
 	private Button attack;
 	private Button defense;
 	private Button sAttack;
@@ -56,6 +58,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 				"Spd: " + p.getSpd() + "\n");
 		viewObjects.add(info);
+		fatigueBarDesign(viewObjects);
 		evolveButton = new Button(75,200,100,50,"Evolve", new Action() {
 
 			@Override
@@ -165,6 +168,19 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 		});
 		viewObjects.add(speed);
+	}
+	
+	public void fatigueBarDesign(List<Visible> viewObjects) {
+		rect = new CustomRect(270,60,400,40,Color.white);
+		fatigue = new CustomRect(270,60,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		viewObjects.add(rect);
+		viewObjects.add(fatigue);
+	}
+	
+	public void updateFatigue(List<Visible> viewObjects) {
+		viewObjects.remove(fatigue);
+		fatigue = new CustomRect(270,60,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		viewObjects.add(fatigue);
 	}
 
 	public void setInfoText() {
@@ -279,17 +295,13 @@ public class StatTrainingScreen extends FullFunctionScreen {
 					p.trainStat("spd");
 				}
 				setInfoText();
-				attack.setEnabled(true);
-				defense.setEnabled(true);
-				sAttack.setEnabled(true);
-				sDefense.setEnabled(true);
-				speed.setEnabled(true);
-				evolveButton.setEnabled(true);
 				saveButton.setEnabled(true);
 				loadButton.setEnabled(true);
 				backButton.setEnabled(true);
 				PokeStart.inventory.fatigue += 5;
 				System.out.println(PokeStart.inventory.fatigue);
+				updateFatigue(viewObjects);
+				PokeStart.inventory.daysLeft--;
 			}
 
 		});
