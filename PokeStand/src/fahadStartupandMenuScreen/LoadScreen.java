@@ -46,6 +46,7 @@ public class LoadScreen extends FullFunctionScreen {
 			
 			public void act() {
 				AudioTest.stopSound(AudioTest.sound);
+				PokeStart.inventory.load();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 			}
 		});
