@@ -12,6 +12,7 @@ public class Pokemon {
 	private String type1;
 	private String type2;
 	private int hp;
+	private int currentHp;
 	private int atk;
 	private int def;
 	private int sAtk;
@@ -50,6 +51,7 @@ public class Pokemon {
 	public void evolve() {
 		String[] pokemonNames = PokeStart.inventory.getNames();
 		System.out.println(Arrays.toString(pokemonNames));
+		System.out.println(type1);
 		if(PokeStart.inventory.getNameIndex() < 2) {
 			for(int i = 0; i < twoTypePokemon.length; i++) {
 				if(pokemonNames[PokeStart.inventory.getNameIndex() + 1].equals(twoTypePokemon[i])) {
@@ -60,6 +62,7 @@ public class Pokemon {
 			setName(pokemonNames[PokeStart.inventory.getNameIndex() + 1]);
 		}
 		setImage(PokeStart.inventory.getPokemonImages()[PokeStart.inventory.getNameIndex()]);
+		System.out.println(type1);
 	}
 
 	public void increaseStats() {
@@ -70,7 +73,7 @@ public class Pokemon {
 		setsDef(getsDef() + 5);
 		setSpd(getSpd() + 5);
 	}
-	
+
 	public void trainStat(String s) {
 		setHp(getHp() + 1);
 		if(s.equals("atk")) {
@@ -221,6 +224,14 @@ public class Pokemon {
 
 	public void setType1(String type1) {
 		this.type1 = type1;
+	}
+
+	public int getCurrentHp() {
+		return currentHp;
+	}
+
+	public void setCurrentHp(int currentHp) {
+		this.currentHp = currentHp;
 	}
 
 }

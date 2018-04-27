@@ -1,4 +1,4 @@
-package startupandMenuScreen;
+package fahadStartupandMenuScreen;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,8 +8,10 @@ import java.lang.reflect.Array;
 import java.util.List;
 
 import audioPlayer.AudioTest;
+import battle.BattleScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
+import garrettPokemonTraining.StatTrainingScreen;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.CustomImageButton;
@@ -39,23 +41,33 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		update();
 		System.out.println(PokeStart.inventory.pokemonImages[0]);
+		PokeStart.trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
 		
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
-		
+		int index = PokeStart.inventory.pokemonIndex;
+		int days = Pokemon.inventory.daysLeft;
 		
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
-		pokemon = new Graphic(440, 200, 400, 400, pokeLink[0]);
+		Button batttttleButton = new Button (900, 500, 200,70,"Battle",new Action() {
+
+			public void act() {
+				PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
+				PokeStart.start.setScreen(PokeStart.battleScreen);
+			}
+		});
+		pokemon = new Graphic(440, 200, 400, 400, pokeLink[index]);
 		PokeStart.setPokemonSunFont(100f);
-		TextArea daysNum = new TextArea(1050,10, 500, 300, "30");
+		TextArea daysNum = new TextArea(1050,10, 500, 300, Integer.toString(days));
 		PokeStart.setPokemonTextFont(26f);
-		name = new TextArea(10,20, 500, 300, pokeNames[0]);
+		name = new TextArea(10,20, 500, 300, pokeNames[index]);
 		TextArea daysRemaining = new TextArea(1000,110, 500, 300, "Days Left");
 		
 		//====================================================================
@@ -73,16 +85,25 @@ public class MainMenuScreen extends FullFunctionScreen {
 		viewObjects.add(background);
 		viewObjects.add(pokemon);
 		createBlackBackground(viewObjects);
+		fatigueBarDesign(viewObjects);
 		viewObjects.add(name);
 		viewObjects.add(info);
 		viewObjects.add(daysNum);
 		viewObjects.add(daysRemaining);
+		viewObjects.add(batttttleButton);
 		daysNum.setCustomTextColor(Color.white);
 		daysRemaining.setCustomTextColor(Color.white);
 		name.setCustomTextColor(Color.white);
 		info.setCustomTextColor(Color.white);
 		setMenuButtons(names, viewObjects);
 		pokemon.update();
+	}
+	
+	public void fatigueBarDesign(List<Visible> viewObjects) {
+		CustomRect rect = new CustomRect(270,60,400,40,Color.gray);
+		CustomRect fatigue = new CustomRect(270,60,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		viewObjects.add(rect);
+		viewObjects.add(fatigue);
 	}
 
 	public void setMenuButtons(String[] names, List<Visible> viewObjects) {

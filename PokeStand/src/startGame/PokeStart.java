@@ -6,16 +6,16 @@ import guiTeacher.userInterfaces.Screen;
 import rickyShopInteract.RickyScreen;
 import rickyShopInteract.RickyScreen;
 import selectionScreen.SelectionScreen;
-import startupandMenuScreen.MainMenuScreen;
-import startupandMenuScreen.StartScreen;
-import startupandMenuScreen.TrainingScreen;
-import startupandMenuScreen.LoadScreen;
 
 import java.awt.Font;
 import java.io.File;
 
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
+import fahadStartupandMenuScreen.LoadScreen;
+import fahadStartupandMenuScreen.MainMenuScreen;
+import fahadStartupandMenuScreen.StartScreen;
+import fahadStartupandMenuScreen.TrainingScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.StatTrainingScreen; 
 
@@ -40,12 +40,11 @@ public class PokeStart extends GUIApplication {
 	@Override
 	public void initScreen() {
 		inventory = new Inventory();
+		PokeStart.inventory.fatigue = 0;
 		loadScreen = new LoadScreen(getWidth(), getHeight());
-		trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());
-		mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 		//battleScreen = new BattleScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
