@@ -11,9 +11,7 @@ import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
-import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
-
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import startGame.PokeStart;
  
@@ -40,15 +38,14 @@ public class RickyScreen extends FullFunctionScreen {
 		addImages();
 		addBackgroundLabels(viewObjects);
 		addImagestoShop(viewObjects);
-		setPokemonFont(16);
+		PokeStart.setPokemonFont(16);
 		itemDescriptions(viewObjects);	
 		instanitatingArray(viewObjects);
 		addBuySellButtons(viewObjects);
-		setPokemonGBFont(13);
+		PokeStart.setPokemonGBFont(13);
 		addPricesToArrayList();
 		addPrices(viewObjects);
-		//addQuantityMarkers(viewObjects);
-		setPokemonFont(20);
+		PokeStart.setPokemonFont(20);
 		addBackButton(viewObjects);
 	}
 
@@ -129,7 +126,7 @@ public class RickyScreen extends FullFunctionScreen {
 			viewObjects.add(b);
 		}
 		StyledComponent.setButtonOutline(false);
-		setPokemonFont(18);
+		PokeStart.setPokemonFont(18);
 		z = new Button(1170,10,100,50,Integer.toString(getDollars()),null);
 		z.setEnabled(false);
 		viewObjects.add(z);
@@ -139,7 +136,7 @@ public class RickyScreen extends FullFunctionScreen {
 	public void addBuySellButtons(List<Visible> viewObjects) {
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
 			int j = i;
-			Button b = new Button(375, 25 + i*150, 75, 125,"Buy",new Action() {
+			Button b = new Button(375, 25 + i*150, 55, 125,"Buy",new Action() {
 
 				@Override
 				public void act() {
@@ -160,7 +157,7 @@ public class RickyScreen extends FullFunctionScreen {
 		
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
 			int j = i;
-			Button b = new Button(500, 25 + i*150, 75, 125,"Sell",new Action() {	
+			Button b = new Button(500, 25 + i*150, 65, 125,"Sell",new Action() {	
 				@Override
 				public void act() {
 					if(itemQuantity[j] >= 1) {
@@ -179,7 +176,7 @@ public class RickyScreen extends FullFunctionScreen {
 		
 		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
 			int j = i;
-			Button b = new Button(980, -575 + i*150, 75, 125,"Buy", new Action() {
+			Button b = new Button(980, -575 + i*150, 55, 125,"Buy", new Action() {
 				@Override
 				public void act() {
 					if(getDollars() >= priceAmount.get(j)) {
@@ -198,7 +195,7 @@ public class RickyScreen extends FullFunctionScreen {
 		
 		for (int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
 			int j = i;
-			Button b = new Button(1105, -575 + i*150, 75, 125,"Sell", new Action() {
+			Button b = new Button(1105, -575 + i*150, 65, 125,"Sell", new Action() {
 				
 				@Override
 				public void act() {
@@ -323,26 +320,6 @@ public class RickyScreen extends FullFunctionScreen {
 
 	public void setDollars(int dollars) {
 		this.dollars = dollars;
-	}
-
-	public static void setPokemonFont(float f) {
-		try {
-			//File fontFile = new File("resources/Pokemon Solid.ttf");
-			//Font font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/Pokemon Solid.ttf"));
-			//Font baseFont = Font.createFont(Font.TRUETYPE_FONT, new File("resources/Pokemon Solid.ttf")).deriveFont(f);
-			StyledComponent.setBaseFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/Pokemon Solid.ttf")).deriveFont(f));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public static void setPokemonGBFont(float f) {
-		try {
-			StyledComponent.setBaseFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/Pokemon GB.ttf")).deriveFont(f));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 }
