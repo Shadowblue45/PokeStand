@@ -45,7 +45,7 @@ public class RickyScreen extends FullFunctionScreen {
 		instanitatingArray(viewObjects);
 		addBuySellButtons(viewObjects);
 		setPokemonGBFont(13);
-		addPrices();
+		addPricesToArrayList();
 		addPrices(viewObjects);
 		//addQuantityMarkers(viewObjects);
 		setPokemonFont(20);
@@ -217,7 +217,7 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 	}
 	
-	public void addPrices() {
+	public void addPricesToArrayList() {
 		priceAmount = new ArrayList<Integer>();
 		
 		priceAmount.add(1200);
@@ -311,7 +311,6 @@ public class RickyScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
-				PokeStart.mainScreen = !PokeStart.mainScreen;
 			}
 		});
 		viewObjects.add(backButton);
