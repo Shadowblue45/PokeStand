@@ -51,7 +51,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
-		
+		int days = Pokemon.inventory.daysLeft;
 		
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
@@ -65,7 +65,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		});
 		pokemon = new Graphic(440, 200, 400, 400, pokeLink[index]);
 		PokeStart.setPokemonSunFont(100f);
-		TextArea daysNum = new TextArea(1050,10, 500, 300, "30");
+		TextArea daysNum = new TextArea(1050,10, 500, 300, Integer.toString(days));
 		PokeStart.setPokemonTextFont(26f);
 		name = new TextArea(10,20, 500, 300, pokeNames[index]);
 		TextArea daysRemaining = new TextArea(1000,110, 500, 300, "Days Left");
