@@ -126,7 +126,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		move3.setForeground(Color.white);
 		viewObjects.add(move3);
 		
-		move3 = new Button(612,540,600,120,"",new Action() {
+		move4 = new Button(612,540,600,120,"",new Action() {
 			
 			@Override
 			public void act() {
@@ -135,8 +135,8 @@ public class AbilityScreen extends FullFunctionScreen {
 			}
 		});
 	
-		move3.setForeground(Color.white);
-		viewObjects.add(move3);
+		move4.setForeground(Color.white);
+		viewObjects.add(move4);
 		
 
 
