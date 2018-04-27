@@ -51,7 +51,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
-		int days = Pokemon.inventory.daysLeft;
+		int days = PokeStart.inventory.daysLeft;
 		
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
@@ -97,6 +97,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		info.setCustomTextColor(Color.white);
 		setMenuButtons(names, viewObjects);
 		pokemon.update();
+		StyledComponent.setButtonOutline(false);
 	}
 	
 	public void fatigueBarDesign(List<Visible> viewObjects) {
