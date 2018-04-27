@@ -50,23 +50,24 @@ public class MainMenuScreen extends FullFunctionScreen {
 		
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
-		
+		int index = PokeStart.inventory.pokemonIndex;
+		int days = Pokemon.inventory.daysLeft;
 		
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
-		Button batttttleButton = new Button (600, 300, 200,70,"Battle",new Action() {
+		Button batttttleButton = new Button (900, 500, 200,70,"Battle",new Action() {
 
 			public void act() {
 				PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.battleScreen);
 			}
 		});
-		pokemon = new Graphic(440, 200, 400, 400, pokeLink[0]);
+		pokemon = new Graphic(440, 200, 400, 400, pokeLink[index]);
 		PokeStart.setPokemonSunFont(100f);
-		TextArea daysNum = new TextArea(1050,10, 500, 300, "30");
+		TextArea daysNum = new TextArea(1050,10, 500, 300, Integer.toString(days));
 		PokeStart.setPokemonTextFont(26f);
-		name = new TextArea(10,20, 500, 300, pokeNames[0]);
+		name = new TextArea(10,20, 500, 300, pokeNames[index]);
 		TextArea daysRemaining = new TextArea(1000,110, 500, 300, "Days Left");
 		
 		//====================================================================
@@ -99,7 +100,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 	}
 	
 	public void fatigueBarDesign(List<Visible> viewObjects) {
-		CustomRect rect = new CustomRect(270,60,400,40,Color.white);
+		CustomRect rect = new CustomRect(270,60,400,40,Color.gray);
 		CustomRect fatigue = new CustomRect(270,60,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
 		viewObjects.add(rect);
 		viewObjects.add(fatigue);
