@@ -311,6 +311,7 @@ public class RickyScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+				PokeStart.mainScreen =! PokeStart.mainScreen;
 			}
 		});
 		viewObjects.add(backButton);
