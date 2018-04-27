@@ -56,7 +56,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
-		Button batttttleButton = new Button (600, 300, 200,70,"Battle",new Action() {
+		Button batttttleButton = new Button (900, 500, 200,70,"Battle",new Action() {
 
 			public void act() {
 				PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
@@ -100,7 +100,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 	}
 	
 	public void fatigueBarDesign(List<Visible> viewObjects) {
-		CustomRect rect = new CustomRect(270,60,400,40,Color.white);
+		CustomRect rect = new CustomRect(270,60,400,40,Color.gray);
 		CustomRect fatigue = new CustomRect(270,60,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
 		viewObjects.add(rect);
 		viewObjects.add(fatigue);
