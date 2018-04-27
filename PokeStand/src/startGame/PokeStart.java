@@ -45,7 +45,7 @@ public class PokeStart extends GUIApplication {
 		startScreen = new StartScreen(getWidth(), getHeight());
 		selectionScreen = new SelectionScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());
-		//battleScreen = new BattleScreen(getWidth(), getHeight());
+		battleScreen = new BattleScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
 

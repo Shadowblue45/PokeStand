@@ -59,8 +59,10 @@ public class MainMenuScreen extends FullFunctionScreen {
 		Button batttttleButton = new Button (900, 500, 200,70,"Battle",new Action() {
 
 			public void act() {
-				PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
+				
 				PokeStart.start.setScreen(PokeStart.battleScreen);
+				PokeStart.battleScreen.startBattle();
+				
 			}
 		});
 		pokemon = new Graphic(440, 200, 400, 400, pokeLink[index]);
