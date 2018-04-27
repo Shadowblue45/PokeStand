@@ -21,6 +21,7 @@ public class AbilityScreen extends FullFunctionScreen {
 	TextArea pokemonN;
 	TextArea pokemonL;
 	Button back;
+	Button move1;
 	
 
 	public AbilityScreen(int width, int height) {
@@ -31,6 +32,7 @@ public class AbilityScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		
+		StyledComponent.setButtonOutline(true);
 		setPokemonGB();
 		Graphic background = new Graphic(0, 0, 1280,720, "resources/template.png");
 		viewObjects.add(background);
@@ -59,6 +61,20 @@ public class AbilityScreen extends FullFunctionScreen {
 		});
 		back.setForeground(Color.white);
 		viewObjects.add(back);
+	
+		
+	move1 = new Button(612,180,600,120,"Scratch",new Action() {
+			
+			@Override
+			public void act() {
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+				
+			}
+		});
+	
+		move1.setForeground(Color.white);
+		viewObjects.add(move1);
+		
 		
 		
 	}
