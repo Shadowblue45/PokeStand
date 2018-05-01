@@ -62,15 +62,11 @@ public class PokeStart extends GUIApplication {
 	public static Screen getScreen(int i) {
 		Screen[] mainScreens = {trainingScreen, loadScreen,null,null,null,shopScreen};
 		Screen[] trainingScreens = {mainMenuScreen, loadScreen,null,null,null,shopScreen};
-		if(mainScreen) {
-			if (i < mainScreens.length) {
-				return mainScreens[i];
-			}
+		if(PokeStart.inventory.daysLeft == 0) {
+			mainScreens[0] = battleScreen;
 		}
-		else {
-			if (i < trainingScreens.length) {
-				return trainingScreens[i];
-			}
+		if (i < mainScreens.length) {
+			return mainScreens[i];
 		}
 		return null;
 	}

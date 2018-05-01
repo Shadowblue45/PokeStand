@@ -51,6 +51,9 @@ public class MainMenuScreen extends FullFunctionScreen {
 		//temp setters=======================================
 
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
+		if(PokeStart.inventory.daysLeft == 0) {
+			names[0] = "Battle";
+		}
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
@@ -108,8 +111,10 @@ public class MainMenuScreen extends FullFunctionScreen {
 	public void fatigueBarDesign(List<Visible> viewObjects) {
 		PokeStart.setPokemonTextFont(26f);
 		TextArea fatigue = new TextArea(270,20, 500, 300, "Fatigue");
+		CustomRect border = new CustomRect(265,65,410,50,Color.white);
 		CustomRect rect = new CustomRect(270,70,400,40,Color.gray);
 		CustomRect fatigueBar = new CustomRect(270,70,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		viewObjects.add(border);
 		viewObjects.add(rect);
 		viewObjects.add(fatigue);
 		viewObjects.add(fatigueBar);
