@@ -16,6 +16,7 @@ import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import selectionScreen.SelectionScreen;
 import startGame.PokeStart;
 
 public class LoadScreen extends FullFunctionScreen {
@@ -47,6 +48,7 @@ public class LoadScreen extends FullFunctionScreen {
 			public void act() {
 				PokeStart.inventory.load();
 				AudioTest.stopSound(AudioTest.sound);
+				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 			}
 		});
@@ -54,6 +56,7 @@ public class LoadScreen extends FullFunctionScreen {
 			
 			public void act() {
 				AudioTest.stopSound(AudioTest.sound);
+				PokeStart.selectionScreen = new SelectionScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.selectionScreen);
 			}
 		});

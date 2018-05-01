@@ -43,7 +43,6 @@ public class PokeStart extends GUIApplication {
 		PokeStart.inventory.fatigue = 0;
 		loadScreen = new LoadScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
-		selectionScreen = new SelectionScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());
 		battleScreen = new BattleScreen(getWidth(), getHeight());
 		
@@ -61,7 +60,6 @@ public class PokeStart extends GUIApplication {
 	
 	public static Screen getScreen(int i) {
 		Screen[] mainScreens = {trainingScreen, loadScreen,null,null,null,shopScreen};
-		Screen[] trainingScreens = {mainMenuScreen, loadScreen,null,null,null,shopScreen};
 		if(PokeStart.inventory.daysLeft == 0) {
 			mainScreens[0] = battleScreen;
 		}
