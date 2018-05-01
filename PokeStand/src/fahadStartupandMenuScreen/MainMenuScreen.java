@@ -53,6 +53,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		if(PokeStart.inventory.daysLeft == 0) {
 			names[0] = "Battle";
+			PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
 		}
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();

@@ -32,6 +32,7 @@ public class BattleScreen extends FullFunctionScreen{
 		System.out.println("current HP is "+Inventory.pokemon.getCurrentHp());
 		currentHp.setDimensions((int)(hpSize+1), 20);
 		name.setText(pokeNames[index]);
+		userPokemon.loadImages("resources/pokebacks/"+pokeNames[index]+ " back.png", getWidth()/2,getHeight()/2);
 		
 	}
 	
