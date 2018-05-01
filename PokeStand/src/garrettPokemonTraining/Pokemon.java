@@ -154,6 +154,10 @@ public class Pokemon {
 		return moves;
 	}
 
+	public void replaceMove(int i, Move move) {
+		moves.set(i, move);
+	}
+
 	public int getHp() {
 		return hp;
 	}
