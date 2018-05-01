@@ -47,20 +47,28 @@ public class MainMenuScreen extends FullFunctionScreen {
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
-		
+	
+		//temp setters=======================================
+
+		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
+		if(PokeStart.inventory.daysLeft == 0) {
+			names[0] = "Battle";
+		}
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
 		int days = PokeStart.inventory.daysLeft;
 		
+		//===================================================
 		
-		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
 		Button batttttleButton = new Button (900, 500, 200,70,"Battle",new Action() {
 
 			public void act() {
-				PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
+				
 				PokeStart.start.setScreen(PokeStart.battleScreen);
+				PokeStart.battleScreen.startBattle();
+				
 			}
 		});
 		pokemon = new Graphic(440, 200, 400, 400, pokeLink[index]);
@@ -97,13 +105,20 @@ public class MainMenuScreen extends FullFunctionScreen {
 		info.setCustomTextColor(Color.white);
 		setMenuButtons(names, viewObjects);
 		pokemon.update();
+		StyledComponent.setButtonOutline(false);
 	}
 	
 	public void fatigueBarDesign(List<Visible> viewObjects) {
-		CustomRect rect = new CustomRect(270,60,400,40,Color.gray);
-		CustomRect fatigue = new CustomRect(270,60,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		PokeStart.setPokemonTextFont(26f);
+		TextArea fatigue = new TextArea(270,20, 500, 300, "Fatigue");
+		CustomRect border = new CustomRect(265,65,410,50,Color.white);
+		CustomRect rect = new CustomRect(270,70,400,40,Color.gray);
+		CustomRect fatigueBar = new CustomRect(270,70,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		viewObjects.add(border);
 		viewObjects.add(rect);
 		viewObjects.add(fatigue);
+		viewObjects.add(fatigueBar);
+		fatigue.setCustomTextColor(Color.white);
 	}
 
 	public void setMenuButtons(String[] names, List<Visible> viewObjects) {
@@ -116,7 +131,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 	public void createBlackBackground(List<Visible> viewObjects) {
 		CustomRect rect = new CustomRect(0,yCord-20,getWidth(),120);
 		//CustomRect square = new CustomRect(980,0,300,200);
-		CustomRect textArea = new CustomRect(0,0,250,400);
+		CustomRect textArea = new CustomRect(0,0,250,300);
 		CustomRect fatigueArea = new CustomRect(250,0,1030,150);
 		viewObjects.add(rect);
 		//viewObjects.add(square);
