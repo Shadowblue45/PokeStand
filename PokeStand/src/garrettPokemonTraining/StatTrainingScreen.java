@@ -18,7 +18,6 @@ import startGame.PokeStart;
 public class StatTrainingScreen extends FullFunctionScreen {
 
 	public static Graphic target;
-	private Button start;
 	private Button evolveButton;
 	private Button saveButton;
 	private Button loadButton;
@@ -176,17 +175,17 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	}
 	
 	public void fatigueBarDesign(List<Visible> viewObjects) {
-		rect = new CustomRect(570,30,400,40,Color.white);
-		fatigue = new CustomRect(570,30,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		rect = new CustomRect(840,397,350,31,Color.white);
+		fatigue = new CustomRect(840,397,(int)((100-PokeStart.inventory.fatigue)*3.5),31,Color.green);
 		viewObjects.add(rect);
 		viewObjects.add(fatigue);
-		TextLabel fatigueName = new TextLabel(480,30,100,50,"Fatigue: ");
+		TextLabel fatigueName = new TextLabel(750,390,100,50,"Fatigue: ");
 		viewObjects.add(fatigueName);
 	}
 	
 	public void updateFatigue(List<Visible> viewObjects) {
 		viewObjects.remove(fatigue);
-		fatigue = new CustomRect(570,30,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		fatigue = new CustomRect(840,397,(int)((100-PokeStart.inventory.fatigue)*3.5),31,Color.green);
 		viewObjects.add(fatigue);
 	}
 
@@ -310,7 +309,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				PokeStart.inventory.fatigue += 5;
 				System.out.println(PokeStart.inventory.fatigue);
 				updateFatigue(viewObjects);
-				PokeStart.inventory.daysLeft--;
+				if(PokeStart.inventory.daysLeft > 0) {
+					PokeStart.inventory.daysLeft--;
+				}
 			}
 
 		});
