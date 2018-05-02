@@ -49,6 +49,10 @@ public class AbilityScreen extends FullFunctionScreen {
 		Graphic PA = new Graphic(50, 570, 400,120, "resources/moves.png");
 		viewObjects.add(PA);
 		
+		//String[] pokeNames = PokeStart.inventory.getNames(); 
+		//String[] pokePic = PokeStart.inventory.getPokemonImages(); 
+		//int pIndex = PokeStart.inventory.pokemonIndex;
+		
 		
 		pokemon = new Graphic(100, 300, 250, 250,"resources/fire/Charmander.png");
 		viewObjects.add(pokemon);
