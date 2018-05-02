@@ -5,6 +5,7 @@ import java.util.List;
 
 import fahadStartupandMenuScreen.CustomRect;
 import garrettPokemonTraining.Inventory;
+import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
@@ -13,9 +14,10 @@ import startGame.PokeStart;
 
 public class BattleScreen extends FullFunctionScreen{
 	
-	CustomRect currentHp;
-	TextLabel name;
-	Graphic userPokemon;
+	private CustomRect currentHp;
+	private TextLabel name;
+	private Graphic userPokemon;
+	private Pokemon enemyPokemon;
 	
 	public BattleScreen(int width, int height) {
 		super(width, height);
@@ -24,6 +26,9 @@ public class BattleScreen extends FullFunctionScreen{
 	public void startBattle() {
 		String[] pokeNames = PokeStart.inventory.getNames();
 		int index = PokeStart.inventory.pokemonIndex;
+		if(Inventory.pokemon.getType1().equals("Fire")) {
+		enemyPokemon = new Pokemon("Suicune","Water",null,310,139,211,166,211,157,null);	
+		}
 		Inventory.pokemon.setCurrentHp(Inventory.pokemon.getHp());
 		int current = Inventory.pokemon.getCurrentHp();
 		int hpSize = (int) (265*current)/(Inventory.pokemon.getHp());
