@@ -12,6 +12,7 @@ import java.io.File;
 
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
+import displayAbilities.AbilityScreen;
 import fahadStartupandMenuScreen.LoadScreen;
 import fahadStartupandMenuScreen.MainMenuScreen;
 import fahadStartupandMenuScreen.StartScreen;
@@ -31,6 +32,7 @@ public class PokeStart extends GUIApplication {
 	public static Inventory inventory;
 	public static MainMenuScreen mainMenuScreen;
 	public static boolean mainScreen;
+	public static AbilityScreen abilityScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -59,7 +61,7 @@ public class PokeStart extends GUIApplication {
 	}
 	
 	public static Screen getScreen(int i) {
-		Screen[] mainScreens = {trainingScreen, loadScreen,null,null,null,shopScreen};
+		Screen[] mainScreens = {trainingScreen, loadScreen,null,abilityScreen,null,shopScreen};
 		if(PokeStart.inventory.daysLeft == 0) {
 			mainScreens[0] = battleScreen;
 		}

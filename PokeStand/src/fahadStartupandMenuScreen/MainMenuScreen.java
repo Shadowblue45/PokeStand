@@ -9,6 +9,7 @@ import java.util.List;
 
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
+import displayAbilities.AbilityScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
 import garrettPokemonTraining.StatTrainingScreen;
@@ -51,19 +52,20 @@ public class MainMenuScreen extends FullFunctionScreen {
 		//temp setters=======================================
 
 		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
-		if(PokeStart.inventory.daysLeft == 0) {
-			names[0] = "Battle";
-			PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
-		}
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
 		int days = PokeStart.inventory.daysLeft;
+		if(PokeStart.inventory.daysLeft == 0) {
+			names[0] = "Battle";
+			PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
+		}
+		PokeStart.abilityScreen = new AbilityScreen(getWidth(), getHeight());
 		
 		//===================================================
 		
-		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Pokemon Arena.jpg");
-		Button batttttleButton = new Button (900, 500, 200,70,"Battle",new Action() {
+		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/field.jpg");
+		Button battleButton = new Button (900, 500, 200,70,"Battle",new Action() {
 
 			public void act() {
 				
@@ -99,12 +101,12 @@ public class MainMenuScreen extends FullFunctionScreen {
 		viewObjects.add(info);
 		viewObjects.add(daysNum);
 		viewObjects.add(daysRemaining);
-		viewObjects.add(batttttleButton);
+		viewObjects.add(battleButton);
+		setMenuButtons(names, viewObjects);
 		daysNum.setCustomTextColor(Color.white);
 		daysRemaining.setCustomTextColor(Color.white);
 		name.setCustomTextColor(Color.white);
 		info.setCustomTextColor(Color.white);
-		setMenuButtons(names, viewObjects);
 		pokemon.update();
 		StyledComponent.setButtonOutline(false);
 	}
