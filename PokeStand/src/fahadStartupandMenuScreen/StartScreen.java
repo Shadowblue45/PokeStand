@@ -28,19 +28,19 @@ public class StartScreen extends FullFunctionScreen{
 
 	
 	public void initAllObjects(List<Visible> viewObjects) {
-		PokeStart.setPokemonHollowFont(100f);
+		//PokeStart.setPokemonHollowFont(100f);
 		String txt = "Pokemon Rivalry";
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Dogs.jpg");
-		titleBorder = new TextArea(190,75,900,400,txt);
-		titleBorder.setCustomTextColor(new Color(59, 76, 202));
+//		titleBorder = new TextArea(190,75,900,400,txt);
+//		titleBorder.setCustomTextColor(new Color(59, 76, 202));
 		PokeStart.setPokemonFont(100f);
-		title = new TextArea(190,75,1000,400,txt);
-		title.setCustomTextColor(new Color(255, 222, 0));
+		title = new TextArea(130,75,1500,400,txt);
+		title.setCustomTextColor(new Color(0, 0, 80));
 		PokeStart.setPokemonTextFont(32f);
 	
 		viewObjects.add(background);
 		viewObjects.add(title);
-		viewObjects.add(titleBorder);
+//		viewObjects.add(titleBorder);
 		Button startGameButton = new Button(0, 0, getWidth(), getHeight(), "",new Action() {
 			
 			public void act() {
