@@ -41,8 +41,8 @@ public class Pokemon {
 		setsAtk(sAtk);
 		setsDef(sDef);
 		setSpd(spd);
-		setMoves();
 		setImage(url);
+		setMoves();
 	}
 
 	public void setImage(String s) {
@@ -180,6 +180,11 @@ public class Pokemon {
 
 	public void replaceMove(int i, Move move) {
 		moves.set(i, move);
+	}
+	
+	public void emptyMoves() {
+		moves = new ArrayList<Move>();
+		System.out.println(moves);
 	}
 
 	public int getHp() {

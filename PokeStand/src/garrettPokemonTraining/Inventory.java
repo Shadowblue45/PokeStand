@@ -50,19 +50,17 @@ public class Inventory {
 
 				String[] param = line.split(",");
 				if(param.length == 10) {
-					pokemon.setName(param[0]);
-					pokemon.setType1(param[1]);
-					pokemon.setType2(param[2]);
-					pokemon.setHp(Integer.parseInt(param[3]));
-					pokemon.setAtk(Integer.parseInt(param[4]));
-					pokemon.setDef(Integer.parseInt(param[5]));
-					pokemon.setsAtk(Integer.parseInt(param[6]));
-					pokemon.setsDef(Integer.parseInt(param[7]));
-					pokemon.setSpd(Integer.parseInt(param[8]));
-					pokemon.setImage(param[9]);
+					setPokemon(param[0],param[1],param[2],Integer.parseInt(param[3]),Integer.parseInt(param[4]),Integer.parseInt(param[5]),Integer.parseInt(param[6]),
+							Integer.parseInt(param[7]),Integer.parseInt(param[8]),param[9]);
+					pokemon.emptyMoves();
 				}
-				else {
-					//PokeStart.inventory.add(new GarrettItem(param[0],param[1],Integer.parseInt(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4])));
+				else if(param.length == 7){
+					pokemon.getMoves().add(new Move(param[0],param[1],Integer.parseInt(param[2]),Integer.parseInt(param[3]),Integer.parseInt(param[4]),param[5],param[6]));
+				}else if(param.length == 4) {
+					pokemonIndex = Integer.parseInt(param[0]);
+					daysLeft = Integer.parseInt(param[1]);
+					fatigue = Integer.parseInt(param[2]);
+					uPoints = Integer.parseInt(param[3]);
 				}
 			}
 			br.close();

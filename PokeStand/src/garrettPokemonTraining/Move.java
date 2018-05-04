@@ -61,7 +61,7 @@ public class Move {
 	}
 
 	public String toString() {
-		return name + "," + type + "," + power + "," + accuracy + "," + pp + "," + isSpecial;
+		return name + "," + type + "," + power + "," + accuracy + "," + pp + "," + isSpecial + "," + action;
 	}
 
 	public int getCurrentPp() {
