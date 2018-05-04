@@ -14,10 +14,15 @@ public class Pokemon {
 	private int hp;
 	private int currentHp;
 	private int atk;
+	private int currentAtk;
 	private int def;
+	private int currentDef;
 	private int sAtk;
+	private int currentsAtk;
 	private int sDef;
+	private int currentsDef;
 	private int spd;
+	private int currentSpd;
 	private String image;
 	private ArrayList<Move> moves;
 	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
@@ -96,62 +101,85 @@ public class Pokemon {
 	public void setMoves() {
 		moves = new ArrayList<Move>();
 		if(name.equals("Charmander")) {
-			moves.add(new Move("Growl","Normal",0,100,40,false));
-			moves.add(new Move("Scratch","Normal",40,100,35,false));
-			moves.add(new Move("Ember","Fire",40,100,25,true));
-			moves.add(new Move("Smokescreen","Normal",0,100,20,false));
+			moves.add(new Move("Growl","Normal",0,100,40,false,null));
+			moves.add(new Move("Scratch","Normal",40,100,35,false,null));
+			moves.add(new Move("Ember","Fire",40,100,25,true,null));
+			moves.add(new Move("Smokescreen","Normal",0,100,20,false,null));
 		}
 		if(name.equals("Cyndaquil")) {
-			moves.add(new Move("Leer","Normal",0,100,30,false));
-			moves.add(new Move("Tackle","Normal",40,100,35,false));
-			moves.add(new Move("Ember","Fire",40,100,25,true));
-			moves.add(new Move("Smokescreen","Normal",0,100,20,false));
+			moves.add(new Move("Leer","Normal",0,100,30,false,null));
+			moves.add(new Move("Tackle","Normal",40,100,35,false,null));
+			moves.add(new Move("Ember","Fire",40,100,25,true,null));
+			moves.add(new Move("Smokescreen","Normal",0,100,20,false,null));
 		}
 		if(name.equals("Chimchar")) {
-			moves.add(new Move("Leer","Normal",0,100,30,false));
-			moves.add(new Move("Scratch","Normal",40,100,35,false));
-			moves.add(new Move("Ember","Fire",40,100,25,true));
-			moves.add(new Move("Taunt","Dark",0,100,20,false));
+			moves.add(new Move("Leer","Normal",0,100,30,false,null));
+			moves.add(new Move("Scratch","Normal",40,100,35,false,null));
+			moves.add(new Move("Ember","Fire",40,100,25,true,null));
+			moves.add(new Move("Fury Swipes","Normal",18,80,15,false,null));
 		}
 		if(name.equals("Turtwig")) {
-			moves.add(new Move("Withdraw","Water",0,101,40,false));
-			moves.add(new Move("Tackle","Normal",40,100,35,false));
-			moves.add(new Move("Absorb","Grass",20,100,25,true));
+			moves.add(new Move("Withdraw","Water",0,101,40,false,null));
+			moves.add(new Move("Tackle","Normal",40,100,35,false,null));
+			moves.add(new Move("Absorb","Grass",20,100,25,true,null));
+			moves.add(new Move("Razor Leaf","Grass",55,95,25,false,null));
 		}
 		if(name.equals("Treecko")) {
-			moves.add(new Move("Leer","Normal",0,100,30,false));
-			moves.add(new Move("Pound","Normal",40,100,35,false));
-			moves.add(new Move("Absorb","Grass",20,100,25,true));
-			moves.add(new Move("Quick Attack", "Normal", 40, 100, 30, false));
+			moves.add(new Move("Leer","Normal",0,100,30,false,null));
+			moves.add(new Move("Pound","Normal",40,100,35,false,null));
+			moves.add(new Move("Absorb","Grass",20,100,25,true,null));
+			moves.add(new Move("Quick Attack", "Normal", 40, 100, 30, false,null));
 		}
 		if(name.equals("Snivy")) {
-			moves.add(new Move("Leer","Normal",0,100,30,false));
-			moves.add(new Move("Tackle","Normal",40,100,40,false));
-			moves.add(new Move("Vine Whip","Grass",45,100,25,false));
-			moves.add(new Move("Wrap","Normal",15,90,20,false));
+			moves.add(new Move("Leer","Normal",0,100,30,false,null));
+			moves.add(new Move("Tackle","Normal",40,100,40,false,null));
+			moves.add(new Move("Vine Whip","Grass",45,100,25,false,null));
+			moves.add(new Move("Wrap","Normal",15,90,20,false,null));
 		}
 		if(name.equals("Popplio")) {
-			moves.add(new Move("Growl","Normal",0,100,40,false));
-			moves.add(new Move("Pound","Normal",40,100,35,false));
-			moves.add(new Move("Water Gun","Water",40,100,25,true));
-			moves.add(new Move("Disarming Voice","Fairy",40,101,15,true));
+			moves.add(new Move("Growl","Normal",0,100,40,false,null));
+			moves.add(new Move("Pound","Normal",40,100,35,false,null));
+			moves.add(new Move("Water Gun","Water",40,100,25,true,null));
+			moves.add(new Move("Disarming Voice","Fairy",40,101,15,true,null));
 		}
 		if(name.equals("Froakie")) {
-			moves.add(new Move("Growl","Normal",0,100,40,false));
-			moves.add(new Move("Pound","Normal",40,100,35,false));
-			moves.add(new Move("Bubble","Water",40,100,30,true));
-			moves.add(new Move("Quick Attack", "Normal", 40, 100, 30, false));
+			moves.add(new Move("Growl","Normal",0,100,40,false,null));
+			moves.add(new Move("Pound","Normal",40,100,35,false,null));
+			moves.add(new Move("Bubble","Water",40,100,30,true,null));
+			moves.add(new Move("Quick Attack", "Normal", 40, 100, 30, false,null));
 		}
 		if(name.equals("Mudkip")) {
-			moves.add(new Move("Growl","Normal",0,100,40,false));
-			moves.add(new Move("Tackle","Normal",40,100,40,false));
-			moves.add(new Move("Water Gun","Water",40,100,25,true));
-			moves.add(new Move("Mud-Slap","Ground",20,100,10,true));
+			moves.add(new Move("Growl","Normal",0,100,40,false,null));
+			moves.add(new Move("Tackle","Normal",40,100,40,false,null));
+			moves.add(new Move("Water Gun","Water",40,100,25,true,null));
+			moves.add(new Move("Mud-Slap","Ground",20,100,10,true,null));
+		}
+		if(name.equals("Entei")) {
+			moves.add(new Move("Extrasensory","Psychic",80,100,20,true,null));
+			moves.add(new Move("Fire Blast","Fire",110,85,5,true,null));
+			moves.add(new Move("Bite","Dark",60,100,25,false,null));
+			moves.add(new Move("Sacred Fire","Fire",100,95,5,false,null));
+		}
+		if(name.equals("Suicune")) {
+			moves.add(new Move("Calm Mind","Psychic",0,101,20,false,null));
+			moves.add(new Move("Blizzard","Ice",110,70,5,true,null));
+			moves.add(new Move("Aurora Beam","Ice",65,100,20,true,null));
+			moves.add(new Move("Hydro Pump","Water",110,80,5,true,null));
+		}
+		if(name.equals("Raikou")) {
+			moves.add(new Move("Thunder","Electric",110,70,10,true,null));
+			moves.add(new Move("Crunch","Dark",80,100,15,false,null));
+			moves.add(new Move("Discharge","Electric",80,100,15,true,null));
+			moves.add(new Move("Extrasensory","Psychic",80,100,20,true,null));
 		}
 	}
 
 	public ArrayList<Move> getMoves(){
 		return moves;
+	}
+
+	public void replaceMove(int i, Move move) {
+		moves.set(i, move);
 	}
 
 	public int getHp() {
@@ -232,6 +260,46 @@ public class Pokemon {
 
 	public void setCurrentHp(int currentHp) {
 		this.currentHp = currentHp;
+	}
+	
+	public int getCurrentAtk() {
+		return currentAtk;
+	}
+
+	public void setCurrentAtk(int currentAtk) {
+		this.currentAtk = currentAtk;
+	}
+
+	public int getCurrentDef() {
+		return currentDef;
+	}
+
+	public void setCurrentDef(int currentDef) {
+		this.currentDef = currentDef;
+	}
+
+	public int getCurrentsAtk() {
+		return currentsAtk;
+	}
+
+	public void setCurrentsAtk(int currentsAtk) {
+		this.currentsAtk = currentsAtk;
+	}
+
+	public int getCurrentsDef() {
+		return currentsDef;
+	}
+
+	public void setCurrentsDef(int currentsDef) {
+		this.currentsDef = currentsDef;
+	}
+
+	public int getCurrentSpd() {
+		return currentSpd;
+	}
+
+	public void setCurrentSpd(int currentSpd) {
+		this.currentSpd = currentSpd;
 	}
 
 }
