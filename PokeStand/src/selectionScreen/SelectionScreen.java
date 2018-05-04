@@ -226,6 +226,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 				PokeStart.inventory.pokemonIndex = 0;
+				PokeStart.inventory.daysLeft = 30;
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 //				MainMenuScreen.name.setText(F1[0]);
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
@@ -289,6 +290,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 				PokeStart.inventory.pokemonIndex = 0;
+				PokeStart.inventory.daysLeft = 30;
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 //				MainMenuScreen.name.setText(F1[0]);
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
@@ -354,6 +356,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 				PokeStart.inventory.pokemonIndex = 0;
+				PokeStart.inventory.daysLeft = 30;
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 //				MainMenuScreen.name.setText(F1[0]);
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
@@ -419,6 +422,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 				PokeStart.inventory.pokemonIndex = 0;
+				PokeStart.inventory.daysLeft = 30;
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 //				MainMenuScreen.name.setText(F1[0]);
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
@@ -483,6 +487,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 				PokeStart.inventory.pokemonIndex = 0;
+				PokeStart.inventory.daysLeft = 30;
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 //				MainMenuScreen.name.setText(F1[0]);
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
@@ -549,6 +554,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 				PokeStart.inventory.pokemonIndex = 0;
+				PokeStart.inventory.daysLeft = 30;
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 //				MainMenuScreen.name.setText(F1[0]);
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
@@ -613,6 +619,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 				PokeStart.inventory.pokemonIndex = 0;
+				PokeStart.inventory.daysLeft = 30;
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 //				MainMenuScreen.name.setText(F1[0]);
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
@@ -677,6 +684,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				PokeStart.inventory.setImages(FP1);
 				PokeStart.inventory.setNames(F1);
 				PokeStart.inventory.pokemonIndex = 0;
+				PokeStart.inventory.daysLeft = 30;
 //				System.out.println(PokeStart.inventory.pokemonImages[0]);
 //				MainMenuScreen.name.setText(F1[0]);
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
