@@ -1,6 +1,6 @@
-Snivy,Grass,,30,23,14,54,21,2333,resources/grass/Snivy.png
-Leer,Normal,0,100,30,false
-Tackle,Normal,40,100,40,false
-Vine Whip,Grass,45,100,25,false
-Wrap,Normal,15,90,20,false
-0,30,0,0
+Turtwig,Grass,,30,23,14,54,21,2333,resources/grass/Turtwig.png
+Withdraw,Water,0,101,40,false
+Tackle,Normal,40,100,35,false
+Absorb,Grass,20,100,25,true
+Razor Leaf,Grass,55,95,25,false
+0,30,5,5

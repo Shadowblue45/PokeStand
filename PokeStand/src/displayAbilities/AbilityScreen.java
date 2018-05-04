@@ -41,6 +41,12 @@ public class AbilityScreen extends FullFunctionScreen {
 	TextArea pp3;
 	TextArea pp4;
 	
+	Graphic t1;
+	Graphic t2;
+	Graphic t3;
+	Graphic t4;
+	
+	
 
 	
 
@@ -51,6 +57,7 @@ public class AbilityScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+
 		
 
 		setPokemonGB(35f);
@@ -74,7 +81,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		pokemonN.setCustomTextColor(Color.black);
 		viewObjects.add(pokemonN);
 		
-		pokemonL = new TextArea(115,185,600,50,"4");
+		pokemonL = new TextArea(115,185,600,50,"-");
 		pokemonL.setCustomTextColor(Color.black);
 		viewObjects.add(pokemonL);
 		
@@ -98,6 +105,7 @@ public class AbilityScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+
 				
 			}
 		});
@@ -157,19 +165,19 @@ public class AbilityScreen extends FullFunctionScreen {
 		move4.setForeground(Color.white);
 		viewObjects.add(move4);
 		
-		nMove1 = new TextArea(630,200,600,120,PokeStart.inventory.pokemon.getMoves().get(0).getName());
+		nMove1 = new TextArea(780,200,600,120,PokeStart.inventory.pokemon.getMoves().get(0).getName());
 		nMove1.setForeground(Color.WHITE);
 		viewObjects.add(nMove1);
 		
-		nMove2 = new TextArea(630,320,600,120,PokeStart.inventory.pokemon.getMoves().get(1).getName());
+		nMove2 = new TextArea(780,320,600,120,PokeStart.inventory.pokemon.getMoves().get(1).getName());
 		nMove2.setForeground(Color.WHITE);
 		viewObjects.add(nMove2);
 		
-		nMove3 = new TextArea(630,440,600,120,PokeStart.inventory.pokemon.getMoves().get(2).getName());
+		nMove3 = new TextArea(780,440,600,120,PokeStart.inventory.pokemon.getMoves().get(2).getName());
 		nMove3.setForeground(Color.WHITE);
 		viewObjects.add(nMove3);
 		
-		nMove4 = new TextArea(630,560,600,120,PokeStart.inventory.pokemon.getMoves().get(3).getName());
+		nMove4 = new TextArea(780,560,600,120,PokeStart.inventory.pokemon.getMoves().get(3).getName());
 		nMove4.setForeground(Color.WHITE);
 		viewObjects.add(nMove4);
 		
@@ -188,8 +196,20 @@ public class AbilityScreen extends FullFunctionScreen {
 		pp4 = new TextArea(950,610,600,120,Integer.toString(PokeStart.inventory.pokemon.getMoves().get(3).getCurrentPp()) + "/" +Integer.toString(PokeStart.inventory.pokemon.getMoves().get(3).getPp()));
 		pp1.setForeground(Color.white);
 		viewObjects.add(pp4);
+		
+		t1 = new Graphic(630,200,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(0).getType()+".png");
+		viewObjects.add(t1);
+		
+		t2 = new Graphic(630,320,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(1).getType()+".png");
+		viewObjects.add(t2);
+		
+		t3 = new Graphic(630,440,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(2).getType()+".png");
+		viewObjects.add(t3);
+		
+		t4 = new Graphic(630,560,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(3).getType()+".png");
+		viewObjects.add(t4);
 
-
+		
 		
 		
 		
