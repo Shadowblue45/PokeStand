@@ -59,7 +59,7 @@ public class AbilityScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 
 		
-
+		
 		setPokemonGB(35f);
 		Graphic background = new Graphic(0, 0, 1280,720, "resources/template.png");
 		viewObjects.add(background);
@@ -99,7 +99,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		viewObjects.add(accuracy);
 		
 		setPokemonGB(30f);
-		
+		StyledComponent.setButtonOutline(false);
 		back = new Button(300,10,150,100,"Back",new Action() {
 			
 			@Override
@@ -111,7 +111,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		});
 		back.setForeground(Color.white);
 		viewObjects.add(back);
-	
+		StyledComponent.setButtonOutline(true);
 		
 		move1 = new Button(612,180,600,120,"",new Action() {
 			
