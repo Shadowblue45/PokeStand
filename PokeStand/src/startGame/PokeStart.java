@@ -95,7 +95,7 @@ public class PokeStart extends GUIApplication {
 	
 	public static void setPokemonFont(float f) {
 		try {
-		File fontFile = new File("resources/Pokemon Solid.ttf");
+		File fontFile = new File("resources/Kanji_PA.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(f);
 		StyledComponent.setBaseFont(baseFont);

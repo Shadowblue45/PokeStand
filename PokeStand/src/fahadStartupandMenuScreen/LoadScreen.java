@@ -36,14 +36,14 @@ public class LoadScreen extends FullFunctionScreen {
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
 		AudioTest.playSound("resources/Lavender Town.wav");
-		PokeStart.setPokemonHollowFont(100f);
+		//PokeStart.setPokemonHollowFont(100f);
 		String txt = "Pokemon Rivalry";
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Dogs.jpg");
-		titleBorder = new TextArea(190,75,900,400,txt);
-		titleBorder.setCustomTextColor(new Color(59, 76, 202));
+//		titleBorder = new TextArea(190,75,900,400,txt);
+//		titleBorder.setCustomTextColor(new Color(59, 76, 202));
 		PokeStart.setPokemonFont(100f);
-		title = new TextArea(190,75,1000,400,txt);
-		title.setCustomTextColor(new Color(255, 222, 0));
+		title = new TextArea(130,75,1500,400,txt);
+		title.setCustomTextColor(new Color(0, 0, 80));
 		PokeStart.setPokemonTextFont(32f);
 		Button continueButton = new Button(440, 250, 400, 50, "Continue",new Action() {
 			
@@ -64,7 +64,7 @@ public class LoadScreen extends FullFunctionScreen {
 		});
 		viewObjects.add(background);
 		viewObjects.add(title);
-		viewObjects.add(titleBorder);
+	  //viewObjects.add(titleBorder);
 		viewObjects.add(continueButton);
 		viewObjects.add(newGameButton);
 		continueButton.setBackground(new Color(0,0,0,140));
