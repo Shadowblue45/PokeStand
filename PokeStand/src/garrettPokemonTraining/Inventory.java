@@ -1,5 +1,6 @@
 package garrettPokemonTraining;
 
+import java.awt.Desktop.Action;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -55,7 +56,8 @@ public class Inventory {
 					pokemon.emptyMoves();
 				}
 				else if(param.length == 7){
-					pokemon.getMoves().add(new Move(param[0],param[1],Integer.parseInt(param[2]),Integer.parseInt(param[3]),Integer.parseInt(param[4]),param[5],param[6]));
+					pokemon.getMoves().add(new Move(param[0],param[1],Integer.parseInt(param[2]),Integer.parseInt(param[3]),
+							Integer.parseInt(param[4]),Boolean.getBoolean(param[5]),Action.valueOf(param[6])));
 				}else if(param.length == 4) {
 					pokemonIndex = Integer.parseInt(param[0]);
 					daysLeft = Integer.parseInt(param[1]);

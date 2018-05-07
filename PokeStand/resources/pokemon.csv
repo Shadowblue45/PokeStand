@@ -1,6 +1,6 @@
 Charmander,Fire,,30,23,14,54,21,2333,resources/fire/Charmander.png
-Growl,Normal,0,100,40,false
-Scratch,Normal,40,100,35,false
-Ember,Fire,40,100,25,true
-Smokescreen,Normal,0,100,20,false
+Growl,Normal,0,100,40,false,null
+Scratch,Normal,40,100,35,false,null
+Ember,Fire,40,100,25,true,null
+Smokescreen,Normal,0,100,20,false,null
 0,30,0,0

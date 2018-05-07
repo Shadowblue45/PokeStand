@@ -119,7 +119,7 @@ public class Pokemon {
 			moves.add(new Move("Fury Swipes","Normal",18,80,15,false,null));
 		}
 		if(name.equals("Turtwig")) {
-			moves.add(new Move("Withdraw","Water",0,101,40,false,null));
+			moves.add(new Move("Bite","Dark",60,100,25,false,null));
 			moves.add(new Move("Tackle","Normal",40,100,35,false,null));
 			moves.add(new Move("Absorb","Grass",20,100,25,true,null));
 			moves.add(new Move("Razor Leaf","Grass",55,95,25,false,null));
@@ -140,7 +140,7 @@ public class Pokemon {
 			moves.add(new Move("Growl","Normal",0,100,40,false,null));
 			moves.add(new Move("Pound","Normal",40,100,35,false,null));
 			moves.add(new Move("Water Gun","Water",40,100,25,true,null));
-			moves.add(new Move("Disarming Voice","Fairy",40,101,15,true,null));
+			moves.add(new Move("Aqua Jet","Water",40,100,20,true,null));
 		}
 		if(name.equals("Froakie")) {
 			moves.add(new Move("Growl","Normal",0,100,40,false,null));
@@ -161,7 +161,7 @@ public class Pokemon {
 			moves.add(new Move("Sacred Fire","Fire",100,95,5,false,null));
 		}
 		if(name.equals("Suicune")) {
-			moves.add(new Move("Calm Mind","Psychic",0,101,20,false,null));
+			moves.add(new Move("Extrasensory","Psychic",80,100,20,true,null));
 			moves.add(new Move("Blizzard","Ice",110,70,5,true,null));
 			moves.add(new Move("Aurora Beam","Ice",65,100,20,true,null));
 			moves.add(new Move("Hydro Pump","Water",110,80,5,true,null));
