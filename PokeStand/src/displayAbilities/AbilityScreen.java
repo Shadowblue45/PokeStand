@@ -98,7 +98,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		accuracy.setCustomTextColor(Color.gray);
 		viewObjects.add(accuracy);
 		
-		setPokemonGB(30f);
+		setPokemonGB(27f);
 		StyledComponent.setButtonOutline(false);
 		back = new Button(300,10,150,100,"Back",new Action() {
 			

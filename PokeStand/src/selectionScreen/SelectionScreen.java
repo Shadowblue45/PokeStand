@@ -69,6 +69,16 @@ public class SelectionScreen extends FullFunctionScreen {
 	TextArea infoBox;
 	CustomRect rectT;
 	
+     public Pokemon getEnemyPokemon() {
+		return enemyPokemon;
+	}
+
+	public void setEnemyPokemon(Pokemon enemyPokemon) {
+		this.enemyPokemon = enemyPokemon;
+	}
+
+	Pokemon enemyPokemon;
+	
 	
 
 	public SelectionScreen(int width, int height) {
@@ -157,7 +167,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				//System.out.println("YES");
-				PokeStart.inventory.setPokemon("Charmander", "Fire", "", 30, 23, 14, 54, 21, 2333, "resources/fire/Charmander.png");
+				PokeStart.inventory.setPokemon("Charmander", "Fire", "", 30, 23, 14, 54, 21, 30, "resources/fire/Charmander.png");
 				String[] F1= {"Charmander","Charmeleon","Charizard"};
 				String[] FP1 = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charizard.png"};
 				PokeStart.inventory.setImages(FP1);
@@ -170,6 +180,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
+				enemyPokemon = new Pokemon("Suicune","Water",null,160,72,108,85,108,81,null);
 				
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 //						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
@@ -185,7 +196,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				StatTrainingScreen.poke.loadImages(FP1[0],300,300);
 //				//TrainingScreen.name.setText(F1[0]);
 //				//TrainingScreen.pokemon.loadImages(FP1[0], 400, 400);
-
+				
 				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 
 				update();
@@ -233,6 +244,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
+				enemyPokemon = new Pokemon("Suicune","Water",null,160,72,108,85,108,81,null);
 				
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 //						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
@@ -297,6 +309,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
+				enemyPokemon = new Pokemon("Suicune","Water",null,160,72,108,85,108,81,null);
 				
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 //						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
@@ -363,6 +376,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
+				enemyPokemon = new Pokemon("Raikou","Electric",null,150,81,72,108,84,108,null);
 				
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 //						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
@@ -429,7 +443,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
-				
+				enemyPokemon = new Pokemon("Raikou","Electric",null,150,81,72,108,84,108,null);
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 //						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 //						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
@@ -494,7 +508,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
-				
+				enemyPokemon = new Pokemon("Raikou","Electric",null,150,81,72,108,84,108,null);
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 //						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 //						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
@@ -561,7 +575,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
-				
+				enemyPokemon = new Pokemon("Entei","Fire",null,75,108,81,85,72,94,null);
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 //						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 //						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
@@ -626,6 +640,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
+				enemyPokemon = new Pokemon("Entei","Fire",null,75,108,81,85,72,94,null);
 				
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 //						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
@@ -691,7 +706,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
 				System.out.println(p.getType1());
-				
+				enemyPokemon = new Pokemon("Entei","Fire",null,75,108,81,85,72,94,null);
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
 //						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 //						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
