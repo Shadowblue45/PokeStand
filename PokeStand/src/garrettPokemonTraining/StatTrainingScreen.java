@@ -3,6 +3,7 @@ package garrettPokemonTraining;
 import java.awt.Color;
 import java.util.List;
 
+import audioPlayer.AudioTest;
 import fahadStartupandMenuScreen.CustomRect;
 import fahadStartupandMenuScreen.MainMenuScreen;
 import guiTeacher.components.Action;
@@ -110,6 +111,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				//						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 				//						"Spd: " + p.getSpd() + "\n");
 
+				AudioTest.stopSound(AudioTest.sound);
 				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 				//				PokeStart.mainScreen = !PokeStart.mainScreen;

@@ -30,9 +30,8 @@ public class StartScreen extends FullFunctionScreen{
 	public void initAllObjects(List<Visible> viewObjects) {
 		//PokeStart.setPokemonHollowFont(100f);
 		String txt = "Pokemon Rivalry";
-		AudioTest.playSound("resources/Lavender Town.wav");
+		AudioTest.playSound("resources/Pokemon Title.wav");
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Dogs.jpg");
-		AudioTest.playSound("resources/Lavender Town.wav");
 //		titleBorder = new TextArea(190,75,900,400,txt);
 //		titleBorder.setCustomTextColor(new Color(59, 76, 202));
 		PokeStart.setPokemonFont(100f);

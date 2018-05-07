@@ -156,6 +156,9 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 				public void act() {
 					AudioTest.stopSound(AudioTest.sound);
+					if(temp == 0 && names[temp].equals("Training")) {
+						AudioTest.playSound("resources/Pokemon Training.wav");
+					}
 					PokeStart.start.setScreen(PokeStart.getScreen(temp));
 				}
 			});
