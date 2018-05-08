@@ -39,7 +39,7 @@ public class BattleScreen extends FullFunctionScreen{
 		name.setText(pokeNames[index]);
 		System.out.println("enemyName is "+ enemyPokemon.getName());
 		userPokemon.loadImages("resources/pokebacks/"+pokeNames[index]+ " back.png", getWidth()/2,getHeight()/2);
-		enemyPokemonSprite.loadImages("resources/pokefronts/"+ enemyPokemon.getName() + " front.png", getWidth()/2, getHeight()/2);
+		enemyPokemonSprite.loadImages("resources/pokefronts/"+ enemyPokemon.getName() + " Front.png", getWidth()/3, getHeight()/3);
 		
 	}
 	
@@ -47,7 +47,7 @@ public class BattleScreen extends FullFunctionScreen{
 	public void initAllObjects(List<Visible> viewObjects) {
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		userPokemon = new Graphic(150,250,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
-		enemyPokemonSprite = new Graphic(820,60,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
+		enemyPokemonSprite = new Graphic(820,50,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
 		Graphic box = new Graphic(0,500,getWidth(),500,"resources/Box.jpg");
 		CustomRect totalHp = new CustomRect(925,402,260,20,Color.red);
 		name = new TextLabel(910,350,300,50,"");
