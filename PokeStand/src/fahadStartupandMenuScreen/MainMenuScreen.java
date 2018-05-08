@@ -43,6 +43,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		update();
+		AudioTest.playSound("resources/Pokemon MainMenu.wav");
 		System.out.println(PokeStart.inventory.pokemonImages[0]);
 		PokeStart.trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		resetCoordinates();
@@ -154,8 +155,11 @@ public class MainMenuScreen extends FullFunctionScreen {
 			Button button = new Button (xCord, yCord, 200,70,names[i],new Action() {
 
 				public void act() {
+					AudioTest.stopSound(AudioTest.sound);
+					if(temp == 0 && names[temp].equals("Training")) {
+						AudioTest.playSound("resources/Pokemon Training.wav");
+					}
 					PokeStart.start.setScreen(PokeStart.getScreen(temp));
-					PokeStart.mainScreen =! PokeStart.mainScreen;
 				}
 			});
 			xCord += 210;

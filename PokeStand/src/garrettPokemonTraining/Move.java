@@ -12,9 +12,9 @@ public class Move {
 	private int pp;
 	private int currentPp;
 	private boolean isSpecial;
-	private Action action;
+	private PokemonAction action;
 
-	public Move(String name, String type, int power, int accuracy, int pp, boolean isSpecial, Action action) {
+	public Move(String name, String type, int power, int accuracy, int pp, boolean isSpecial, PokemonAction action) {
 		this.name = name;
 		this.type = type;
 		setPower(power);

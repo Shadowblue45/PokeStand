@@ -20,9 +20,9 @@ public abstract class PokemonAction implements Action {
 	public static PokemonAction createAction(int name, int str) {
 		switch(name) {
 		case TACKLE:
-			return new PokemonSleep(str);
+			return new PokemonSpeed(str);
 		case HARDEN:
-			return new PokemonDefense();
+			return new PokemonDefense(str);
 		}
 		return null;
 	}
