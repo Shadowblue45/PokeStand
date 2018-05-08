@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-Charmander,Fire,,30,23,14,54,21,2333,resources/fire/Charmander.png
-=======
-Charmander,Fire,,30,23,14,54,21,30,resources/fire/Charmander.png
->>>>>>> refs/remotes/origin/develop
-Growl,Normal,0,100,40,false
-Scratch,Normal,40,100,35,false
-Ember,Fire,40,100,25,true
-Smokescreen,Normal,0,100,20,false
-<<<<<<< HEAD
-=======
+Snivy,Grass,,30,23,14,54,21,2333,resources/grass/Snivy.png
+Leer,Normal,0,100,30,false
+Tackle,Normal,40,100,40,false
+Vine Whip,Grass,45,100,25,false
+Wrap,Normal,15,90,20,false
 0,30,0,0
->>>>>>> refs/remotes/origin/develop

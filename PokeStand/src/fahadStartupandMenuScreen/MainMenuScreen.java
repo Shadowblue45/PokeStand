@@ -57,14 +57,12 @@ public class MainMenuScreen extends FullFunctionScreen {
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
 		int days = PokeStart.inventory.daysLeft;
-<<<<<<< HEAD
-=======
+
 		if(PokeStart.inventory.daysLeft == 0) {
 			names[0] = "Battle";
 			PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
 		}
 		PokeStart.abilityScreen = new AbilityScreen(getWidth(), getHeight());
->>>>>>> refs/remotes/origin/develop
 		
 		//===================================================
 		
