@@ -19,9 +19,21 @@ public class RickyInteractScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
-			Graphic g = new Graphic(0,0,getWidth(),getHeight(),"resources/interact/" + name + ".gif");
+		displayGif(viewObjects);
+		changeFatigue();
 	}
-		
+	
+	public void displayGif(List<Visible> viewObjects) {
+		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
+		Graphic g = new Graphic(0,0,getWidth(),getHeight(),"resources/interact/" + name + ".gif");
+	}
+	
+	public void changeFatigue() {
+		if(PokeStart.inventory.fatigue > 10) { 
+			PokeStart.inventory.fatigue -= 10;
+		}	
+		else PokeStart.inventory.fatigue = 0;
+	}
+	
+	}
 
-}
