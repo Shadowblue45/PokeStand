@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import fahadStartupandMenuScreen.CustomRect;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
@@ -35,6 +36,8 @@ public class RickyScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		dollars = 2000;
+		StyledComponent.setButtonOutline(false);
+		addBackground(viewObjects);
 		addImages();
 		addBackgroundLabels(viewObjects);
 		addImagestoShop(viewObjects);
@@ -49,6 +52,11 @@ public class RickyScreen extends FullFunctionScreen {
 		addBackButton(viewObjects);
 	}
 
+	public void addBackground(List<Visible> viewObjects) {
+		CustomRect background = new CustomRect(0, 0, getWidth(), getHeight(), Color.cyan);
+		viewObjects.add(background);
+	}
+	
 	public void addImages() {
 		itemsInShop = new ArrayList<String>();
 		
@@ -125,21 +133,25 @@ public class RickyScreen extends FullFunctionScreen {
 			b.update();
 			viewObjects.add(b);
 		}
-		StyledComponent.setButtonOutline(false);
 		PokeStart.setPokemonFont(18);
+		StyledComponent.setButtonOutline(false);
 		z = new Button(1170,10,100,50,Integer.toString(getDollars()),null);
 		z.setEnabled(false);
 		viewObjects.add(z);
+		z.setCustomTextColor(Color.WHITE);
 		z.update();
 	}
 	
 	public void addBuySellButtons(List<Visible> viewObjects) {
+
 		for (int i = 0; i < itemsInShop.size()/2; i++) {
 			int j = i;
+			
 			Button b = new Button(375, 25 + i*150, 55, 125,"Buy",new Action() {
 
 				@Override
 				public void act() {
+					StyledComponent.setButtonOutline(false);
 					if(getDollars() >= priceAmount.get(j)) {
 						setDollars(getDollars() - priceAmount.get(j));
 						itemQuantity[j]++;
@@ -160,6 +172,7 @@ public class RickyScreen extends FullFunctionScreen {
 			Button b = new Button(500, 25 + i*150, 65, 125,"Sell",new Action() {	
 				@Override
 				public void act() {
+					StyledComponent.setButtonOutline(false);
 					if(itemQuantity[j] >= 1) {
 						setDollars(getDollars() + priceAmount.get(j)/2);
 						itemQuantity[j]--;
@@ -179,6 +192,7 @@ public class RickyScreen extends FullFunctionScreen {
 			Button b = new Button(980, -575 + i*150, 55, 125,"Buy", new Action() {
 				@Override
 				public void act() {
+					StyledComponent.setButtonOutline(false);
 					if(getDollars() >= priceAmount.get(j)) {
 						setDollars(getDollars() - priceAmount.get(j));
 						itemQuantity[j]++;
@@ -199,6 +213,7 @@ public class RickyScreen extends FullFunctionScreen {
 				
 				@Override
 				public void act() {
+					StyledComponent.setButtonOutline(false);
 					if(itemQuantity[j] >= 1) {
 						setDollars(getDollars() + priceAmount.get(j)/2);
 						itemQuantity[j]--;
@@ -282,12 +297,14 @@ public class RickyScreen extends FullFunctionScreen {
 		itemQuantity = new int[itemsInShop.size()]; 
 		buttonList = new ArrayList<Button>();
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
-			buttonList.add(new Button(440, 60 + i*150, 75, 125, Integer.toString(itemQuantity[i]), null));
+			StyledComponent.setButtonOutline(false);
+			buttonList.add(new Button(440, 60 + i*150, 75, 75, Integer.toString(itemQuantity[i]), null));
 			buttonList.get(i).setEnabled(false);
 			viewObjects.add(buttonList.get(i));
 		}
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
-			buttonList.add(new Button(1040, -540 + i*150, 75, 125, Integer.toString(itemQuantity[i]) , null));
+			StyledComponent.setButtonOutline(false);
+			buttonList.add(new Button(1040, -540 + i*150, 75, 75, Integer.toString(itemQuantity[i]) , null));
 			buttonList.get(i).setEnabled(false);
 			viewObjects.add(buttonList.get(i));
 		}
