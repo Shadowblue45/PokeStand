@@ -42,7 +42,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		StyledComponent.setButtonOutline(false);
-		PokeStart.setPokemonFont(20);
+		PokeStart.setPokemonSunFont(16f);
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		viewObjects.add(battle);
 
@@ -65,7 +65,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				"Spd: " + p.getSpd() + "\n");
 		viewObjects.add(info);
 		fatigueBarDesign(viewObjects);
-		evolveButton = new Button(75,200,100,50,"Evolve", new Action() {
+		evolveButton = new Button(75,200,125,50,"Evolve", new Action() {
 
 			@Override
 			public void act() {
@@ -77,7 +77,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 		});
 		viewObjects.add(evolveButton);
-		saveButton = new Button(100,300,50,50,"Save", new Action() {
+		saveButton = new Button(100,300,100,50,"Save", new Action() {
 
 			@Override
 			public void act() {
@@ -86,7 +86,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 		});
 		viewObjects.add(saveButton);
-		loadButton = new Button(300,300,50,50,"Load", new Action() {
+		loadButton = new Button(300,300,100,50,"Load", new Action() {
 
 			@Override
 			public void act() {
@@ -119,7 +119,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 		});
 		viewObjects.add(backButton);
-		attack = new Button(100,600,100,50,"Attack",new Action() {
+		attack = new Button(100,600,125,50,"Attack",new Action() {
 
 			@Override
 			public void act() {
@@ -130,7 +130,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 		});
 		viewObjects.add(attack);
-		defense = new Button(350,600,100,50,"Defense",new Action() {
+		defense = new Button(350,600,150,50,"Defense",new Action() {
 
 			@Override
 			public void act() {
@@ -141,7 +141,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 		});
 		viewObjects.add(defense);
-		sAttack = new Button(600,600,100,50,"Sp. Atk",new Action() {
+		sAttack = new Button(600,600,125,50,"Sp. Atk",new Action() {
 
 			@Override
 			public void act() {
@@ -152,7 +152,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 		});
 		viewObjects.add(sAttack);
-		sDefense = new Button(850,600,100,50,"Sp. Def",new Action() {
+		sDefense = new Button(850,600,125,50,"Sp. Def",new Action() {
 
 			@Override
 			public void act() {
@@ -163,7 +163,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 		});
 		viewObjects.add(sDefense);
-		speed = new Button(1100,600,100,50,"Speed",new Action() {
+		speed = new Button(1100,600,125,50,"Speed",new Action() {
 
 			@Override
 			public void act() {
@@ -181,7 +181,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		fatigue = new CustomRect(840,397,(int)((100-PokeStart.inventory.fatigue)*3.56),31,Color.green);
 		viewObjects.add(rect);
 		viewObjects.add(fatigue);
-		TextLabel fatigueName = new TextLabel(750,390,100,50,"Fatigue: ");
+		TextLabel fatigueName = new TextLabel(740,400,125,50,"Fatigue: ");
 		viewObjects.add(fatigueName);
 	}
 

@@ -10,7 +10,7 @@ public class PokemonSAttack extends PokemonAction {
 
 	@Override
 	public void act() {
-		getTarget().setCurrentsAtk(getTarget().getCurrentsAtk() - 10 *sAttack);
+		getTarget().setCurrentsAtk(getTarget().getCurrentsAtk() - 10 * sAttack);
 	}
 
 }

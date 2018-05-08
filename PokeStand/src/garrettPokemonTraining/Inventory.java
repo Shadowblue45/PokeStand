@@ -55,9 +55,9 @@ public class Inventory {
 							Integer.parseInt(param[7]),Integer.parseInt(param[8]),param[9]);
 					pokemon.emptyMoves();
 				}
-				else if(param.length == 7){
-//					pokemon.getMoves().add(new Move(param[0],param[1],Integer.parseInt(param[2]),Integer.parseInt(param[3]),
-//							Integer.parseInt(param[4]),Boolean.getBoolean(param[5]),Action.valueOf(param[6])));
+				else if(param.length == 8){
+					pokemon.getMoves().add(new Move(param[0],param[1],Integer.parseInt(param[2]),Integer.parseInt(param[3]),
+							Integer.parseInt(param[4]),Boolean.getBoolean(param[5]),Integer.parseInt(param[6]),Integer.parseInt(param[7])));
 				}else if(param.length == 4) {
 					pokemonIndex = Integer.parseInt(param[0]);
 					daysLeft = Integer.parseInt(param[1]);
