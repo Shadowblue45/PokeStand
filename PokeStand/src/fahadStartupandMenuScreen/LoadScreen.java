@@ -16,6 +16,7 @@ import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import selectionScreen.SelectionScreen;
 import startGame.PokeStart;
 
 public class LoadScreen extends FullFunctionScreen {
@@ -32,20 +33,23 @@ public class LoadScreen extends FullFunctionScreen {
 
 	
 	public void initAllObjects(List<Visible> viewObjects) {
-		AudioTest.playSound("resources/Lavender Town.wav");
-		PokeStart.setPokemonHollowFont(100f);
+		StyledComponent.setButtonOutline(true);
+		StyledComponent.setActiveBorderColor(Color.white);
+		//PokeStart.setPokemonHollowFont(100f);
 		String txt = "Pokemon Rivalry";
-		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/open field.jpg");
-		titleBorder = new TextArea(190,75,900,400,txt);
-		titleBorder.setCustomTextColor(new Color(59, 76, 202));
+		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Dogs.jpg");
+//		titleBorder = new TextArea(190,75,900,400,txt);
+//		titleBorder.setCustomTextColor(new Color(59, 76, 202));
 		PokeStart.setPokemonFont(100f);
-		title = new TextArea(190,75,1000,400,txt);
-		title.setCustomTextColor(new Color(255, 222, 0));
+		title = new TextArea(130,75,1500,400,txt);
+		title.setCustomTextColor(new Color(0, 0, 80));
 		PokeStart.setPokemonTextFont(32f);
 		Button continueButton = new Button(440, 250, 400, 50, "Continue",new Action() {
 			
 			public void act() {
+				PokeStart.inventory.load();
 				AudioTest.stopSound(AudioTest.sound);
+				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 			}
 		});
@@ -53,18 +57,20 @@ public class LoadScreen extends FullFunctionScreen {
 			
 			public void act() {
 				AudioTest.stopSound(AudioTest.sound);
+				PokeStart.selectionScreen = new SelectionScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.selectionScreen);
 			}
 		});
 		viewObjects.add(background);
 		viewObjects.add(title);
-		viewObjects.add(titleBorder);
+	  //viewObjects.add(titleBorder);
 		viewObjects.add(continueButton);
 		viewObjects.add(newGameButton);
 		continueButton.setBackground(new Color(0,0,0,140));
 		continueButton.update();
 		newGameButton.setBackground(new Color(0,0,0,140));
 		newGameButton.update();
+		StyledComponent.setButtonOutline(false);
 	}
 
 }

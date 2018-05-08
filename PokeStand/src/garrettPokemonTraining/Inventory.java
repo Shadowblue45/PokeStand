@@ -12,7 +12,7 @@ public class Inventory {
 	public static Pokemon pokemon;
 	public static String[] pokemonForms = new String[3];
 	public static String[] pokemonImages = new String[3];
-	private int abilityPoints;
+	public int uPoints;
 	public int fatigue;
 	public int pokemonIndex;
 	public int daysLeft;
@@ -30,7 +30,7 @@ public class Inventory {
 			for(Move m: pokemon.getMoves()){
 				fw.write(m+"\n");    	
 			}
-
+			fw.write(Integer.toString(pokemonIndex) + "," + Integer.toString(daysLeft) + "," + Integer.toString(fatigue) + "," + Integer.toString(uPoints) + "\n");
 			fw.close();    
 			System.out.println("Success! File \"pokemon.csv\" saved!");
 		}catch(IOException e){

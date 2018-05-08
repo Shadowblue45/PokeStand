@@ -12,6 +12,7 @@ import java.io.File;
 
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
+import displayAbilities.AbilityScreen;
 import fahadStartupandMenuScreen.LoadScreen;
 import fahadStartupandMenuScreen.MainMenuScreen;
 import fahadStartupandMenuScreen.StartScreen;
@@ -31,6 +32,7 @@ public class PokeStart extends GUIApplication {
 	public static Inventory inventory;
 	public static MainMenuScreen mainMenuScreen;
 	public static boolean mainScreen;
+	public static AbilityScreen abilityScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -43,9 +45,8 @@ public class PokeStart extends GUIApplication {
 		PokeStart.inventory.fatigue = 0;
 		loadScreen = new LoadScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
-		selectionScreen = new SelectionScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());
-		//battleScreen = new BattleScreen(getWidth(), getHeight());
+		battleScreen = new BattleScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
 
@@ -60,17 +61,12 @@ public class PokeStart extends GUIApplication {
 	}
 	
 	public static Screen getScreen(int i) {
-		Screen[] mainScreens = {trainingScreen, loadScreen,null,null,null,shopScreen};
-		Screen[] trainingScreens = {mainMenuScreen, loadScreen,null,null,null,shopScreen};
-		if(mainScreen) {
-			if (i < mainScreens.length) {
-				return mainScreens[i];
-			}
+		Screen[] mainScreens = {trainingScreen, loadScreen,null,abilityScreen,null,shopScreen};
+		if(PokeStart.inventory.daysLeft == 0) {
+			mainScreens[0] = battleScreen;
 		}
-		else {
-			if (i < trainingScreens.length) {
-				return trainingScreens[i];
-			}
+		if (i < mainScreens.length) {
+			return mainScreens[i];
 		}
 		return null;
 	}
@@ -99,7 +95,7 @@ public class PokeStart extends GUIApplication {
 	
 	public static void setPokemonFont(float f) {
 		try {
-		File fontFile = new File("resources/Pokemon Solid.ttf");
+		File fontFile = new File("resources/Kanji_PA.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(f);
 		StyledComponent.setBaseFont(baseFont);

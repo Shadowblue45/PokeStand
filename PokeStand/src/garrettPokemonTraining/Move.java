@@ -1,21 +1,27 @@
 package garrettPokemonTraining;
 
+import guiTeacher.components.Action;
+
 public class Move {
 
 	private String name;
 	private String type;
 	private int power;
 	private int accuracy;
+	private int currentAccuracy;
 	private int pp;
+	private int currentPp;
 	private boolean isSpecial;
+	private Action action;
 
-	public Move(String name, String type, int power, int accuracy, int pp, boolean isSpecial) {
+	public Move(String name, String type, int power, int accuracy, int pp, boolean isSpecial, Action action) {
 		this.name = name;
 		this.type = type;
 		setPower(power);
 		setAccuracy(accuracy);
 		setPp(pp);
 		this.isSpecial = isSpecial;
+		this.action = action;
 	}
 
 	public String getName() {
@@ -56,5 +62,25 @@ public class Move {
 
 	public String toString() {
 		return name + "," + type + "," + power + "," + accuracy + "," + pp + "," + isSpecial;
+	}
+
+	public int getCurrentPp() {
+		return currentPp;
+	}
+
+	public void setCurrentPp(int currentPp) {
+		this.currentPp = currentPp;
+	}
+
+	public int getCurrentAccuracy() {
+		return currentAccuracy;
+	}
+
+	public void setCurrentAccuracy(int currentAccuracy) {
+		this.currentAccuracy = currentAccuracy;
+	}
+	
+	public void attack() {
+		
 	}
 }
