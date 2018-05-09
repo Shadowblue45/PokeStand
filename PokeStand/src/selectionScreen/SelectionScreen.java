@@ -96,7 +96,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		CustomRect rect = new CustomRect(0, 0, getWidth(), getHeight(), new Color(0,0,0,100));
 		viewObjects.add(rect);
 		
-		setPokemon();
+		PokeStart.setPokemonTextFont(35f);
 		
 		TextArea title = new TextArea(350,10,600,50,"CHOOSE YOUR STARTER");
 		title.setCustomTextColor(Color.WHITE);
@@ -159,7 +159,7 @@ public class SelectionScreen extends FullFunctionScreen {
 		
 		//CONFIRMATION BUTTONS FOR EACH POKEMON [ WILL MAKE FOR LOOP FUNCTION FOR IT AFTER PROJECT IS COMPLETE ]
 		
-		setPokemonGB();
+		PokeStart.setPokemonGBFont(11f);
 		
 		//FIRE POKEMON CONFIRMATION BUTTONS
 		buttonYF1 = new Button(175,200,100,100,"Yes", new Action() {

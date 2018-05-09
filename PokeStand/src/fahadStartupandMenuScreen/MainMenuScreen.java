@@ -43,7 +43,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		update();
-		AudioTest.playSound("resources/Pokemon MainMenu.wav");
+		AudioTest.playSound("resources/Music/Pokemon MainMenu.wav");
 		System.out.println(PokeStart.inventory.pokemonImages[0]);
 		PokeStart.trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		resetCoordinates();
@@ -57,6 +57,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
 		int days = PokeStart.inventory.daysLeft;
+
 		if(PokeStart.inventory.daysLeft == 0) {
 			names[0] = "Battle";
 			PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
@@ -66,12 +67,17 @@ public class MainMenuScreen extends FullFunctionScreen {
 		//===================================================
 		
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/field.jpg");
+		
+		//To be deleted later once testing is over
 		Button battleButton = new Button (900, 500, 200,70,"Battle",new Action() {
 
 			public void act() {
-				
-				PokeStart.start.setScreen(PokeStart.battleScreen);
-				PokeStart.battleScreen.startBattle();
+
+				AudioTest.stopSound(AudioTest.sound);
+				PokeStart.inventory.daysLeft =  0;
+				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
+				update();
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 				
 			}
 		});
@@ -95,15 +101,15 @@ public class MainMenuScreen extends FullFunctionScreen {
 		//====================================================================
 		
 		viewObjects.add(background);
-		viewObjects.add(pokemon);
 		createBlackBackground(viewObjects);
 		fatigueBarDesign(viewObjects);
-		viewObjects.add(name);
-		viewObjects.add(info);
 		viewObjects.add(daysNum);
 		viewObjects.add(daysRemaining);
 		viewObjects.add(battleButton);
 		setMenuButtons(names, viewObjects);
+		viewObjects.add(pokemon);
+		viewObjects.add(name);
+		viewObjects.add(info);
 		daysNum.setCustomTextColor(Color.white);
 		daysRemaining.setCustomTextColor(Color.white);
 		name.setCustomTextColor(Color.white);
@@ -133,7 +139,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 	}
 	
 	public void createBlackBackground(List<Visible> viewObjects) {
-		CustomRect botRect = new CustomRect(0,yCord-20,getWidth(),120);
+		CustomRect botRect = new CustomRect(0,yCord-15,getWidth(),115);
 		//CustomRect square = new CustomRect(980,0,300,200);
 		CustomRect textArea = new CustomRect(1010,0,270,300);
 		CustomRect fatigueArea = new CustomRect(0,0,1010,150);
@@ -145,7 +151,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	public void resetCoordinates() {
 		xCord = 10;
-		yCord = 600;
+		yCord = 620;
 		temp = 0;
 	}
 
@@ -156,10 +162,14 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 				public void act() {
 					AudioTest.stopSound(AudioTest.sound);
-					if(temp == 0 && names[temp].equals("Training")) {
-						AudioTest.playSound("resources/Pokemon Training.wav");
+					if(names[temp].equals("Training")) {
+						AudioTest.playSound("resources/Music/Pokemon Training.wav");
 					}
 					PokeStart.start.setScreen(PokeStart.getScreen(temp));
+					if(names[temp].equals("Battle")) {
+						PokeStart.battleScreen.startBattle();
+						AudioTest.playSound("resources/Music/Pokemon Battle.wav");
+					}
 				}
 			});
 			xCord += 210;
