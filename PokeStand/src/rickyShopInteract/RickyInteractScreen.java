@@ -14,7 +14,6 @@ public class RickyInteractScreen extends FullFunctionScreen {
 
 	public RickyInteractScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -26,6 +25,7 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	public void displayGif(List<Visible> viewObjects) {
 		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
 		Graphic g = new Graphic(0,0,getWidth(),getHeight(),"resources/interact/" + name + ".gif");
+		viewObjects.add(g);
 	}
 	
 	public void changeFatigue() {
@@ -33,6 +33,15 @@ public class RickyInteractScreen extends FullFunctionScreen {
 			PokeStart.inventory.fatigue -= 10;
 		}	
 		else PokeStart.inventory.fatigue = 0;
+	}
+	
+	public void changeStats() {
+		GarrettPokemonTraining.Pokemon.setHP(getHP() + 1);
+		GarrettPokemonTraining.Pokemon.setAtk(getAtk() + 1);
+		GarrettPokemonTraining.Pokemon.setDef(getDef() + 1);
+		GarrettPokemonTraining.Pokemon.setsAtk(getsAtk() + 1);
+		GarrettPokemonTraining.Pokemon.setsDef(getsDef() + 1);
+		GarrettPokemonTraining.Pokemon.setSpd(getSpd() + 1);
 	}
 	
 	}
