@@ -104,16 +104,16 @@ public class PokeStart extends GUIApplication {
 		}
 	}
 	
-	public static void setPokemonHollowFont(float f) {
-		try {
-		File fontFile = new File("resources/Pokemon Hollow.ttf");
-		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-		Font baseFont=font.deriveFont(f);
-		StyledComponent.setBaseFont(baseFont);
-	} catch (Exception e) {
-		e.printStackTrace();
-		}
-	}
+//	public static void setPokemonHollowFont(float f) {
+//		try {
+//		File fontFile = new File("resources/Pokemon Hollow.ttf");
+//		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+//		Font baseFont=font.deriveFont(f);
+//		StyledComponent.setBaseFont(baseFont);
+//	} catch (Exception e) {
+//		e.printStackTrace();
+//		}
+//	}
 	
 	public static void setPokemonSunFont(float f) {
 		try {
