@@ -89,10 +89,14 @@ public class Move {
 			action.setTarget(target);
 			action.act();
 		}else {
-			if(isSpecial) {
-				target.setHp(target.getHp() - (user.getsAtk() - target.getsDef()));
+			if((int)(Math.random() * 100) < accuracy) {
+				if(isSpecial) {
+					target.setHp(target.getHp() - (user.getsAtk() - target.getsDef()));
+				}else {
+					target.setHp(target.getHp() - (user.getAtk() - target.getDef()));
+				}
 			}else {
-
+				System.out.println("Doh, I missed!");
 			}
 		}
 	}
