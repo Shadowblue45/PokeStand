@@ -10,7 +10,11 @@ public class PokemonSAttack extends PokemonAction {
 
 	@Override
 	public void act() {
-		getTarget().setCurrentsAtk(getTarget().getCurrentsAtk() - 10 * sAttack);
+		if(getTarget().getStagesAtk() + sAttack >= 6) {
+			getTarget().setStagesAtk(6);
+		}else {
+			getTarget().setStagesAtk(getTarget().getStagesAtk() + sAttack);
+		}
 	}
 
 }

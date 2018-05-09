@@ -1,7 +1,7 @@
 package garrettPokemonTraining;
 
 public class PokemonAttack extends PokemonAction {
-	
+
 	private int attack;
 
 	public PokemonAttack(int attack) {
@@ -10,7 +10,11 @@ public class PokemonAttack extends PokemonAction {
 
 	@Override
 	public void act() {
-		getTarget().setCurrentAtk(getTarget().getCurrentAtk() - 10 * attack);
+		if(getTarget().getStageAtk() + attack >= 6) {
+			getTarget().setStageAtk(6);
+		}else {
+			getTarget().setStageAtk(getTarget().getStageAtk() + attack);
+		}
 	}
 
 }

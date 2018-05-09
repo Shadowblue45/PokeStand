@@ -14,15 +14,16 @@ public class Pokemon {
 	private int hp;
 	private int currentHp;
 	private int atk;
-	private int currentAtk;
+	private int stageAtk;
 	private int def;
-	private int currentDef;
+	private int stageDef;
 	private int sAtk;
-	private int currentsAtk;
+	private int stagesAtk;
 	private int sDef;
-	private int currentsDef;
+	private int stagesDef;
 	private int spd;
-	private int currentSpd;
+	private int stageSpd;
+	private double[] multipliers = {1, .66, .5, .4, .33, .28, .25};
 	private String image;
 	private ArrayList<Move> moves;
 	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
@@ -43,6 +44,11 @@ public class Pokemon {
 		setSpd(spd);
 		setImage(url);
 		setMoves();
+		stageAtk = 0;
+		stageDef = 0;
+		stagesAtk = 0;
+		stagesDef = 0;
+		stageSpd = 0;
 	}
 
 	public void setImage(String s) {
@@ -181,7 +187,7 @@ public class Pokemon {
 	public void replaceMove(int i, Move move) {
 		moves.set(i, move);
 	}
-	
+
 	public void emptyMoves() {
 		moves = new ArrayList<Move>();
 		System.out.println(moves);
@@ -266,45 +272,49 @@ public class Pokemon {
 	public void setCurrentHp(int currentHp) {
 		this.currentHp = currentHp;
 	}
+
+	public int getStageAtk() {
+		return stageAtk;
+	}
+
+	public void setStageAtk(int stageAtk) {
+		this.stageAtk = stageAtk;
+	}
+
+	public int getStageDef() {
+		return stageDef;
+	}
+
+	public void setStageDef(int stageDef) {
+		this.stageDef = stageDef;
+	}
+
+	public int getStagesAtk() {
+		return stagesAtk;
+	}
+
+	public void setStagesAtk(int stagesAtk) {
+		this.stagesAtk = stagesAtk;
+	}
+
+	public int getStagesDef() {
+		return stagesDef;
+	}
+
+	public void setStagesDef(int stagesDef) {
+		this.stagesDef = stagesDef;
+	}
+
+	public int getStageSpd() {
+		return stageSpd;
+	}
+
+	public void setStageSpd(int stageSpd) {
+		this.stageSpd = stageSpd;
+	}
 	
-	public int getCurrentAtk() {
-		return currentAtk;
-	}
-
-	public void setCurrentAtk(int currentAtk) {
-		this.currentAtk = currentAtk;
-	}
-
-	public int getCurrentDef() {
-		return currentDef;
-	}
-
-	public void setCurrentDef(int currentDef) {
-		this.currentDef = currentDef;
-	}
-
-	public int getCurrentsAtk() {
-		return currentsAtk;
-	}
-
-	public void setCurrentsAtk(int currentsAtk) {
-		this.currentsAtk = currentsAtk;
-	}
-
-	public int getCurrentsDef() {
-		return currentsDef;
-	}
-
-	public void setCurrentsDef(int currentsDef) {
-		this.currentsDef = currentsDef;
-	}
-
-	public int getCurrentSpd() {
-		return currentSpd;
-	}
-
-	public void setCurrentSpd(int currentSpd) {
-		this.currentSpd = currentSpd;
+	public double[] getMultipliers() {
+		return multipliers;
 	}
 
 }

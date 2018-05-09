@@ -9,11 +9,11 @@ public abstract class PokemonAction implements Action {
 	public static final int SATTACK = 2;
 	public static final int SDEFENSE = 3;
 	public static final int SPEED = 4;
-	
-	
+
+
 	private Pokemon target;
 	private Action actionOnTarget;
-	
+
 
 	public PokemonAction() {
 		// TODO Auto-generated constructor stub
@@ -35,8 +35,8 @@ public abstract class PokemonAction implements Action {
 		}
 		return null;
 	}
-	
-	
+
+
 	public Pokemon getTarget() {
 		return target;
 	}

@@ -83,8 +83,17 @@ public class Move {
 	public void setCurrentAccuracy(int currentAccuracy) {
 		this.currentAccuracy = currentAccuracy;
 	}
-	
-	public void attack() {
-		
+
+	public void attack(Pokemon target, Pokemon user) {
+		if(stat >= 0) {
+			action.setTarget(target);
+			action.act();
+		}else {
+			if(isSpecial) {
+				target.setHp(target.getHp() - (user.getsAtk() - target.getsDef()));
+			}else {
+
+			}
+		}
 	}
 }
