@@ -57,6 +57,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
 		int days = PokeStart.inventory.daysLeft;
+
 		if(PokeStart.inventory.daysLeft == 0) {
 			names[0] = "Battle";
 			PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
