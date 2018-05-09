@@ -1,10 +1,12 @@
 package battle;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
 import fahadStartupandMenuScreen.CustomRect;
 import garrettPokemonTraining.Inventory;
+import garrettPokemonTraining.Move;
 import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextLabel;
@@ -22,6 +24,8 @@ public class BattleScreen extends FullFunctionScreen{
 	private Pokemon enemyPokemon;
 	private TextLabel enemyName;
 	private CustomRect enemyCurrentHp;
+	private ArrayList<Move> moves;
+	private Move currentAttack;
 	
 	public BattleScreen(int width, int height) {
 		super(width, height);
@@ -34,19 +38,9 @@ public class BattleScreen extends FullFunctionScreen{
 		
 		//Set user's pokemon's current stats to the current max
 		Inventory.pokemon.setCurrentHp(Inventory.pokemon.getHp());
-		Inventory.pokemon.setCurrentAtk(Inventory.pokemon.getAtk());
-		Inventory.pokemon.setCurrentDef(Inventory.pokemon.getDef());
-		Inventory.pokemon.setCurrentSpd(Inventory.pokemon.getSpd());
-		Inventory.pokemon.setCurrentsAtk(Inventory.pokemon.getsAtk());
-		Inventory.pokemon.setCurrentsDef(Inventory.pokemon.getsDef());
-		
+	
 		//Set enemy pokemon's current stats to the current max
 		enemyPokemon.setCurrentHp(enemyPokemon.getHp());
-		enemyPokemon.setCurrentAtk(enemyPokemon.getAtk());
-		enemyPokemon.setCurrentDef(enemyPokemon.getDef());
-		enemyPokemon.setCurrentSpd(enemyPokemon.getSpd());
-		enemyPokemon.setCurrentsAtk(enemyPokemon.getsAtk());
-		enemyPokemon.setCurrentsDef(enemyPokemon.getsDef());
 		
 		int userCurrent = Inventory.pokemon.getCurrentHp();
 		int userHpSize = (int) (260*userCurrent)/(Inventory.pokemon.getHp());
@@ -105,5 +99,69 @@ public class BattleScreen extends FullFunctionScreen{
 		viewObjects.add(enemyCurrentHp);
 		viewObjects.add(userName);
 		viewObjects.add(enemyName);
+	}
+	
+	public void setMoves() {
+		this.moves = PokeStart.inventory.pokemon.getMoves();
+	}
+	public void determinePokemonMove() {
+		if(enemyName.equals("Suicune")) {
+			determineSuicuneMove();
+		}
+		else if(enemyName.equals("Entei")) {
+			determineEnteiMove();
+		}
+		else {
+			determineRaikouMove();
+		}
+	}
+
+	public void determineSuicuneMove() {
+		int chance = (int) Math.random();
+		if(chance < .4) {
+			currentAttack = moves.get(2);
+		}
+		else if(chance < .7){
+			currentAttack = moves.get(0);
+		}
+		else if(chance < .9){
+			currentAttack = moves.get(1);
+		}
+		else {
+			currentAttack = moves.get(3);
+		}
+	}
+
+	public void determineEnteiMove() {
+		int chance = (int) Math.random();
+		if(chance < .4) {
+			currentAttack = moves.get(2);
+		}
+		else if(chance < .7){
+			currentAttack = moves.get(0);
+		}
+		else if(chance < .9){
+			currentAttack = moves.get(1);
+		}
+		else {
+			currentAttack = moves.get(3);	
+		}
+	}
+
+	public void determineRaikouMove() {
+		int chance = (int) Math.random();
+		if(chance < .4) {
+			currentAttack = moves.get(1);
+		}
+		else if(chance < .7){
+			currentAttack = moves.get(3);
+		}
+		else if(chance < .9){
+			currentAttack = moves.get(0);
+		}
+		else {
+			currentAttack = moves.get(3);
+		}
+		
 	}
 }
