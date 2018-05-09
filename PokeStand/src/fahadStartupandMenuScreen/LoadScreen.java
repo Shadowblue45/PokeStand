@@ -35,7 +35,6 @@ public class LoadScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
-		AudioTest.playSound("resources/Lavender Town.wav");
 		//PokeStart.setPokemonHollowFont(100f);
 		String txt = "Pokemon Rivalry";
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Dogs.jpg");
