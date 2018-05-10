@@ -43,7 +43,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		StyledComponent.setButtonOutline(false);
 		PokeStart.setPokemonSunFont(16f);
-		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
+		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/poketraining.jpg");
 		viewObjects.add(battle);
 
 		String[] pokeNames = PokeStart.inventory.getNames();
@@ -71,7 +71,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			public void act() {
 				updatePokemon();
 				p.evolve();
-				PokeStart.inventory.pokemonIndex++;
 				setInfoText();
 			}
 
@@ -177,8 +176,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	}
 
 	public void fatigueBarDesign(List<Visible> viewObjects) {
-		rect = new CustomRect(840,397,356,31,Color.white);
-		fatigue = new CustomRect(840,397,(int)((100-PokeStart.inventory.fatigue)*3.56 + 1),31,Color.green);
+		rect = new CustomRect(865,397,331,31,Color.white);
+		fatigue = new CustomRect(865,397,(int)((100-PokeStart.inventory.fatigue)*3.31 + 1),31,Color.green);
 		viewObjects.add(rect);
 		viewObjects.add(fatigue);
 		TextLabel fatigueName = new TextLabel(740,400,125,50,"Fatigue: ");
@@ -187,7 +186,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 	public void updateFatigue(List<Visible> viewObjects) {
 		viewObjects.remove(fatigue);
-		fatigue = new CustomRect(840,397,(int)((100-PokeStart.inventory.fatigue)*3.56 + 1),31,Color.green);
+		fatigue = new CustomRect(865,397,(int)((100-PokeStart.inventory.fatigue)*3.31 + 1),31,Color.green);
 		viewObjects.add(fatigue);
 	}
 
