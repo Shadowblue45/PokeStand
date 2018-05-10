@@ -91,8 +91,10 @@ public class Move {
 		}else {
 			if((int)(Math.random() * 100) < accuracy) {
 				if(isSpecial) {
+					int damage = (user.getsAtk() - target.getsDef());
 					target.setHp(target.getHp() - (user.getsAtk() - target.getsDef()));
 				}else {
+					int damage = (user.getAtk() - target.getDef());
 					target.setHp(target.getHp() - (user.getAtk() - target.getDef()));
 				}
 			}else {
