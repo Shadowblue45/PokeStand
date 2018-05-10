@@ -3,6 +3,7 @@ package startGame;
 import guiTeacher.GUIApplication;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.userInterfaces.Screen;
+import rickyShopInteract.RickyInteractScreen;
 import rickyShopInteract.RickyScreen;
 import rickyShopInteract.RickyScreen;
 import selectionScreen.SelectionScreen;
@@ -33,6 +34,7 @@ public class PokeStart extends GUIApplication {
 	public static MainMenuScreen mainMenuScreen;
 	public static boolean mainScreen;
 	public static AbilityScreen abilityScreen;
+	public static RickyInteractScreen interactScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -61,7 +63,7 @@ public class PokeStart extends GUIApplication {
 	}
 	
 	public static Screen getScreen(int i) {
-		Screen[] mainScreens = {trainingScreen, loadScreen,null,abilityScreen,null,shopScreen};
+		Screen[] mainScreens = {trainingScreen,interactScreen, loadScreen,abilityScreen,null,shopScreen};
 		if(PokeStart.inventory.daysLeft == 0) {
 			mainScreens[0] = battleScreen;
 		}

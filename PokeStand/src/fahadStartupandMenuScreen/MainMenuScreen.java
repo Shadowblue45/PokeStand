@@ -22,6 +22,7 @@ import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import guiTeacher.userInterfaces.Screen;
+import rickyShopInteract.RickyInteractScreen;
 import startGame.PokeStart;
 
 public class MainMenuScreen extends FullFunctionScreen {
@@ -63,6 +64,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 			PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
 		}
 		PokeStart.abilityScreen = new AbilityScreen(getWidth(), getHeight());
+		PokeStart.interactScreen = new RickyInteractScreen(getWidth(), getHeight());
 		
 		//===================================================
 		

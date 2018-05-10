@@ -33,6 +33,7 @@ public class BattleScreen extends FullFunctionScreen{
 
 	public void startBattle() {
 		String[] pokeNames = PokeStart.inventory.getNames();
+		String[] actions = {"","",""};
 		int index = PokeStart.inventory.pokemonIndex;
 		enemyPokemon = PokeStart.selectionScreen.getEnemyPokemon();
 		
@@ -104,6 +105,7 @@ public class BattleScreen extends FullFunctionScreen{
 	public void setMoves() {
 		this.moves = PokeStart.inventory.pokemon.getMoves();
 	}
+	
 	public void determinePokemonMove() {
 		if(enemyName.equals("Suicune")) {
 			determineSuicuneMove();
@@ -119,16 +121,16 @@ public class BattleScreen extends FullFunctionScreen{
 	public void determineSuicuneMove() {
 		int chance = (int) Math.random();
 		if(chance < .4) {
-			currentAttack = moves.get(2);
+			currentAttack = enemyPokemon.moves.get(2);
 		}
 		else if(chance < .7){
-			currentAttack = moves.get(0);
+			currentAttack = enemyPokemon.moves.get(0);
 		}
 		else if(chance < .9){
-			currentAttack = moves.get(1);
+			currentAttack = enemyPokemon.moves.get(1);
 		}
 		else {
-			currentAttack = moves.get(3);
+			currentAttack = enemyPokemon.moves.get(3);
 		}
 	}
 
