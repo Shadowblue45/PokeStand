@@ -46,7 +46,6 @@ public class RickyInteractScreen extends FullFunctionScreen {
 		pocketmonster.setsAtk(pocketmonster.getsAtk() + 1);
 		pocketmonster.setsDef(pocketmonster.getsDef() + 1);
 		pocketmonster.setSpd(pocketmonster.getSpd() + 1);
-	}
-	
-	}
+	}	
+}
 
