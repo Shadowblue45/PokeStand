@@ -1,10 +1,12 @@
 package battle;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
 import fahadStartupandMenuScreen.CustomRect;
 import garrettPokemonTraining.Inventory;
+import garrettPokemonTraining.Move;
 import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextLabel;
@@ -22,6 +24,9 @@ public class BattleScreen extends FullFunctionScreen{
 	private Pokemon enemyPokemon;
 	private TextLabel enemyName;
 	private CustomRect enemyCurrentHp;
+	private ArrayList<Move> moves;
+	private ArrayList<Move> enemyMoves;
+	private Move currentAttack;
 	
 	public BattleScreen(int width, int height) {
 		super(width, height);
@@ -29,35 +34,26 @@ public class BattleScreen extends FullFunctionScreen{
 
 	public void startBattle() {
 		String[] pokeNames = PokeStart.inventory.getNames();
+		String[] actions = {"","",""};
 		int index = PokeStart.inventory.pokemonIndex;
 		enemyPokemon = PokeStart.selectionScreen.getEnemyPokemon();
 		
 		//Set user's pokemon's current stats to the current max
-		Inventory.pokemon.setCurrentHp(Inventory.pokemon.getHp());
-		Inventory.pokemon.setCurrentAtk(Inventory.pokemon.getAtk());
-		Inventory.pokemon.setCurrentDef(Inventory.pokemon.getDef());
-		Inventory.pokemon.setCurrentSpd(Inventory.pokemon.getSpd());
-		Inventory.pokemon.setCurrentsAtk(Inventory.pokemon.getsAtk());
-		Inventory.pokemon.setCurrentsDef(Inventory.pokemon.getsDef());
-		
+		PokeStart.inventory.pokemon.setCurrentHp(PokeStart.inventory.pokemon.getHp());
+	
 		//Set enemy pokemon's current stats to the current max
 		enemyPokemon.setCurrentHp(enemyPokemon.getHp());
-		enemyPokemon.setCurrentAtk(enemyPokemon.getAtk());
-		enemyPokemon.setCurrentDef(enemyPokemon.getDef());
-		enemyPokemon.setCurrentSpd(enemyPokemon.getSpd());
-		enemyPokemon.setCurrentsAtk(enemyPokemon.getsAtk());
-		enemyPokemon.setCurrentsDef(enemyPokemon.getsDef());
 		
 		int userCurrent = Inventory.pokemon.getCurrentHp();
-		int userHpSize = (int) (260*userCurrent)/(Inventory.pokemon.getHp());
+		int userHpSize = (int) (260*userCurrent)/(PokeStart.inventory.pokemon.getHp());
 		
 		int enemyCurrent = enemyPokemon.getCurrentHp();
 		int enemyHpSize = (int) (260*enemyCurrent)/(enemyPokemon.getHp());
 		
 		//Test if these conditions are set
-		System.out.println("\nHp Size : " + userHpSize);
-		System.out.println("\nHp : " + Inventory.pokemon.getHp());
-		System.out.println("current HP is "+Inventory.pokemon.getCurrentHp());
+//		System.out.println("\nHp Size : " + userHpSize);
+//		System.out.println("\nHp : " + Inventory.pokemon.getHp());
+//		System.out.println("current HP is "+Inventory.pokemon.getCurrentHp());
 		
 		System.out.println("\nEnemy hp Size : " + enemyHpSize);
 		System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
@@ -105,5 +101,73 @@ public class BattleScreen extends FullFunctionScreen{
 		viewObjects.add(enemyCurrentHp);
 		viewObjects.add(userName);
 		viewObjects.add(enemyName);
+	}
+	
+	public void setMoves() {
+		this.moves = PokeStart.inventory.pokemon.getMoves();
+	}
+	public void setEnemyMoves() {
+		this.enemyMoves = enemyMoves;
+	}
+	
+	public void determinePokemonMove() {
+		if(enemyName.equals("Suicune")) {
+			determineSuicuneMove();
+		}
+		else if(enemyName.equals("Entei")) {
+			determineEnteiMove();
+		}
+		else {
+			determineRaikouMove();
+		}
+	}
+
+	public void determineSuicuneMove() {
+		int chance = (int) Math.random();
+		if(chance < .4) {
+			currentAttack = enemyMoves.get(2);
+		}
+		else if(chance < .7){
+			currentAttack = enemyMoves.get(0);
+		}
+		else if(chance < .9){
+			currentAttack = enemyMoves.get(1);
+		}
+		else {
+			currentAttack = enemyMoves.get(3);
+		}
+	}
+
+	public void determineEnteiMove() {
+		int chance = (int) Math.random();
+		if(chance < .4) {
+			currentAttack = enemyMoves.get(2);
+		}
+		else if(chance < .7){
+			currentAttack = enemyMoves.get(0);
+		}
+		else if(chance < .9){
+			currentAttack = enemyMoves.get(1);
+		}
+		else {
+			currentAttack = enemyMoves.get(3);	
+		}
+	}
+
+	public void determineRaikouMove() {
+		int chance = (int) Math.random();
+		if(chance < .4) {
+			currentAttack = enemyMoves.get(1);
+		}
+		else if(chance < .7){
+			currentAttack = enemyMoves.get(3);
+		}
+		else if(chance < .9){
+			currentAttack = enemyMoves.get(0);
+		}
+		else {
+			currentAttack = enemyMoves.get(3);
+		}
+		
 	}
 }

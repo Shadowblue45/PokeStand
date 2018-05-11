@@ -25,7 +25,7 @@ public class Pokemon {
 	private int stageSpd;
 	private double[] multipliers = {1, .66, .5, .4, .33, .28, .25};
 	private String image;
-	private ArrayList<Move> moves;
+	public ArrayList<Move> moves;
 	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
 	private String[] secondTypes = {"Ground","Flying","Fighting","Fairy","Dark","Ground"};
 	//private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
