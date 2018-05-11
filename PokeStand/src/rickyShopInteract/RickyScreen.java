@@ -2,6 +2,7 @@ package rickyShopInteract;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import fahadStartupandMenuScreen.CustomRect;
@@ -337,4 +338,8 @@ public class RickyScreen extends FullFunctionScreen {
 		this.dollars = dollars;
 	}
 
+	public int[] getItemQuantity() {
+		return itemQuantity;
+	}
+	
 }
