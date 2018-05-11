@@ -25,6 +25,7 @@ public class BattleScreen extends FullFunctionScreen{
 	private TextLabel enemyName;
 	private CustomRect enemyCurrentHp;
 	private ArrayList<Move> moves;
+	private ArrayList<Move> enemyMoves;
 	private Move currentAttack;
 	
 	public BattleScreen(int width, int height) {
@@ -38,21 +39,21 @@ public class BattleScreen extends FullFunctionScreen{
 		enemyPokemon = PokeStart.selectionScreen.getEnemyPokemon();
 		
 		//Set user's pokemon's current stats to the current max
-		Inventory.pokemon.setCurrentHp(Inventory.pokemon.getHp());
+		PokeStart.inventory.pokemon.setCurrentHp(PokeStart.inventory.pokemon.getHp());
 	
 		//Set enemy pokemon's current stats to the current max
 		enemyPokemon.setCurrentHp(enemyPokemon.getHp());
 		
 		int userCurrent = Inventory.pokemon.getCurrentHp();
-		int userHpSize = (int) (260*userCurrent)/(Inventory.pokemon.getHp());
+		int userHpSize = (int) (260*userCurrent)/(PokeStart.inventory.pokemon.getHp());
 		
 		int enemyCurrent = enemyPokemon.getCurrentHp();
 		int enemyHpSize = (int) (260*enemyCurrent)/(enemyPokemon.getHp());
 		
 		//Test if these conditions are set
-		System.out.println("\nHp Size : " + userHpSize);
-		System.out.println("\nHp : " + Inventory.pokemon.getHp());
-		System.out.println("current HP is "+Inventory.pokemon.getCurrentHp());
+//		System.out.println("\nHp Size : " + userHpSize);
+//		System.out.println("\nHp : " + Inventory.pokemon.getHp());
+//		System.out.println("current HP is "+Inventory.pokemon.getCurrentHp());
 		
 		System.out.println("\nEnemy hp Size : " + enemyHpSize);
 		System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
@@ -105,6 +106,9 @@ public class BattleScreen extends FullFunctionScreen{
 	public void setMoves() {
 		this.moves = PokeStart.inventory.pokemon.getMoves();
 	}
+	public void setEnemyMoves() {
+		this.enemyMoves = enemyMoves;
+	}
 	
 	public void determinePokemonMove() {
 		if(enemyName.equals("Suicune")) {
@@ -121,48 +125,48 @@ public class BattleScreen extends FullFunctionScreen{
 	public void determineSuicuneMove() {
 		int chance = (int) Math.random();
 		if(chance < .4) {
-			currentAttack = enemyPokemon.moves.get(2);
+			currentAttack = enemyMoves.get(2);
 		}
 		else if(chance < .7){
-			currentAttack = enemyPokemon.moves.get(0);
+			currentAttack = enemyMoves.get(0);
 		}
 		else if(chance < .9){
-			currentAttack = enemyPokemon.moves.get(1);
+			currentAttack = enemyMoves.get(1);
 		}
 		else {
-			currentAttack = enemyPokemon.moves.get(3);
+			currentAttack = enemyMoves.get(3);
 		}
 	}
 
 	public void determineEnteiMove() {
 		int chance = (int) Math.random();
 		if(chance < .4) {
-			currentAttack = moves.get(2);
+			currentAttack = enemyMoves.get(2);
 		}
 		else if(chance < .7){
-			currentAttack = moves.get(0);
+			currentAttack = enemyMoves.get(0);
 		}
 		else if(chance < .9){
-			currentAttack = moves.get(1);
+			currentAttack = enemyMoves.get(1);
 		}
 		else {
-			currentAttack = moves.get(3);	
+			currentAttack = enemyMoves.get(3);	
 		}
 	}
 
 	public void determineRaikouMove() {
 		int chance = (int) Math.random();
 		if(chance < .4) {
-			currentAttack = moves.get(1);
+			currentAttack = enemyMoves.get(1);
 		}
 		else if(chance < .7){
-			currentAttack = moves.get(3);
+			currentAttack = enemyMoves.get(3);
 		}
 		else if(chance < .9){
-			currentAttack = moves.get(0);
+			currentAttack = enemyMoves.get(0);
 		}
 		else {
-			currentAttack = moves.get(3);
+			currentAttack = enemyMoves.get(3);
 		}
 		
 	}
