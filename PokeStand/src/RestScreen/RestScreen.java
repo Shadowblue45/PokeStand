@@ -29,7 +29,7 @@ public class RestScreen extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				AudioTest.playSound("resources/rest.wav");
+				AudioTest.playSound("resources/Music/rest.wav");
 				
 				background.loadImages("resources/HealAnimation/"+i+".jpg", getWidth(), getHeight());
 				background.update();
