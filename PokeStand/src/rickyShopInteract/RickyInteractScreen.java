@@ -20,8 +20,8 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		displayGif(viewObjects);
-		changeFatigue();
-		changeStats();
+//		changeFatigue();
+//		changeStats();
 	}
 	
 	public void displayGif(List<Visible> viewObjects) {

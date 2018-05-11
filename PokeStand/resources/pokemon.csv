@@ -1,6 +1,6 @@
-Charmander,Fire,,31,24,15,55,22,31,resources/fire/Charmander.png
+Mudkip,Water,,30,23,14,54,21,22,resources/water/Mudkip.png
 Growl,Normal,0,100,40,false,0,1
-Scratch,Normal,40,100,35,false,-1,0
-Ember,Fire,40,100,25,true,-1,0
-Scary Face,Normal,0,100,10,false,4,2
+Tackle,Normal,40,100,40,false,-1,0
+Water Gun,Water,40,100,25,true,-1,0
+Mud-Slap,Ground,20,100,10,true,-1,0
 0,30,0,0
