@@ -2,14 +2,17 @@ package rickyShopInteract;
 
 import java.util.List;
 
-import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
+import guiTeacher.components.Action;
+import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import startGame.PokeStart;
 
 public class RickyInteractScreen extends FullFunctionScreen {
+
+	private Button backButton;
 
 	private static final long serialVersionUID = -9057104999011157193L;
 
@@ -20,14 +23,14 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		displayGif(viewObjects);
-		changeFatigue();
-		changeStats();
+		addBackButton(viewObjects);
 	}
 	
 	public void displayGif(List<Visible> viewObjects) {
 		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
-		Graphic g = new Graphic(0,0,getWidth(),getHeight(),"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
+		Graphic g = new Graphic(640,360,getWidth()/2,getHeight()/2,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
 		viewObjects.add(g);
+		
 	}
 	
 	public void changeFatigue() {
@@ -47,5 +50,17 @@ public class RickyInteractScreen extends FullFunctionScreen {
 		pocketmonster.setsDef(pocketmonster.getsDef() + 1);
 		pocketmonster.setSpd(pocketmonster.getSpd() + 1);
 	}	
+	
+	public void addBackButton(List<Visible> viewObjects) {
+		backButton = new Button(50,625,100,100, "Back", new Action() {
+			
+			@Override
+			public void act() {
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+				PokeStart.mainScreen =! PokeStart.mainScreen;
+			}
+		});
+		viewObjects.add(backButton);
+	}
 }
 

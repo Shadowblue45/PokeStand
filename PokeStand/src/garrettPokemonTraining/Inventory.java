@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
+import startGame.PokeStart;
+
 public class Inventory {
 
 	public static Pokemon pokemon;
@@ -32,7 +34,10 @@ public class Inventory {
 				fw.write(m+"\n");    	
 			}
 			fw.write(Integer.toString(pokemonIndex) + "," + Integer.toString(daysLeft) + "," + Integer.toString(fatigue) + "," + Integer.toString(uPoints) + "\n");
-			
+			for(int i = 0; i < PokeStart.shopScreen.getItemQuantity().length; i++) {
+				fw.write(Integer.toString(PokeStart.shopScreen.getItemQuantity()[i]) + ",");
+			}
+			fw.write("\n");
 			fw.close();    
 			System.out.println("Success! File \"pokemon.csv\" saved!");
 		}catch(IOException e){
