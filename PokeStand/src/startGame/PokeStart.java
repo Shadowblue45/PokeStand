@@ -3,6 +3,7 @@ package startGame;
 import guiTeacher.GUIApplication;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.userInterfaces.Screen;
+import rickyShopInteract.RickyInteractScreen;
 import rickyShopInteract.RickyScreen;
 import rickyShopInteract.RickyScreen;
 import selectionScreen.SelectionScreen;
@@ -33,6 +34,7 @@ public class PokeStart extends GUIApplication {
 	public static MainMenuScreen mainMenuScreen;
 	public static boolean mainScreen;
 	public static AbilityScreen abilityScreen;
+	public static RickyInteractScreen interactScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -61,7 +63,7 @@ public class PokeStart extends GUIApplication {
 	}
 	
 	public static Screen getScreen(int i) {
-		Screen[] mainScreens = {trainingScreen, loadScreen,null,abilityScreen,null,shopScreen};
+		Screen[] mainScreens = {trainingScreen,interactScreen, loadScreen,abilityScreen,null,shopScreen};
 		if(PokeStart.inventory.daysLeft == 0) {
 			mainScreens[0] = battleScreen;
 		}
@@ -73,7 +75,7 @@ public class PokeStart extends GUIApplication {
 	
 	public static void setPokemonGBFont(float f) {
 		try {
-		File fontFile = new File("resources/Pokemon GB.ttf");
+		File fontFile = new File("resources/Fonts/Pokemon GB.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(f);
 		StyledComponent.setBaseFont(baseFont);
@@ -84,7 +86,7 @@ public class PokeStart extends GUIApplication {
 	
 	public static void setPokemonTextFont(float f) {
 		try {
-		File fontFile = new File("resources/Pokemon Text.ttf");
+		File fontFile = new File("resources/Fonts/Pokemon Text.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(f);
 		StyledComponent.setBaseFont(baseFont);
@@ -95,7 +97,7 @@ public class PokeStart extends GUIApplication {
 	
 	public static void setPokemonFont(float f) {
 		try {
-		File fontFile = new File("resources/Kanji_PA.ttf");
+		File fontFile = new File("resources/Fonts/Kanji_PA.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(f);
 		StyledComponent.setBaseFont(baseFont);
@@ -106,7 +108,7 @@ public class PokeStart extends GUIApplication {
 	
 //	public static void setPokemonHollowFont(float f) {
 //		try {
-//		File fontFile = new File("resources/Pokemon Hollow.ttf");
+//		File fontFile = new File("resources/Fonts/Pokemon Hollow.ttf");
 //		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 //		Font baseFont=font.deriveFont(f);
 //		StyledComponent.setBaseFont(baseFont);
@@ -117,7 +119,7 @@ public class PokeStart extends GUIApplication {
 	
 	public static void setPokemonSunFont(float f) {
 		try {
-		File fontFile = new File("resources/Pokemon Sun.ttf");
+		File fontFile = new File("resources/Fonts/Pokemon Sun.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 		Font baseFont=font.deriveFont(f);
 		StyledComponent.setBaseFont(baseFont);

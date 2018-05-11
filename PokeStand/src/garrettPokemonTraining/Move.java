@@ -12,16 +12,20 @@ public class Move {
 	private int pp;
 	private int currentPp;
 	private boolean isSpecial;
-	private Action action;
+	private int stat;
+	private int change;
+	private PokemonAction action;
 
-	public Move(String name, String type, int power, int accuracy, int pp, boolean isSpecial, Action action) {
+	public Move(String name, String type, int power, int accuracy, int pp, boolean isSpecial, int stat, int change) {
 		this.name = name;
 		this.type = type;
 		setPower(power);
 		setAccuracy(accuracy);
 		setPp(pp);
 		this.isSpecial = isSpecial;
-		this.action = action;
+		this.stat = stat;
+		this.change = change;
+		this.action = PokemonAction.createAction(stat,change);
 	}
 
 	public String getName() {
@@ -61,7 +65,7 @@ public class Move {
 	}
 
 	public String toString() {
-		return name + "," + type + "," + power + "," + accuracy + "," + pp + "," + isSpecial;
+		return name + "," + type + "," + power + "," + accuracy + "," + pp + "," + isSpecial + "," + stat + "," + change;
 	}
 
 	public int getCurrentPp() {
@@ -79,8 +83,17 @@ public class Move {
 	public void setCurrentAccuracy(int currentAccuracy) {
 		this.currentAccuracy = currentAccuracy;
 	}
-	
-	public void attack() {
-		
+
+	public void attack(Pokemon target, Pokemon user) {
+		if(stat >= 0) {
+			action.setTarget(target);
+			action.act();
+		}else {
+			if(isSpecial) {
+				target.setHp(target.getHp() - (user.getsAtk() - target.getsDef()));
+			}else {
+
+			}
+		}
 	}
 }

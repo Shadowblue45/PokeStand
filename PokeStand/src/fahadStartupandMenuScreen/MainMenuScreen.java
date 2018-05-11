@@ -22,6 +22,7 @@ import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import guiTeacher.userInterfaces.Screen;
+import rickyShopInteract.RickyInteractScreen;
 import startGame.PokeStart;
 
 public class MainMenuScreen extends FullFunctionScreen {
@@ -43,7 +44,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		update();
-		AudioTest.playSound("resources/Pokemon MainMenu.wav");
+		AudioTest.playSound("resources/Music/Pokemon MainMenu.wav");
 		System.out.println(PokeStart.inventory.pokemonImages[0]);
 		PokeStart.trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		resetCoordinates();
@@ -57,11 +58,13 @@ public class MainMenuScreen extends FullFunctionScreen {
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
 		int days = PokeStart.inventory.daysLeft;
+
 		if(PokeStart.inventory.daysLeft == 0) {
 			names[0] = "Battle";
 			PokeStart.battleScreen = new BattleScreen(getWidth(), getHeight());
 		}
 		PokeStart.abilityScreen = new AbilityScreen(getWidth(), getHeight());
+		PokeStart.interactScreen = new RickyInteractScreen(getWidth(), getHeight());
 		
 		//===================================================
 		
@@ -162,12 +165,12 @@ public class MainMenuScreen extends FullFunctionScreen {
 				public void act() {
 					AudioTest.stopSound(AudioTest.sound);
 					if(names[temp].equals("Training")) {
-						AudioTest.playSound("resources/Pokemon Training.wav");
+						AudioTest.playSound("resources/Music/Pokemon Training.wav");
 					}
 					PokeStart.start.setScreen(PokeStart.getScreen(temp));
 					if(names[temp].equals("Battle")) {
 						PokeStart.battleScreen.startBattle();
-						AudioTest.playSound("resources/Pokemon Battle.wav");
+						AudioTest.playSound("resources/Music/Pokemon Battle.wav");
 					}
 				}
 			});

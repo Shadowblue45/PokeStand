@@ -769,7 +769,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(charmander);
 				
 				disableButtons();
-				setPokemonGB();
+				PokeStart.setPokemonGBFont(11f);
 				
 				textB = new Graphic(150,165, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
@@ -807,7 +807,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(chimchar);
 				
 				disableButtons();
-				setPokemonGB();
+				PokeStart.setPokemonGBFont(11f);
 				
 				textB = new Graphic(150,365, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
@@ -843,7 +843,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(cyndaquil);
 				
 				disableButtons();
-				setPokemonGB();
+				PokeStart.setPokemonGBFont(11f);
 				
 				textB = new Graphic(150,565, 300, 400, "resources/text box.png");
 				viewObjects.add(textB);
@@ -881,7 +881,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(snivy);
 				
 				disableButtons();
-				setPokemonGB();
+				PokeStart.setPokemonGBFont(11f);
 				
 				textB = new Graphic(550,165, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
@@ -916,7 +916,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(treecko);
 				
 				disableButtons();
-				setPokemonGB();
+				PokeStart.setPokemonGBFont(11f);
 				
 				textB = new Graphic(550,365, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
@@ -952,7 +952,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(turtwig);
 				
 				disableButtons();
-				setPokemonGB();
+				PokeStart.setPokemonGBFont(11f);
 				
 				textB = new Graphic(550,565, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
@@ -991,7 +991,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(froakie);
 				
 				disableButtons();
-				setPokemonGB();
+				PokeStart.setPokemonGBFont(11f);
 				
 				textB = new Graphic(950,165, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
@@ -1026,7 +1026,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(popplio);
 				
 				disableButtons();
-				setPokemonGB();
+				PokeStart.setPokemonGBFont(11f);
 				
 				textB = new Graphic(950,365, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
@@ -1061,7 +1061,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				viewObjects.add(mudkip);
 				
 				disableButtons();
-				setPokemonGB();
+				PokeStart.setPokemonGBFont(11f);
 				
 				textB = new Graphic(950,565, 275, 400, "resources/text box.png");
 				viewObjects.add(textB);
@@ -1112,27 +1112,4 @@ public class SelectionScreen extends FullFunctionScreen {
     	buttonG2.setEnabled(true);
     	buttonG3.setEnabled(true);
     }
-
-	
-	public void setPokemon() {
-		try {
-		File fontFile = new File("resources/Pokemon Text.ttf");
-		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-		Font baseFont=font.deriveFont(35f);
-		StyledComponent.setBaseFont(baseFont);
-	} catch (Exception e) {
-		e.printStackTrace();
-		}
-	}
-	
-	public void setPokemonGB() {
-		try {
-		File fontFile = new File("resources/Pokemon GB.ttf");
-		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-		Font baseFont=font.deriveFont(11f);
-		StyledComponent.setBaseFont(baseFont);
-	} catch (Exception e) {
-		e.printStackTrace();
-		}
-	}
 }
