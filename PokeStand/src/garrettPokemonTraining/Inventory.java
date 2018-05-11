@@ -32,6 +32,7 @@ public class Inventory {
 				fw.write(m+"\n");    	
 			}
 			fw.write(Integer.toString(pokemonIndex) + "," + Integer.toString(daysLeft) + "," + Integer.toString(fatigue) + "," + Integer.toString(uPoints) + "\n");
+			
 			fw.close();    
 			System.out.println("Success! File \"pokemon.csv\" saved!");
 		}catch(IOException e){
