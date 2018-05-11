@@ -3,6 +3,7 @@ package rickyShopInteract;
 import java.util.List;
 
 import garrettPokemonTraining.Inventory;
+import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
@@ -20,11 +21,12 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		displayGif(viewObjects);
 		changeFatigue();
+		changeStats();
 	}
 	
 	public void displayGif(List<Visible> viewObjects) {
 		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
-		Graphic g = new Graphic(0,0,getWidth(),getHeight(),"resources/interact/" + name + ".gif");
+		Graphic g = new Graphic(0,0,getWidth(),getHeight(),"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
 		viewObjects.add(g);
 	}
 	
@@ -36,13 +38,14 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	}
 	
 	public void changeStats() {
-		GarrettPokemonTraining.Pokemon.setHP(getHP() + 1);
-		GarrettPokemonTraining.Pokemon.setAtk(getAtk() + 1);
-		GarrettPokemonTraining.Pokemon.setDef(getDef() + 1);
-		GarrettPokemonTraining.Pokemon.setsAtk(getsAtk() + 1);
-		GarrettPokemonTraining.Pokemon.setsDef(getsDef() + 1);
-		GarrettPokemonTraining.Pokemon.setSpd(getSpd() + 1);
-	}
-	
-	}
+		Pokemon pocketmonster = PokeStart.inventory.getPokemon();
+		
+		pocketmonster.setHp(PokeStart.inventory.getPokemon().getHp() + 1);
+		pocketmonster.setAtk(pocketmonster.getAtk() + 1);
+		pocketmonster.setDef(pocketmonster.getDef() + 1);
+		pocketmonster.setsAtk(pocketmonster.getsAtk() + 1);
+		pocketmonster.setsDef(pocketmonster.getsDef() + 1);
+		pocketmonster.setSpd(pocketmonster.getSpd() + 1);
+	}	
+}
 
