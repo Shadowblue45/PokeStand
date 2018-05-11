@@ -11,7 +11,6 @@ import selectionScreen.SelectionScreen;
 import java.awt.Font;
 import java.io.File;
 
-import RestScreen.RestScreen;
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
 import displayAbilities.AbilityScreen;
@@ -36,7 +35,6 @@ public class PokeStart extends GUIApplication {
 	public static boolean mainScreen;
 	public static AbilityScreen abilityScreen;
 	public static RickyInteractScreen interactScreen;
-	public static RestScreen restScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -51,7 +49,6 @@ public class PokeStart extends GUIApplication {
 		startScreen = new StartScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());
 		battleScreen = new BattleScreen(getWidth(), getHeight());
-		restScreen = new RestScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
 
@@ -66,7 +63,7 @@ public class PokeStart extends GUIApplication {
 	}
 	
 	public static Screen getScreen(int i) {
-		Screen[] mainScreens = {trainingScreen,interactScreen, restScreen,abilityScreen,loadScreen,shopScreen};
+		Screen[] mainScreens = {trainingScreen,interactScreen, loadScreen,abilityScreen,null,shopScreen};
 		if(PokeStart.inventory.daysLeft == 0) {
 			mainScreens[0] = battleScreen;
 		}

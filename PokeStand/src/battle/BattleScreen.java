@@ -8,6 +8,8 @@ import fahadStartupandMenuScreen.CustomRect;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Move;
 import garrettPokemonTraining.Pokemon;
+import guiTeacher.components.Action;
+import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
@@ -70,10 +72,43 @@ public class BattleScreen extends FullFunctionScreen{
 		enemyPokemonSprite.loadImages("resources/pokefronts/"+ enemyPokemon.getName() + " Front.png", getWidth()/3, getHeight()/3);
 		enemyName.setText(enemyPokemon.getName());
 	}
-	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		PokeStart.setPokemonTextFont(24f);
+
+		//Set user and enemy moves to local variable
+		moves = Inventory.pokemon.getMoves();
+		enemyMoves = enemyPokemon.getMoves();
+		
+		Button move1 = new Button(90,550,200,100,(moves.get(0).getName()), new Action() {
+			
+			@Override
+			public void act() {
+				moves.get(0).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+			}
+		});
+		Button move2 = new Button(625,550,200,100,(moves.get(1).getName()), new Action() {
+			
+			@Override
+			public void act() {
+				moves.get(1).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+			}
+		});
+		Button move3 = new Button(90,620,200,100,(moves.get(2).getName()), new Action() {
+			
+			@Override
+			public void act() {
+				moves.get(2).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+			}
+		});
+		Button move4 = new Button(625,620,200,100,(moves.get(3).getName()), new Action() {
+			
+			@Override
+			public void act() {
+				moves.get(3).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+			}
+		});
+	
 		//set background
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
 		Graphic box = new Graphic(0,500,getWidth(),500,"resources/Box.jpg");
@@ -100,14 +135,11 @@ public class BattleScreen extends FullFunctionScreen{
 		viewObjects.add(enemyTotalHp);
 		viewObjects.add(enemyCurrentHp);
 		viewObjects.add(userName);
-		viewObjects.add(enemyName);
-	}
-	
-	public void setMoves() {
-		this.moves = PokeStart.inventory.pokemon.getMoves();
-	}
-	public void setEnemyMoves() {
-		this.enemyMoves = enemyMoves;
+		viewObjects.add(enemyName);	
+		viewObjects.add(move1);
+		viewObjects.add(move2);	
+		viewObjects.add(move3);	
+		viewObjects.add(move4);	
 	}
 	
 	public void determinePokemonMove() {
