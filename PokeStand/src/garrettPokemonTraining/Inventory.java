@@ -129,5 +129,105 @@ public class Inventory {
 			pokemonForms[i] = names[i];
 		}
 	}
+	
+	public String[] generateNames(String name) {
+		String[] names = new String[3];
+		if(name.equals("Charmander") || name.equals("Charmeleon") || name.equals("Charizard")) {
+			names[0] = "Charmander";
+			names[1] = "Charmeleon";
+			names[2] = "Charizard";
+		}
+		if(name.equals("Chimchar") || name.equals("Monferno") || name.equals("Infernape")) {
+			names[0] = "Chimchar";
+			names[1] = "Monferno";
+			names[2] = "Infernape";
+		}
+		if(name.equals("Cyndaquil") || name.equals("Quilava") || name.equals("Typhlosion")) {
+			names[0] = "Cyndaquil";
+			names[1] = "Quilava";
+			names[2] = "Typhlosion";
+		}
+		if(name.equals("Turtwig") || name.equals("Grotle") || name.equals("Torterra")) {
+			names[0] = "Turtwig";
+			names[1] = "Grotle";
+			names[2] = "Torterra";
+		}
+		if(name.equals("Treecko") || name.equals("Grovyle") || name.equals("Sceptile")) {
+			names[0] = "Treecko";
+			names[1] = "Grovyle";
+			names[2] = "Sceptile";
+		}
+		if(name.equals("Snivy") || name.equals("Servine") || name.equals("Serperior")) {
+			names[0] = "Snivy";
+			names[1] = "Servine";
+			names[2] = "Serperior";
+		}
+		if(name.equals("Mudkip") || name.equals("Marshtomp") || name.equals("Swampert")) {
+			names[0] = "Mudkip";
+			names[1] = "Marshtomp";
+			names[2] = "Swampert";
+		}
+		if(name.equals("Froakie") || name.equals("Frogadier") || name.equals("Greninja")) {
+			names[0] = "Froakie";
+			names[1] = "Frogadier";
+			names[2] = "Greninja";
+		}
+		if(name.equals("Popplio") || name.equals("Brionne") || name.equals("Primarina")) {
+			names[0] = "Popplio";
+			names[1] = "Brionne";
+			names[2] = "Primarina";
+		}
+		return names;
+	}
+	
+	public String[] generateImages(String name) {
+		String[] images = new String[3];
+		if(name.equals("Charmander") || name.equals("Charmeleon") || name.equals("Charizard")) {
+			images[0] = "resources/fire/Charmander.png";
+			images[1] = "resources/fire/Charmeleon.png";
+			images[2] = "resources/fire/Charizard.png";
+		}
+		if(name.equals("Chimchar") || name.equals("Monferno") || name.equals("Infernape")) {
+			images[0] = "resources/fire/Chimchar.png";
+			images[1] = "resources/fire/Monferno.png";
+			images[2] = "resources/fire/Infernape.png";
+		}
+		if(name.equals("Cyndaquil") || name.equals("Quilava") || name.equals("Typhlosion")) {
+			images[0] = "resources/fire/Cyndaquil.png";
+			images[1] = "resources/fire/Quilava.png";
+			images[2] = "resources/fire/Typhlosion.png";
+		}
+		if(name.equals("Turtwig") || name.equals("Grotle") || name.equals("Torterra")) {
+			images[0] = "resources/grass/Turtwig.png";
+			images[1] = "resources/grass/Grotle.png";
+			images[2] = "resources/grass/Torterra.png";
+		}
+		if(name.equals("Treecko") || name.equals("Grovyle") || name.equals("Sceptile")) {
+			images[0] = "resources/grass/Treecko.png";
+			images[1] = "resources/grass/Grovyle.png";
+			images[2] = "resources/grass/Sceptile.png";
+		}
+		if(name.equals("Snivy") || name.equals("Servine") || name.equals("Serperior")) {
+			images[0] = "resources/grass/Snivy.png";
+			images[1] = "resources/grass/Servine.png";
+			images[2] = "resources/grass/Serperior.png";
+		}
+		if(name.equals("Mudkip") || name.equals("Marshtomp") || name.equals("Swampert")) {
+			images[0] = "resources/water/Mudkip.png";
+			images[1] = "resources/water/Marshtomp.png";
+			images[2] = "resources/water/Swampert.png";
+		}
+		if(name.equals("Froakie") || name.equals("Frogadier") || name.equals("Greninja")) {
+			images[0] = "resources/water/Froakie.png";
+			images[1] = "resources/water/Frogadier.png";
+			images[2] = "resources/water/Greninja.png";
+		}
+		if(name.equals("Popplio") || name.equals("Brionne") || name.equals("Primarina")) {
+			images[0] = "resources/water/Popplio.png";
+			images[1] = "resources/water/Brionne.png";
+			images[2] = "resources/water/Primarina	.png";
+		}
+		return images;
+	}
 
 }

@@ -54,6 +54,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		viewObjects.add(target);
 		p = PokeStart.inventory.getPokemon();
 		int index = PokeStart.inventory.pokemonIndex;
+		System.out.println(pokeNames[index]);
 		poke = new Graphic(150,250,getWidth()/2,getHeight()/2,"resources/pokebacks/"+ pokeNames[index] +" back.png");
 		viewObjects.add(poke);
 		Graphic box = new Graphic(0,500,getWidth(),500,"resources/Box.jpg");
