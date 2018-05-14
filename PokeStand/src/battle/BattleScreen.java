@@ -27,6 +27,10 @@ public class BattleScreen extends FullFunctionScreen{
 	private TextLabel enemyName;
 	private CustomRect enemyCurrentHp;
 	private Move currentAttack;
+	private int enemyHpSize;
+	private int userCurrent;
+	private int userHpSize;
+	private int enemyCurrent;
 	
 	public BattleScreen(int width, int height) {
 		super(width, height);
@@ -44,11 +48,11 @@ public class BattleScreen extends FullFunctionScreen{
 		//Set enemy pokemon's current stats to the current max
 		enemyPokemon.setCurrentHp(enemyPokemon.getHp());
 		
-		int userCurrent = Inventory.pokemon.getCurrentHp();
-		int userHpSize = (int) (260*userCurrent)/(PokeStart.inventory.pokemon.getHp());
+		userCurrent = Inventory.pokemon.getCurrentHp();
+		userHpSize = (int) (260*userCurrent)/(PokeStart.inventory.pokemon.getHp());
 		
-		int enemyCurrent = enemyPokemon.getCurrentHp();
-		int enemyHpSize = (int) (260*enemyCurrent)/(enemyPokemon.getHp());
+		enemyCurrent = enemyPokemon.getCurrentHp();
+		setEnemyHpSize();
 		
 		//Test if these conditions are set
 //		System.out.println("\nHp Size : " + userHpSize);
@@ -58,7 +62,6 @@ public class BattleScreen extends FullFunctionScreen{
 		System.out.println("\nEnemy hp Size : " + enemyHpSize);
 		System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
 		System.out.println("current HP is "+enemyPokemon.getCurrentHp());
-		System.out.println(Inventory.pokemon.getMoves().get(0).getName());
 		
 			
 		//changing user graphics
@@ -107,6 +110,15 @@ public class BattleScreen extends FullFunctionScreen{
 		setMoves(viewObjects);
 	}
 	
+	public void setEnemyHpSize() {
+		enemyHpSize = (260)*(int)(enemyCurrent/enemyPokemon.getHp());
+	}
+	
+	
+	public void turn() {
+		
+	}
+	
 	
 	public void setMoves(List<Visible> viewObjects) {
 		PokeStart.setPokemonTextFont(48f);
@@ -123,6 +135,11 @@ public class BattleScreen extends FullFunctionScreen{
 				@Override
 				public void act() {
 					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+					System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
+					System.out.println("current HP is "+enemyPokemon.getCurrentHp());
+					setEnemyHpSize();
+					System.out.println("size is ;"+ enemyHpSize);
+					enemyCurrentHp.setDimensions((int)(enemyHpSize+1), 20);
 				}
 			});
 			x+= 520;
