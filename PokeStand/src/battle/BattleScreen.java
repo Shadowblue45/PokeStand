@@ -76,34 +76,6 @@ public class BattleScreen extends FullFunctionScreen{
 		PokeStart.setPokemonTextFont(24f);
 
 		
-		Button move1 = new Button(90,550,200,100,(Inventory.pokemon.getMoves().get(0).getName()), new Action() {
-			
-			@Override
-			public void act() {
-				Inventory.pokemon.getMoves().get(0).attack(enemyPokemon, PokeStart.inventory.getPokemon());
-			}
-		});
-		Button move2 = new Button(625,550,200,100,(Inventory.pokemon.getMoves().get(1).getName()), new Action() {
-			
-			@Override
-			public void act() {
-				Inventory.pokemon.getMoves().get(1).attack(enemyPokemon, PokeStart.inventory.getPokemon());
-			}
-		});
-		Button move3 = new Button(90,620,200,100,(Inventory.pokemon.getMoves().get(2).getName()), new Action() {
-			
-			@Override
-			public void act() {
-				Inventory.pokemon.getMoves().get(2).attack(enemyPokemon, PokeStart.inventory.getPokemon());
-			}
-		});
-		Button move4 = new Button(625,620,200,100,(Inventory.pokemon.getMoves().get(3).getName()), new Action() {
-			
-			@Override
-			public void act() {
-				Inventory.pokemon.getMoves().get(3).attack(enemyPokemon, PokeStart.inventory.getPokemon());
-			}
-		});
 	
 		//set background
 		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
@@ -132,12 +104,35 @@ public class BattleScreen extends FullFunctionScreen{
 		viewObjects.add(enemyCurrentHp);
 		viewObjects.add(userName);
 		viewObjects.add(enemyName);	
-		viewObjects.add(move1);
-		viewObjects.add(move2);	
-		viewObjects.add(move3);	
-		viewObjects.add(move4);	
+		setMoves(viewObjects);
 	}
 	
+	
+	public void setMoves(List<Visible> viewObjects) {
+		PokeStart.setPokemonTextFont(48f);
+		int x = 125;
+		int y = 530;
+		for(int i = 0 ; i < 4 ; i++) {
+			final int temp = i;
+			if(i == 2) {
+				x = 125;
+				y = 620;
+			}
+			Button button = new Button(x,y,500,65,(Inventory.pokemon.getMoves().get(temp).getName()), new Action() {
+				
+				@Override
+				public void act() {
+					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+				}
+			});
+			x+= 520;
+			viewObjects.add(button);
+			button.setBackground(new Color(0,0,0,140));
+			button.update();
+			button.setForeground(Color.white);
+		}
+	}
+
 	public void determinePokemonMove() {
 		if(enemyName.equals("Suicune")) {
 			determineSuicuneMove();
