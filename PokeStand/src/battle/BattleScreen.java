@@ -26,8 +26,6 @@ public class BattleScreen extends FullFunctionScreen{
 	private Pokemon enemyPokemon;
 	private TextLabel enemyName;
 	private CustomRect enemyCurrentHp;
-	private ArrayList<Move> moves;
-	private ArrayList<Move> enemyMoves;
 	private Move currentAttack;
 	
 	public BattleScreen(int width, int height) {
@@ -60,6 +58,7 @@ public class BattleScreen extends FullFunctionScreen{
 		System.out.println("\nEnemy hp Size : " + enemyHpSize);
 		System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
 		System.out.println("current HP is "+enemyPokemon.getCurrentHp());
+		System.out.println(Inventory.pokemon.getMoves().get(0).getName());
 		
 			
 		//changing user graphics
@@ -76,36 +75,33 @@ public class BattleScreen extends FullFunctionScreen{
 	public void initAllObjects(List<Visible> viewObjects) {
 		PokeStart.setPokemonTextFont(24f);
 
-		//Set user and enemy moves to local variable
-		moves = Inventory.pokemon.getMoves();
-		enemyMoves = enemyPokemon.getMoves();
 		
-		Button move1 = new Button(90,550,200,100,(moves.get(0).getName()), new Action() {
+		Button move1 = new Button(90,550,200,100,(Inventory.pokemon.getMoves().get(0).getName()), new Action() {
 			
 			@Override
 			public void act() {
-				moves.get(0).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+				Inventory.pokemon.getMoves().get(0).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 			}
 		});
-		Button move2 = new Button(625,550,200,100,(moves.get(1).getName()), new Action() {
+		Button move2 = new Button(625,550,200,100,(Inventory.pokemon.getMoves().get(1).getName()), new Action() {
 			
 			@Override
 			public void act() {
-				moves.get(1).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+				Inventory.pokemon.getMoves().get(1).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 			}
 		});
-		Button move3 = new Button(90,620,200,100,(moves.get(2).getName()), new Action() {
+		Button move3 = new Button(90,620,200,100,(Inventory.pokemon.getMoves().get(2).getName()), new Action() {
 			
 			@Override
 			public void act() {
-				moves.get(2).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+				Inventory.pokemon.getMoves().get(2).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 			}
 		});
-		Button move4 = new Button(625,620,200,100,(moves.get(3).getName()), new Action() {
+		Button move4 = new Button(625,620,200,100,(Inventory.pokemon.getMoves().get(3).getName()), new Action() {
 			
 			@Override
 			public void act() {
-				moves.get(3).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+				Inventory.pokemon.getMoves().get(3).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 			}
 		});
 	
@@ -157,48 +153,48 @@ public class BattleScreen extends FullFunctionScreen{
 	public void determineSuicuneMove() {
 		int chance = (int) Math.random();
 		if(chance < .4) {
-			currentAttack = enemyMoves.get(2);
+			currentAttack = enemyPokemon.getMoves().get(2);
 		}
 		else if(chance < .7){
-			currentAttack = enemyMoves.get(0);
+			currentAttack = enemyPokemon.getMoves().get(0);
 		}
 		else if(chance < .9){
-			currentAttack = enemyMoves.get(1);
+			currentAttack = enemyPokemon.getMoves().get(1);
 		}
 		else {
-			currentAttack = enemyMoves.get(3);
+			currentAttack = enemyPokemon.getMoves().get(3);
 		}
 	}
 
 	public void determineEnteiMove() {
 		int chance = (int) Math.random();
 		if(chance < .4) {
-			currentAttack = enemyMoves.get(2);
+			currentAttack = enemyPokemon.getMoves().get(2);
 		}
 		else if(chance < .7){
-			currentAttack = enemyMoves.get(0);
+			currentAttack = enemyPokemon.getMoves().get(0);
 		}
 		else if(chance < .9){
-			currentAttack = enemyMoves.get(1);
+			currentAttack = enemyPokemon.getMoves().get(1);
 		}
 		else {
-			currentAttack = enemyMoves.get(3);	
+			currentAttack = enemyPokemon.getMoves().get(3);	
 		}
 	}
 
 	public void determineRaikouMove() {
 		int chance = (int) Math.random();
 		if(chance < .4) {
-			currentAttack = enemyMoves.get(1);
+			currentAttack = enemyPokemon.getMoves().get(1);
 		}
 		else if(chance < .7){
-			currentAttack = enemyMoves.get(3);
+			currentAttack = enemyPokemon.getMoves().get(3);
 		}
 		else if(chance < .9){
-			currentAttack = enemyMoves.get(0);
+			currentAttack = enemyPokemon.getMoves().get(0);
 		}
 		else {
-			currentAttack = enemyMoves.get(3);
+			currentAttack = enemyPokemon.getMoves().get(3);
 		}
 		
 	}
