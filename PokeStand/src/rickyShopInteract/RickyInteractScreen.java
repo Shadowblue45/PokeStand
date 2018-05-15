@@ -26,10 +26,8 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	}
 	
 	public void displayPokemon(List<Visible> viewObjects) {
-		Graphic background = new Graphic(0,0,getWidth(),getHeight(),"resources/interact.png");
+		Graphic background = new Graphic(0,0,getWidth(),getHeight(),"resources/interact background.png");
 		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
-		int h = getHeight()/2;
-		int w = getWidth()/2;
 		Graphic g = new Graphic(440, 200, 400, 400,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
 		viewObjects.add(background);
 		viewObjects.add(g);
@@ -37,10 +35,11 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	
 	public void interact(List<Visible> viewObjects) {
 		Graphic tb = new Graphic(440, 550, 500, 150,"resources/text box.png");
-		PokeStart.setPokemonGBFont(14f);
+		PokeStart.setPokemonGBFont(16f);
 		TextArea ta = new TextArea(455,575,425,150,"Would you like to \ninteract with your " +PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex] + "?");
+//		TextArea yes = new TextArea()
+//		TextArea no = new TextArea()
 		viewObjects.add(tb);
-		
 		viewObjects.add(ta);
 	}
 	
