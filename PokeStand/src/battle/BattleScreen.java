@@ -140,6 +140,8 @@ public class BattleScreen extends FullFunctionScreen{
 					setEnemyHpSize();
 					System.out.println("size is ;"+ enemyHpSize);
 					enemyCurrentHp.setDimensions((int)(enemyHpSize+1), 20);
+					enemyPokemon.getMoves().get(temp).attack(PokeStart.inventory.getPokemon(),enemyPokemon);
+					System.out.println(enemyPokemon.getMoves().get(temp).getName());
 				}
 			});
 			x+= 520;
