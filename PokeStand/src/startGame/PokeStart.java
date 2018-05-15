@@ -1,6 +1,6 @@
 package startGame;
 
-import guiTeacher.GUIApplication;
+import guiTeacher.GUIApplication; 
 import guiTeacher.components.StyledComponent;
 import guiTeacher.userInterfaces.Screen;
 import rickyShopInteract.RickyInteractScreen;
@@ -17,7 +17,6 @@ import displayAbilities.AbilityScreen;
 import fahadStartupandMenuScreen.LoadScreen;
 import fahadStartupandMenuScreen.MainMenuScreen;
 import fahadStartupandMenuScreen.StartScreen;
-import fahadStartupandMenuScreen.TrainingScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.StatTrainingScreen; 
 
