@@ -36,8 +36,8 @@ public class RickyInteractScreen extends FullFunctionScreen {
 		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
 		Graphic g = new Graphic(440, 200, 400, 400,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
 		viewObjects.add(background);
-		Graphic g = new Graphic(640,360,getWidth()/2,getHeight()/2,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
-		viewObjects.add(g);
+		Graphic h = new Graphic(640,360,getWidth()/2,getHeight()/2,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
+		viewObjects.add(h);
 		
 	}
 	
