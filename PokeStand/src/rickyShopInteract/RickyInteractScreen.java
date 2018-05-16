@@ -2,7 +2,6 @@ package rickyShopInteract;
 
 import java.util.List;
 
-import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
@@ -25,6 +24,7 @@ public class RickyInteractScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		StyledComponent.setButtonOutline(false);
 		displayPokemon(viewObjects);
 		interact(viewObjects);
 		addBackButton(viewObjects);	
@@ -68,10 +68,8 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	
 	public void addBackButton(List<Visible> viewObjects) {
 		backButton = new Button(50,625,100,100, "Back", new Action() {
-			
 			@Override
 			public void act() {
-				StyledComponent.setButtonOutline(false);
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
 				PokeStart.mainScreen =! PokeStart.mainScreen;
 			}
