@@ -60,7 +60,7 @@ public class AbilityScreen extends FullFunctionScreen {
 
 		
 		
-		setPokemonGB(35f);
+		PokeStart.setPokemonGBFont(35f);
 		Graphic background = new Graphic(0, 0, 1280,720, "resources/template.png");
 		viewObjects.add(background);
 		
@@ -85,7 +85,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		pokemonL.setCustomTextColor(Color.black);
 		viewObjects.add(pokemonL);
 		
-		setPokemonGB(15f);
+		PokeStart.setPokemonGBFont(15f);
 		category = new TextArea(250,575,300,50,"-");
 		category.setCustomTextColor(Color.gray);
 		viewObjects.add(category);
@@ -98,7 +98,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		accuracy.setCustomTextColor(Color.gray);
 		viewObjects.add(accuracy);
 		
-		setPokemonGB(27f);
+		PokeStart.setPokemonGBFont(27f);
 		StyledComponent.setButtonOutline(false);
 		back = new Button(300,10,150,100,"Back",new Action() {
 			
@@ -213,16 +213,6 @@ public class AbilityScreen extends FullFunctionScreen {
 		
 		
 		
-	}
-	public void setPokemonGB(float f) {
-		try {
-		File fontFile = new File("resources/Pokemon GB.ttf");
-		Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-		Font baseFont=font.deriveFont(f);
-		StyledComponent.setBaseFont(baseFont);
-	} catch (Exception e) {
-		e.printStackTrace();
-		}
 	}
 
 }
