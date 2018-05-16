@@ -64,8 +64,13 @@ public class Inventory {
 					pokemonImages = generateImages(param[0]);
 				}
 				else if(param.length == 8){
-					pokemon.getMoves().add(new Move(param[0],param[1],Integer.parseInt(param[2]),Integer.parseInt(param[3]),
-							Integer.parseInt(param[4]),Boolean.getBoolean(param[5]),Integer.parseInt(param[6]),Integer.parseInt(param[7])));
+					if(param[0] instanceof String) {
+						pokemon.getMoves().add(new Move(param[0],param[1],Integer.parseInt(param[2]),Integer.parseInt(param[3]),
+								Integer.parseInt(param[4]),Boolean.getBoolean(param[5]),Integer.parseInt(param[6]),Integer.parseInt(param[7])));
+					}
+					else {
+						
+					}
 				}else if(param.length == 4) {
 					pokemonIndex = Integer.parseInt(param[0]);
 					daysLeft = Integer.parseInt(param[1]);
