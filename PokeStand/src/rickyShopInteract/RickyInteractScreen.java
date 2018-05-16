@@ -4,13 +4,18 @@ import java.util.List;
 
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
+import guiTeacher.components.Action;
+import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
+import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import startGame.PokeStart;
 
 public class RickyInteractScreen extends FullFunctionScreen {
+	
+	private Button backButton;
 
 	private static final long serialVersionUID = -9057104999011157193L;
 
@@ -22,7 +27,7 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		displayPokemon(viewObjects);
 		interact(viewObjects);
-		
+		addBackButton(viewObjects);	
 	}
 	
 	public void displayPokemon(List<Visible> viewObjects) {
@@ -60,5 +65,19 @@ public class RickyInteractScreen extends FullFunctionScreen {
 		pocketmonster.setsDef(pocketmonster.getsDef() + 1);
 		pocketmonster.setSpd(pocketmonster.getSpd() + 1);
 	}	
+	
+	public void addBackButton(List<Visible> viewObjects) {
+		backButton = new Button(50,625,100,100, "Back", new Action() {
+			
+			@Override
+			public void act() {
+				StyledComponent.setButtonOutline(false);
+				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+				PokeStart.mainScreen =! PokeStart.mainScreen;
+			}
+		});
+		viewObjects.add(backButton);
+	}
+	
 }
 
