@@ -49,7 +49,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 
-
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
 		p = PokeStart.inventory.getPokemon();
@@ -102,19 +101,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				// TODO Auto-generated method stub
-				//				PokeStart.mainMenuScreen.pokemon.loadImages("resources/pokebacks/"+ pokeNames[index] +" back.png",400,400);
-				//				PokeStart.mainMenuScreen.name.setText(p.getName());
-				//				PokeStart.mainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
-				//						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-				//						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-				//						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-				//						"Spd: " + p.getSpd() + "\n");
-
 				AudioTest.stopSound(AudioTest.sound);
 				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
-				//				PokeStart.mainScreen = !PokeStart.mainScreen;
 			}
 
 		});
@@ -206,8 +195,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	public static void updatePokemon() {
 		p = PokeStart.inventory.getPokemon();
 	}
-
-
 
 	public void setTrainedInfoStat(String s, List<Visible> viewObjects) {
 		Thread train = new Thread(new Runnable() {

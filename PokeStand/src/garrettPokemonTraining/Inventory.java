@@ -60,6 +60,8 @@ public class Inventory {
 					setPokemon(param[0],param[1],param[2],Integer.parseInt(param[3]),Integer.parseInt(param[4]),Integer.parseInt(param[5]),Integer.parseInt(param[6]),
 							Integer.parseInt(param[7]),Integer.parseInt(param[8]),param[9]);
 					pokemon.emptyMoves();
+					pokemonForms = generateNames(param[0]);
+					pokemonImages = generateImages(param[0]);
 				}
 				else if(param.length == 8){
 					pokemon.getMoves().add(new Move(param[0],param[1],Integer.parseInt(param[2]),Integer.parseInt(param[3]),
@@ -129,7 +131,7 @@ public class Inventory {
 			pokemonForms[i] = names[i];
 		}
 	}
-	
+
 	public String[] generateNames(String name) {
 		String[] names = new String[3];
 		if(name.equals("Charmander") || name.equals("Charmeleon") || name.equals("Charizard")) {
@@ -179,7 +181,7 @@ public class Inventory {
 		}
 		return names;
 	}
-	
+
 	public String[] generateImages(String name) {
 		String[] images = new String[3];
 		if(name.equals("Charmander") || name.equals("Charmeleon") || name.equals("Charizard")) {
