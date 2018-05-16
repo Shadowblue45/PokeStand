@@ -16,8 +16,6 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	
 	private Button backButton;
 
-	private Button backButton;
-
 	private static final long serialVersionUID = -9057104999011157193L;
 
 	public RickyInteractScreen(int width, int height) {
@@ -26,26 +24,19 @@ public class RickyInteractScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-<<<<<<< HEAD
 		StyledComponent.setButtonOutline(false);
 		displayPokemon(viewObjects);
 		interact(viewObjects);
 		addBackButton(viewObjects);	
-=======
-		displayGif(viewObjects);
 		addBackButton(viewObjects);
->>>>>>> refs/remotes/origin/develop
 	}
 	
 	public void displayPokemon(List<Visible> viewObjects) {
 		Graphic background = new Graphic(0,0,getWidth(),getHeight(),"resources/interact background.png");
 		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
-<<<<<<< HEAD
 		Graphic g = new Graphic(440, 200, 400, 400,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
 		viewObjects.add(background);
-=======
 		Graphic g = new Graphic(640,360,getWidth()/2,getHeight()/2,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
->>>>>>> refs/remotes/origin/develop
 		viewObjects.add(g);
 		
 	}
@@ -80,7 +71,6 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	
 	public void addBackButton(List<Visible> viewObjects) {
 		backButton = new Button(50,625,100,100, "Back", new Action() {
-<<<<<<< HEAD
 			@Override
 			public void act() {
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
@@ -89,17 +79,5 @@ public class RickyInteractScreen extends FullFunctionScreen {
 		});
 		viewObjects.add(backButton);
 	}
-	
-=======
-			
-			@Override
-			public void act() {
-				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
-				PokeStart.mainScreen =! PokeStart.mainScreen;
-			}
-		});
-		viewObjects.add(backButton);
-	}
->>>>>>> refs/remotes/origin/develop
 }
 
