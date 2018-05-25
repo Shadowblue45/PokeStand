@@ -155,7 +155,6 @@ public class BattleScreen extends FullFunctionScreen{
 				x = 125;
 				y = 620;
 			}
-			
 			Button button = new Button(x,y,500,65,(Inventory.pokemon.getMoves().get(temp).getName()), null);
 			x+= 520;
 			viewObjects.add(button);

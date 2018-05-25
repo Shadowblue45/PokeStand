@@ -336,5 +336,4 @@ public class Pokemon {
 	public void setHpBar(CustomRect hpBar) {
 		this.hpBar = hpBar;
 	}
-
 }
