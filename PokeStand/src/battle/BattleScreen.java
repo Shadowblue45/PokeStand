@@ -54,8 +54,6 @@ public class BattleScreen extends FullFunctionScreen{
 		//Set enemy pokemon's current stats to the current max
 		enemyPokemon.setCurrentHp(enemyPokemon.getHp());
 		
-		userCurrent = Inventory.pokemon.getCurrentHp();
-		userHpSize = (int) (260*userCurrent)/(userPokemon.getHp());
 		
 		enemyCurrent = enemyPokemon.getCurrentHp();
 		
@@ -87,11 +85,7 @@ public class BattleScreen extends FullFunctionScreen{
 					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 					System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
 					System.out.println("current HP is "+enemyPokemon.getCurrentHp());
-					System.out.println("size is ;"+ enemyHpSize);
-					enemyCurrentHp.setDimensions((int)(enemyHpSize+1), 20);
-					determinePokemonMove();
-					currentAttack.attack(PokeStart.inventory.getPokemon(),enemyPokemon);
-					System.out.println(currentAttack.getName());
+					runTurn();
 				}
 			});
 			i++;
@@ -99,7 +93,9 @@ public class BattleScreen extends FullFunctionScreen{
 	}
 	
 	public void runTurn() {
-		
+		determinePokemonMove();
+		currentAttack.attack(userPokemon,enemyPokemon);
+		System.out.println(currentAttack.getName());
 	}
 	
 	@Override

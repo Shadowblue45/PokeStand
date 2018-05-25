@@ -30,6 +30,7 @@ public class Pokemon {
 	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
 	private String[] secondTypes = {"Ground","Flying","Fighting","Fairy","Dark","Ground"};
 	private CustomRect hpBar;
+	private boolean alive;
 	//private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
 	//private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
 	//private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
@@ -51,6 +52,7 @@ public class Pokemon {
 		stagesAtk = 0;
 		stagesDef = 0;
 		stageSpd = 0;
+		setAlive(true);
 	}
 
 	public void setImage(String s) {
@@ -276,11 +278,13 @@ public class Pokemon {
 		if(hpBar != null) {
 			double divide = ((double)this.getCurrentHp()/this.getHp());
 			if(divide <= 0) {
-				System.out.println(this.getName() + "has fainted");
-			}else {
-			System.out.println(this.getName() +"currentHp: " + this.getCurrentHp());
-			int HpSize = (int) (260*divide);
-			hpBar.setDimensions(HpSize, 20);
+				System.out.println(this.getName() + " has fainted.");
+				this.alive = false;
+			}
+			else {
+				System.out.println(this.getName() +"currentHp: " + this.getCurrentHp());
+				int HpSize = (int) (260*divide);
+				hpBar.setDimensions(HpSize, 20);
 			}
 		}
 	}
@@ -335,5 +339,13 @@ public class Pokemon {
 
 	public void setHpBar(CustomRect hpBar) {
 		this.hpBar = hpBar;
+	}
+
+	public boolean isAlive() {
+		return alive;
+	}
+
+	public void setAlive(boolean alive) {
+		this.alive = alive;
 	}
 }
