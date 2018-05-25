@@ -23,6 +23,8 @@ public class BattleScreen extends FullFunctionScreen{
 	private Graphic userPokemonPokemon;
 	
 	private Graphic enemyPokemonSprite;
+	private Button[] buttonArr;
+	
 	private Pokemon enemyPokemon;
 	private Pokemon userPokemon;
 	private TextLabel enemyName;
@@ -74,6 +76,26 @@ public class BattleScreen extends FullFunctionScreen{
 		userPokemon.setHpBar(userCurrentHp);
 		enemyPokemonSprite.loadImages("resources/pokefronts/"+ enemyPokemon.getName() + " Front.png", getWidth()/3, getHeight()/3);
 		enemyName.setText(enemyPokemon.getName());
+		int i = 0;
+		for(Button b : buttonArr) {
+			final int temp = i;
+		
+			b.setAction(new Action() {
+				
+				@Override
+				public void act() {
+					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+					System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
+					System.out.println("current HP is "+enemyPokemon.getCurrentHp());
+					System.out.println("size is ;"+ enemyHpSize);
+					enemyCurrentHp.setDimensions((int)(enemyHpSize+1), 20);
+					determinePokemonMove();
+					currentAttack.attack(PokeStart.inventory.getPokemon(),enemyPokemon);
+					System.out.println(currentAttack.getName());
+				}
+			});
+			i++;
+		}
 	}
 	
 	public void runTurn() {
@@ -126,27 +148,21 @@ public class BattleScreen extends FullFunctionScreen{
 		PokeStart.setPokemonTextFont(48f);
 		int x = 125;
 		int y = 530;
+		buttonArr = new Button[4];
 		for(int i = 0 ; i < 4 ; i++) {
 			final int temp = i;
 			if(i == 2) {
 				x = 125;
 				y = 620;
 			}
-			Button button = new Button(x,y,500,65,(Inventory.pokemon.getMoves().get(temp).getName()), new Action() {
-				
-				@Override
-				public void act() {
-					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
-					enemyPokemon.setHpBar(enemyCurrentHp);
-					enemyPokemon.getMoves().get(temp).attack(PokeStart.inventory.getPokemon(),enemyPokemon);
-					System.out.println(enemyPokemon.getMoves().get(temp).getName());
-				}
-			});
+			
+			Button button = new Button(x,y,500,65,(Inventory.pokemon.getMoves().get(temp).getName()), null);
 			x+= 520;
 			viewObjects.add(button);
 			button.setBackground(new Color(0,0,0,140));
 			button.update();
 			button.setForeground(Color.white);
+			this.buttonArr[i] = button;
 		}
 	}
 
@@ -163,7 +179,7 @@ public class BattleScreen extends FullFunctionScreen{
 	}
 
 	public void determineSuicuneMove() {
-		int chance = (int) Math.random();
+		double chance = Math.random();
 		if(chance < .4) {
 			currentAttack = enemyPokemon.getMoves().get(2);
 		}
@@ -179,7 +195,7 @@ public class BattleScreen extends FullFunctionScreen{
 	}
 
 	public void determineEnteiMove() {
-		int chance = (int) Math.random();
+		double chance =  Math.random();
 		if(chance < .4) {
 			currentAttack = enemyPokemon.getMoves().get(2);
 		}
@@ -195,7 +211,7 @@ public class BattleScreen extends FullFunctionScreen{
 	}
 
 	public void determineRaikouMove() {
-		int chance = (int) Math.random();
+		double chance =  Math.random();
 		if(chance < .4) {
 			currentAttack = enemyPokemon.getMoves().get(1);
 		}
