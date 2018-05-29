@@ -40,14 +40,14 @@ public class RickyScreen extends FullFunctionScreen {
 		addImages();
 		addBackgroundLabels(viewObjects);
 		addImagestoShop(viewObjects);
-		PokeStart.setPokemonFont(16f);
+		PokeStart.setPokemonGBFont(15f);
 		itemDescriptions(viewObjects);	
 		instanitatingArray(viewObjects);
 		addBuySellButtons(viewObjects);
-		PokeStart.setPokemonGBFont(13f);
+		PokeStart.setPokemonGBFont(12f);
 		addPricesToArrayList();
 		addPrices(viewObjects);
-		PokeStart.setPokemonFont(20f);
+		PokeStart.setPokemonGBFont(15f);
 		addBackButton(viewObjects);
 	}
 
@@ -132,7 +132,7 @@ public class RickyScreen extends FullFunctionScreen {
 			b.update();
 			viewObjects.add(b);
 		}
-		PokeStart.setPokemonFont(18f);
+		PokeStart.setPokemonGBFont(18f);
 		StyledComponent.setButtonOutline(false);
 		z = new Button(1170,10,100,50,Integer.toString(getDollars()),null);
 		z.setEnabled(false);
@@ -342,4 +342,9 @@ public class RickyScreen extends FullFunctionScreen {
 		return itemQuantity;
 	}
 	
+//	public void setItemQuantity() {
+//		for(int i = 0; i < itemQuantity.length; i++) {
+//			itemQuantity[i] = PokeStart.inventory.shopItems[i];
+//		}
+//	}
 }
