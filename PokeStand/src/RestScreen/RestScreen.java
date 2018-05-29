@@ -59,7 +59,7 @@ public class RestScreen extends FullFunctionScreen {
 		
 		PokeStart.setPokemonGBFont(25f);
 		
-		  infoBox = new TextArea(400, 560, 550, 300, "Would you like to heal "+pokeNames[pIndex]+" fully?");
+		  infoBox = new TextArea(400, 560, 550, 300, "Would you like to heal "+pokeNames[pIndex]+" fully?[Costs 1 day & restores fatigue bar fully...]");
 		 infoBox.setCustomTextColor(Color.black);
 		 viewObjects.add(infoBox);
 		
@@ -75,19 +75,15 @@ public class RestScreen extends FullFunctionScreen {
 				yes.setVisible(false);
 				no.setVisible(false);
 				back.setVisible(true);
-				if(PokeStart.inventory.fatigue-50<=0){
-					PokeStart.inventory.fatigue=0;
-				}else {
-				PokeStart.inventory.fatigue-= 50;
-				}
-				if(PokeStart.inventory.daysLeft-5<=0) {
+				PokeStart.inventory.fatigue=0;
+				if(PokeStart.inventory.daysLeft-1<=0) {
 					PokeStart.inventory.daysLeft=0;
 				}else {
-					PokeStart.inventory.daysLeft-=5;
+					PokeStart.inventory.daysLeft-=1;
 				}
 				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 				update();
-				infoBox.setText("Pokemon has been healed fully..."
+				infoBox.setText("Pokemon has rested..."
 						+ "See you again!");
 
 	
