@@ -90,10 +90,13 @@ public class Move {
 			action.act();
 		}else {
 			if(isSpecial) {
-				target.setHp(target.getHp() - (user.getsAtk() - target.getsDef()));
+				target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getsAtk()/target.getsDef())+1));
 			}else {
-
+				target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getAtk()/target.getDef())+1));
 			}
+		}
+		if(!target.isAlive()) {
+			
 		}
 	}
 }
