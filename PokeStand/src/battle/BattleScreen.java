@@ -11,6 +11,7 @@ import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
+import guiTeacher.components.TextArea;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
@@ -30,10 +31,8 @@ public class BattleScreen extends FullFunctionScreen{
 	private TextLabel enemyName;
 	private CustomRect enemyCurrentHp;
 	private Move currentAttack;
-	private int enemyHpSize;
-	private int userCurrent;
-	private int userHpSize;
-	private int enemyCurrent;
+	private List<Visible> viewObjects;
+	private TextArea info;
 	
 	public BattleScreen(int width, int height) {
 		super(width, height);
@@ -55,15 +54,10 @@ public class BattleScreen extends FullFunctionScreen{
 		enemyPokemon.setCurrentHp(enemyPokemon.getHp());
 		
 		
-		enemyCurrent = enemyPokemon.getCurrentHp();
-		
 		//Test if these conditions are set
 //		System.out.println("\nHp Size : " + userHpSize);
 //		System.out.println("\nHp : " + Inventory.pokemon.getHp());
 //		System.out.println("current HP is "+Inventory.pokemon.getCurrentHp());
-
-		System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
-		System.out.println("current HP is "+enemyPokemon.getCurrentHp());
 		
 			
 		//changing user graphics
@@ -92,6 +86,14 @@ public class BattleScreen extends FullFunctionScreen{
 		}
 	}
 	
+	public void setText(String text) {
+		
+	}
+	
+	public void endBattle(Pokemon loser) {
+		removeMoves();
+	}
+	
 	public void runTurn() {
 		determinePokemonMove();
 		currentAttack.attack(userPokemon,enemyPokemon);
@@ -101,7 +103,7 @@ public class BattleScreen extends FullFunctionScreen{
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		PokeStart.setPokemonTextFont(24f);
-
+		this.viewObjects = viewObjects;
 		
 	
 		//set background
@@ -134,6 +136,21 @@ public class BattleScreen extends FullFunctionScreen{
 		setMoves(viewObjects);
 	}
 	
+	public void removeMoves() {
+		for(int i = 0 ; i < 4 ; i++) {
+			viewObjects.remove(buttonArr[i]);
+			buttonArr[i].setEnabled(false);
+			buttonArr[i].update();
+		}
+	}
+	
+	public void addMoves() {
+		for(int i = 0 ; i < 4 ; i++) {
+			viewObjects.add(buttonArr[i]);
+			buttonArr[i].setEnabled(true);
+			buttonArr[i].update();
+		}
+	}
 	
 	public void turn() {
 		
