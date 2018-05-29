@@ -7,6 +7,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.util.List;
 
+import RestScreen.RestScreen;
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
 import displayAbilities.AbilityScreen;
@@ -49,7 +50,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		PokeStart.trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		resetCoordinates();
 		StyledComponent.setButtonOutline(true);
-		StyledComponent.setActiveBorderColor(Color.white);
+		StyledComponent.setActiveBorderColor(Color.black);
 	
 		//temp setters=======================================
 
@@ -65,6 +66,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		}
 		PokeStart.abilityScreen = new AbilityScreen(getWidth(), getHeight());
 		PokeStart.interactScreen = new RickyInteractScreen(getWidth(), getHeight());
+		PokeStart.restScreen = new RestScreen(getWidth(), getHeight());
 		
 		//===================================================
 		
@@ -117,6 +119,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		name.setCustomTextColor(Color.white);
 		info.setCustomTextColor(Color.white);
 		pokemon.update();
+		battleButton.setForeground(Color.white);
 		StyledComponent.setButtonOutline(false);
 	}
 	
@@ -176,9 +179,9 @@ public class MainMenuScreen extends FullFunctionScreen {
 			});
 			xCord += 210;
 			viewObjects.add(button);
-			button.setBackground(new Color(0,0,0,140));
+			button.setBackground(new Color(255,255,255,140));
 			button.update();
-			button.setForeground(Color.white);
+			button.setForeground(Color.black);
 		}
 	}
 
