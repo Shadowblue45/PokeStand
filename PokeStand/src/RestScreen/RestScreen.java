@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import audioPlayer.AudioTest;
+import fahadStartupandMenuScreen.MainMenuScreen;
 import guiTeacher.components.Action;
 import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Button;
@@ -74,16 +75,18 @@ public class RestScreen extends FullFunctionScreen {
 				yes.setVisible(false);
 				no.setVisible(false);
 				back.setVisible(true);
-				if(PokeStart.inventory.fatigue+50>=100){
-					PokeStart.inventory.fatigue=100;
+				if(PokeStart.inventory.fatigue-50<=0){
+					PokeStart.inventory.fatigue=0;
 				}else {
-				PokeStart.inventory.fatigue+= 50;
+				PokeStart.inventory.fatigue-= 50;
 				}
 				if(PokeStart.inventory.daysLeft-5<=0) {
 					PokeStart.inventory.daysLeft=0;
 				}else {
 					PokeStart.inventory.daysLeft-=5;
 				}
+				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
+				update();
 				infoBox.setText("Pokemon has been healed fully..."
 						+ "See you again!");
 
