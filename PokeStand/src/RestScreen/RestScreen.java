@@ -86,7 +86,7 @@ public class RestScreen extends FullFunctionScreen {
 				}
 				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 				update();
-				infoBox.setText("Pokemon has rested..."
+				infoBox.setText(pokeNames[pIndex]+" has rested..."
 						+ "See you again!");
 
 	
