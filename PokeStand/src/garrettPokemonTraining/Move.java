@@ -105,9 +105,6 @@ public class Move {
 					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getAtk()/target.getDef())+1));
 				}
 			}
-			if(!target.isAlive()) {
-
-			}
 		}
 		if(!target.isAlive()) {
 			PokeStart.battleScreen.endBattle(target);

@@ -86,6 +86,10 @@ public class BattleScreen extends FullFunctionScreen{
 		}
 	}
 	
+	public void setText(String text) {
+		
+	}
+	
 	public void endBattle(Pokemon loser) {
 		removeMoves();
 	}
