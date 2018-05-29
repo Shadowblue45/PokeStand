@@ -74,13 +74,13 @@ public class RestScreen extends FullFunctionScreen {
 				
 				
 				infoBox.setText("Pokemon has been healed fully..."
-						+ "Click again to return to the main menu...");
+						+ "See you again!");
 	
 			}
 
 		});
 		viewObjects.add(yes);		
-
+		
 		
 	   no = new Button(970,460,60,40,"No",new Action() {
 			
