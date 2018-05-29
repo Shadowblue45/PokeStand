@@ -125,7 +125,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		TextArea fatigue = new TextArea(270,20, 500, 300, "Fatigue");
 		CustomRect border = new CustomRect(265,65,410,50,Color.white);
 		CustomRect rect = new CustomRect(270,70,400,40,Color.gray);
-		CustomRect fatigueBar = new CustomRect(270,70,(100-PokeStart.inventory.fatigue)*4,40,Color.green);
+		CustomRect fatigueBar = new CustomRect(270,70,(100-PokeStart.inventory.fatigue)*4+ 1,40,Color.green);
 		viewObjects.add(border);
 		viewObjects.add(rect);
 		viewObjects.add(fatigue);
