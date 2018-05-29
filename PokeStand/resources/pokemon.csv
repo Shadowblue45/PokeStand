@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Snivy,Grass,,30,23,14,54,21,2333,resources/grass/Snivy.png
 =======
 <<<<<<< HEAD
@@ -11,11 +12,17 @@ Scary Face,Normal,0,100,10,false,4,2
 <<<<<<< HEAD
 Snivy,Grass,,31,24,15,55,22,2334,resources/grass/Snivy.png
 =======
+=======
+>>>>>>> refs/heads/RickyBranch
 Treecko,Grass,,30,23,14,54,21,2333,resources/grass/Treecko.png
+<<<<<<< HEAD
 >>>>>>> refs/heads/develop
 >>>>>>> refs/remotes/origin/develop
+=======
+>>>>>>> refs/heads/RickyBranch
 Leer,Normal,0,100,30,false,1,1
 <<<<<<< HEAD
+<<<<<<< HEAD
 Tackle,Normal,40,100,40,false,-1,0
 Vine Whip,Grass,45,100,25,false,-1,0
 Wrap,Normal,15,90,20,false,-1,0
@@ -25,11 +32,16 @@ Tackle,Normal,40,100,40,false,-1,0
 Vine Whip,Grass,45,100,25,false,-1,0
 Wrap,Normal,15,90,20,false,-1,0
 =======
+=======
+>>>>>>> refs/heads/RickyBranch
 Pound,Normal,40,100,35,false,-1,0
 Absorb,Grass,20,100,25,true,-1,0
 Quick Attack,Normal,40,100,30,false,-1,0
+<<<<<<< HEAD
 >>>>>>> refs/heads/develop
 >>>>>>> refs/remotes/origin/develop
 >>>>>>> refs/remotes/origin/develop
+=======
+>>>>>>> refs/heads/RickyBranch
 0,30,0,0
 0,0,0,0,0,0,0,0,

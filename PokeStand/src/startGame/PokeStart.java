@@ -1,13 +1,5 @@
 package startGame;
 
-import guiTeacher.GUIApplication; 
-import guiTeacher.components.StyledComponent;
-import guiTeacher.userInterfaces.Screen;
-import rickyShopInteract.RickyInteractScreen;
-import rickyShopInteract.RickyScreen;
-import rickyShopInteract.RickyScreen;
-import selectionScreen.SelectionScreen;
-
 import java.awt.Font;
 import java.io.File;
 

@@ -24,13 +24,11 @@ public class RickyInteractScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-//		changeFatigue();
-//		changeStats();
 		StyledComponent.setButtonOutline(false);
 		displayPokemon(viewObjects);
 		interact(viewObjects);
 		addBackButton(viewObjects);	
-		addBackButton(viewObjects);
+
 	}
 	
 	public void displayPokemon(List<Visible> viewObjects) {
@@ -40,7 +38,7 @@ public class RickyInteractScreen extends FullFunctionScreen {
 		viewObjects.add(background);
 		Graphic h = new Graphic(640,360,getWidth()/2,getHeight()/2,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
 		viewObjects.add(h);
-		
+		viewObjects.add(g);
 	}
 	
 	public void interact(List<Visible> viewObjects) {
