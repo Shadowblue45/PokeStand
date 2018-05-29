@@ -58,7 +58,7 @@ public class RestScreen extends FullFunctionScreen {
 		
 		 confirmationB = new Graphic(925,400, 300, 700, "resources/pokecon.png");
 		viewObjects.add(confirmationB);
-		
+		//z
 		
 		PokeStart.setPokemonGBFont(25f);
 		
