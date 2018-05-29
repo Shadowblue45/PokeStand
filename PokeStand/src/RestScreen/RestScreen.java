@@ -1,19 +1,31 @@
 package RestScreen;
 
+import java.awt.Color;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import audioPlayer.AudioTest;
 import guiTeacher.components.Action;
+import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
+import guiTeacher.components.StyledComponent;
+import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import startGame.PokeStart;
 
 public class RestScreen extends FullFunctionScreen {
 
 	Graphic background;
-	int i =0;
+	Graphic textB;
+	Graphic confirmationB;
+	AnimatedComponent pokeball;
+	TextArea infoBox;
+	Thread run;
 
+	Button yes;
+	Button no;
 	public RestScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
@@ -21,27 +33,77 @@ public class RestScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		
+		
+		
+		//String[] pokeNames = PokeStart.inventory.getNames(); 
+		//String[] pokePic = PokeStart.inventory.getPokemonImages(); 
+		//int pIndex = PokeStart.inventory.pokemonIndex;
+		
+		
 	    background = new Graphic(0, 0, getWidth(),getHeight(), "resources/HealAnimation/0.jpg");
 		viewObjects.add(background);		
+		pokeball = new AnimatedComponent(325, 250, 50, 50);
+		pokeball.addSequence("resources/trans pokeball.png", 150, 160, 8, 16, 17, 11);
+		pokeball.setRepeat(false);
+	
+		 textB = new Graphic(375,500, 575, 350, "resources/text box.png");
+		viewObjects.add(textB);
 		
+		 confirmationB = new Graphic(925,400, 300, 700, "resources/pokecon.png");
+		viewObjects.add(confirmationB);
 		
-		Button test = new Button(175,200,100,100,"Yes",new Action() {
+		PokeStart.setPokemonGBFont(25f);
+		
+		  infoBox = new TextArea(400, 560, 550, 300, "Would you like to heal "+"Typlosion fully?");
+		 infoBox.setCustomTextColor(Color.black);
+		 viewObjects.add(infoBox);
+		
+		 PokeStart.setPokemonGBFont(20f);
+		 yes = new Button(970,420,60,40,"Yes",new Action() {
 			
 			@Override
 			public void act() {
 				AudioTest.playSound("resources/Music/rest.wav");
+				run = new Thread(pokeball);
+				run.start();
+				viewObjects.add(pokeball);
+				viewObjects.remove(confirmationB);
+				yes.setVisible(false);
+				no.setVisible(false);
 				
-				background.loadImages("resources/HealAnimation/"+i+".jpg", getWidth(), getHeight());
-				background.update();
-				i++;
-				System.out.println(i);
+				
+				infoBox.setText("Pokemon has been healed fully..."
+						+ "Click again to return to the main menu...");
+	
+			}
+
+		});
+		viewObjects.add(yes);		
+
+		
+	   no = new Button(970,460,60,40,"No",new Action() {
+			
+			@Override
+			public void act() {
+					
+					
+				
 				
 			}
 		});
-		viewObjects.add(test);		
+		viewObjects.add(no);		
 		
-				
+
 		
 	}
 
+
+	
+	
+
+
+	
+
 }
+
