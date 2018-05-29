@@ -1,6 +1,7 @@
 package garrettPokemonTraining;
 
 import guiTeacher.components.Action;
+import startGame.PokeStart;
 
 public class Move {
 
@@ -96,7 +97,7 @@ public class Move {
 			}
 		}
 		if(!target.isAlive()) {
-			
+			PokeStart.battleScreen.endBattle(target);
 		}
 	}
 }
