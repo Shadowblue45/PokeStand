@@ -19,6 +19,7 @@ import startGame.PokeStart;
 public class RestScreen extends FullFunctionScreen {
 
 	Graphic background;
+	Graphic pokemon;
 	Graphic textB;
 	Graphic textR;
 	Graphic confirmationB;
@@ -45,7 +46,9 @@ public class RestScreen extends FullFunctionScreen {
 		
 		
 	    background = new Graphic(0, 0, getWidth(),getHeight(), "resources/HealAnimation/0.jpg");
-		viewObjects.add(background);		
+		viewObjects.add(background);
+		pokemon = new Graphic(0, 0, 40,40, "resources/fire/Cyndaquil.png");
+		viewObjects.add(background);	
 		pokeball = new AnimatedComponent(325, 250, 50, 50);
 		pokeball.addSequence("resources/trans pokeball.png", 150, 160, 8, 16, 17, 11);
 		pokeball.setRepeat(false);
