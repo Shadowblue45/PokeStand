@@ -15,6 +15,7 @@ public class Inventory {
 	public static Pokemon pokemon;
 	public static String[] pokemonForms = new String[3];
 	public static String[] pokemonImages = new String[3];
+	public int[] shopItems = new int[8];
 	public int uPoints;
 	public int fatigue;
 	public int pokemonIndex;
@@ -63,15 +64,19 @@ public class Inventory {
 					pokemonForms = generateNames(param[0]);
 					pokemonImages = generateImages(param[0]);
 				}
-				else if(param.length == 8){
-					if(param[0] instanceof String) {
+				if(param.length == 8){
+					if(param[0].substring(0,1).compareTo("A") >= 0 && param[0].substring(0,1).compareTo("A") <= 25) {
 						pokemon.getMoves().add(new Move(param[0],param[1],Integer.parseInt(param[2]),Integer.parseInt(param[3]),
 								Integer.parseInt(param[4]),Boolean.getBoolean(param[5]),Integer.parseInt(param[6]),Integer.parseInt(param[7])));
 					}
 					else {
-						
+						for(int i = 0; i < param.length; i++) {
+							shopItems[i] = Integer.parseInt(param[i]);
+						}
+						System.out.println("5");
 					}
-				}else if(param.length == 4) {
+				}
+				if(param.length == 4) {
 					pokemonIndex = Integer.parseInt(param[0]);
 					daysLeft = Integer.parseInt(param[1]);
 					fatigue = Integer.parseInt(param[2]);
