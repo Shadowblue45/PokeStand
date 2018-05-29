@@ -86,12 +86,14 @@ public class BattleScreen extends FullFunctionScreen{
 		}
 	}
 	
-	public void setText(String text) {
-		
+	public void setInfoText(String text) {
+		info.setText(text);
 	}
 	
 	public void endBattle(Pokemon loser) {
 		removeMoves();
+		PokeStart.setPokemonTextFont(28f);
+		setInfoText(loser + " has fainted!");
 	}
 	
 	public void runTurn() {
@@ -111,6 +113,7 @@ public class BattleScreen extends FullFunctionScreen{
 		Graphic box = new Graphic(0,500,getWidth(),500,"resources/Box.jpg");
 		
 		//set user pokemon, hp and name
+		info = new TextArea(90,530,getWidth(),getHeight(),"");
 		userPokemonPokemon = new Graphic(150,270,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
 		CustomRect userTotalHp = new CustomRect(925,402,260,20,Color.red);
 		userCurrentHp = new CustomRect(925,402,1,20,Color.green);
@@ -133,6 +136,7 @@ public class BattleScreen extends FullFunctionScreen{
 		viewObjects.add(enemyCurrentHp);
 		viewObjects.add(userName);
 		viewObjects.add(enemyName);	
+		viewObjects.add(info);
 		setMoves(viewObjects);
 	}
 	
