@@ -24,8 +24,6 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	private int xCord;
 	private int yCord;
-	private Graphics2D g;
-	private int temp;
 	public static TextArea info;
 	public static Pokemon p;
 	public static Graphic pokemon;
@@ -149,7 +147,6 @@ public class MainMenuScreen extends FullFunctionScreen {
 	public void resetCoordinates() {
 		xCord = 10;
 		yCord = 620;
-		temp = 0;
 	}
 
 	public void initButtons(String[] names, List<Visible> viewObjects) {
