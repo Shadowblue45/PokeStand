@@ -43,17 +43,17 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		StyledComponent.setButtonOutline(false);
 		PokeStart.setPokemonSunFont(16f);
-		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/pokebattle.jpg");
+		Graphic battle = new Graphic(0,0,getWidth(),getHeight(),"resources/poketraining.jpg");
 		viewObjects.add(battle);
 
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 
-
 		target = new Graphic(880, 115, 200, 200,"resources/Sandbag.png");
 		viewObjects.add(target);
 		p = PokeStart.inventory.getPokemon();
 		int index = PokeStart.inventory.pokemonIndex;
+		System.out.println(pokeNames[index]);
 		poke = new Graphic(150,250,getWidth()/2,getHeight()/2,"resources/pokebacks/"+ pokeNames[index] +" back.png");
 		viewObjects.add(poke);
 		Graphic box = new Graphic(0,500,getWidth(),500,"resources/Box.jpg");
@@ -71,7 +71,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			public void act() {
 				updatePokemon();
 				p.evolve();
-				PokeStart.inventory.pokemonIndex++;
 				setInfoText();
 			}
 
@@ -102,19 +101,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				// TODO Auto-generated method stub
-				//				PokeStart.mainMenuScreen.pokemon.loadImages("resources/pokebacks/"+ pokeNames[index] +" back.png",400,400);
-				//				PokeStart.mainMenuScreen.name.setText(p.getName());
-				//				PokeStart.mainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
-				//						"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
-				//						"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-				//						"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-				//						"Spd: " + p.getSpd() + "\n");
-
 				AudioTest.stopSound(AudioTest.sound);
 				PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
-				//				PokeStart.mainScreen = !PokeStart.mainScreen;
 			}
 
 		});
@@ -177,8 +166,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	}
 
 	public void fatigueBarDesign(List<Visible> viewObjects) {
-		rect = new CustomRect(840,397,356,31,Color.white);
-		fatigue = new CustomRect(840,397,(int)((100-PokeStart.inventory.fatigue)*3.56),31,Color.green);
+		rect = new CustomRect(865,397,331,31,Color.white);
+		fatigue = new CustomRect(865,397,(int)((100-PokeStart.inventory.fatigue)*3.31 + 1),31,Color.green);
 		viewObjects.add(rect);
 		viewObjects.add(fatigue);
 		TextLabel fatigueName = new TextLabel(740,400,125,50,"Fatigue: ");
@@ -187,7 +176,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 	public void updateFatigue(List<Visible> viewObjects) {
 		viewObjects.remove(fatigue);
-		fatigue = new CustomRect(840,397,(int)((100-PokeStart.inventory.fatigue)*3.56),31,Color.green);
+		fatigue = new CustomRect(865,397,(int)((100-PokeStart.inventory.fatigue)*3.31 + 1),31,Color.green);
 		viewObjects.add(fatigue);
 	}
 
@@ -206,8 +195,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 	public static void updatePokemon() {
 		p = PokeStart.inventory.getPokemon();
 	}
-
-
 
 	public void setTrainedInfoStat(String s, List<Visible> viewObjects) {
 		Thread train = new Thread(new Runnable() {

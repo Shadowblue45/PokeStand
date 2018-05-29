@@ -74,6 +74,7 @@ public class Pokemon {
 				}
 			}
 			increaseStats();
+			PokeStart.inventory.pokemonIndex++;
 			setName(pokemonNames[PokeStart.inventory.getNameIndex() + 1]);
 		}
 		setImage(PokeStart.inventory.getPokemonImages()[PokeStart.inventory.getNameIndex()]);

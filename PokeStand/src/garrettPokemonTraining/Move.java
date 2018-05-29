@@ -89,14 +89,24 @@ public class Move {
 			action.setTarget(target);
 			action.act();
 		}else {
-			if(isSpecial) {
-				target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getsAtk()/target.getsDef())+1));
-			}else {
-				target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getAtk()/target.getDef())+1));
+			if((int)(Math.random() * 100) < accuracy) {
+				if(isSpecial) {
+					int damage = (user.getsAtk() - target.getsDef());
+					target.setHp(target.getHp() - (user.getsAtk() - target.getsDef()));
+				}else {
+					int damage = (user.getAtk() - target.getDef());
+					target.setHp(target.getHp() - (user.getAtk() - target.getDef()));
+				}
+				if(isSpecial) {
+					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getsAtk()/target.getsDef())+1));
+				}else {
+					System.out.println("Doh, I missed!");
+					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getAtk()/target.getDef())+1));
+				}
 			}
-		}
-		if(!target.isAlive()) {
-			
+			if(!target.isAlive()) {
+
+			}
 		}
 	}
 }
