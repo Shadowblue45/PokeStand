@@ -282,6 +282,7 @@ public class Pokemon {
 			if(divide <= 0) {
 				System.out.println(this.name + " has fainted.");
 				this.alive = false;
+				this.hpBar = null;
 			}
 			else {
 				System.out.println(this.name +"currentHp: " + this.getCurrentHp());
