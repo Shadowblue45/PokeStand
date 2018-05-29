@@ -97,8 +97,15 @@ public class Move {
 					int damage = (user.getAtk() - target.getDef());
 					target.setHp(target.getHp() - (user.getAtk() - target.getDef()));
 				}
-			}else {
-				System.out.println("Doh, I missed!");
+				if(isSpecial) {
+					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getsAtk()/target.getsDef())+1));
+				}else {
+					System.out.println("Doh, I missed!");
+					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getAtk()/target.getDef())+1));
+				}
+			}
+			if(!target.isAlive()) {
+
 			}
 		}
 	}

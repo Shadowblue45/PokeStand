@@ -2,6 +2,7 @@ package garrettPokemonTraining;
 
 import java.util.Arrays;
 
+import fahadStartupandMenuScreen.CustomRect;
 import startGame.PokeStart;
 
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public class Pokemon {
 	public ArrayList<Move> moves;
 	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
 	private String[] secondTypes = {"Ground","Flying","Fighting","Fairy","Dark","Ground"};
+	private CustomRect hpBar;
+	private boolean alive;
 	//private String[] grassPokemon = {"Snivy","Servine","Serperior","Turtwig","Grotle","Torterra","Treecko","Grovyle","Sceptile"};
 	//private String[] firePokemon = {"Charmander","Charmeleon","Charizard","Cyndaquil","Quilava","Typhlosion","Chimchar","Monferno","Infernape"};
 	//private String[] waterPokemon = {"Popplio","Brionne","Primarina","Froakie","Frogadier","Greninja","Mudkip","Marshtomp","Swampert"};
@@ -49,6 +52,7 @@ public class Pokemon {
 		stagesAtk = 0;
 		stagesDef = 0;
 		stageSpd = 0;
+		setAlive(true);
 	}
 
 	public void setImage(String s) {
@@ -272,6 +276,18 @@ public class Pokemon {
 
 	public void setCurrentHp(int currentHp) {
 		this.currentHp = currentHp;
+		if(hpBar != null) {
+			double divide = ((double)this.getCurrentHp()/this.getHp());
+			if(divide <= 0) {
+				System.out.println(this.getName() + " has fainted.");
+				this.alive = false;
+			}
+			else {
+				System.out.println(this.getName() +"currentHp: " + this.getCurrentHp());
+				int HpSize = (int) (260*divide);
+				hpBar.setDimensions(HpSize, 20);
+			}
+		}
 	}
 
 	public int getStageAtk() {
@@ -318,4 +334,19 @@ public class Pokemon {
 		return multipliers;
 	}
 
+	public CustomRect getHpBar() {
+		return hpBar;
+	}
+
+	public void setHpBar(CustomRect hpBar) {
+		this.hpBar = hpBar;
+	}
+
+	public boolean isAlive() {
+		return alive;
+	}
+
+	public void setAlive(boolean alive) {
+		this.alive = alive;
+	}
 }

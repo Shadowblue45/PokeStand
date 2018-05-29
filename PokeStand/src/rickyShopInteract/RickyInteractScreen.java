@@ -6,12 +6,14 @@ import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
+import guiTeacher.components.StyledComponent;
+import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 import startGame.PokeStart;
 
 public class RickyInteractScreen extends FullFunctionScreen {
-
+	
 	private Button backButton;
 
 	private static final long serialVersionUID = -9057104999011157193L;
@@ -22,15 +24,33 @@ public class RickyInteractScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		displayGif(viewObjects);
+//		changeFatigue();
+//		changeStats();
+		StyledComponent.setButtonOutline(false);
+		displayPokemon(viewObjects);
+		interact(viewObjects);
+		addBackButton(viewObjects);	
 		addBackButton(viewObjects);
 	}
 	
-	public void displayGif(List<Visible> viewObjects) {
+	public void displayPokemon(List<Visible> viewObjects) {
+		Graphic background = new Graphic(0,0,getWidth(),getHeight(),"resources/interact background.png");
 		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
-		Graphic g = new Graphic(640,360,getWidth()/2,getHeight()/2,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
-		viewObjects.add(g);
+		Graphic g = new Graphic(440, 200, 400, 400,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
+		viewObjects.add(background);
+		Graphic h = new Graphic(640,360,getWidth()/2,getHeight()/2,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
+		viewObjects.add(h);
 		
+	}
+	
+	public void interact(List<Visible> viewObjects) {
+		Graphic tb = new Graphic(440, 550, 500, 150,"resources/text box.png");
+		PokeStart.setPokemonGBFont(16f);
+		TextArea ta = new TextArea(455,575,425,150,"Would you like to \ninteract with your " +PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex] + "?");
+//		TextArea yes = new TextArea()
+//		TextArea no = new TextArea()
+		viewObjects.add(tb);
+		viewObjects.add(ta);
 	}
 	
 	public void changeFatigue() {
@@ -53,7 +73,6 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	
 	public void addBackButton(List<Visible> viewObjects) {
 		backButton = new Button(50,625,100,100, "Back", new Action() {
-			
 			@Override
 			public void act() {
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);

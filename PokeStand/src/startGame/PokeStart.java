@@ -1,6 +1,6 @@
 package startGame;
 
-import guiTeacher.GUIApplication;
+import guiTeacher.GUIApplication; 
 import guiTeacher.components.StyledComponent;
 import guiTeacher.userInterfaces.Screen;
 import rickyShopInteract.RickyInteractScreen;
@@ -17,9 +17,14 @@ import displayAbilities.AbilityScreen;
 import fahadStartupandMenuScreen.LoadScreen;
 import fahadStartupandMenuScreen.MainMenuScreen;
 import fahadStartupandMenuScreen.StartScreen;
-import fahadStartupandMenuScreen.TrainingScreen;
 import garrettPokemonTraining.Inventory;
-import garrettPokemonTraining.StatTrainingScreen; 
+import garrettPokemonTraining.StatTrainingScreen;
+import guiTeacher.GUIApplication;
+import guiTeacher.components.StyledComponent;
+import guiTeacher.userInterfaces.Screen;
+import rickyShopInteract.RickyInteractScreen;
+import rickyShopInteract.RickyScreen;
+import selectionScreen.SelectionScreen; 
 
 public class PokeStart extends GUIApplication {
 	
@@ -48,7 +53,6 @@ public class PokeStart extends GUIApplication {
 		loadScreen = new LoadScreen(getWidth(), getHeight());
 		startScreen = new StartScreen(getWidth(), getHeight());
 		shopScreen = new RickyScreen(getWidth(), getHeight());
-		battleScreen = new BattleScreen(getWidth(), getHeight());
 		
 		setScreen(startScreen);
 
