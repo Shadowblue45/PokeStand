@@ -47,8 +47,8 @@ public class RestScreen extends FullFunctionScreen {
 		
 	    background = new Graphic(0, 0, getWidth(),getHeight(), "resources/HealAnimation/0.jpg");
 		viewObjects.add(background);
-		pokemon = new Graphic(0, 0, 40,40, "resources/fire/Cyndaquil.png");
-		viewObjects.add(background);	
+		pokemon = new Graphic(750, 70, 100,100, pokePic[pIndex]);
+		viewObjects.add(pokemon);	
 		pokeball = new AnimatedComponent(325, 250, 50, 50);
 		pokeball.addSequence("resources/trans pokeball.png", 150, 160, 8, 16, 17, 11);
 		pokeball.setRepeat(false);
@@ -62,7 +62,7 @@ public class RestScreen extends FullFunctionScreen {
 		
 		PokeStart.setPokemonGBFont(25f);
 		
-		  infoBox = new TextArea(400, 560, 550, 300, "Would you like to heal "+pokeNames[pIndex]+" fully?[Costs 1 day & restores fatigue bar fully...]");
+		  infoBox = new TextArea(400, 560, 550, 300, "Would you like to heal "+pokeNames[pIndex]+" fully?   [Costs 1 day]]");
 		 infoBox.setCustomTextColor(Color.black);
 		 viewObjects.add(infoBox);
 		
