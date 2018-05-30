@@ -1,7 +1,7 @@
-Snivy,Grass,,31,26,14,54,21,2333,resources/grass/Snivy.png
+Snivy,Grass,,30,23,14,54,21,2333,resources/grass/Snivy.png
 Leer,Normal,0,100,30,false,1,1
 Tackle,Normal,40,100,40,false,-1,0
 Vine Whip,Grass,45,100,25,false,-1,0
 Wrap,Normal,15,90,20,false,-1,0
-0,29,5,5
+0,30,0,0
 0,0,0,0,0,0,0,0,

@@ -3,6 +3,7 @@ package startGame;
 import java.awt.Font;
 import java.io.File;
 
+import Credits.CreditsScreen;
 import RestScreen.RestScreen;
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
@@ -34,6 +35,7 @@ public class PokeStart extends GUIApplication {
 	public static AbilityScreen abilityScreen;
 	public static RickyInteractScreen interactScreen;
 	public static RestScreen restScreen;
+	public static CreditsScreen creditScreen;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
