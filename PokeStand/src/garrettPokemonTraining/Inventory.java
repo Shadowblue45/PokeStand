@@ -15,7 +15,7 @@ public class Inventory {
 	public static Pokemon pokemon;
 	public static String[] pokemonForms = new String[3];
 	public static String[] pokemonImages = new String[3];
-	public int[] shopItems = new int[8];
+	public int[] shopItems;
 	public int uPoints;
 	public int fatigue;
 	public int pokemonIndex;
@@ -70,10 +70,12 @@ public class Inventory {
 								Integer.parseInt(param[4]),Boolean.getBoolean(param[5]),Integer.parseInt(param[6]),Integer.parseInt(param[7])));
 					}
 					else {
+						shopItems = new int[8];
 						for(int i = 0; i < param.length; i++) {
 							shopItems[i] = Integer.parseInt(param[i]);
 						}
 						System.out.println("5");
+						PokeStart.shopScreen.setItemQuantity();
 					}
 				}
 				if(param.length == 4) {
