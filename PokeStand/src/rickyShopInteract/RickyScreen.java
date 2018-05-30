@@ -342,9 +342,10 @@ public class RickyScreen extends FullFunctionScreen {
 		return itemQuantity;
 	}
 	
-//	public void setItemQuantity() {
-//		for(int i = 0; i < itemQuantity.length; i++) {
-//			itemQuantity[i] = PokeStart.inventory.shopItems[i];
-//		}
-//	}
+	public void setItemQuantity() {
+		for(int i = 0; i < itemQuantity.length; i++) {
+			itemQuantity[i] = PokeStart.inventory.shopItems[i];
+			buttonList.get(i).setText(Integer.toString(itemQuantity[i]));
+		}
+	}
 }
