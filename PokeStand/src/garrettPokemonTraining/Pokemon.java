@@ -278,14 +278,10 @@ public class Pokemon {
 		this.currentHp = currentHp;
 		if(hpBar != null) {
 			double divide = ((double)this.getCurrentHp()/this.getHp());
-			System.out.println("The " + this.name + " has an Hp ratio of: " + divide);
 			if(divide <= 0) {
-				System.out.println(this.name + " has fainted.");
 				this.alive = false;
-				this.hpBar = null;
 			}
 			else {
-				System.out.println(this.name +"currentHp: " + this.getCurrentHp());
 				int HpSize = (int) (260*divide);
 				hpBar.setDimensions(HpSize, 20);
 			}

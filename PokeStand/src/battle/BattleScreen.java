@@ -21,7 +21,7 @@ public class BattleScreen extends FullFunctionScreen{
 	
 	private CustomRect userCurrentHp;
 	private TextLabel userName;
-	private Graphic userPokemonPokemon;
+	private Graphic userPokemonSprite;
 	
 	private Graphic enemyPokemonSprite;
 	private Button[] buttonArr;
@@ -39,8 +39,9 @@ public class BattleScreen extends FullFunctionScreen{
 	}
 	
 	public void startBattle() {
+		PokeStart.setPokemonGBFont(28f);
+		info.setBackground(Color.WHITE);
 		String[] pokeNames = PokeStart.inventory.getNames();
-		String[] actions = {"","",""};
 		int index = PokeStart.inventory.pokemonIndex;
 		userPokemon = Inventory.pokemon;
 		enemyPokemon = PokeStart.selectionScreen.getEnemyPokemon();
@@ -62,7 +63,7 @@ public class BattleScreen extends FullFunctionScreen{
 			
 		//changing user graphics
 		userName.setText(pokeNames[index]);
-		userPokemonPokemon.loadImages("resources/pokebacks/"+pokeNames[index]+ " back.png", getWidth()/2,getHeight()/2);
+		userPokemonSprite.loadImages("resources/pokebacks/"+pokeNames[index]+ " back.png", getWidth()/2,getHeight()/2);
 		
 		//changing enemy graphics
 		userPokemon.setHpBar(userCurrentHp);
@@ -76,7 +77,7 @@ public class BattleScreen extends FullFunctionScreen{
 				
 				@Override
 				public void act() {
-					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+					userPokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 					System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
 					System.out.println("current HP is "+enemyPokemon.getCurrentHp());
 					runTurn();
@@ -88,18 +89,53 @@ public class BattleScreen extends FullFunctionScreen{
 	
 	public void setInfoText(String text) {
 		info.setText(text);
+		info.update();
 	}
 	
 	public void endBattle(Pokemon loser) {
 		removeMoves();
-		PokeStart.setPokemonTextFont(28f);
-		setInfoText(loser + " has fainted!");
+		if(loser == userPokemon) {
+			viewObjects.remove(userCurrentHp);
+		}else {
+			viewObjects.remove(enemyCurrentHp);
+		}
+		setInfoText(loser.getName() + " has fainted.");
 	}
 	
 	public void runTurn() {
-		determinePokemonMove();
-		currentAttack.attack(userPokemon,enemyPokemon);
-		System.out.println(currentAttack.getName());
+		Thread turn = new Thread(new Runnable() {
+			
+			
+			private void pause(int seconds) {
+				try {
+					Thread.sleep(seconds*1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+			@Override
+			public void run() {
+				removeMoves();
+				determinePokemonMove();
+				pause(2);
+				currentAttack.attack(userPokemon,enemyPokemon);
+				System.out.println(currentAttack.getName());
+				pause(2);
+				setInfoText("");
+				if(!userPokemon.isAlive()) {
+					PokeStart.battleScreen.endBattle(userPokemon);
+				}else if(!enemyPokemon.isAlive()) {
+						PokeStart.battleScreen.endBattle(enemyPokemon);
+				}else {
+				addMoves();
+				}
+			}
+		});
+		turn.start();
+		
 	}
 	
 	@Override
@@ -114,7 +150,7 @@ public class BattleScreen extends FullFunctionScreen{
 		
 		//set user pokemon, hp and name
 		info = new TextArea(90,530,getWidth(),getHeight(),"");
-		userPokemonPokemon = new Graphic(150,270,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
+		userPokemonSprite = new Graphic(150,270,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
 		CustomRect userTotalHp = new CustomRect(925,402,260,20,Color.red);
 		userCurrentHp = new CustomRect(925,402,1,20,Color.green);
 		userName = new TextLabel(890,350,500,100,"");
@@ -128,7 +164,7 @@ public class BattleScreen extends FullFunctionScreen{
 		//adding all objects to viewObjects
 		viewObjects.add(battle);
 		viewObjects.add(enemyPokemonSprite);		
-		viewObjects.add(userPokemonPokemon);
+		viewObjects.add(userPokemonSprite);
 		viewObjects.add(box);
 		viewObjects.add(userTotalHp);
 		viewObjects.add(userCurrentHp);

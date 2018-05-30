@@ -96,12 +96,10 @@ public class Move {
 				}else {
 					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getAtk()/target.getDef())+1));
 				}
+				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ".");
 			}else {
-					System.out.println("Doh, I missed!");
+				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " but missed.");
 				}
-			}
-			if(!target.isAlive()) {
-				PokeStart.battleScreen.endBattle(target);
 			}
 	}
 }
