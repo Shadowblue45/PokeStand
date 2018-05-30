@@ -1,8 +1,14 @@
 package RestScreen;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import javax.imageio.ImageIO;
 
 import audioPlayer.AudioTest;
 import fahadStartupandMenuScreen.MainMenuScreen;
@@ -26,6 +32,9 @@ public class RestScreen extends FullFunctionScreen {
 	AnimatedComponent pokeball;
 	TextArea infoBox;
 	Thread run;
+	AnimatedComponent anim;
+	
+	ArrayList<Graphic> frames;
 
 	Button yes;
 	Button no;
@@ -39,7 +48,6 @@ public class RestScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		
 		
-		
 		String[] pokeNames = PokeStart.inventory.getNames(); 
 		String[] pokePic = PokeStart.inventory.getPokemonImages(); 
 		int pIndex = PokeStart.inventory.pokemonIndex;
@@ -47,6 +55,8 @@ public class RestScreen extends FullFunctionScreen {
 		
 	    background = new Graphic(0, 0, getWidth(),getHeight(), "resources/HealAnimation/0.jpg");
 		viewObjects.add(background);
+		
+
 		pokemon = new Graphic(750, 70, 100,100, pokePic[pIndex]);
 		viewObjects.add(pokemon);	
 		pokeball = new AnimatedComponent(325, 250, 50, 50);
@@ -60,9 +70,11 @@ public class RestScreen extends FullFunctionScreen {
 		viewObjects.add(confirmationB);
 		//z
 		
+		  
+		
 		PokeStart.setPokemonGBFont(25f);
 		
-		  infoBox = new TextArea(400, 560, 550, 300, "Would you like to heal "+pokeNames[pIndex]+" fully?   [Costs 1 day]]");
+		  infoBox = new TextArea(400, 560, 550, 300, "Would you like to heal "+pokeNames[pIndex]+" fully?   [Costs 1 day]");
 		 infoBox.setCustomTextColor(Color.black);
 		 viewObjects.add(infoBox);
 		
@@ -72,6 +84,9 @@ public class RestScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				AudioTest.playSound("resources/Music/rest.wav");
+				
+
+				/*
 				run = new Thread(pokeball);
 				run.start();
 				viewObjects.add(pokeball);
@@ -88,7 +103,43 @@ public class RestScreen extends FullFunctionScreen {
 				update();
 				infoBox.setText(pokeNames[pIndex]+" has rested..."
 						+ "See you again!");
-
+						*/
+				
+				anim = new AnimatedComponent(0, 0, getWidth(), getHeight());
+				
+				BufferedImage originalImgage;
+				try {
+					for(int i = 0; i < 47; i++){
+						originalImgage = ImageIO.read(new File("resources/HealAnimation/"+i+".jpg"));
+						anim.addFrame(originalImgage.getSubimage(0, 0, getWidth(), getHeight()),46);
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Thread loop= new Thread(anim);
+				loop.start();
+				viewObjects.add(anim);
+				/*   NO GOOD, SCREEN JITTERS TOO MUCH WHEN USED
+				Thread loop = new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						for(int i=0;i<47;i++) {
+							try {
+								Thread.sleep(100);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							viewObjects.remove(background);
+							background = new Graphic(0,0,getWidth(), getHeight(),"resources/HealAnimation/"+i+".jpg");
+							viewObjects.add(background);
+						}
+					}
+				});
+			   loop.start();
+			  */
 	
 			}
 
@@ -129,7 +180,7 @@ public class RestScreen extends FullFunctionScreen {
 	}
 
 
-	
+
 	
 
 

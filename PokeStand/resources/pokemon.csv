@@ -1,7 +1,7 @@
-Cyndaquil,Fire,,30,23,14,54,21,13,resources/fire/Cyndaquil.png
-Leer,Normal,0,100,30,false,1,1
-Tackle,Normal,40,100,35,false,-1,0
-Ember,Fire,40,100,25,true,-1,0
-Flame Wheel,Fire,60,100,25,false,-1,0
+Popplio,Water,,30,23,14,54,21,24,resources/water/Popplio.png
+Growl,Normal,0,100,40,false,0,1
+Pound,Normal,40,100,35,false,-1,0
+Water Gun,Water,40,100,25,true,-1,0
+Aqua Jet,Water,40,100,20,true,-1,0
 0,30,0,0
 0,0,0,0,0,0,0,0,
