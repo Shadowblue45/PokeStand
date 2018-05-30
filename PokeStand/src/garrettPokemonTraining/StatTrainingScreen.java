@@ -19,9 +19,7 @@ import startGame.PokeStart;
 public class StatTrainingScreen extends FullFunctionScreen {
 
 	public static Graphic target;
-	private Button evolveButton;
 	private Button saveButton;
-	private Button loadButton;
 	private Button backButton;
 	public static TextArea info;
 	public static Graphic poke;
@@ -62,20 +60,9 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-				"Spd: " + p.getSpd() + "\n");
+				"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "\n");
 		viewObjects.add(info);
 		fatigueBarDesign(viewObjects);
-		evolveButton = new Button(75,200,125,50,"Evolve", new Action() {
-
-			@Override
-			public void act() {
-				updatePokemon();
-				p.evolve();
-				setInfoText();
-			}
-
-		});
-		viewObjects.add(evolveButton);
 		saveButton = new Button(100,300,100,50,"Save", new Action() {
 
 			@Override
@@ -85,18 +72,6 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 		});
 		viewObjects.add(saveButton);
-		loadButton = new Button(300,300,100,50,"Load", new Action() {
-
-			@Override
-			public void act() {
-				System.out.println("Loading...");
-				PokeStart.inventory.load();
-				setInfoText();
-				poke.loadImages("resources/pokebacks/"+ pokeNames[index] +" back.png", getWidth()/2,getHeight()/2);
-			}
-
-		});
-		viewObjects.add(loadButton);
 		backButton = new Button(25,25,100,50,"Back", new Action() {
 
 			@Override
@@ -188,7 +163,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-				"Spd: " + p.getSpd() + "\n");
+				"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "\n");
 		poke.loadImages("resources/pokebacks/"+ pokeNames[index] +" back.png", getWidth()/2,getHeight()/2);
 	}
 
@@ -206,9 +181,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				sAttack.setEnabled(false);
 				sDefense.setEnabled(false);
 				speed.setEnabled(false);
-				evolveButton.setEnabled(false);
 				saveButton.setEnabled(false);
-				loadButton.setEnabled(false);
 				backButton.setEnabled(false);
 				for(int i = 0; i < 5; i++) {
 					Graphic pow = new Graphic((int)(Math.random()*100) + 800,(int)(Math.random()*100) + 100,200,200,"resources/bam.png");
@@ -226,7 +199,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + " +3\n" + "Def: " + p.getDef() + "\n" +
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-							"Spd: " + p.getSpd() + "\n");
+							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
 					try {
 						Thread.sleep(750);
 					} catch (InterruptedException e) {
@@ -240,7 +213,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + " +3\n" +
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-							"Spd: " + p.getSpd() + "\n");
+							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {
@@ -254,7 +227,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 							"Sp. Atk: " + p.getsAtk() + " +3\n" + "Sp. Def: " + p.getsDef() + "\n" +
-							"Spd: " + p.getSpd() + "\n");
+							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {
@@ -268,7 +241,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + " +3\n" +
-							"Spd: " + p.getSpd() + "\n");
+							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {
@@ -282,7 +255,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-							"Spd: " + p.getSpd() + " +3\n");
+							"Spd: " + p.getSpd() + " +3\n" + "Level: " + p.getLevel() + "+2\n");
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {
@@ -291,9 +264,13 @@ public class StatTrainingScreen extends FullFunctionScreen {
 					}
 					p.trainStat("spd");
 				}
+				p.setLevel(p.getLevel() + 2);
+				if(p.getLevel() == 15 || p.getLevel() == 45) {
+					updatePokemon();
+					p.evolve();
+				}
 				setInfoText();
 				saveButton.setEnabled(true);
-				loadButton.setEnabled(true);
 				backButton.setEnabled(true);
 				PokeStart.inventory.uPoints += 5;
 				PokeStart.inventory.fatigue += 5;

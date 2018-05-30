@@ -24,6 +24,7 @@ public class Pokemon {
 	private int stagesDef;
 	private int spd;
 	private int stageSpd;
+	private int level;
 	private double[] multipliers = {1, .66, .5, .4, .33, .28, .25};
 	private String image;
 	public ArrayList<Move> moves;
@@ -53,6 +54,7 @@ public class Pokemon {
 		stagesDef = 0;
 		stageSpd = 0;
 		setAlive(true);
+		setLevel(5);
 	}
 
 	public void setImage(String s) {
@@ -348,5 +350,13 @@ public class Pokemon {
 
 	public void setAlive(boolean alive) {
 		this.alive = alive;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 }

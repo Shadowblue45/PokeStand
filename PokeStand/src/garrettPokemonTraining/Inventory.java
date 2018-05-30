@@ -30,7 +30,8 @@ public class Inventory {
 			FileWriter fw=new FileWriter("resources/pokemon.csv");
 			fw.write(pokemon.getName()+","+ pokemon.getType1() +","+pokemon.getType2()+
 					","+Integer.toString(pokemon.getHp())+","+Integer.toString(pokemon.getAtk())+","+Integer.toString(pokemon.getDef())
-					+","+Integer.toString(pokemon.getsAtk())+","+Integer.toString(pokemon.getsDef())+","+Integer.toString(pokemon.getSpd())+","+pokemon.getImage()+"\n");
+					+","+Integer.toString(pokemon.getsAtk())+","+Integer.toString(pokemon.getsDef())+","+Integer.toString(pokemon.getSpd())+","+pokemon.getImage() +
+					"," + pokemon.getLevel() + "\n");
 			for(Move m: pokemon.getMoves()){
 				fw.write(m+"\n");    	
 			}
@@ -57,9 +58,10 @@ public class Inventory {
 
 
 				String[] param = line.split(",");
-				if(param.length == 10) {
+				if(param.length == 11) {
 					setPokemon(param[0],param[1],param[2],Integer.parseInt(param[3]),Integer.parseInt(param[4]),Integer.parseInt(param[5]),Integer.parseInt(param[6]),
 							Integer.parseInt(param[7]),Integer.parseInt(param[8]),param[9]);
+					pokemon.setLevel(Integer.parseInt(param[10]));
 					pokemon.emptyMoves();
 					pokemonForms = generateNames(param[0]);
 					pokemonImages = generateImages(param[0]);

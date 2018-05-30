@@ -1,7 +1,7 @@
-Charmander,Fire,,30,23,14,54,21,30,resources/fire/Charmander.png
+Charmeleon,Fire,,55,37,28,68,35,44,resources/fire/Charmeleon.png,35
 Growl,Normal,0,100,40,false,0,1
 Scratch,Normal,40,100,35,false,-1,0
 Ember,Fire,40,100,25,true,-1,0
 Scary Face,Normal,0,100,10,false,4,2
-0,30,0,0
-0,0,0,0,2,2,0,0,
+1,15,75,75
+0,0,0,0,0,0,0,0,
