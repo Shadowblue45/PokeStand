@@ -1,25 +1,16 @@
 package Credits;
 
 import java.awt.Color;  
-import java.awt.Font;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.io.File;
 import java.util.List;
 
-import audioPlayer.AudioTest;
 import fahadStartupandMenuScreen.CustomRect;
 import fahadStartupandMenuScreen.LoadScreen;
-import fahadStartupandMenuScreen.MainMenuScreen;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
-import guiTeacher.components.Component;
 import guiTeacher.components.Graphic;
-import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
-import selectionScreen.SelectionScreen;
 import startGame.PokeStart;
 
 public class CreditsScreen extends FullFunctionScreen {
