@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class Pokemon {
 
 	private String name;
-	private String type1;
-	private String type2;
+	private Type type1;
+	private Type type2;
 	private int hp;
 	private int currentHp;
 	private int atk;
@@ -256,20 +256,20 @@ public class Pokemon {
 		this.name = name;
 	}
 
-	public String getType2() {
+	public Type getType2() {
 		return type2;
 	}
 
 	public void setType2(String type2) {
-		this.type2 = type2;
+		this.type2 = new Type("type2");
 	}
 
-	public String getType1() {
+	public Type getType1() {
 		return type1;
 	}
 
 	public void setType1(String type1) {
-		this.type1 = type1;
+		this.type1 = new Type("type1");
 	}
 
 	public int getCurrentHp() {
