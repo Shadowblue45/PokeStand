@@ -183,7 +183,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				speed.setEnabled(false);
 				saveButton.setEnabled(false);
 				backButton.setEnabled(false);
-				for(int i = 0; i < 5; i++) {
+				for(int i = 0; i < 3; i++) {
 					Graphic pow = new Graphic((int)(Math.random()*100) + 800,(int)(Math.random()*100) + 100,200,200,"resources/bam.png");
 					viewObjects.add(pow);
 					try {
@@ -193,6 +193,22 @@ public class StatTrainingScreen extends FullFunctionScreen {
 						e.printStackTrace();
 					}
 					viewObjects.remove(pow);
+				}
+				for(int i = 0; i < 3; i++) {
+					viewObjects.remove(target);
+					try {
+						Thread.sleep(150);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					viewObjects.add(target);
+					try {
+						Thread.sleep(150);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if(s.equals("atk")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
