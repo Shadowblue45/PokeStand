@@ -58,17 +58,17 @@ public class RestScreen extends FullFunctionScreen {
 		
 
 		pokemon = new Graphic(750, 70, 100,100, pokePic[pIndex]);
-		viewObjects.add(pokemon);	
+		viewObjects.add(pokemon);
 		pokeball = new AnimatedComponent(325, 250, 50, 50);
 		pokeball.addSequence("resources/trans pokeball.png", 150, 160, 8, 16, 17, 11);
 		pokeball.setRepeat(false);
+		
 	
 		 textB = new Graphic(375,500, 575, 350, "resources/text box.png");
 		viewObjects.add(textB);
 		
 		 confirmationB = new Graphic(925,400, 300, 700, "resources/pokecon.png");
 		viewObjects.add(confirmationB);
-		//z
 		
 		  
 		
@@ -85,7 +85,12 @@ public class RestScreen extends FullFunctionScreen {
 			public void act() {
 				AudioTest.playSound("resources/Music/rest.wav");
 				
-
+				yes.setVisible(false);
+				no.setVisible(false);
+				textB.setVisible(false);
+				confirmationB.setVisible(false);
+				pokemon.setVisible(false);
+				infoBox.setVisible(false);
 				/*
 				run = new Thread(pokeball);
 				run.start();
@@ -105,13 +110,13 @@ public class RestScreen extends FullFunctionScreen {
 						+ "See you again!");
 						*/
 				
-				anim = new AnimatedComponent(0, 0, getWidth(), getHeight());
-				
+				anim = new AnimatedComponent(0, 0, 1280, 720);
+				anim.setRepeat(false);
 				BufferedImage originalImgage;
 				try {
 					for(int i = 0; i < 47; i++){
 						originalImgage = ImageIO.read(new File("resources/HealAnimation/"+i+".jpg"));
-						anim.addFrame(originalImgage.getSubimage(0, 0, getWidth(), getHeight()),46);
+						anim.addFrame(originalImgage.getSubimage(0, 0, 1280, 720),1);
 					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -120,26 +125,33 @@ public class RestScreen extends FullFunctionScreen {
 				Thread loop= new Thread(anim);
 				loop.start();
 				viewObjects.add(anim);
-				/*   NO GOOD, SCREEN JITTERS TOO MUCH WHEN USED
-				Thread loop = new Thread(new Runnable() {
+				
+				Thread run = new Thread(new Runnable() {
 					
 					@Override
 					public void run() {
-						for(int i=0;i<47;i++) {
-							try {
-								Thread.sleep(100);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							viewObjects.remove(background);
-							background = new Graphic(0,0,getWidth(), getHeight(),"resources/HealAnimation/"+i+".jpg");
-							viewObjects.add(background);
+						viewObjects.remove(anim);
+						viewObjects.add(anim);
+						try {
+							Thread.sleep(4000);
+							System.out.println("check");
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
 						}
+						PokeStart.inventory.fatigue=0;
+						if(PokeStart.inventory.daysLeft-1<=0) {
+							PokeStart.inventory.daysLeft=0;
+						}else {
+							PokeStart.inventory.daysLeft-=1;
+						}
+						PokeStart.mainMenuScreen = new MainMenuScreen(getWidth(), getHeight());
+						update();
+						PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+						
 					}
 				});
-			   loop.start();
-			  */
+				run.start();
 	
 			}
 
@@ -166,6 +178,7 @@ public class RestScreen extends FullFunctionScreen {
 					viewObjects.remove(pokeball);
 					yes.setVisible(true);
 					no.setVisible(true);
+					pokemon.setVisible(true);
 					back.setVisible(false);
 					PokeStart.start.setScreen(PokeStart.mainMenuScreen);		
 					
