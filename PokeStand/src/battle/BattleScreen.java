@@ -9,6 +9,7 @@ import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Move;
 import garrettPokemonTraining.Pokemon;
 import guiTeacher.components.Action;
+import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Button;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.TextArea;
@@ -33,6 +34,8 @@ public class BattleScreen extends FullFunctionScreen{
 	private Move currentAttack;
 	private List<Visible> viewObjects;
 	private TextArea info;
+	
+	private AnimatedComponent enemyAnimation;
 	
 	public BattleScreen(int width, int height) {
 		super(width, height);
@@ -67,8 +70,13 @@ public class BattleScreen extends FullFunctionScreen{
 		
 		//changing enemy graphics
 		userPokemon.setHpBar(userCurrentHp);
-		enemyPokemonSprite.loadImages("resources/pokefronts/"+ enemyPokemon.getName() + " Front.png", getWidth()/3, getHeight()/3);
+		//enemyPokemonSprite.loadImages("resources/pokefronts/"+ enemyPokemon.getName() + " Front.png", getWidth()/3, getHeight()/3);
 		enemyName.setText(enemyPokemon.getName());
+		
+		setEnemyAnimation(enemyPokemon.getName());
+		Thread run = new Thread(enemyAnimation);
+		run.start();
+		viewObjects.add(enemyAnimation);
 		int i = 0;
 		for(Button b : buttonArr) {
 			final int temp = i;
@@ -156,14 +164,14 @@ public class BattleScreen extends FullFunctionScreen{
 		userName = new TextLabel(890,350,500,100,"");
 		
 		//set enemy pokemon, hp and name
-		enemyPokemonSprite = new Graphic(825,60,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
+		//enemyPokemonSprite = new Graphic(825,60,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
 		enemyCurrentHp = new CustomRect(273,146,1,20,Color.green);
 		CustomRect enemyTotalHp = new CustomRect(273,146,260,20,Color.red);
 		enemyName = new TextLabel(265,95,500,100,"");
 		
 		//adding all objects to viewObjects
 		viewObjects.add(battle);
-		viewObjects.add(enemyPokemonSprite);		
+		//viewObjects.add(enemyPokemonSprite);		
 		viewObjects.add(userPokemonSprite);
 		viewObjects.add(box);
 		viewObjects.add(userTotalHp);
@@ -277,5 +285,20 @@ public class BattleScreen extends FullFunctionScreen{
 			currentAttack = enemyPokemon.getMoves().get(3);
 		}
 		
+	}
+	
+	public void setEnemyAnimation(String str) {
+		if(str.equals("Suicune")) {
+			enemyAnimation = new AnimatedComponent(800,60,350,250);
+			enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 150, 0, 5, 85, 69, 10);
+		}
+		else if(str.equals("Entei")) {
+			enemyAnimation = new AnimatedComponent(825,60,getWidth()/2,getHeight()/2);
+			enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 0, 0, 40, 39, 3);
+		}
+		else if(str.equals("Raikou")) {
+			enemyAnimation = new AnimatedComponent(825,60,getWidth()/2,getHeight()/2);
+			enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 150, 0, 0, 40, 39, 3);
+		}
 	}
 }
