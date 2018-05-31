@@ -59,7 +59,7 @@ public class RestScreen extends FullFunctionScreen {
 		anim = new AnimatedComponent(0, 0, 1280, 720);
 		anim.setRepeat(false);
 		for(int i = 0; i < 47; i++){
-			anim.addSequence("resources/HealAnimation/"+i+".jpg", 1, 0, 0, 1280, 720, 1);
+			anim.addSequence("resources/HealAnimation/"+i+".jpg", 100, 0, 0, 1280, 720, 1);
 		}
 		viewObjects.add(anim);
 
@@ -126,7 +126,7 @@ public class RestScreen extends FullFunctionScreen {
 						
 
 						try {
-							Thread.sleep(4000);
+							Thread.sleep(5000);
 							System.out.println("check");
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
