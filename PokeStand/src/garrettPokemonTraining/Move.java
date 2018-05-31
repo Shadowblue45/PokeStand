@@ -6,7 +6,7 @@ import startGame.PokeStart;
 public class Move {
 
 	private String name;
-	private String type;
+	private Type type;
 	private int power;
 	private int accuracy;
 	private int currentAccuracy;
@@ -50,7 +50,7 @@ public class Move {
 
 	public Move(String name, String type, int power, int accuracy, int pp, boolean isSpecial, int stat, int change) {
 		this.name = name;
-		this.type = type;
+		this.type = new Type(type);
 		setPower(power);
 		setAccuracy(accuracy);
 		setPp(pp);
@@ -88,7 +88,7 @@ public class Move {
 		this.pp = pp;
 	}
 
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
