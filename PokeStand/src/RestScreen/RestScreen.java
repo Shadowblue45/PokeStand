@@ -56,6 +56,12 @@ public class RestScreen extends FullFunctionScreen {
 	    background = new Graphic(0, 0, getWidth(),getHeight(), "resources/HealAnimation/0.jpg");
 		viewObjects.add(background);
 		
+		anim = new AnimatedComponent(0, 0, 1280, 720);
+		anim.setRepeat(false);
+		for(int i = 0; i < 47; i++){
+			anim.addSequence("resources/HealAnimation/"+i+".jpg", 1, 0, 0, 1280, 720, 1);
+		}
+		viewObjects.add(anim);
 
 		pokemon = new Graphic(750, 70, 100,100, pokePic[pIndex]);
 		viewObjects.add(pokemon);
@@ -84,7 +90,7 @@ public class RestScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				AudioTest.playSound("resources/Music/rest.wav");
-				
+				viewObjects.remove(background);
 				yes.setVisible(false);
 				no.setVisible(false);
 				textB.setVisible(false);
@@ -109,19 +115,6 @@ public class RestScreen extends FullFunctionScreen {
 				infoBox.setText(pokeNames[pIndex]+" has rested..."
 						+ "See you again!");
 						*/
-				
-				anim = new AnimatedComponent(0, 0, 1280, 720);
-				anim.setRepeat(false);
-				BufferedImage originalImgage;
-				try {
-					for(int i = 0; i < 47; i++){
-						originalImgage = ImageIO.read(new File("resources/HealAnimation/"+i+".jpg"));
-						anim.addFrame(originalImgage.getSubimage(0, 0, 1280, 720),1);
-					}
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				Thread loop= new Thread(anim);
 				loop.start();
 				viewObjects.add(anim);
@@ -130,8 +123,8 @@ public class RestScreen extends FullFunctionScreen {
 					
 					@Override
 					public void run() {
-						viewObjects.remove(anim);
-						viewObjects.add(anim);
+						
+
 						try {
 							Thread.sleep(4000);
 							System.out.println("check");

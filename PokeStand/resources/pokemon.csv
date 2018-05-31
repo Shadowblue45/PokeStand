@@ -1,7 +1,7 @@
-Turtwig,Grass,,30,23,14,54,21,2333,resources/grass/Turtwig.png
-Bite,Dark,60,100,25,false,-1,0
-Tackle,Normal,40,100,35,false,-1,0
+Treecko,Grass,,30,23,14,54,21,2333,resources/grass/Treecko.png
+Leer,Normal,0,100,30,false,1,1
+Pound,Normal,40,100,35,false,-1,0
 Absorb,Grass,20,100,25,true,-1,0
-Razor Leaf,Grass,55,95,25,false,-1,0
+Quick Attack,Normal,40,100,30,false,-1,0
 0,30,0,0
 0,0,0,0,0,0,0,0,
