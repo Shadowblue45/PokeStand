@@ -33,11 +33,11 @@ public class RickyInteractScreen extends FullFunctionScreen {
 	
 	public void displayPokemon(List<Visible> viewObjects) {
 		Graphic background = new Graphic(0,0,getWidth(),getHeight(),"resources/interact background.png");
+		viewObjects.add(background);
 		String name = PokeStart.inventory.pokemonForms[PokeStart.inventory.pokemonIndex];
 		Graphic g = new Graphic(440, 200, 400, 400,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
-		viewObjects.add(background);
-		Graphic h = new Graphic(640,360,getWidth()/2,getHeight()/2,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
-		viewObjects.add(h);
+		//Graphic h = new Graphic(640,360,getWidth()/2,getHeight()/2,"resources/" + PokeStart.inventory.getPokemon().getType1().toLowerCase() + "/" + name + ".png");
+		//viewObjects.add(h);
 		viewObjects.add(g);
 	}
 	
