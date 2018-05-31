@@ -1,3 +1,4 @@
+
 package rickyShopInteract;
 
 import guiTeacher.GUIApplication;
