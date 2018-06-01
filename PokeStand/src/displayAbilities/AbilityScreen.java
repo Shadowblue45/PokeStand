@@ -156,7 +156,7 @@ public class AbilityScreen extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				category.setText(PokeStart.inventory.pokemon.getMoves().get(3).getType());
+				category.setText(PokeStart.inventory.pokemon.getMoves().get(3).getType().getTypeName());
 				power.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(3).getPower()));
 				accuracy.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(3).getAccuracy()));
 			}
