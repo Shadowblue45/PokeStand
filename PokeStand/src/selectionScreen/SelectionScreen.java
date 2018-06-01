@@ -88,7 +88,7 @@ public class SelectionScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-
+		//AudioTest.playSound("resources/Music/selectionmusic.wav");
 		StyledComponent.setButtonOutline(false);
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/selectionbgrnd.jpg");
 		viewObjects.add(background);
@@ -167,6 +167,8 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				//System.out.println("YES");
+				//AudioTest.stopSound(AudioTest.sound);
+				
 				PokeStart.inventory.setPokemon("Charmander", "Fire", "", 30, 23, 14, 54, 21, 30, "resources/fire/Charmander.png");
 				String[] F1= {"Charmander","Charmeleon","Charizard"};
 				String[] FP1 = {"resources/fire/Charmander.png","resources/fire/Charmeleon.png","resources/fire/Charizard.png"};
@@ -202,6 +204,7 @@ public class SelectionScreen extends FullFunctionScreen {
 				update();
 				PokeStart.inventory.save();
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);
+			
 			}
 		});
 		

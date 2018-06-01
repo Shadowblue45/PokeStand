@@ -46,8 +46,7 @@ public class RestScreen extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		
-		
+		//AudioTest.playSound("resources/Music/pokecenter.wav");
 		String[] pokeNames = PokeStart.inventory.getNames(); 
 		String[] pokePic = PokeStart.inventory.getPokemonImages(); 
 		int pIndex = PokeStart.inventory.pokemonIndex;
@@ -58,8 +57,8 @@ public class RestScreen extends FullFunctionScreen {
 		
 		anim = new AnimatedComponent(0, 0, 1280, 720);
 		anim.setRepeat(false);
-		for(int i = 0; i < 47; i++){
-			anim.addSequence("resources/HealAnimation/"+i+".jpg", 100, 0, 0, 1280, 720, 1);
+		for(int i = 0; i <= 46; i++){
+			anim.addSequence("resources/HealAnimation/"+i+".jpg", 100, 0, 0, 1280, 720,1);
 		}
 		viewObjects.add(anim);
 
@@ -157,7 +156,6 @@ public class RestScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				PokeStart.start.setScreen(PokeStart.mainMenuScreen);	
-					
 				
 				
 			}
