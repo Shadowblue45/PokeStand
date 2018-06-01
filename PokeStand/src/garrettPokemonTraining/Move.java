@@ -1,11 +1,12 @@
 package garrettPokemonTraining;
 
 import guiTeacher.components.Action;
+import startGame.PokeStart;
 
 public class Move {
 
 	private String name;
-	private String type;
+	private Type type;
 	private int power;
 	private int accuracy;
 	private int currentAccuracy;
@@ -48,7 +49,7 @@ public class Move {
 
 	public Move(String name, String type, int power, int accuracy, int pp, boolean isSpecial, int stat, int change) {
 		this.name = name;
-		this.type = type;
+		this.type = new Type(type);
 		setPower(power);
 		setAccuracy(accuracy);
 		setPp(pp);
@@ -86,7 +87,7 @@ public class Move {
 		this.pp = pp;
 	}
 
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
@@ -121,22 +122,14 @@ public class Move {
 		}else {
 			if((int)(Math.random() * 100) < accuracy) {
 				if(isSpecial) {
-					int damage = (user.getsAtk() - target.getsDef());
-					target.setHp(target.getHp() - (user.getsAtk() - target.getsDef()));
-				}else {
-					int damage = (user.getAtk() - target.getDef());
-					target.setHp(target.getHp() - (user.getAtk() - target.getDef()));
-				}
-				if(isSpecial) {
 					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getsAtk()/target.getsDef())+1));
 				}else {
-					System.out.println("Doh, I missed!");
 					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getAtk()/target.getDef())+1));
 				}
+				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ".");
+			}else {
+				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " but missed.");
+				}
 			}
-			if(!target.isAlive()) {
-
-			}
-		}
 	}
 }
