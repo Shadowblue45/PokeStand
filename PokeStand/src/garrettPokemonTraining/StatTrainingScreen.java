@@ -87,7 +87,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				if(PokeStart.inventory.fatigue < 100) {
+				if(PokeStart.inventory.fatigue < 100 && PokeStart.inventory.daysLeft > 0) {
 					setTrainedInfoStat("atk", viewObjects);
 				}
 			}
@@ -98,7 +98,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				if(PokeStart.inventory.fatigue < 100) {
+				if(PokeStart.inventory.fatigue < 100 && PokeStart.inventory.daysLeft > 0) {
 					setTrainedInfoStat("def", viewObjects);
 				}
 			}
@@ -109,7 +109,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				if(PokeStart.inventory.fatigue < 100) {
+				if(PokeStart.inventory.fatigue < 100 && PokeStart.inventory.daysLeft > 0) {
 					setTrainedInfoStat("sAtk", viewObjects);
 				}
 			}
@@ -120,7 +120,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				if(PokeStart.inventory.fatigue < 100) {
+				if(PokeStart.inventory.fatigue < 100 && PokeStart.inventory.daysLeft > 0) {
 					setTrainedInfoStat("sDef", viewObjects);
 				}
 			}
@@ -131,7 +131,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 
 			@Override
 			public void act() {
-				if(PokeStart.inventory.fatigue < 100) {
+				if(PokeStart.inventory.fatigue < 100 && PokeStart.inventory.daysLeft > 0) {
 					setTrainedInfoStat("spd", viewObjects);
 				}
 			}
@@ -217,7 +217,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
 					try {
-						Thread.sleep(750);
+						Thread.sleep(500);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
