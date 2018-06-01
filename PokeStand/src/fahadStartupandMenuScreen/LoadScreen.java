@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.io.File;
 import java.util.List;
 
+import Credits.CreditsScreen;
 import audioPlayer.AudioTest;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
@@ -70,11 +71,22 @@ public class LoadScreen extends FullFunctionScreen {
 				PokeStart.start.setScreen(PokeStart.selectionScreen);
 			}
 		});
+
+		Button credits = new Button(1060, 650, 200, 50, "Credits",new Action() {
+			
+			public void act() {
+				AudioTest.stopSound(AudioTest.sound);
+				PokeStart.creditScreen = new CreditsScreen(getWidth(), getHeight());
+				PokeStart.start.setScreen(PokeStart.creditScreen);
+			}
+		});
+		
 		viewObjects.add(background);
 		viewObjects.add(title);
 	  //viewObjects.add(titleBorder);
 		viewObjects.add(continueButton);
 		viewObjects.add(newGameButton);
+		viewObjects.add(credits);
 		continueButton.setBackground(new Color(0,0,0,140));
 		continueButton.update();
 		newGameButton.setBackground(new Color(0,0,0,140));

@@ -117,7 +117,7 @@ public class AbilityScreen extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				category.setText(PokeStart.inventory.pokemon.getMoves().get(0).getType());
+				category.setText(PokeStart.inventory.pokemon.getMoves().get(0).getType().getTypeName());
 				power.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(0).getPower()));
 				accuracy.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(0).getAccuracy()));
 			}
@@ -130,7 +130,7 @@ public class AbilityScreen extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				category.setText(PokeStart.inventory.pokemon.getMoves().get(1).getType());
+				category.setText(PokeStart.inventory.pokemon.getMoves().get(1).getType().getTypeName());
 				power.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(1).getPower()));
 				accuracy.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(1).getAccuracy()));
 			}
@@ -143,7 +143,7 @@ public class AbilityScreen extends FullFunctionScreen {
 			
 			@Override
 			public void act() {
-				category.setText(PokeStart.inventory.pokemon.getMoves().get(2).getType());
+				category.setText(PokeStart.inventory.pokemon.getMoves().get(2).getType().getTypeName());
 				power.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(2).getPower()));
 				accuracy.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(2).getAccuracy()));
 			}
@@ -197,16 +197,16 @@ public class AbilityScreen extends FullFunctionScreen {
 		pp1.setForeground(Color.white);
 		viewObjects.add(pp4);
 		
-		t1 = new Graphic(630,200,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(0).getType()+".png");
+		t1 = new Graphic(630,200,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(0).getType().getTypeName()+".png");
 		viewObjects.add(t1);
 		
-		t2 = new Graphic(630,320,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(1).getType()+".png");
+		t2 = new Graphic(630,320,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(1).getType().getTypeName()+".png");
 		viewObjects.add(t2);
 		
-		t3 = new Graphic(630,440,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(2).getType()+".png");
+		t3 = new Graphic(630,440,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(2).getType().getTypeName()+".png");
 		viewObjects.add(t3);
 		
-		t4 = new Graphic(630,560,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(3).getType()+".png");
+		t4 = new Graphic(630,560,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(3).getType().getTypeName()+".png");
 		viewObjects.add(t4);
 
 		

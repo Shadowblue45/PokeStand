@@ -1,28 +1,22 @@
 package fahadStartupandMenuScreen;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics2D;
-import java.io.File;
-import java.lang.reflect.Array;
 import java.util.List;
 
 import RestScreen.RestScreen;
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
 import displayAbilities.AbilityScreen;
-import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
 import garrettPokemonTraining.StatTrainingScreen;
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
-import guiTeacher.components.CustomImageButton;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
-import guiTeacher.userInterfaces.Screen;
 import rickyShopInteract.RickyInteractScreen;
 import startGame.PokeStart;
 
@@ -30,8 +24,6 @@ public class MainMenuScreen extends FullFunctionScreen {
 
 	private int xCord;
 	private int yCord;
-	private Graphics2D g;
-	private int temp;
 	public static TextArea info;
 	public static Pokemon p;
 	public static Graphic pokemon;
@@ -46,11 +38,8 @@ public class MainMenuScreen extends FullFunctionScreen {
 	public void initAllObjects(List<Visible> viewObjects) {
 		update();
 		AudioTest.playSound("resources/Music/Pokemon MainMenu.wav");
-		System.out.println(PokeStart.inventory.pokemonImages[0]);
-		PokeStart.trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
+//		System.out.println(PokeStart.inventory.pokemonImages[0]);
 		resetCoordinates();
-		StyledComponent.setButtonOutline(true);
-		StyledComponent.setActiveBorderColor(Color.black);
 	
 		//temp setters=======================================
 
@@ -67,6 +56,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		PokeStart.abilityScreen = new AbilityScreen(getWidth(), getHeight());
 		PokeStart.interactScreen = new RickyInteractScreen(getWidth(), getHeight());
 		PokeStart.restScreen = new RestScreen(getWidth(), getHeight());
+		PokeStart.trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
 		
 		//===================================================
 		
@@ -157,10 +147,11 @@ public class MainMenuScreen extends FullFunctionScreen {
 	public void resetCoordinates() {
 		xCord = 10;
 		yCord = 620;
-		temp = 0;
 	}
 
 	public void initButtons(String[] names, List<Visible> viewObjects) {
+		StyledComponent.setButtonOutline(true);
+		StyledComponent.setActiveBorderColor(Color.white);
 		for(int i = 0; i < names.length; i++) {
 			final int temp = i;
 			Button button = new Button (xCord, yCord, 200,70,names[i],new Action() {
@@ -179,9 +170,9 @@ public class MainMenuScreen extends FullFunctionScreen {
 			});
 			xCord += 210;
 			viewObjects.add(button);
-			button.setBackground(new Color(255,255,255,140));
+			button.setBackground(new Color(0,0,0,140));
 			button.update();
-			button.setForeground(Color.black);
+			button.setForeground(Color.white);
 		}
 	}
 
