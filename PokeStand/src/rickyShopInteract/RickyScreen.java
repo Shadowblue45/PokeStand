@@ -52,7 +52,7 @@ public class RickyScreen extends FullFunctionScreen {
 	}
 
 	public void addBackground(List<Visible> viewObjects) {
-		CustomRect background = new CustomRect(0, 0, getWidth(), getHeight(), Color.cyan);
+		Graphic background = new Graphic(0,0,getWidth(),getHeight(),"resources/shopbackground.jpg");
 		viewObjects.add(background);
 	}
 	
@@ -103,15 +103,15 @@ public class RickyScreen extends FullFunctionScreen {
 	public void addDescriptions() {
 		itemDesc = new ArrayList<String>();
 		
-		itemDesc.add("Restores 10 PP of a single move of a Pokemon");
-		itemDesc.add("Fully restores the PP of one of the player's selected Pokemon's move");
+		itemDesc.add("Restores 10 PP of a single\nmove of a Pokemon");
+		itemDesc.add("Fully restores the PP of one\nof the player's selected Pokemon's move");
 		itemDesc.add("Fully heals any status problems that a Pokemon holds");
 		itemDesc.add("Fully restores the HP and heals any Status ailments of a Pokemon");
 		
-		itemDesc.add("Heals 20 HP of a Pokemon");
-		itemDesc.add("Heals 50 HP of a Pokemon");
+		itemDesc.add("Heals 20 HP\nof a Pokemon");
+		itemDesc.add("Heals 50 HP\nof a Pokemon");
 		itemDesc.add("Heals a Pokemon by 200 HP");		
-		itemDesc.add("Fully restores the HP of a Pokemon");
+		itemDesc.add("Fully restores the HP of\na Pokemon");
 	}
 
 	public void addBackgroundLabels(List<Visible> viewObjects) {
@@ -119,7 +119,7 @@ public class RickyScreen extends FullFunctionScreen {
 			StyledComponent.setButtonOutline(true);
 			Button b = new Button(50, 50 + i*150, 565, 150, "",null);
 			b.setEnabled(false);
-			b.setBackground(Color.ORANGE);
+			b.setBackground(new Color(255,165,0,250));
 			b.update();
 			viewObjects.add(b);
 		}
@@ -134,7 +134,7 @@ public class RickyScreen extends FullFunctionScreen {
 		}
 		PokeStart.setPokemonGBFont(18f);
 		StyledComponent.setButtonOutline(false);
-		z = new Button(1170,10,100,50,Integer.toString(getDollars()),null);
+		z = new Button(1150,10,100,50,Integer.toString(getDollars()),null);
 		z.setEnabled(false);
 		viewObjects.add(z);
 		z.setCustomTextColor(Color.WHITE);
@@ -311,10 +311,10 @@ public class RickyScreen extends FullFunctionScreen {
 	
 	public void changedX() {
 		if(z.getText().compareTo("1000") >= 0){
-			z.setX(1170);
+			z.setX(1150);
 		}
 		else if(z.getText().compareTo("100") >= 0){
-			z.setX(1180);
+			z.setX(1155);
 		}
 	}
 	
