@@ -1,7 +1,7 @@
-Charmander,garrettPokemonTraining.Type@ee136a0,garrettPokemonTraining.Type@4b14329b,30,23,14,54,21,30,resources/fire/Charmander.png,5
-Growl,garrettPokemonTraining.Type@24d9d884,0,100,40,false,0,1
-Scratch,garrettPokemonTraining.Type@7508872d,40,100,35,false,-1,0
-Ember,garrettPokemonTraining.Type@4d042300,40,100,25,true,-1,0
-Scary Face,garrettPokemonTraining.Type@7fa38058,0,100,10,false,4,2
+Snivy,garrettPokemonTraining.Type@68d32631,garrettPokemonTraining.Type@2b8069cb,30,23,14,54,21,2333,resources/grass/Snivy.png,5
+Leer,garrettPokemonTraining.Type@632e4065,0,100,30,false,1,1
+Tackle,garrettPokemonTraining.Type@5c1be9db,40,100,35,false,-1,0
+Vine Whip,garrettPokemonTraining.Type@415d3345,45,100,25,false,-1,0
+Wrap,garrettPokemonTraining.Type@45e08f16,15,90,20,false,-1,0
 0,30,0,0
 0,0,0,0,0,0,0,0,
