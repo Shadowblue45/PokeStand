@@ -291,19 +291,22 @@ public class BattleScreen extends FullFunctionScreen{
 		if(str.equals("Suicune")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
 			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 1, 0, 5, 85, 69, 10);
+				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 150, 0, 5, 85, 69, 10);
+				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 150, 0, 75, 85, 70, 6);
 			}
 		}
 		else if(str.equals("Entei")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
 			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 1, 1, 1, 78, 71, 7);
+				enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 1, 1, 78, 71, 7);
 			}
+			enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 1, 73, 78, 71, 10);
+			enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 0, 148, 77, 71, 4);
 		}
 		else if(str.equals("Raikou")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
 			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 1, 0, 3, 86, 71, 9);
+				enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 150, 0, 3, 86, 71, 9);
 			}
 		}
 	}
