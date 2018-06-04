@@ -3,6 +3,7 @@ package garrettPokemonTraining;
 public class Type {
 	
 	private String name;
+	private int type;
 	private int[] weaknesses;
 	private int[] resistances;
 	private int[] immunities;
@@ -22,64 +23,113 @@ public class Type {
 	
 	public Type(String name) {
 		this.name = name;
-		if(name.equals("Fire")) {
-			weaknesses = new int[] {WATER,ROCK,GROUND};
-			resistances = new int[] {FIRE,GRASS,ICE,FAIRY};
-			immunities = null;
+		if(name == null) {
+			setImmunities(null);
+			setResistances(null);
+			setWeaknesses(null);
+		}else if(name.equals("Fire")) {
+			setType(FIRE);
+			setWeaknesses(new int[] {WATER,ROCK,GROUND});
+			setResistances(new int[] {FIRE,GRASS,ICE,FAIRY});
+			setImmunities(null);
 		}else if(name.equals("Water")) {
-			weaknesses = new int[] {ELECTRIC,GRASS};
-			resistances = new int[] {FIRE,WATER,ICE};
-			immunities = null;
+			setType(WATER);
+			setWeaknesses(new int[] {ELECTRIC,GRASS});
+			setResistances(new int[] {FIRE,WATER,ICE});
+			setImmunities(null);
 		}else if(name.equals("Grass")) {
-			weaknesses = new int[] {FLYING,FIRE,GRASS};
-			resistances = new int[] {GROUND,WATER,GRASS,ELECTRIC};
-			immunities = null;
+			setType(GRASS);
+			setWeaknesses(new int[] {FLYING,FIRE,GRASS});
+			setResistances(new int[] {GROUND,WATER,GRASS,ELECTRIC});
+			setImmunities(null);
 		}else if(name.equals("Electric")) {
-			weaknesses = new int[] {GROUND};
-			resistances = new int[] {FLYING,ELECTRIC};
-			immunities = null;
+			setType(ELECTRIC);
+			setWeaknesses(new int[] {GROUND});
+			setResistances(new int[] {FLYING,ELECTRIC});
+			setImmunities(null);
 		}else if(name.equals("Ground")) {
-			weaknesses = new int[] {WATER,GRASS,ICE};
-			resistances = new int[] {ROCK};
-			immunities = new int[] {ELECTRIC};
+			setType(GROUND);
+			setWeaknesses(new int[] {WATER,GRASS,ICE});
+			setResistances(new int[] {ROCK});
+			setImmunities(new int[] {ELECTRIC});
 		}else if(name.equals("Ice")) {
-			weaknesses = new int[] {FIGHTING,ROCK,FIRE};
-			immunities = null;
-			resistances = new int[] {ICE};
+			setType(ICE);
+			setWeaknesses(new int[] {FIGHTING,ROCK,FIRE});
+			setImmunities(null);
+			setResistances(new int[] {ICE});
 		}else if(name.equals("Flying")) {
-			weaknesses = new int[] {ROCK,ELECTRIC,ICE};
-			resistances = new int[] {FIGHTING,GRASS};
-			immunities = new int[] {GROUND};
+			setType(FLYING);
+			setWeaknesses(new int[] {ROCK,ELECTRIC,ICE});
+			setResistances(new int[] {FIGHTING,GRASS});
+			setImmunities(new int[] {GROUND});
 		}else if(name.equals("Fairy")) {
-			weaknesses = null;
-			resistances = new int[] {FIGHTING,DARK};
-			immunities = null;
+			setType(FAIRY);
+			setWeaknesses(null);
+			setResistances(new int[] {FIGHTING,DARK});
+			setImmunities(null);
 		}else if(name.equals("Fighting")) {
-			weaknesses = new int[] {FLYING,PSYCHIC,FAIRY};
-			resistances = new int[] {ROCK,DARK};
-			immunities = null;
+			setType(FIGHTING);
+			setWeaknesses(new int[] {FLYING,PSYCHIC,FAIRY});
+			setResistances(new int[] {ROCK,DARK});
+			setImmunities(null);
 		}else if(name.equals("Dark")) {
-			weaknesses = new int[] {FIGHTING,FAIRY};
-			resistances = new int[] {DARK};
-			immunities = new int[] {PSYCHIC};
+			setType(DARK);
+			setWeaknesses(new int[] {FIGHTING,FAIRY});
+			setResistances(new int[] {DARK});
+			setImmunities(new int[] {PSYCHIC});
 		}else if(name.equals("Psychic")) {
-			weaknesses = new int[] {DARK};
-			resistances = new int[] {FIGHTING,PSYCHIC};
-			immunities = null;
+			setType(PSYCHIC);
+			setWeaknesses(new int[] {DARK});
+			setResistances(new int[] {FIGHTING,PSYCHIC});
+			setImmunities(null);
 		}else if(name.equals("Rock")) {
-			weaknesses = new int[] {FIGHTING,GROUND,WATER,GRASS};
-			resistances = new int[] {NORMAL,FLYING,FIRE};
-			immunities = null;
+			setType(ROCK);
+			setWeaknesses(new int[] {FIGHTING,GROUND,WATER,GRASS});
+			setResistances(new int[] {NORMAL,FLYING,FIRE});
+			setImmunities(null);
 		}else if(name.equals("Normal")) {
-			weaknesses = new int[] {FIGHTING};
-			resistances = null;
-			immunities = null;
+			setType(NORMAL);
+			setWeaknesses(new int[] {FIGHTING});
+			setResistances(null);
+			setImmunities(null);
 		}
 		
 	}
 	
 	public String getTypeName() {
 		return name;
+	}
+
+	public int[] getWeaknesses() {
+		return weaknesses;
+	}
+
+	public void setWeaknesses(int[] weaknesses) {
+		this.weaknesses = weaknesses;
+	}
+
+	public int[] getResistances() {
+		return resistances;
+	}
+
+	public void setResistances(int[] resistances) {
+		this.resistances = resistances;
+	}
+
+	public int[] getImmunities() {
+		return immunities;
+	}
+
+	public void setImmunities(int[] immunities) {
+		this.immunities = immunities;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 }

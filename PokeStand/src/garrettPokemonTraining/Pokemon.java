@@ -25,7 +25,9 @@ public class Pokemon {
 	private int spd;
 	private int stageSpd;
 	private int level;
-	private double[] multipliers = {1, .66, .5, .4, .33, .28, .25};
+	private double[] typeMultipliers = {0, .25, .5, 1, 2, 4};
+	private int typeMultiplerIndex = 3;
+	private double[] statMultipliers = {1, .66, .5, .4, .33, .28, .25};
 	private String image;
 	public ArrayList<Move> moves;
 	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
@@ -259,7 +261,7 @@ public class Pokemon {
 	}
 
 	public void setType2(String type2) {
-		this.type2 = new Type("type2");
+		this.type2 = new Type(type2);
 	}
 
 	public Type getType1() {
@@ -267,7 +269,7 @@ public class Pokemon {
 	}
 
 	public void setType1(String type1) {
-		this.type1 = new Type("type1");
+		this.type1 = new Type(type1);
 	}
 
 	public int getCurrentHp() {
@@ -329,7 +331,7 @@ public class Pokemon {
 	}
 	
 	public double[] getMultipliers() {
-		return multipliers;
+		return statMultipliers;
 	}
 
 	public CustomRect getHpBar() {
@@ -354,5 +356,21 @@ public class Pokemon {
 
 	public void setLevel(int level) {
 		this.level = level;
+	}
+
+	public double[] getTypeMultipliers() {
+		return typeMultipliers;
+	}
+
+	public void setTypeMultipliers(double[] typeMultipliers) {
+		this.typeMultipliers = typeMultipliers;
+	}
+
+	public int getTypeMultiplerIndex() {
+		return typeMultiplerIndex;
+	}
+
+	public void setTypeMultiplerIndex(int typeMultiplerIndex) {
+		this.typeMultiplerIndex = typeMultiplerIndex;
 	}
 }
