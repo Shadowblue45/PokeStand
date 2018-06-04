@@ -259,7 +259,7 @@ public class Pokemon {
 	}
 
 	public void setType2(String type2) {
-		this.type2 = new Type("type2");
+		this.type2 = new Type(type2);
 	}
 
 	public Type getType1() {
@@ -267,7 +267,7 @@ public class Pokemon {
 	}
 
 	public void setType1(String type1) {
-		this.type1 = new Type("type1");
+		this.type1 = new Type(type1);
 	}
 
 	public int getCurrentHp() {

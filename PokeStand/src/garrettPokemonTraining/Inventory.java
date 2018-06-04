@@ -28,7 +28,7 @@ public class Inventory {
 	public void save() {
 		try{    
 			FileWriter fw=new FileWriter("resources/pokemon.csv");
-			fw.write(pokemon.getName()+","+ pokemon.getType1() +","+pokemon.getType2()+
+			fw.write(pokemon.getName()+","+ pokemon.getType1().getTypeName()+","+pokemon.getType2().getTypeName()+
 					","+Integer.toString(pokemon.getHp())+","+Integer.toString(pokemon.getAtk())+","+Integer.toString(pokemon.getDef())
 					+","+Integer.toString(pokemon.getsAtk())+","+Integer.toString(pokemon.getsDef())+","+Integer.toString(pokemon.getSpd())+","+pokemon.getImage() +
 					"," + pokemon.getLevel() + "\n");
