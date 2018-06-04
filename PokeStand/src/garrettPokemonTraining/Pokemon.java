@@ -134,13 +134,11 @@ public class Pokemon {
 		if(name.equals("Turtwig")) {
 			moves.add(Move.BITE);
 			moves.add(Move.TACKLE);
-			moves.add(Move.ABSORB);
 			moves.add(Move.RAZORLEAF);
 		}
 		if(name.equals("Treecko")) {
 			moves.add(Move.LEER);
 			moves.add(Move.POUND);
-			moves.add(Move.ABSORB);
 			moves.add(Move.QUICKATTACK);
 		}
 		if(name.equals("Snivy")) {

@@ -27,7 +27,6 @@ public class Move {
 	public static Move TACKLE = new Move("Tackle","Normal",40,100,35,false,-1,0);
 	public static Move FLAMEWHEEL = new Move("Flame Wheel","Fire",60,100,25,false,-1,0);
 	public static Move FURYSWIPES = new Move("Fury Swipes","Normal",18,80,15,false,-1,0);
-	public static Move ABSORB = new Move("Absorb","Grass",20,100,25,true,-1,0);
 	public static Move RAZORLEAF = new Move("Razor Leaf","Grass",55,95,25,false,-1,0);
 	public static Move POUND = new Move("Pound","Normal",40,100,35,false,-1,0);
 	public static Move QUICKATTACK = new Move("Quick Attack", "Normal", 40, 100, 30, false,-1,0);
