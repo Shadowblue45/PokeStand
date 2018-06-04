@@ -89,7 +89,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		pokemonN.setCustomTextColor(Color.black);
 		viewObjects.add(pokemonN);
 		
-		pokemonL = new TextArea(115,185,600,50,"-");
+		pokemonL = new TextArea(115,180,600,50,Integer.toString(PokeStart.inventory.pokemon.getLevel()));
 		pokemonL.setCustomTextColor(Color.black);
 		viewObjects.add(pokemonL);
 		

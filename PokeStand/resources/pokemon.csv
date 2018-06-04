@@ -1,6 +1,6 @@
-Turtwig,garrettPokemonTraining.Type@a55124,garrettPokemonTraining.Type@35975c95,30,23,14,54,21,2333,resources/grass/Turtwig.png,5
-Bite,garrettPokemonTraining.Type@5e21ec0c,60,100,25,false,-1,0
-Tackle,garrettPokemonTraining.Type@198a5902,40,100,35,false,-1,0
-Razor Leaf,garrettPokemonTraining.Type@681ced7b,55,95,25,false,-1,0
+Treecko,garrettPokemonTraining.Type@689f65a8,garrettPokemonTraining.Type@1d5fbb43,30,23,14,54,21,2333,resources/grass/Treecko.png,5
+Leer,garrettPokemonTraining.Type@2ba42f95,0,100,30,false,1,1
+Pound,garrettPokemonTraining.Type@6edfb5d9,40,100,35,false,-1,0
+Quick Attack,garrettPokemonTraining.Type@5627f939,40,100,30,false,-1,0
 0,30,0,0
 0,0,0,0,0,0,0,0,
