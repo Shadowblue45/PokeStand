@@ -86,8 +86,8 @@ public class MainMenuScreen extends FullFunctionScreen {
 		PokeStart.setPokemonSunFont(18f);
 		p = PokeStart.inventory.getPokemon();
 
-		info = new TextArea(1020,60,500,360,"Type1: " + p.getType1() + "\n" +
-				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+		info = new TextArea(1020,60,500,360,"Type1: " + p.getType1().getTypeName() + "\n" +
+				"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 				"Spd: " + p.getSpd() + "\n");
