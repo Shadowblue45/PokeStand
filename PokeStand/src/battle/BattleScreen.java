@@ -159,14 +159,14 @@ public class BattleScreen extends FullFunctionScreen{
 		//set user pokemon, hp and name
 		info = new TextArea(90,530,getWidth(),getHeight(),"");
 		userPokemonSprite = new Graphic(150,270,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
-		CustomRect userTotalHp = new CustomRect(925,402,260,20,Color.red);
-		userCurrentHp = new CustomRect(925,402,1,20,Color.green);
+		CustomRect userTotalHp = new CustomRect(925,403,261,20,Color.red);
+		userCurrentHp = new CustomRect(925,403,1,20,Color.green);
 		userName = new TextLabel(890,350,500,100,"");
 		
 		//set enemy pokemon, hp and name
 		//enemyPokemonSprite = new Graphic(825,60,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
 		enemyCurrentHp = new CustomRect(273,146,1,20,Color.green);
-		CustomRect enemyTotalHp = new CustomRect(273,146,260,20,Color.red);
+		CustomRect enemyTotalHp = new CustomRect(273,146,261,20,Color.red);
 		enemyName = new TextLabel(265,95,500,100,"");
 		
 		//adding all objects to viewObjects

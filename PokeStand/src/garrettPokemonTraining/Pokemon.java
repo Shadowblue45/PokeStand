@@ -282,7 +282,7 @@ public class Pokemon {
 				this.alive = false;
 			}
 			else {
-				int HpSize = (int) (260*divide);
+				int HpSize = (int) (261*divide);
 				hpBar.setDimensions(HpSize, 20);
 			}
 		}
