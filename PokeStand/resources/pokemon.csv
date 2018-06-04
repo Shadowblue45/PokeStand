@@ -1,33 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-Popplio,Water,,30,23,14,54,21,24,resources/water/Popplio.png
-Growl,Normal,0,100,40,false,0,1
-=======
-<<<<<<< HEAD
-Charmander,Fire,,30,23,14,54,21,30,resources/fire/Charmander.png,5
-Growl,Normal,0,100,40,false,0,1
-Scratch,Normal,40,100,35,false,-1,0
-Ember,Fire,40,100,25,true,-1,0
-Scary Face,Normal,0,100,10,false,4,2
-=======
-Treecko,Grass,,30,23,14,54,21,2333,resources/grass/Treecko.png
-Leer,Normal,0,100,30,false,1,1
->>>>>>> refs/heads/develop
-Pound,Normal,40,100,35,false,-1,0
-<<<<<<< HEAD
-Water Gun,Water,40,100,25,true,-1,0
-Aqua Jet,Water,40,100,20,true,-1,0
-=======
-Absorb,Grass,20,100,25,true,-1,0
-Quick Attack,Normal,40,100,30,false,-1,0
->>>>>>> refs/remotes/origin/develop
->>>>>>> refs/heads/develop
-=======
-Charmander,garrettPokemonTraining.Type@13d59b58,garrettPokemonTraining.Type@5ab53190,30,23,14,54,21,30,resources/fire/Charmander.png,5
-Growl,garrettPokemonTraining.Type@14ae2b93,0,100,40,false,0,1
-Scratch,garrettPokemonTraining.Type@37da3174,40,100,35,false,-1,0
-Ember,garrettPokemonTraining.Type@774d2ccf,40,100,25,true,-1,0
-Scary Face,garrettPokemonTraining.Type@1cb04b28,0,100,10,false,4,2
->>>>>>> refs/remotes/origin/develop
+Treecko,garrettPokemonTraining.Type@119105ba,garrettPokemonTraining.Type@7aaabcd9,30,23,14,54,21,2333,resources/grass/Treecko.png,5
+Leer,garrettPokemonTraining.Type@30328774,0,100,30,false,1,1
+Pound,garrettPokemonTraining.Type@a950b74,40,100,35,false,-1,0
+Absorb,garrettPokemonTraining.Type@484c2b4,20,100,25,true,-1,0
+Quick Attack,garrettPokemonTraining.Type@7b5d509,40,100,30,false,-1,0
 0,30,0,0
 0,0,0,0,0,0,0,0,

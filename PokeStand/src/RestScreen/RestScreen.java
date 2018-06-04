@@ -51,7 +51,6 @@ public class RestScreen extends FullFunctionScreen {
 		String[] pokePic = PokeStart.inventory.getPokemonImages(); 
 		int pIndex = PokeStart.inventory.pokemonIndex;
 		
-		
 	    background = new Graphic(0, 0, getWidth(),getHeight(), "resources/HealAnimation/0.jpg");
 		viewObjects.add(background);
 		
@@ -90,6 +89,23 @@ public class RestScreen extends FullFunctionScreen {
 			public void act() {
 				AudioTest.playSound("resources/Music/rest.wav");
 				viewObjects.remove(background);
+				Thread hold = new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						
+
+						try {
+							Thread.sleep(100);
+							System.out.println("check");
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+					}
+				});
+				hold.start();
 				yes.setVisible(false);
 				no.setVisible(false);
 				textB.setVisible(false);
