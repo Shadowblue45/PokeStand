@@ -302,6 +302,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				backButton.setEnabled(true);
 				PokeStart.inventory.uPoints += 5;
 				PokeStart.inventory.fatigue += 5;
+				PokeStart.shopScreen.setDollars(PokeStart.shopScreen.getDollars() + 250);
 				System.out.println(PokeStart.inventory.fatigue);
 				System.out.println(PokeStart.inventory.uPoints);
 				updateFatigue(viewObjects);
