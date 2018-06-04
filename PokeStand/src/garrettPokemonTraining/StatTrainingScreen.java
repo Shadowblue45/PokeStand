@@ -82,6 +82,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			}
 
 		});
+		backButton.setBackground(Color.YELLOW);
+		backButton.update();
 		viewObjects.add(backButton);
 		attack = new Button(100,600,125,50,"Attack",new Action() {
 

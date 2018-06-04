@@ -35,7 +35,7 @@ public class Inventory {
 			for(Move m: pokemon.getMoves()){
 				fw.write(m+"\n");    	
 			}
-			fw.write(Integer.toString(pokemonIndex) + "," + Integer.toString(daysLeft) + "," + Integer.toString(fatigue) + "," + Integer.toString(uPoints) + "\n");
+			fw.write(Integer.toString(pokemonIndex) + "," + Integer.toString(daysLeft) + "," + Integer.toString(fatigue) + "," + Integer.toString(uPoints) + "," + Integer.toString(PokeStart.shopScreen.getDollars()) + "\n");
 			for(int i = 0; i < PokeStart.shopScreen.getItemQuantity().length; i++) {
 				fw.write(Integer.toString(PokeStart.shopScreen.getItemQuantity()[i]) + ",");
 			}
@@ -80,11 +80,12 @@ public class Inventory {
 						PokeStart.shopScreen.setItemQuantity();
 					}
 				}
-				if(param.length == 4) {
+				if(param.length == 5) {
 					pokemonIndex = Integer.parseInt(param[0]);
 					daysLeft = Integer.parseInt(param[1]);
 					fatigue = Integer.parseInt(param[2]);
 					uPoints = Integer.parseInt(param[3]);
+					PokeStart.shopScreen.setDollars(Integer.parseInt(param[4]));
 				}
 			}
 			br.close();

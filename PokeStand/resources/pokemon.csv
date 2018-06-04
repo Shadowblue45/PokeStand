@@ -1,7 +1,7 @@
 Charmander,Fire,,30,23,14,54,21,30,resources/fire/Charmander.png,5
-Growl,garrettPokemonTraining.Type@140d9a07,0,100,40,false,0,1
-Scratch,garrettPokemonTraining.Type@3f8b102a,40,100,35,false,-1,0
-Ember,garrettPokemonTraining.Type@605e8e95,40,100,25,true,-1,0
-Scary Face,garrettPokemonTraining.Type@230ac04e,0,100,10,false,4,2
-0,30,0,0
-0,0,0,0,0,0,0,0,
+Growl,garrettPokemonTraining.Type@5233021f,0,100,40,false,0,1
+Scratch,garrettPokemonTraining.Type@5aa1d570,40,100,35,false,-1,0
+Ember,garrettPokemonTraining.Type@3560069,40,100,25,true,-1,0
+Scary Face,garrettPokemonTraining.Type@6e78ad6d,0,100,10,false,4,2
+0,30,0,0,500
+0,0,0,0,5,0,0,0,
