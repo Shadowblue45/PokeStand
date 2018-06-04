@@ -1,7 +1,6 @@
-Turtwig,garrettPokemonTraining.Type@3d00ad55,garrettPokemonTraining.Type@7681a56f,30,23,14,54,21,2333,resources/grass/Turtwig.png,5
-Bite,garrettPokemonTraining.Type@f9923f6,60,100,25,false,-1,0
-Tackle,garrettPokemonTraining.Type@7a4243f2,40,100,35,false,-1,0
-Absorb,garrettPokemonTraining.Type@31d8e864,20,100,25,true,-1,0
-Razor Leaf,garrettPokemonTraining.Type@1672f038,55,95,25,false,-1,0
+Turtwig,garrettPokemonTraining.Type@a55124,garrettPokemonTraining.Type@35975c95,30,23,14,54,21,2333,resources/grass/Turtwig.png,5
+Bite,garrettPokemonTraining.Type@5e21ec0c,60,100,25,false,-1,0
+Tackle,garrettPokemonTraining.Type@198a5902,40,100,35,false,-1,0
+Razor Leaf,garrettPokemonTraining.Type@681ced7b,55,95,25,false,-1,0
 0,30,0,0
 0,0,0,0,0,0,0,0,

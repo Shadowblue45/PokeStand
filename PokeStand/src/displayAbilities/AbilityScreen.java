@@ -3,6 +3,7 @@ package displayAbilities;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import guiTeacher.components.Action;
@@ -31,20 +32,27 @@ public class AbilityScreen extends FullFunctionScreen {
 	Button move3;
 	Button move4;
 	
+	private ArrayList<Button> actionB;
+	
 	TextArea nMove1;
 	TextArea nMove2;
 	TextArea nMove3;
 	TextArea nMove4;
 	
+	private TextArea[] move = {nMove1,nMove2,nMove3,nMove4};
+	private ArrayList<TextArea> moveA;
+	
 	TextArea pp1;
 	TextArea pp2;
 	TextArea pp3;
 	TextArea pp4;
+	private ArrayList<TextArea> pp;
 	
 	Graphic t1;
 	Graphic t2;
 	Graphic t3;
 	Graphic t4;
+	private ArrayList<Graphic> graphics;
 	
 	
 
@@ -112,7 +120,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		back.setForeground(Color.white);
 		viewObjects.add(back);
 		StyledComponent.setButtonOutline(true);
-		
+		/*
 		move1 = new Button(612,180,600,120,"",new Action() {
 			
 			@Override
@@ -164,7 +172,28 @@ public class AbilityScreen extends FullFunctionScreen {
 	
 		move4.setForeground(Color.white);
 		viewObjects.add(move4);
-		
+		*/
+		createButtons();
+		for(Button b: actionB) {
+			b.setForeground(Color.white);
+			b.setEnabled(true);
+			viewObjects.add(b);
+		}
+		createTextAreaM();
+		for(TextArea b: moveA) {
+			b.setForeground(Color.white);
+			viewObjects.add(b);
+		}
+		createTextAreaPp();
+		for(TextArea b: pp) {
+			b.setForeground(Color.white);
+			viewObjects.add(b);
+		}
+		createGraphic();
+		for(Graphic b: graphics) {
+			viewObjects.add(b);
+		}
+		/*
 		nMove1 = new TextArea(780,200,600,120,PokeStart.inventory.pokemon.getMoves().get(0).getName());
 		nMove1.setForeground(Color.WHITE);
 		viewObjects.add(nMove1);
@@ -209,10 +238,55 @@ public class AbilityScreen extends FullFunctionScreen {
 		t4 = new Graphic(630,560,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(3).getType().getTypeName()+".png");
 		viewObjects.add(t4);
 
+		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
+			//pp[i] = new TextArea(950,250,600,120,Integer.toString(PokeStart.inventory.pokemon.getMoves().get(0).getCurrentPp()) + "/" +Integer.toString(PokeStart.inventory.pokemon.getMoves().get(0).getPp()));
+		}
+		*/
 		
 		
-		
-		
+	}
+	public void createButtons() {
+		actionB = new ArrayList<Button>();
+		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
+			int x=i;
+			Button b = new Button(612,180+(120*i),600,120,"", new Action() {
+
+				@Override
+				public void act() {
+					actionB.get(x).setEnabled(true);
+					category.setText(PokeStart.inventory.pokemon.getMoves().get(x).getType().getTypeName());
+					power.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(x).getPower()));
+					accuracy.setText(Integer.toString(PokeStart.inventory.pokemon.getMoves().get(x).getAccuracy()));
+					
+				}
+
+			});
+			actionB.add(b);
+		} 
+	}
+	
+	public void createTextAreaM() {
+		moveA = new ArrayList<TextArea>();
+		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
+			TextArea b =new TextArea(780,200+(120*i),600,120,PokeStart.inventory.pokemon.getMoves().get(i).getName());
+			moveA.add(b);
+		} 
+	}
+	
+	public void createTextAreaPp() {
+		pp = new ArrayList<TextArea>();
+		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
+			TextArea b =new TextArea(950,250+(120*i),600,120,Integer.toString(PokeStart.inventory.pokemon.getMoves().get(i).getCurrentPp()) + "/" +Integer.toString(PokeStart.inventory.pokemon.getMoves().get(i).getPp()));
+			pp.add(b);
+		} 
+	}
+	
+	public void createGraphic() {
+		graphics = new ArrayList<Graphic>();
+		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
+			Graphic b =new Graphic(630,200+(120*i),100,100,"resources/type/"+PokeStart.inventory.pokemon.getMoves().get(i).getType().getTypeName()+".png");
+			graphics.add(b);
+		} 
 	}
 
 }
