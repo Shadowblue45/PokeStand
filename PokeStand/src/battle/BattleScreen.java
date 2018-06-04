@@ -93,6 +93,10 @@ public class BattleScreen extends FullFunctionScreen{
 			});
 			i++;
 		}
+		if(enemyPokemon.getSpd() > userPokemon.getSpd()) {
+			removeMoves();
+			runTurn();
+		}
 	}
 	
 	public void setInfoText(String text) {
@@ -186,9 +190,11 @@ public class BattleScreen extends FullFunctionScreen{
 	
 	public void removeMoves() {
 		for(int i = 0 ; i < 4 ; i++) {
+			if(buttonArr[i] != null) {
 			viewObjects.remove(buttonArr[i]);
 			buttonArr[i].setEnabled(false);
 			buttonArr[i].update();
+			}
 		}
 	}
 	
@@ -199,11 +205,6 @@ public class BattleScreen extends FullFunctionScreen{
 			buttonArr[i].update();
 		}
 	}
-	
-	public void turn() {
-		
-	}
-	
 	
 	public void setMoves(List<Visible> viewObjects) {
 		PokeStart.setPokemonTextFont(48f);
