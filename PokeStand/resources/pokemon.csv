@@ -1,30 +1,7 @@
-<<<<<<< HEAD
-Cyndaquil,garrettPokemonTraining.Type@53a1df91,garrettPokemonTraining.Type@63638df3,30,23,14,54,21,13,resources/fire/Cyndaquil.png,5
-Leer,garrettPokemonTraining.Type@6aa688d0,0,100,30,false,1,1
-Tackle,garrettPokemonTraining.Type@66fd3d2d,40,100,35,false,-1,0
-Ember,garrettPokemonTraining.Type@55cfc23d,40,100,25,true,-1,0
-Flame Wheel,garrettPokemonTraining.Type@d48fed5,60,100,25,false,-1,0
-=======
-<<<<<<< HEAD
-Treecko,garrettPokemonTraining.Type@1c8bd756,garrettPokemonTraining.Type@365f0aeb,30,23,14,54,21,2333,resources/grass/Treecko.png,5
-Leer,garrettPokemonTraining.Type@2e30d880,0,100,30,false,1,1
-Pound,garrettPokemonTraining.Type@3a5402de,40,100,35,false,-1,0
-Quick Attack,garrettPokemonTraining.Type@19a9518f,40,100,30,false,-1,0
-=======
-<<<<<<< HEAD
-Charmander,garrettPokemonTraining.Type@22e90b81,garrettPokemonTraining.Type@7b742499,30,23,14,54,21,30,resources/fire/Charmander.png,5
-Growl,garrettPokemonTraining.Type@4d12b9a8,0,100,40,false,0,1
-Scratch,garrettPokemonTraining.Type@6aa688d0,40,100,35,false,-1,0
-Ember,garrettPokemonTraining.Type@66fd3d2d,40,100,25,true,-1,0
-Scary Face,garrettPokemonTraining.Type@55cfc23d,0,100,10,false,4,2
-=======
-Snivy,garrettPokemonTraining.Type@68d32631,garrettPokemonTraining.Type@2b8069cb,30,23,14,54,21,2333,resources/grass/Snivy.png,5
-Leer,garrettPokemonTraining.Type@632e4065,0,100,30,false,1,1
-Tackle,garrettPokemonTraining.Type@5c1be9db,40,100,35,false,-1,0
-Vine Whip,garrettPokemonTraining.Type@415d3345,45,100,25,false,-1,0
-Wrap,garrettPokemonTraining.Type@45e08f16,15,90,20,false,-1,0
->>>>>>> branch 'FahadandDavidYBranch' of https://github.com/Shadowblue45/PokeStand.git
->>>>>>> refs/remotes/origin/develop
->>>>>>> branch 'develop' of https://github.com/Shadowblue45/PokeStand.git
+Froakie,garrettPokemonTraining.Type@5603f7f3,garrettPokemonTraining.Type@2f26662c,30,23,14,54,21,22,resources/water/Froakie.png,5
+Growl,garrettPokemonTraining.Type@19b288fa,0,100,40,false,0,1
+Pound,garrettPokemonTraining.Type@2d7856c6,40,100,35,false,-1,0
+Bubble,garrettPokemonTraining.Type@59cce889,40,100,30,true,-1,0
+Quick Attack,garrettPokemonTraining.Type@6ce64914,40,100,30,false,-1,0
 0,30,0,0
 0,0,0,0,0,0,0,0,
