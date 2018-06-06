@@ -93,6 +93,10 @@ public class BattleScreen extends FullFunctionScreen{
 			});
 			i++;
 		}
+		if(enemyPokemon.getSpd() > userPokemon.getSpd()) {
+			removeMoves();
+			runTurn();
+		}
 	}
 	
 	public void setInfoText(String text) {
@@ -159,14 +163,14 @@ public class BattleScreen extends FullFunctionScreen{
 		//set user pokemon, hp and name
 		info = new TextArea(90,530,getWidth(),getHeight(),"");
 		userPokemonSprite = new Graphic(150,270,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
-		CustomRect userTotalHp = new CustomRect(925,402,260,20,Color.red);
-		userCurrentHp = new CustomRect(925,402,1,20,Color.green);
+		CustomRect userTotalHp = new CustomRect(925,403,261,20,Color.red);
+		userCurrentHp = new CustomRect(925,403,1,20,Color.green);
 		userName = new TextLabel(890,350,500,100,"");
 		
 		//set enemy pokemon, hp and name
 		//enemyPokemonSprite = new Graphic(825,60,getWidth()/2,getHeight()/2,"resources/pokebacks/charmander back.png");
 		enemyCurrentHp = new CustomRect(273,146,1,20,Color.green);
-		CustomRect enemyTotalHp = new CustomRect(273,146,260,20,Color.red);
+		CustomRect enemyTotalHp = new CustomRect(273,146,261,20,Color.red);
 		enemyName = new TextLabel(265,95,500,100,"");
 		
 		//adding all objects to viewObjects
@@ -186,9 +190,11 @@ public class BattleScreen extends FullFunctionScreen{
 	
 	public void removeMoves() {
 		for(int i = 0 ; i < 4 ; i++) {
+			if(buttonArr[i] != null) {
 			viewObjects.remove(buttonArr[i]);
 			buttonArr[i].setEnabled(false);
 			buttonArr[i].update();
+			}
 		}
 	}
 	
@@ -199,11 +205,6 @@ public class BattleScreen extends FullFunctionScreen{
 			buttonArr[i].update();
 		}
 	}
-	
-	public void turn() {
-		
-	}
-	
 	
 	public void setMoves(List<Visible> viewObjects) {
 		PokeStart.setPokemonTextFont(48f);
@@ -291,19 +292,22 @@ public class BattleScreen extends FullFunctionScreen{
 		if(str.equals("Suicune")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
 			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 1, 0, 5, 85, 69, 10);
+				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 150, 0, 5, 85, 69, 10);
+				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 150, 0, 75, 85, 70, 6);
 			}
 		}
 		else if(str.equals("Entei")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
 			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 1, 1, 1, 78, 71, 7);
+				enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 1, 1, 78, 71, 7);
 			}
+			enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 1, 73, 78, 71, 10);
+			enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 0, 148, 77, 71, 4);
 		}
 		else if(str.equals("Raikou")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
 			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 1, 0, 3, 86, 71, 9);
+				enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 150, 0, 3, 86, 71, 9);
 			}
 		}
 	}
