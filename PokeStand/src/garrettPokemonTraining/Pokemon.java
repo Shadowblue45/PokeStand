@@ -137,17 +137,19 @@ public class Pokemon {
 			moves.add(Move.BITE);
 			moves.add(Move.TACKLE);
 			moves.add(Move.RAZORLEAF);
+			moves.add(null);
 		}
 		if(name.equals("Treecko")) {
 			moves.add(Move.LEER);
 			moves.add(Move.POUND);
 			moves.add(Move.QUICKATTACK);
+			moves.add(null);
 		}
 		if(name.equals("Snivy")) {
 			moves.add(Move.LEER);
 			moves.add(Move.TACKLE);
 			moves.add(Move.VINEWHIP);
-			moves.add(Move.WRAP);
+			moves.add(null);
 		}
 		if(name.equals("Popplio")) {
 			moves.add(Move.GROWL);
