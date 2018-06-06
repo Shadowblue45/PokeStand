@@ -3,6 +3,7 @@ package rickyShopInteract;
 import java.util.List;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import startGame.PokeStart;
 
 public class RickyUpgradesScreen extends FullFunctionScreen {
 
@@ -14,6 +15,8 @@ public class RickyUpgradesScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
+		int level = PokeStart.inventory.getPokemon().getLevel();
+
 		
 	}
 
