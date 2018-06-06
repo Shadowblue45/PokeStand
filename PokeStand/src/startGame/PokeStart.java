@@ -1,7 +1,10 @@
 package startGame;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.io.File;
+
+import javax.imageio.ImageIO;
 
 import Credits.CreditsScreen;
 import RestScreen.RestScreen;
@@ -44,6 +47,12 @@ public class PokeStart extends GUIApplication {
 
 	@Override
 	public void initScreen() {
+		try{    
+		       setIconImage(ImageIO.read(new File("resources/coolicon.png")));   
+		   }
+		catch (Exception ex){
+		       //do something
+		   }
 		inventory = new Inventory();
 		PokeStart.inventory.fatigue = 0;
 		loadScreen = new LoadScreen(getWidth(), getHeight());
