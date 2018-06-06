@@ -292,9 +292,11 @@ public class BattleScreen extends FullFunctionScreen{
 		if(str.equals("Suicune")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
 			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 150, 0, 5, 85, 69, 10);
-				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 150, 0, 75, 85, 70, 6);
+				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 100, 0, 5, 85, 69, 10);
+				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 100, 0, 75, 85, 70, 6);
 			}
+			enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 100, 0, 148, 85, 70, 10);
+			enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 100, 0, 221, 85, 72, 6);
 		}
 		else if(str.equals("Entei")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
