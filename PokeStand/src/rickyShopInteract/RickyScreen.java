@@ -118,17 +118,18 @@ public class RickyScreen extends FullFunctionScreen {
 		for(int i = 0; i < itemsInShop.size()/2; i++) {
 			StyledComponent.setButtonOutline(true);
 			Button b = new Button(50, 50 + i*150, 565, 150, "",null);
+//			CustomRect b = new CustomRect(50, 50 + i*150, 565, 150,new Color(255,165,0,144));
 			b.setEnabled(false);
-			b.setBackground(new Color(255,165,0,250));
-			b.update();
 			viewObjects.add(b);
+			b.setBackground(new Color(255,165,0,100));
+			b.update();
 		}
 		
 		for(int i = itemsInShop.size()/2; i < itemsInShop.size(); i++) {
 			StyledComponent.setButtonOutline(true);
 			Button b = new Button(655, -550 + i*150, 565, 150, "",null);
 			b.setEnabled(false);
-			b.setBackground(Color.ORANGE);
+			b.setBackground(new Color(255,165,0,100));
 			b.update();
 			viewObjects.add(b);
 		}
@@ -336,6 +337,7 @@ public class RickyScreen extends FullFunctionScreen {
 
 	public void setDollars(int dollars) {
 		this.dollars = dollars;
+		z.setText(Integer.toString(dollars));
 	}
 
 	public int[] getItemQuantity() {
