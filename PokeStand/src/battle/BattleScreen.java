@@ -328,7 +328,10 @@ public class BattleScreen extends FullFunctionScreen{
 			for(int i = 0; i < 1; i++) {
 				enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 150, 0, 1, 86, 71, 9);
 			}
-			enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 300, 0, 74, 86, 71, 9);
+			enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 150, 0, 74, 86, 71, 1);
+			enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 150, 82, 74, 86, 71, 9);
+			enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 150, 1, 148, 86, 71, 10);
+			//enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 150, 82, 148, 86, 71, 9);
 		}
 	}
 }
