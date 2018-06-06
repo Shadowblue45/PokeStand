@@ -145,7 +145,6 @@ public class Pokemon {
 			moves.add(Move.LEER);
 			moves.add(Move.TACKLE);
 			moves.add(Move.VINEWHIP);
-			moves.add(Move.WRAP);
 		}
 		if(name.equals("Popplio")) {
 			moves.add(Move.GROWL);
