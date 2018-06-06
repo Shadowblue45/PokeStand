@@ -1,7 +1,6 @@
 package rickyShopInteract;
 
 import java.util.List;
-
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
