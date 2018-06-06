@@ -172,7 +172,7 @@ public class BattleScreen extends FullFunctionScreen{
 		enemyCurrentHp = new CustomRect(273,146,1,20,Color.green);
 		CustomRect enemyTotalHp = new CustomRect(273,146,261,20,Color.red);
 		enemyName = new TextLabel(265,95,500,100,"");
-		
+		//TextArea userLevel = new TextArea(780,350,100,50,Integer.toString(userPokemon.getLevel()));
 		//adding all objects to viewObjects
 		viewObjects.add(battle);
 		//viewObjects.add(enemyPokemonSprite);		
@@ -185,6 +185,7 @@ public class BattleScreen extends FullFunctionScreen{
 		viewObjects.add(userName);
 		viewObjects.add(enemyName);	
 		viewObjects.add(info);
+		//viewObjects.add(userLevel);
 		setMoves(viewObjects);
 	}
 	
@@ -201,7 +202,11 @@ public class BattleScreen extends FullFunctionScreen{
 	public void addMoves() {
 		for(int i = 0 ; i < 4 ; i++) {
 			viewObjects.add(buttonArr[i]);
+			if(userPokemon.getMoves().get(i) != null) {
 			buttonArr[i].setEnabled(true);
+			}else {
+				buttonArr[i].setEnabled(false);
+			}
 			buttonArr[i].update();
 		}
 	}
@@ -217,13 +222,25 @@ public class BattleScreen extends FullFunctionScreen{
 				x = 125;
 				y = 620;
 			}
-			Button button = new Button(x,y,500,65,(Inventory.pokemon.getMoves().get(temp).getName()), null);
-			x+= 520;
-			viewObjects.add(button);
-			button.setBackground(new Color(0,0,0,140));
-			button.update();
-			button.setForeground(Color.white);
-			this.buttonArr[i] = button;
+			//System.out.println(Inventory.pokemon.getMoves().get(temp));
+			if(Inventory.pokemon.getMoves().get(temp) != null) {
+				Button button = new Button(x,y,500,65,(Inventory.pokemon.getMoves().get(temp).getName()), null);
+				x+= 520;
+				viewObjects.add(button);
+				button.setBackground(new Color(0,0,0,140));
+				button.update();
+				button.setForeground(Color.white);
+				this.buttonArr[i] = button;
+			}else {
+				Button button = new Button(x,y,500,65,"", null);
+				x+= 520;
+				viewObjects.add(button);
+				button.setBackground(new Color(0,0,0,140));
+				button.update();
+				button.setForeground(Color.white);
+				this.buttonArr[i] = button;
+				buttonArr[temp].setEnabled(false);
+			}
 		}
 	}
 

@@ -119,6 +119,8 @@ public class Move {
 		if(stat >= 0) {
 			action.setTarget(target);
 			action.act();
+			PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ".");
+			
 		}else {
 			if((int)(Math.random() * 100) < accuracy) {
 				if(target.getType1().getWeaknesses() != null) {
@@ -160,9 +162,9 @@ public class Move {
 					}
 				}
 				if(isSpecial) {
-					target.setCurrentHp((int)(target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * target.getCurrentHp() - (this.power *(user.getsAtk()/target.getsDef())+1));
+					target.setCurrentHp((int)(target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * target.getCurrentHp() - (this.power *(user.getsAtk()*(int)(user.getMultipliers()[user.getStagesAtk()])/target.getsDef() *(int)(target.getMultipliers()[target.getStagesDef()]))+1));
 				}else {
-					target.setCurrentHp((int)(target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * target.getCurrentHp() - (this.power *(user.getAtk()/target.getDef())+1));
+					target.setCurrentHp((int)(target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * target.getCurrentHp() - (this.power *(user.getAtk()*(int)(user.getMultipliers()[user.getStageAtk()])/target.getDef() *(int)(target.getMultipliers()[target.getStageDef()]))+1));
 				}
 				if(target.getTypeMultiplerIndex() == 0) {
 					PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ", but " + target.getName() + " is immune!");

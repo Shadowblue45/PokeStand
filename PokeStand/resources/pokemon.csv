@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 Froakie,garrettPokemonTraining.Type@5603f7f3,garrettPokemonTraining.Type@2f26662c,30,23,14,54,21,22,resources/water/Froakie.png,5
 Growl,garrettPokemonTraining.Type@19b288fa,0,100,40,false,0,1
 Pound,garrettPokemonTraining.Type@2d7856c6,40,100,35,false,-1,0
 Bubble,garrettPokemonTraining.Type@59cce889,40,100,30,true,-1,0
 Quick Attack,garrettPokemonTraining.Type@6ce64914,40,100,30,false,-1,0
+=======
+Charmander,garrettPokemonTraining.Type@26034f53,garrettPokemonTraining.Type@3f3cda,30,23,14,54,21,30,resources/fire/Charmander.png,5
+Growl,garrettPokemonTraining.Type@27469018,0,100,40,false,0,1
+Scratch,garrettPokemonTraining.Type@15ad453e,40,100,35,false,-1,0
+Ember,garrettPokemonTraining.Type@58d32219,40,100,25,true,-1,0
+Scary Face,garrettPokemonTraining.Type@65f2cb6c,0,100,10,false,4,2
+>>>>>>> branch 'FahadandDavidYBranch' of https://github.com/Shadowblue45/PokeStand.git
 0,30,0,0
 0,0,0,0,0,0,0,0,
