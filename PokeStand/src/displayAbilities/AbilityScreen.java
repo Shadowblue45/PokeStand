@@ -189,9 +189,10 @@ public class AbilityScreen extends FullFunctionScreen {
 			b.setForeground(Color.white);
 			viewObjects.add(b);
 		}
+
 		createGraphic();
 		for(Graphic b: graphics) {
-			viewObjects.add(b);
+		viewObjects.add(b);
 		}
 		/*
 		nMove1 = new TextArea(780,200,600,120,PokeStart.inventory.pokemon.getMoves().get(0).getName());
