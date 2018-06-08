@@ -189,10 +189,10 @@ public class AbilityScreen extends FullFunctionScreen {
 			b.setForeground(Color.white);
 			viewObjects.add(b);
 		}
-		createGraphic();
-		for(Graphic b: graphics) {
-			viewObjects.add(b);
-		}
+//		createGraphic();
+//		for(Graphic b: graphics) {
+//			viewObjects.add(b);
+//		}
 		/*
 		nMove1 = new TextArea(780,200,600,120,PokeStart.inventory.pokemon.getMoves().get(0).getName());
 		nMove1.setForeground(Color.WHITE);
@@ -225,23 +225,21 @@ public class AbilityScreen extends FullFunctionScreen {
 		pp4 = new TextArea(950,610,600,120,Integer.toString(PokeStart.inventory.pokemon.getMoves().get(3).getCurrentPp()) + "/" +Integer.toString(PokeStart.inventory.pokemon.getMoves().get(3).getPp()));
 		pp1.setForeground(Color.white);
 		viewObjects.add(pp4);
-		
-		t1 = new Graphic(630,200,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(0).getType().getTypeName()+".png");
-		viewObjects.add(t1);
-		
-		t2 = new Graphic(630,320,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(1).getType().getTypeName()+".png");
-		viewObjects.add(t2);
-		
-		t3 = new Graphic(630,440,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(2).getType().getTypeName()+".png");
-		viewObjects.add(t3);
-		
-		t4 = new Graphic(630,560,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(3).getType().getTypeName()+".png");
-		viewObjects.add(t4);
-
-		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
-			//pp[i] = new TextArea(950,250,600,120,Integer.toString(PokeStart.inventory.pokemon.getMoves().get(0).getCurrentPp()) + "/" +Integer.toString(PokeStart.inventory.pokemon.getMoves().get(0).getPp()));
-		}
 		*/
+//		t1 = new Graphic(630,200,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(0).getType().getTypeName()+".png");
+//		viewObjects.add(t1);
+//		
+//		t2 = new Graphic(630,320,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(1).getType().getTypeName()+".png");
+//		viewObjects.add(t2);
+//		
+//		t3 = new Graphic(630,440,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(2).getType().getTypeName()+".png");
+//		viewObjects.add(t3);
+//		
+//		t4 = new Graphic(630,560,100,100, "resources/type/"+PokeStart.inventory.pokemon.getMoves().get(3).getType().getTypeName()+".png");
+//		viewObjects.add(t4);
+
+
+		
 		
 		
 	}
@@ -249,6 +247,7 @@ public class AbilityScreen extends FullFunctionScreen {
 		actionB = new ArrayList<Button>();
 		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
 			int x=i;
+			if(PokeStart.inventory.pokemon.getMoves().get(i) != null) {
 			Button b = new Button(612,180+(120*i),600,120,"", new Action() {
 
 				@Override
@@ -262,30 +261,42 @@ public class AbilityScreen extends FullFunctionScreen {
 
 			});
 			actionB.add(b);
+			}
+			else {
+				Button b = new Button(612,180+(120*i),600,120,"", null);
+				actionB.add(b);
+			}
 		} 
 	}
 	
 	public void createTextAreaM() {
 		moveA = new ArrayList<TextArea>();
 		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
+			if(PokeStart.inventory.pokemon.getMoves().get(i) != null) {
 			TextArea b =new TextArea(780,200+(120*i),600,120,PokeStart.inventory.pokemon.getMoves().get(i).getName());
 			moveA.add(b);
+			}
 		} 
 	}
 	
 	public void createTextAreaPp() {
 		pp = new ArrayList<TextArea>();
 		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
+			if(PokeStart.inventory.pokemon.getMoves().get(i) != null) {
 			TextArea b =new TextArea(950,250+(120*i),600,120,Integer.toString(PokeStart.inventory.pokemon.getMoves().get(i).getCurrentPp()) + "/" +Integer.toString(PokeStart.inventory.pokemon.getMoves().get(i).getPp()));
 			pp.add(b);
+			}
 		} 
 	}
 	
 	public void createGraphic() {
 		graphics = new ArrayList<Graphic>();
 		for(int i=0;i<PokeStart.inventory.pokemon.getMoves().size();i++) {
+			if(PokeStart.inventory.pokemon.getMoves().get(i)!= null) {
 			Graphic b =new Graphic(630,200+(120*i),100,100,"resources/type/"+PokeStart.inventory.pokemon.getMoves().get(i).getType().getTypeName()+".png");
 			graphics.add(b);
+			}
+
 		} 
 	}
 

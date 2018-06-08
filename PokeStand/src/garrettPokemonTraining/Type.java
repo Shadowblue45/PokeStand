@@ -93,7 +93,6 @@ public class Type {
 			setResistances(null);
 			setImmunities(null);
 		}
-		
 	}
 	
 	public String getTypeName() {

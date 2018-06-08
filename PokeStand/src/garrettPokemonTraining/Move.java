@@ -31,7 +31,6 @@ public class Move {
 	public static Move POUND = new Move("Pound","Normal",40,100,35,false,-1,0);
 	public static Move QUICKATTACK = new Move("Quick Attack", "Normal", 40, 100, 30, false,-1,0);
 	public static Move VINEWHIP = new Move("Vine Whip","Grass",45,100,25,false,-1,0);
-	public static Move WRAP = new Move("Wrap","Normal",15,90,20,false,-1,0);
 	public static Move WATERGUN = new Move("Water Gun","Water",40,100,25,true,-1,0);
 	public static Move AQUAJET = new Move("Aqua Jet","Water",40,100,20,true,-1,0);
 	public static Move BUBBLE = new Move("Bubble","Water",40,100,30,true,-1,0);
@@ -45,6 +44,31 @@ public class Move {
 	public static Move THUNDER = new Move("Thunder","Electric",110,70,10,true,-1,0);
 	public static Move CRUNCH = new Move("Crunch","Dark",80,100,15,false,-1,0);
 	public static Move DISCHARGE = new Move("Discharge","Electric",80,100,15,true,-1,0);
+	public static Move FLAMEBURST = new Move("Flame Burst","Fire",70,100,15,true,-1,0);
+	public static Move SLASH = new Move("Slash","Normal",70,100,20,false,-1,0);
+	public static Move FLAMETHROWER = new Move("Flamethrower","Fire",90,100,15,true,-1,0);
+	public static Move FLAMECHARGE = new Move("Flame Charge","Fire",50,100,20,false,-1,0);
+	public static Move LAVAPLUME = new Move("Lava Plume","Fire",80,100,15,true,-1,0);
+	public static Move MACHPUNCH = new Move("Mach Punch","Fighting",40,100,30,false,-1,0);
+	public static Move CLOSECOMBAT = new Move("Close Combat","Fighting",120,100,5,false,-1,0);
+	public static Move FLAREBLITZ = new Move("Flare Blitz","Fire",120,100,15,false,-1,0);
+	public static Move ENERGYBALL = new Move("Energy Ball","Grass",90,100,10,true,-1,0);
+	public static Move LEAFSTORM = new Move("Leaf Storm","Grass",130,90,5,true,-1,0);
+	public static Move EARTHQUAKE = new Move("Earthquake","Ground",100,100,10,false,-1,0);
+	public static Move LEAFBLADE = new Move("Leaf Blade","Grass",90,100,15,false,-1,0);
+	public static Move SLAM = new Move("Slam","Normal",80,75,20,false,-1,0);
+	public static Move SCREECH = new Move("Screech","Normal",0,85,40,false,PokemonAction.DEFENSE,2);
+	public static Move BUBBLEBEAM = new Move("Bubble Beam","Water",65,100,20,true,-1,0);
+	public static Move HYPERVOICE = new Move("Hyper Voice","Normal",90,100,10,true,-1,0);
+	public static Move SPARKLINGARIA = new Move("Sparkling Aria","Water",90,100,10,true,-1,0);
+	public static Move MOONBLAST = new Move("Moonblast","Fairy",95,100,15,true,-1,0);
+	public static Move WATERPULSE = new Move("Water Pulse","Water",60,100,20,true,-1,0);
+	public static Move ROUND = new Move("Round","Normal",60,100,15,true,-1,0);
+	public static Move MUDSHOT = new Move("Mud Shot","Ground",55,95,15,true,-1,0);
+	public static Move MUDBOMB = new Move("Mud Bomb","Ground",65,85,10,true,-1,0);
+	public static Move MUDDYWATER = new Move("Muddy Water","Water",90,85,10,true,-1,0);
+	public static Move ERUPTION = new Move("Eruption","Fire",150,100,5,true,-1,0);
+	public static Move LEAFTORNADO = new Move("Leaf Tornado","Grass",65,90,10,true,-1,0);
 	
 
 	public Move(String name, String type, int power, int accuracy, int pp, boolean isSpecial, int stat, int change) {
@@ -53,6 +77,7 @@ public class Move {
 		setPower(power);
 		setAccuracy(accuracy);
 		setPp(pp);
+		setCurrentPp(getPp());
 		this.isSpecial = isSpecial;
 		this.stat = stat;
 		this.change = change;
@@ -96,7 +121,7 @@ public class Move {
 	}
 
 	public String toString() {
-		return name + "," + type + "," + power + "," + accuracy + "," + pp + "," + isSpecial + "," + stat + "," + change;
+		return name + "," + type.getTypeName() + "," + power + "," + accuracy + "," + pp + "," + isSpecial + "," + stat + "," + change;
 	}
 
 	public int getCurrentPp() {
