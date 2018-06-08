@@ -93,6 +93,10 @@ public class BattleScreen extends FullFunctionScreen{
 			});
 			i++;
 		}
+		if(enemyPokemon.getSpd() > userPokemon.getSpd()) {
+			removeMoves();
+			runTurn();
+		}
 	}
 	
 	public void setInfoText(String text) {
@@ -168,7 +172,7 @@ public class BattleScreen extends FullFunctionScreen{
 		enemyCurrentHp = new CustomRect(273,146,1,20,Color.green);
 		CustomRect enemyTotalHp = new CustomRect(273,146,261,20,Color.red);
 		enemyName = new TextLabel(265,95,500,100,"");
-		
+		//TextArea userLevel = new TextArea(780,350,100,50,Integer.toString(userPokemon.getLevel()));
 		//adding all objects to viewObjects
 		viewObjects.add(battle);
 		//viewObjects.add(enemyPokemonSprite);		
@@ -181,29 +185,31 @@ public class BattleScreen extends FullFunctionScreen{
 		viewObjects.add(userName);
 		viewObjects.add(enemyName);	
 		viewObjects.add(info);
+		//viewObjects.add(userLevel);
 		setMoves(viewObjects);
 	}
 	
 	public void removeMoves() {
 		for(int i = 0 ; i < 4 ; i++) {
+			if(buttonArr[i] != null) {
 			viewObjects.remove(buttonArr[i]);
 			buttonArr[i].setEnabled(false);
 			buttonArr[i].update();
+			}
 		}
 	}
 	
 	public void addMoves() {
 		for(int i = 0 ; i < 4 ; i++) {
 			viewObjects.add(buttonArr[i]);
+			if(userPokemon.getMoves().get(i) != null) {
 			buttonArr[i].setEnabled(true);
+			}else {
+				buttonArr[i].setEnabled(false);
+			}
 			buttonArr[i].update();
 		}
 	}
-	
-	public void turn() {
-		
-	}
-	
 	
 	public void setMoves(List<Visible> viewObjects) {
 		PokeStart.setPokemonTextFont(48f);
@@ -216,13 +222,25 @@ public class BattleScreen extends FullFunctionScreen{
 				x = 125;
 				y = 620;
 			}
-			Button button = new Button(x,y,500,65,(Inventory.pokemon.getMoves().get(temp).getName()), null);
-			x+= 520;
-			viewObjects.add(button);
-			button.setBackground(new Color(0,0,0,140));
-			button.update();
-			button.setForeground(Color.white);
-			this.buttonArr[i] = button;
+			//System.out.println(Inventory.pokemon.getMoves().get(temp));
+			if(Inventory.pokemon.getMoves().get(temp) != null) {
+				Button button = new Button(x,y,500,65,(Inventory.pokemon.getMoves().get(temp).getName()), null);
+				x+= 520;
+				viewObjects.add(button);
+				button.setBackground(new Color(0,0,0,140));
+				button.update();
+				button.setForeground(Color.white);
+				this.buttonArr[i] = button;
+			}else {
+				Button button = new Button(x,y,500,65,"", null);
+				x+= 520;
+				viewObjects.add(button);
+				button.setBackground(new Color(0,0,0,140));
+				button.update();
+				button.setForeground(Color.white);
+				this.buttonArr[i] = button;
+				buttonArr[temp].setEnabled(false);
+			}
 		}
 	}
 
@@ -291,20 +309,26 @@ public class BattleScreen extends FullFunctionScreen{
 		if(str.equals("Suicune")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
 			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 1, 0, 5, 85, 69, 10);
+				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 100, 0, 5, 85, 69, 10);
+				enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 100, 0, 75, 85, 70, 6);
 			}
+			enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 100, 0, 148, 85, 70, 10);
+			enemyAnimation.addSequence("resources/spritesheets/Suicune Animated.png", 100, 0, 221, 85, 72, 6);
 		}
 		else if(str.equals("Entei")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
 			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 1, 1, 1, 78, 71, 7);
+				enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 1, 1, 78, 71, 7);
 			}
+			enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 1, 73, 78, 71, 10);
+			enemyAnimation.addSequence("resources/spritesheets/Entei Animated.png", 150, 0, 148, 77, 71, 4);
 		}
 		else if(str.equals("Raikou")) {
 			enemyAnimation = new AnimatedComponent(800,60,350,250);
-			for(int i = 0; i < 4; i++) {
-				enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 1, 0, 3, 86, 71, 9);
+			for(int i = 0; i < 1; i++) {
+				enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 150, 0, 1, 86, 71, 9);
 			}
+			enemyAnimation.addSequence("resources/spritesheets/Raikou Animated.png", 300, 0, 74, 86, 71, 9);
 		}
 	}
 }

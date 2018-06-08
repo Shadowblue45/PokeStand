@@ -25,7 +25,9 @@ public class Pokemon {
 	private int spd;
 	private int stageSpd;
 	private int level;
-	private double[] multipliers = {1, .66, .5, .4, .33, .28, .25};
+	private double[] typeMultipliers = {0, .25, .5, 1, 2, 4};
+	private int typeMultiplerIndex = 3;
+	private double[] statMultipliers = {1, .66, .5, .4, .33, .28, .25};
 	private String image;
 	public ArrayList<Move> moves;
 	public ArrayList<Move> movesToLearn;
@@ -153,6 +155,7 @@ public class Pokemon {
 			movesToLearn.add(Move.CRUNCH);
 			movesToLearn.add(Move.EARTHQUAKE);
 			movesToLearn.add(Move.LEAFSTORM);
+			moves.add(null);
 		}
 		if(name.equals("Treecko")) {
 			moves.add(Move.LEER);
@@ -162,6 +165,7 @@ public class Pokemon {
 			movesToLearn.add(Move.SLAM);
 			movesToLearn.add(Move.LEAFSTORM);
 			movesToLearn.add(Move.SCREECH);
+			moves.add(null);
 		}
 		if(name.equals("Snivy")) {
 			moves.add(Move.LEER);
@@ -171,6 +175,7 @@ public class Pokemon {
 			movesToLearn.add(Move.LEAFBLADE);
 			movesToLearn.add(Move.SLAM);
 			movesToLearn.add(Move.LEAFSTORM);
+			moves.add(null);
 		}
 		if(name.equals("Popplio")) {
 			moves.add(Move.GROWL);
@@ -366,7 +371,7 @@ public class Pokemon {
 	}
 	
 	public double[] getMultipliers() {
-		return multipliers;
+		return statMultipliers;
 	}
 
 	public CustomRect getHpBar() {
@@ -391,5 +396,21 @@ public class Pokemon {
 
 	public void setLevel(int level) {
 		this.level = level;
+	}
+
+	public double[] getTypeMultipliers() {
+		return typeMultipliers;
+	}
+
+	public void setTypeMultipliers(double[] typeMultipliers) {
+		this.typeMultipliers = typeMultipliers;
+	}
+
+	public int getTypeMultiplerIndex() {
+		return typeMultiplerIndex;
+	}
+
+	public void setTypeMultiplerIndex(int typeMultiplerIndex) {
+		this.typeMultiplerIndex = typeMultiplerIndex;
 	}
 }

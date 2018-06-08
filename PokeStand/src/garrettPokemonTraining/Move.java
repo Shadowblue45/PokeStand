@@ -144,14 +144,62 @@ public class Move {
 		if(stat >= 0) {
 			action.setTarget(target);
 			action.act();
+			PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ".");
+			
 		}else {
 			if((int)(Math.random() * 100) < accuracy) {
-				if(isSpecial) {
-					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getsAtk()/target.getsDef())+1));
-				}else {
-					target.setCurrentHp(target.getCurrentHp() - (this.power *(user.getAtk()/target.getDef())+1));
+				if(target.getType1().getWeaknesses() != null) {
+					for(int i = 0; i < target.getType1().getWeaknesses().length;i++) {
+						if(this.type.getType() == target.getType1().getWeaknesses()[i]) {
+							target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() + 1);
+						}
+					}
 				}
+				if(target.getType2().getWeaknesses() != null) {
+					for(int i = 0; i < target.getType2().getWeaknesses().length;i++) {
+						if(this.type.getType() == target.getType2().getWeaknesses()[i]) {
+							target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() + 1);
+						}
+					}
+				}if(target.getType1().getResistances() != null) {
+					for(int i = 0; i < target.getType1().getResistances().length;i++) {
+						if(this.type.getType() == target.getType1().getResistances()[i]) {
+							target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() - 1);
+						}
+					}
+				}if(target.getType2().getResistances() != null) {
+					for(int i = 0; i < target.getType2().getResistances().length;i++) {
+						if(this.type.getType() == target.getType2().getResistances()[i]) {
+						target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() - 1);
+						}
+					}
+				}if(target.getType1().getImmunities() != null) {
+					for(int i = 0; i < target.getType1().getImmunities().length;i++) {
+						if(this.type.getType() == target.getType1().getImmunities()[i]) {
+							target.setTypeMultiplerIndex(0);
+						}
+					}
+				}if(target.getType2().getImmunities() != null) {
+					for(int i = 0; i < target.getType2().getImmunities().length;i++) {
+						if(this.type.getType() == target.getType2().getImmunities()[i]) {
+							target.setTypeMultiplerIndex(0);
+						}
+					}
+				}
+				if(isSpecial) {
+					target.setCurrentHp((int)(target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * target.getCurrentHp() - (this.power *(user.getsAtk()*(int)(user.getMultipliers()[user.getStagesAtk()])/target.getsDef() *(int)(target.getMultipliers()[target.getStagesDef()]))+1));
+				}else {
+					target.setCurrentHp((int)(target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * target.getCurrentHp() - (this.power *(user.getAtk()*(int)(user.getMultipliers()[user.getStageAtk()])/target.getDef() *(int)(target.getMultipliers()[target.getStageDef()]))+1));
+				}
+				if(target.getTypeMultiplerIndex() == 0) {
+					PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ", but " + target.getName() + " is immune!");
+				}else if(target.getTypeMultiplerIndex() < 3) {
+					PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ", but it wasn't very effective!");
+				}else if(target.getTypeMultiplerIndex() > 3) {
+					PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " and it was super effective!");
+				}else {
 				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ".");
+				}
 			}else {
 				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " but missed.");
 				}
