@@ -176,6 +176,7 @@ public class Move {
 				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ".");
 				}
 			}else {
+				System.out.println(user + " " +this.name + " was used");
 				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " but missed.");
 				}
 			}

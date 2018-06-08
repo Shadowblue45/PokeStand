@@ -1,7 +1,7 @@
-Froakie,garrettPokemonTraining.Type@d6f6f09,garrettPokemonTraining.Type@5c640a39,30,23,14,54,21,22,resources/water/Froakie.png,5
-Growl,garrettPokemonTraining.Type@60521120,0,100,40,false,0,1
-Pound,garrettPokemonTraining.Type@4d249f21,40,100,35,false,-1,0
-Bubble,garrettPokemonTraining.Type@68c7f500,40,100,30,true,-1,0
-Quick Attack,garrettPokemonTraining.Type@69d577d8,40,100,30,false,-1,0
+Charmander,garrettPokemonTraining.Type@74d38004,garrettPokemonTraining.Type@73ccefd2,30,23,14,54,21,30,resources/fire/Charmander.png,5
+Growl,garrettPokemonTraining.Type@3889fb65,0,100,40,false,0,1
+Scratch,garrettPokemonTraining.Type@62586633,40,100,35,false,-1,0
+Ember,garrettPokemonTraining.Type@288ac774,40,100,25,true,-1,0
+Scary Face,garrettPokemonTraining.Type@6f42ce12,0,100,10,false,4,2
 0,30,0,0
 0,0,0,0,0,0,0,0,

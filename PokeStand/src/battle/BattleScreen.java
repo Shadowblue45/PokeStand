@@ -85,17 +85,12 @@ public class BattleScreen extends FullFunctionScreen{
 				
 				@Override
 				public void act() {
-					userPokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 					System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
 					System.out.println("current HP is "+enemyPokemon.getCurrentHp());
-					runTurn();
+					turn(temp);
 				}
 			});
 			i++;
-		}
-		if(enemyPokemon.getSpd() > userPokemon.getSpd()) {
-			removeMoves();
-			runTurn();
 		}
 	}
 	
@@ -114,7 +109,7 @@ public class BattleScreen extends FullFunctionScreen{
 		setInfoText(loser.getName() + " has fainted.");
 	}
 	
-	public void runTurn() {
+	public void turn(int temp) {
 		Thread turn = new Thread(new Runnable() {
 			
 			
@@ -127,27 +122,37 @@ public class BattleScreen extends FullFunctionScreen{
 				}
 				
 			}
-			
-			@Override
 			public void run() {
+				System.out.println("Removing moves");
 				removeMoves();
-				determinePokemonMove();
-				pause(2);
-				currentAttack.attack(userPokemon,enemyPokemon);
-				System.out.println(currentAttack.getName());
-				pause(2);
-				setInfoText("");
-				if(!userPokemon.isAlive()) {
-					PokeStart.battleScreen.endBattle(userPokemon);
-				}else if(!enemyPokemon.isAlive()) {
-						PokeStart.battleScreen.endBattle(enemyPokemon);
+				if(enemyPokemon.getSpd() *(int)(enemyPokemon.getMultipliers()[enemyPokemon.getStageSpd()]) > userPokemon.getSpd() *(int)(userPokemon.getMultipliers()[userPokemon.getStageSpd()])) {
+					determinePokemonMove();
+					currentAttack.attack(userPokemon,enemyPokemon);
+					System.out.println(currentAttack.getName());
+					pause(2);
+					setInfoText("");
+					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+					pause(2);
+					setInfoText("");
 				}else {
-				addMoves();
+					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+					pause(2);
+					determinePokemonMove();
+					currentAttack.attack(userPokemon,enemyPokemon);
+					System.out.println(currentAttack.getName());
+					pause(2);
+					setInfoText("");
 				}
+				if(!enemyPokemon.isAlive()) {
+					PokeStart.battleScreen.endBattle(enemyPokemon);
+				}else {
+					addMoves();
+				}
+				
 			}
 		});
 		turn.start();
-		
+	
 	}
 	
 	@Override
@@ -193,6 +198,7 @@ public class BattleScreen extends FullFunctionScreen{
 		for(int i = 0 ; i < 4 ; i++) {
 			if(buttonArr[i] != null) {
 			viewObjects.remove(buttonArr[i]);
+			System.out.println("Removed moves");
 			buttonArr[i].setEnabled(false);
 			buttonArr[i].update();
 			}
@@ -202,6 +208,7 @@ public class BattleScreen extends FullFunctionScreen{
 	public void addMoves() {
 		for(int i = 0 ; i < 4 ; i++) {
 			viewObjects.add(buttonArr[i]);
+			System.out.println("Adding moves");
 			if(userPokemon.getMoves().get(i) != null) {
 			buttonArr[i].setEnabled(true);
 			}else {
