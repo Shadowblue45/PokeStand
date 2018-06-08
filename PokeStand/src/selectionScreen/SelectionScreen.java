@@ -8,7 +8,6 @@ import java.util.List;
 import audioPlayer.AudioTest;
 import fahadStartupandMenuScreen.CustomRect;
 import fahadStartupandMenuScreen.MainMenuScreen;
-import fahadStartupandMenuScreen.TrainingScreen;
 import garrettPokemonTraining.Inventory;
 import garrettPokemonTraining.Pokemon;
 import garrettPokemonTraining.StatTrainingScreen;
@@ -181,7 +180,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
-				System.out.println(p.getType1());
+				System.out.println(p.getType1().getTypeName());
 				enemyPokemon = new Pokemon("Suicune","Water",null,160,72,108,85,108,81,null);
 				
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
