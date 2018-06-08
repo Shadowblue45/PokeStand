@@ -131,22 +131,35 @@ public class BattleScreen extends FullFunctionScreen{
 					System.out.println(currentAttack.getName());
 					pause(2);
 					setInfoText("");
-					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
-					pause(2);
-					setInfoText("");
+					if(!userPokemon.isAlive()) {
+						PokeStart.battleScreen.endBattle(userPokemon);
+					}else {
+						Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
+						pause(2);
+						setInfoText("");
+						if(!enemyPokemon.isAlive()) {
+							PokeStart.battleScreen.endBattle(enemyPokemon);
+						}else {
+							addMoves();
+						}
+					}
 				}else {
 					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 					pause(2);
+					if(!enemyPokemon.isAlive()) {
+						PokeStart.battleScreen.endBattle(enemyPokemon);
+					}else {
 					determinePokemonMove();
 					currentAttack.attack(userPokemon,enemyPokemon);
 					System.out.println(currentAttack.getName());
 					pause(2);
 					setInfoText("");
-				}
-				if(!enemyPokemon.isAlive()) {
-					PokeStart.battleScreen.endBattle(enemyPokemon);
-				}else {
-					addMoves();
+					}
+					if(!userPokemon.isAlive()) {
+						PokeStart.battleScreen.endBattle(userPokemon);
+					}else {
+						addMoves();
+					}
 				}
 				
 			}
