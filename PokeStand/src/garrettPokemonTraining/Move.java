@@ -53,7 +53,7 @@ public class Move {
 	public static Move CLOSECOMBAT = new Move("Close Combat","Fighting",120,100,5,false,-1,0);
 	public static Move FLAREBLITZ = new Move("Flare Blitz","Fire",120,100,15,false,-1,0);
 	public static Move ENERGYBALL = new Move("Energy Ball","Grass",90,100,10,true,-1,0);
-	public static Move LEAFSTORM = new Move("Leaf Strom","Grass",130,90,5,true,-1,0);
+	public static Move LEAFSTORM = new Move("Leaf Storm","Grass",130,90,5,true,-1,0);
 	public static Move EARTHQUAKE = new Move("Earthquake","Ground",100,100,10,false,-1,0);
 	public static Move LEAFBLADE = new Move("Leaf Blade","Grass",90,100,15,false,-1,0);
 	public static Move SLAM = new Move("Slam","Normal",80,75,20,false,-1,0);
@@ -121,7 +121,7 @@ public class Move {
 	}
 
 	public String toString() {
-		return name + "," + type + "," + power + "," + accuracy + "," + pp + "," + isSpecial + "," + stat + "," + change;
+		return name + "," + type.getTypeName() + "," + power + "," + accuracy + "," + pp + "," + isSpecial + "," + stat + "," + change;
 	}
 
 	public int getCurrentPp() {
