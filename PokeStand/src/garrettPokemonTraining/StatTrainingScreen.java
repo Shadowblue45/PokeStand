@@ -56,8 +56,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		viewObjects.add(poke);
 		Graphic box = new Graphic(0,500,getWidth(),500,"resources/Box.jpg");
 		viewObjects.add(box);
-		info = new TextArea(500,200,200,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+		info = new TextArea(500,200,300,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
+				"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 				"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "\n");
@@ -82,6 +82,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			}
 
 		});
+		backButton.setBackground(Color.YELLOW);
+		backButton.update();
 		viewObjects.add(backButton);
 		attack = new Button(100,600,125,50,"Attack",new Action() {
 
@@ -93,6 +95,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			}
 
 		});
+		attack.setBackground(Color.CYAN);
+		attack.update();
 		viewObjects.add(attack);
 		defense = new Button(350,600,150,50,"Defense",new Action() {
 
@@ -104,6 +108,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			}
 
 		});
+		defense.setBackground(Color.CYAN);
+		defense.update();
 		viewObjects.add(defense);
 		sAttack = new Button(600,600,125,50,"Sp. Atk",new Action() {
 
@@ -115,6 +121,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			}
 
 		});
+		sAttack.setBackground(Color.CYAN);
+		sAttack.update();
 		viewObjects.add(sAttack);
 		sDefense = new Button(850,600,125,50,"Sp. Def",new Action() {
 
@@ -126,6 +134,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			}
 
 		});
+		sDefense.setBackground(Color.CYAN);
+		sDefense.update();
 		viewObjects.add(sDefense);
 		speed = new Button(1100,600,125,50,"Speed",new Action() {
 
@@ -137,6 +147,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 			}
 
 		});
+		speed.setBackground(Color.CYAN);
+		speed.update();
 		viewObjects.add(speed);
 	}
 
@@ -159,8 +171,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		int index = PokeStart.inventory.pokemonIndex;
 		String[] pokeNames = PokeStart.inventory.getNames();
 		updatePokemon();
-		info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-				"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + "\n" + 
+		info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
+				"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + "\n" + 
 				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 				"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "\n");
@@ -211,8 +223,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 					}
 				}
 				if(s.equals("atk")) {
-					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
+							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + " +3\n" + "Def: " + p.getDef() + "\n" +
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
@@ -225,8 +237,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 					p.trainStat("atk");
 				}
 				if(s.equals("def")) {
-					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
+							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + " +3\n" +
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
@@ -239,8 +251,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 					p.trainStat("def");
 				}
 				if(s.equals("sAtk")) {
-					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
+							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 							"Sp. Atk: " + p.getsAtk() + " +3\n" + "Sp. Def: " + p.getsDef() + "\n" +
 							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
@@ -253,8 +265,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 					p.trainStat("sAtk");
 				}
 				if(s.equals("sDef")) {
-					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
+							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + " +3\n" +
 							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
@@ -267,8 +279,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 					p.trainStat("sDef");
 				}
 				if(s.equals("spd")) {
-					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1() + "\n" +
-							"Type2: " + p.getType2() + "\n" + "HP: " + p.getHp() + " +1\n" + 
+					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
+							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
 							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
 							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
 							"Spd: " + p.getSpd() + " +3\n" + "Level: " + p.getLevel() + "+2\n");
@@ -290,6 +302,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				backButton.setEnabled(true);
 				PokeStart.inventory.uPoints += 5;
 				PokeStart.inventory.fatigue += 5;
+				PokeStart.shopScreen.setDollars(PokeStart.shopScreen.getDollars() + 250);
 				System.out.println(PokeStart.inventory.fatigue);
 				System.out.println(PokeStart.inventory.uPoints);
 				updateFatigue(viewObjects);

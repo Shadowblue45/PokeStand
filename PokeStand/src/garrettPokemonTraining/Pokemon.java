@@ -30,6 +30,7 @@ public class Pokemon {
 	private double[] statMultipliers = {1, .66, .5, .4, .33, .28, .25};
 	private String image;
 	public ArrayList<Move> moves;
+	public ArrayList<Move> movesToLearn;
 	private String[] twoTypePokemon = {"Torterra","Charizard","Monferno","Primarina","Greninja","Marshtomp"};
 	private String[] secondTypes = {"Ground","Flying","Fighting","Fairy","Dark","Ground"};
 	private CustomRect hpBar;
@@ -115,40 +116,65 @@ public class Pokemon {
 
 	public void setMoves() {
 		moves = new ArrayList<Move>();
+		movesToLearn = new ArrayList<Move>();
 		if(name.equals("Charmander")) {
 			moves.add(Move.GROWL);
 			moves.add(Move.SCRATCH);
 			moves.add(Move.EMBER);
 			moves.add(Move.SCARYFACE);
+			movesToLearn.add(Move.FLAMEBURST);
+			movesToLearn.add(Move.SLASH);
+			movesToLearn.add(Move.FLAMETHROWER);
+			movesToLearn.add(Move.FLAREBLITZ);
 		}
 		if(name.equals("Cyndaquil")) {
 			moves.add(Move.LEER);
 			moves.add(Move.TACKLE);
 			moves.add(Move.EMBER);
 			moves.add(Move.FLAMEWHEEL);
+			movesToLearn.add(Move.FLAMECHARGE);
+			movesToLearn.add(Move.LAVAPLUME);
+			movesToLearn.add(Move.FLAMETHROWER);
+			movesToLearn.add(Move.ERUPTION);
 		}
 		if(name.equals("Chimchar")) {
 			moves.add(Move.LEER);
 			moves.add(Move.SCRATCH);
 			moves.add(Move.EMBER);
 			moves.add(Move.FURYSWIPES);
+			movesToLearn.add(Move.MACHPUNCH);
+			movesToLearn.add(Move.FLAMEWHEEL);
+			movesToLearn.add(Move.CLOSECOMBAT);
+			movesToLearn.add(Move.FLAREBLITZ);
 		}
 		if(name.equals("Turtwig")) {
 			moves.add(Move.BITE);
 			moves.add(Move.TACKLE);
 			moves.add(Move.RAZORLEAF);
+			movesToLearn.add(Move.ENERGYBALL);
+			movesToLearn.add(Move.CRUNCH);
+			movesToLearn.add(Move.EARTHQUAKE);
+			movesToLearn.add(Move.LEAFSTORM);
 			moves.add(null);
 		}
 		if(name.equals("Treecko")) {
 			moves.add(Move.LEER);
 			moves.add(Move.POUND);
 			moves.add(Move.QUICKATTACK);
+			movesToLearn.add(Move.LEAFBLADE);
+			movesToLearn.add(Move.SLAM);
+			movesToLearn.add(Move.LEAFSTORM);
+			movesToLearn.add(Move.SCREECH);
 			moves.add(null);
 		}
 		if(name.equals("Snivy")) {
 			moves.add(Move.LEER);
 			moves.add(Move.TACKLE);
 			moves.add(Move.VINEWHIP);
+			movesToLearn.add(Move.LEAFTORNADO);
+			movesToLearn.add(Move.LEAFBLADE);
+			movesToLearn.add(Move.SLAM);
+			movesToLearn.add(Move.LEAFSTORM);
 			moves.add(null);
 		}
 		if(name.equals("Popplio")) {
@@ -156,18 +182,30 @@ public class Pokemon {
 			moves.add(Move.POUND);
 			moves.add(Move.WATERGUN);
 			moves.add(Move.AQUAJET);
+			movesToLearn.add(Move.BUBBLEBEAM);
+			movesToLearn.add(Move.HYPERVOICE);
+			movesToLearn.add(Move.SPARKLINGARIA);
+			movesToLearn.add(Move.MOONBLAST);
 		}
 		if(name.equals("Froakie")) {
 			moves.add(Move.GROWL);
 			moves.add(Move.POUND);
 			moves.add(Move.BUBBLE);
 			moves.add(Move.QUICKATTACK);
+			movesToLearn.add(Move.WATERPULSE);
+			movesToLearn.add(Move.ROUND);
+			movesToLearn.add(Move.EXTRASENSORY);
+			movesToLearn.add(Move.HYDROPUMP);
 		}
 		if(name.equals("Mudkip")) {
 			moves.add(Move.GROWL);
 			moves.add(Move.TACKLE);
 			moves.add(Move.WATERGUN);
 			moves.add(Move.MUDSLAP);
+			movesToLearn.add(Move.MUDSHOT);
+			movesToLearn.add(Move.MUDBOMB);
+			movesToLearn.add(Move.MUDDYWATER);
+			movesToLearn.add(Move.EARTHQUAKE);
 		}
 		if(name.equals("Entei")) {
 			moves.add(Move.EXTRASENSORY);
