@@ -58,9 +58,7 @@ public class LoadScreen extends FullFunctionScreen {
 			
 			public void act() {
 				AudioTest.stopSound(AudioTest.sound);
-				int randomSound =  (int) (Math.random() * 3);
-				System.out.println(randomSound);
-				AudioTest.playSound("resources/pokemonSounds/Legendary Dog " + randomSound + ".wav");
+				AudioTest.playSound("resources/pokemonSounds/Legendary Dog " + PokeStart.randomSound + ".wav");
 				try {
 					Thread.sleep(200);
 				} catch (InterruptedException e) {

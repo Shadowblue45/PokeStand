@@ -39,6 +39,7 @@ public class PokeStart extends GUIApplication {
 	public static RickyInteractScreen interactScreen;
 	public static RestScreen restScreen;
 	public static CreditsScreen creditScreen;
+	public static int randomSound;
 
 	public PokeStart(int width, int height) {
 		super(width, height);
@@ -47,8 +48,9 @@ public class PokeStart extends GUIApplication {
 
 	@Override
 	public void initScreen() {
+		randomSound =  (int) (Math.random() * 3);
 		try{    
-		       setIconImage(ImageIO.read(new File("resources/coolicon.png")));   
+		       setIconImage(ImageIO.read(new File("resources/icons/Legendary Dog " + PokeStart.randomSound + ".png")));   
 		   }
 		catch (Exception ex){
 		       //do something
