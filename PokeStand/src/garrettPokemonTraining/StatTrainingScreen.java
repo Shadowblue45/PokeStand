@@ -56,11 +56,11 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		viewObjects.add(poke);
 		Graphic box = new Graphic(0,500,getWidth(),500,"resources/Box.jpg");
 		viewObjects.add(box);
-		info = new TextArea(500,200,300,500,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
-				"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + "\n" + 
-				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-				"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "\n");
+		CustomRect test = new CustomRect(200,50,300,180,Color.gray);
+		viewObjects.add(test);
+		info = new TextArea(200,50,300,180,"Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
+				"Type2: " + p.getType2().getTypeName() + "\n" + "Level: " + p.getLevel() + "\n" + "HP  " + p.getHp() + " ; Spd  " + p.getSpd() + "\n" + 
+				"Atk  " + p.getAtk() + " ; Sp. Atk  " + p.getsAtk() +  "\n" + "Def  " + p.getDef() +" ; Sp. Def  " + p.getsDef() +"\n");
 		viewObjects.add(info);
 		fatigueBarDesign(viewObjects);
 		saveButton = new Button(100,300,100,50,"Save", new Action() {
@@ -150,7 +150,7 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		speed.setBackground(Color.CYAN);
 		speed.update();
 		viewObjects.add(speed);
-		TextLabel message = new TextLabel(100,500,750,100,"You can only train once per day");
+		TextLabel message = new TextLabel(400,550,750,100,"You can only train once per day");
 		viewObjects.add(message);
 	}
 
@@ -174,10 +174,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		String[] pokeNames = PokeStart.inventory.getNames();
 		updatePokemon();
 		info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
-				"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + "\n" + 
-				"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-				"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-				"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "\n");
+				"Type2: " + p.getType2().getTypeName() + "\n" + "Level: " + p.getLevel() + "\n" + "HP  " + p.getHp() + " ; Spd  " + p.getSpd() + "\n" + 
+				"Atk  " + p.getAtk() + " ; Sp. Atk  " + p.getsAtk() +  "\n" + "Def  " + p.getDef() +" ; Sp. Def  " + p.getsDef() +"\n");
 		poke.loadImages("resources/pokebacks/"+ pokeNames[index] +" back.png", getWidth()/2,getHeight()/2);
 	}
 
@@ -226,10 +224,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				}
 				if(s.equals("atk")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
-							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
-							"Atk: " + p.getAtk() + " +3\n" + "Def: " + p.getDef() + "\n" +
-							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
+							"Type2: " + p.getType2().getTypeName() + "\n" + "Level: " + p.getLevel() + " +2\n" + "HP  " + p.getHp() + " +1; Spd  " + p.getSpd() + " +1\n" + 
+							"Atk  " + p.getAtk() + " +4; Sp. Atk  " + p.getsAtk() +  " +2\n" + "Def  " + p.getDef() +" ; Sp. Def  " + p.getsDef() +"\n");
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {
@@ -240,10 +236,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				}
 				if(s.equals("def")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
-							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
-							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + " +3\n" +
-							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
+							"Type2: " + p.getType2().getTypeName() + "\n" + "Level: " + p.getLevel() + " +2\n" + "HP  " + p.getHp() + " +1; Spd  " + p.getSpd() + " +1\n" + 
+							"Atk  " + p.getAtk() + " ; Sp. Atk  " + p.getsAtk() +  "\n" + "Def  " + p.getDef() +" +4; Sp. Def  " + p.getsDef() + " +2\n");
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {
@@ -254,10 +248,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				}
 				if(s.equals("sAtk")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
-							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
-							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-							"Sp. Atk: " + p.getsAtk() + " +3\n" + "Sp. Def: " + p.getsDef() + "\n" +
-							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
+							"Type2: " + p.getType2().getTypeName() + "\n" + "Level: " + p.getLevel() + " +2\n" + "HP  " + p.getHp() + " +1; Spd  " + p.getSpd() + " +1\n" + 
+							"Atk  " + p.getAtk() + " +2 ; Sp. Atk  " + p.getsAtk() +  " +4\n" + "Def  " + p.getDef() +" ; Sp. Def  " + p.getsDef() + "\n");
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {
@@ -268,10 +260,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				}
 				if(s.equals("sDef")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
-							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
-							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + " +3\n" +
-							"Spd: " + p.getSpd() + "\n" + "Level: " + p.getLevel() + "+2\n");
+							"Type2: " + p.getType2().getTypeName() + "\n" + "Level: " + p.getLevel() + " +2\n" + "HP  " + p.getHp() + " +1; Spd  " + p.getSpd() + " +1\n" + 
+							"Atk  " + p.getAtk() + " ; Sp. Atk  " + p.getsAtk() +  "\n" + "Def  " + p.getDef() +" +2; Sp. Def  " + p.getsDef() + " +4\n");
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {
@@ -282,10 +272,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 				}
 				if(s.equals("spd")) {
 					info.setText("Name: " + p.getName() + "\n" + "Type1: " + p.getType1().getTypeName() + "\n" +
-							"Type2: " + p.getType2().getTypeName() + "\n" + "HP: " + p.getHp() + " +1\n" + 
-							"Atk: " + p.getAtk() + "\n" + "Def: " + p.getDef() + "\n" +
-							"Sp. Atk: " + p.getsAtk() + "\n" + "Sp. Def: " + p.getsDef() + "\n" +
-							"Spd: " + p.getSpd() + " +3\n" + "Level: " + p.getLevel() + "+2\n");
+							"Type2: " + p.getType2().getTypeName() + "\n" + "Level: " + p.getLevel() + " +2\n" + "HP  " + p.getHp() + " +1; Spd  " + p.getSpd() + " +4\n" + 
+							"Atk  " + p.getAtk() + " +1; Sp. Atk  " + p.getsAtk() +  " +1\n" + "Def  " + p.getDef() +" +1; Sp. Def  " + p.getsDef() +" +1\n");
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {
