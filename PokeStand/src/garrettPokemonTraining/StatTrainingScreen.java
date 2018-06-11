@@ -150,6 +150,8 @@ public class StatTrainingScreen extends FullFunctionScreen {
 		speed.setBackground(Color.CYAN);
 		speed.update();
 		viewObjects.add(speed);
+		TextLabel message = new TextLabel(100,500,750,100,"You can only train once per day");
+		viewObjects.add(message);
 	}
 
 	public void fatigueBarDesign(List<Visible> viewObjects) {
