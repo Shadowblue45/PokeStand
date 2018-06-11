@@ -57,7 +57,13 @@ public class Pokemon {
 		stagesDef = 0;
 		stageSpd = 0;
 		setAlive(true);
-		setLevel(5);
+		if("EnteiRaikouSuicune".indexOf(name) != -1) {
+			setLevel(65);
+			System.out.println("works");
+		}
+		else {
+			setLevel(5);
+		}
 	}
 
 	public void setImage(String s) {
@@ -412,5 +418,9 @@ public class Pokemon {
 
 	public void setTypeMultiplerIndex(int typeMultiplerIndex) {
 		this.typeMultiplerIndex = typeMultiplerIndex;
+	}
+	
+	public ArrayList<Move> getMovesToLearn() {
+		return movesToLearn;
 	}
 }
