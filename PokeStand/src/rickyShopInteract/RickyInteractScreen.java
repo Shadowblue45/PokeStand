@@ -33,6 +33,7 @@ public class RickyInteractScreen extends FullFunctionScreen {
 			displayPokemon(viewObjects);
 			interact(viewObjects);
 		}
+		else goBack();
 	}
 
 	public void displayPokemon(List<Visible> viewObjects) {
