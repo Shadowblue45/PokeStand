@@ -126,39 +126,43 @@ public class BattleScreen extends FullFunctionScreen{
 				System.out.println("Removing moves");
 				removeMoves();
 				if(enemyPokemon.getSpd() *(int)(enemyPokemon.getMultipliers()[enemyPokemon.getStageSpd()]) > userPokemon.getSpd() *(int)(userPokemon.getMultipliers()[userPokemon.getStageSpd()])) {
+					System.out.println("Enemy goes first.");
 					determinePokemonMove();
 					currentAttack.attack(userPokemon,enemyPokemon);
 					System.out.println(currentAttack.getName());
 					pause(2);
 					setInfoText("");
 					if(!userPokemon.isAlive()) {
-						PokeStart.battleScreen.endBattle(userPokemon);
+						System.out.println("User Fainted");
+						endBattle(userPokemon);
 					}else {
 						Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 						pause(2);
 						setInfoText("");
 						if(!enemyPokemon.isAlive()) {
-							PokeStart.battleScreen.endBattle(enemyPokemon);
+							endBattle(enemyPokemon);
 						}else {
 							addMoves();
 						}
 					}
 				}else {
+					System.out.println("User goes first.");
 					Inventory.pokemon.getMoves().get(temp).attack(enemyPokemon, PokeStart.inventory.getPokemon());
 					pause(2);
 					if(!enemyPokemon.isAlive()) {
-						PokeStart.battleScreen.endBattle(enemyPokemon);
+						System.out.println("Enemy Fainted");
+						endBattle(enemyPokemon);
 					}else {
-					determinePokemonMove();
-					currentAttack.attack(userPokemon,enemyPokemon);
-					System.out.println(currentAttack.getName());
-					pause(2);
-					setInfoText("");
-					}
-					if(!userPokemon.isAlive()) {
-						PokeStart.battleScreen.endBattle(userPokemon);
-					}else {
-						addMoves();
+						determinePokemonMove();
+						currentAttack.attack(userPokemon,enemyPokemon);
+						System.out.println(currentAttack.getName());
+						pause(2);
+						setInfoText("");
+						if(!userPokemon.isAlive()) {
+							endBattle(userPokemon);
+						}else {
+							addMoves();
+						}
 					}
 				}
 				

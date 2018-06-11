@@ -1,52 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-Charmander,garrettPokemonTraining.Type@74d38004,garrettPokemonTraining.Type@73ccefd2,30,23,14,54,21,30,resources/fire/Charmander.png,5
-Growl,garrettPokemonTraining.Type@3889fb65,0,100,40,false,0,1
-Scratch,garrettPokemonTraining.Type@62586633,40,100,35,false,-1,0
-Ember,garrettPokemonTraining.Type@288ac774,40,100,25,true,-1,0
-Scary Face,garrettPokemonTraining.Type@6f42ce12,0,100,10,false,4,2
-=======
-<<<<<<< HEAD
-Chimchar,garrettPokemonTraining.Type@b5f0ece,garrettPokemonTraining.Type@3eee0944,30,23,14,54,21,23,resources/fire/Chimchar.png,5
-Leer,garrettPokemonTraining.Type@5bf30685,0,100,30,false,1,1
-Scratch,garrettPokemonTraining.Type@4fecef34,40,100,35,false,-1,0
-Ember,garrettPokemonTraining.Type@17a4dd24,40,100,25,true,-1,0
-Fury Swipes,garrettPokemonTraining.Type@10f5d2f6,18,80,15,false,-1,0
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-Treecko,garrettPokemonTraining.Type@6aaa2fed,garrettPokemonTraining.Type@76ef579c,30,23,14,54,21,2333,resources/grass/Treecko.png,5
-Leer,garrettPokemonTraining.Type@6b592a2e,0,100,30,false,1,1
-Pound,garrettPokemonTraining.Type@35a0b274,40,100,35,false,-1,0
-Quick Attack,garrettPokemonTraining.Type@65849c2a,40,100,30,false,-1,0
-=======
-<<<<<<< HEAD
-=======
->>>>>>> refs/remotes/origin/GarrettBranch
->>>>>>> refs/remotes/origin/DavidLBranch
-Charmander,Fire,,30,23,14,54,21,30,resources/fire/Charmander.png,5
+Mudkip,Water,,300,230,140,540,210,220,resources/water/Mudkip.png,5
 Growl,Normal,0,100,40,false,0,1
-Scratch,Normal,40,100,35,false,-1,0
-Ember,Fire,40,100,25,true,-1,0
-Scary Face,Normal,0,100,10,false,4,2
+Tackle,Normal,40,100,35,false,-1,0
+Water Gun,Water,40,100,25,true,-1,0
+Mud-Slap,Ground,20,100,10,true,-1,0
 0,30,0,0,2000
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-Snivy,garrettPokemonTraining.Type@d6f6f09,garrettPokemonTraining.Type@71dffae,30,23,14,54,21,2333,resources/grass/Snivy.png,5
-Leer,garrettPokemonTraining.Type@73eee652,0,100,30,false,1,1
-Tackle,garrettPokemonTraining.Type@4bd3e50d,40,100,35,false,-1,0
-Vine Whip,garrettPokemonTraining.Type@7f1687d3,45,100,25,false,-1,0
->>>>>>> refs/remotes/origin/develop
-<<<<<<< HEAD
->>>>>>> refs/heads/develop
->>>>>>> branch 'FahadandDavidYBranch' of https://github.com/Shadowblue45/PokeStand.git
-=======
-null
->>>>>>> refs/remotes/origin/DavidLBranch
-0,30,0,0
->>>>>>> refs/remotes/origin/develop
-=======
->>>>>>> refs/remotes/origin/GarrettBranch
 0,0,0,0,0,0,0,0,
