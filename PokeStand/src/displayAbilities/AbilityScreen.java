@@ -189,6 +189,7 @@ public class AbilityScreen extends FullFunctionScreen {
 			b.setForeground(Color.white);
 			viewObjects.add(b);
 		}
+
 		createGraphic();
 		for(Graphic b: graphics) {
 		viewObjects.add(b);

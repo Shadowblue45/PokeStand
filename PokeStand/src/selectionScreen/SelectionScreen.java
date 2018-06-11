@@ -180,7 +180,7 @@ public class SelectionScreen extends FullFunctionScreen {
 //				MainMenuScreen.pokemon.loadImages(FP1[0], 400, 400);
 //				PokeStart.trainingScreen.setInfoText();
 				Pokemon p = PokeStart.inventory.getPokemon();
-				System.out.println(p.getType1());
+				System.out.println(p.getType1().getTypeName());
 				enemyPokemon = new Pokemon("Suicune","Water",null,160,72,108,85,108,81,null);
 				
 //				MainMenuScreen.info.setText("Type1: " + p.getType1() + "\n" +
@@ -497,7 +497,7 @@ public class SelectionScreen extends FullFunctionScreen {
 			@Override
 			public void act() {
 				System.out.println("YES");
-				PokeStart.inventory.setPokemon("Mudkip", "Water", "", 30, 23, 14, 54, 21, 22, "resources/water/Mudkip.png");
+				PokeStart.inventory.setPokemon("Mudkip", "Water", "", 300, 230, 140, 540, 210, 220, "resources/water/Mudkip.png");
 				String[] F1= {"Mudkip","Marshtomp","Swampert"};
 				String[] FP1 = {"resources/water/Mudkip.png","resources/water/Marshtomp.png","resources/water/Swampert.png"};
 				PokeStart.inventory.setImages(FP1);

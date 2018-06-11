@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 Charmander,Fire,,30,23,14,54,21,30,resources/fire/Charmander.png,5
+=======
+Mudkip,Water,,300,230,140,540,210,220,resources/water/Mudkip.png,5
+>>>>>>> refs/remotes/origin/develop
 Growl,Normal,0,100,40,false,0,1
-Scratch,Normal,40,100,35,false,-1,0
-Ember,Fire,40,100,25,true,-1,0
-Scary Face,Normal,0,100,10,false,4,2
+Tackle,Normal,40,100,35,false,-1,0
+Water Gun,Water,40,100,25,true,-1,0
+Mud-Slap,Ground,20,100,10,true,-1,0
 0,30,0,0,2000
 0,0,0,0,0,0,0,0,
