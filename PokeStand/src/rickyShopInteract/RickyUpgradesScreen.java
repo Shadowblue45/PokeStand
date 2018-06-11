@@ -37,6 +37,7 @@ public class RickyUpgradesScreen extends FullFunctionScreen {
 //		if(movesArray.size() == 3) {
 //			movesArray.add(p.getMovesToLearn(0));
 //		}
+//	
 //	}
 	
 //	public void
