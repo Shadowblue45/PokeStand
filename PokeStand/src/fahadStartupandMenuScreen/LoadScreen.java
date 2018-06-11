@@ -37,7 +37,7 @@ public class LoadScreen extends FullFunctionScreen {
 		StyledComponent.setButtonOutline(true);
 		StyledComponent.setActiveBorderColor(Color.white);
 		//PokeStart.setPokemonHollowFont(100f);
-		String txt = "Pokemon Rivalry";
+		String txt = "Pokemon Monster \n ";
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Dogs.jpg");
 //		titleBorder = new TextArea(190,75,900,400,txt);
 //		titleBorder.setCustomTextColor(new Color(59, 76, 202));

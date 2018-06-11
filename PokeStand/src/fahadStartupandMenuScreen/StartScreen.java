@@ -29,7 +29,7 @@ public class StartScreen extends FullFunctionScreen{
 	
 	public void initAllObjects(List<Visible> viewObjects) {
 		//PokeStart.setPokemonHollowFont(100f);
-		String txt = "Pokemon Rivalry";
+		String txt = "Pokemon Monster \n ";
 		AudioTest.playSound("resources/Music/Pokemon Title.wav");
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Dogs.jpg");
 //		titleBorder = new TextArea(190,75,900,400,txt);
