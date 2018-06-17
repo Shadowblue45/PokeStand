@@ -16,6 +16,7 @@ public class Move {
 	private int stat;
 	private int change;
 	private PokemonAction action;
+	private boolean usable;
 	
 	
 	public static Move BITE = new Move("Bite","Dark",60,100,25,false,-1,0);
@@ -82,6 +83,7 @@ public class Move {
 		this.stat = stat;
 		this.change = change;
 		this.action = PokemonAction.createAction(stat,change);
+		usable = true;
 	}
 
 	public String getName() {
@@ -141,70 +143,80 @@ public class Move {
 	}
 
 	public void attack(Pokemon target, Pokemon user) {
-		if(stat >= 0) {
-			action.setTarget(target);
-			action.act();
-			PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ".");
-			
-		}else {
-			if((int)(Math.random() * 100) < accuracy) {
-				if(target.getType1().getWeaknesses() != null) {
-					for(int i = 0; i < target.getType1().getWeaknesses().length;i++) {
-						if(this.type.getType() == target.getType1().getWeaknesses()[i]) {
-							target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() + 1);
-						}
-					}
-				}
-				if(target.getType2().getWeaknesses() != null) {
-					for(int i = 0; i < target.getType2().getWeaknesses().length;i++) {
-						if(this.type.getType() == target.getType2().getWeaknesses()[i]) {
-							target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() + 1);
-						}
-					}
-				}if(target.getType1().getResistances() != null) {
-					for(int i = 0; i < target.getType1().getResistances().length;i++) {
-						if(this.type.getType() == target.getType1().getResistances()[i]) {
-							target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() - 1);
-						}
-					}
-				}if(target.getType2().getResistances() != null) {
-					for(int i = 0; i < target.getType2().getResistances().length;i++) {
-						if(this.type.getType() == target.getType2().getResistances()[i]) {
-						target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() - 1);
-						}
-					}
-				}if(target.getType1().getImmunities() != null) {
-					for(int i = 0; i < target.getType1().getImmunities().length;i++) {
-						if(this.type.getType() == target.getType1().getImmunities()[i]) {
-							target.setTypeMultiplerIndex(0);
-						}
-					}
-				}if(target.getType2().getImmunities() != null) {
-					for(int i = 0; i < target.getType2().getImmunities().length;i++) {
-						if(this.type.getType() == target.getType2().getImmunities()[i]) {
-							target.setTypeMultiplerIndex(0);
-						}
-					}
-				}
-				if(isSpecial) {
-					target.setCurrentHp(target.getCurrentHp() - (int)(target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * (this.power *(user.getsAtk()*(int)(user.getMultipliers()[user.getStagesAtk()])/target.getsDef() *(int)(target.getMultipliers()[target.getStagesDef()]))+1));
-				}else {
-					target.setCurrentHp(target.getCurrentHp() - (int)(target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * (this.power *(user.getAtk()*(int)(user.getMultipliers()[user.getStageAtk()])/target.getDef() *(int)(target.getMultipliers()[target.getStageDef()]))+1));
-				}
-				if(target.getTypeMultiplerIndex() == 0) {
-					PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ", but " + target.getName() + " is immune!");
-				}else if(target.getTypeMultiplerIndex() < 3) {
-					PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ", but it wasn't very effective!");
-				}else if(target.getTypeMultiplerIndex() > 3) {
-					PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " and it was super effective!");
-				}else {
+		if(this.usable) {
+			if(stat >= 0) {
+				action.setTarget(target);
+				action.act();
 				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ".");
-				}
+			
 			}else {
-				System.out.println(user + " " +this.name + " was used");
-				PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " but missed.");
+				if((int)(Math.random() * 100) < accuracy) {
+					if(target.getType1().getWeaknesses() != null) {
+						for(int i = 0; i < target.getType1().getWeaknesses().length;i++) {
+							if(this.type.getType() == target.getType1().getWeaknesses()[i]) {
+								target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() + 1);
+							}
+						}
+					}
+					if(target.getType2().getWeaknesses() != null) {
+						for(int i = 0; i < target.getType2().getWeaknesses().length;i++) {
+							if(this.type.getType() == target.getType2().getWeaknesses()[i]) {
+								target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() + 1);
+							}
+						}
+					}if(target.getType1().getResistances() != null) {
+						for(int i = 0; i < target.getType1().getResistances().length;i++) {
+							if(this.type.getType() == target.getType1().getResistances()[i]) {
+								target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() - 1);
+							}
+						}
+					}if(target.getType2().getResistances() != null) {
+						for(int i = 0; i < target.getType2().getResistances().length;i++) {
+							if(this.type.getType() == target.getType2().getResistances()[i]) {
+								target.setTypeMultiplerIndex(target.getTypeMultiplerIndex() - 1);
+							}
+						}
+					}if(target.getType1().getImmunities() != null) {
+						for(int i = 0; i < target.getType1().getImmunities().length;i++) {
+							if(this.type.getType() == target.getType1().getImmunities()[i]) {
+								target.setTypeMultiplerIndex(0);
+							}
+						}
+					}if(target.getType2().getImmunities() != null) {
+						for(int i = 0; i < target.getType2().getImmunities().length;i++) {
+							if(this.type.getType() == target.getType2().getImmunities()[i]) {
+								target.setTypeMultiplerIndex(0);
+							}
+						}
+					}
+					if(isSpecial) {
+						target.setCurrentHp(target.getCurrentHp() - (int)((target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * (this.power *(user.getsAtk()*(int)(user.getMultipliers()[user.getStagesAtk()])/target.getsDef() *(int)(target.getMultipliers()[target.getStagesDef()])))+1));
+					}else {
+						target.setCurrentHp(target.getCurrentHp() - (int)((target.getTypeMultipliers()[target.getTypeMultiplerIndex()]) * (this.power *(user.getAtk()*(int)(user.getMultipliers()[user.getStageAtk()])/target.getDef() *(int)(target.getMultipliers()[target.getStageDef()])))+1));
+					}
+					if(target.getTypeMultiplerIndex() == 0) {
+						PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ", but " + target.getName() + " is immune!");
+					}else if(target.getTypeMultiplerIndex() < 3) {
+						PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ", but it wasn't very effective!");
+					}else if(target.getTypeMultiplerIndex() > 3) {
+						PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " and it was super effective!");
+					}else {
+						PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + ".");
+					}
+				}else {
+					System.out.println(user + " " +this.name + " was used");
+					PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " but missed.");
 				}
 			}
-		target.setTypeMultiplerIndex(3);
+			if(this.getCurrentPp() != 1) {
+				this.setCurrentPp(this.getCurrentPp()-1);
+			}else {
+				this.setCurrentPp(this.getCurrentPp()-1);
+				usable = false;
+			}
+			target.setTypeMultiplerIndex(3);
+		}else {
+			PokeStart.battleScreen.setInfoText(user.getName() + " used " + this.name + " but has no more PP.");
+		}
 	}
 }

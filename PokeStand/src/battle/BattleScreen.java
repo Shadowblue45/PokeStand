@@ -85,8 +85,6 @@ public class BattleScreen extends FullFunctionScreen{
 				
 				@Override
 				public void act() {
-					System.out.println("\nEnemy hp : "+enemyPokemon.getHp());
-					System.out.println("current HP is "+enemyPokemon.getCurrentHp());
 					turn(temp);
 				}
 			});
@@ -123,7 +121,7 @@ public class BattleScreen extends FullFunctionScreen{
 				
 			}
 			public void run() {
-				System.out.println("Removing moves");
+				//System.out.println("Removing moves");
 				removeMoves();
 				if(enemyPokemon.getSpd() *(int)(enemyPokemon.getMultipliers()[enemyPokemon.getStageSpd()]) > userPokemon.getSpd() *(int)(userPokemon.getMultipliers()[userPokemon.getStageSpd()])) {
 					System.out.println("Enemy goes first.");
@@ -215,7 +213,7 @@ public class BattleScreen extends FullFunctionScreen{
 		for(int i = 0 ; i < 4 ; i++) {
 			if(buttonArr[i] != null) {
 			viewObjects.remove(buttonArr[i]);
-			System.out.println("Removed moves");
+			//System.out.println("Removed moves");
 			buttonArr[i].setEnabled(false);
 			buttonArr[i].update();
 			}
@@ -225,9 +223,11 @@ public class BattleScreen extends FullFunctionScreen{
 	public void addMoves() {
 		for(int i = 0 ; i < 4 ; i++) {
 			viewObjects.add(buttonArr[i]);
-			System.out.println("Adding moves");
+			PokeStart.setPokemonSunFont(36f);
+			buttonArr[i].setText(Inventory.pokemon.getMoves().get(i).getName() + " " + Inventory.pokemon.getMoves().get(i).getCurrentPp() + "/" + Inventory.pokemon.getMoves().get(i).getPp());
+			//System.out.println("Adding moves");
 			if(userPokemon.getMoves().get(i) != null) {
-			buttonArr[i].setEnabled(true);
+				buttonArr[i].setEnabled(true);
 			}else {
 				buttonArr[i].setEnabled(false);
 			}
@@ -236,7 +236,7 @@ public class BattleScreen extends FullFunctionScreen{
 	}
 	
 	public void setMoves(List<Visible> viewObjects) {
-		PokeStart.setPokemonTextFont(48f);
+		PokeStart.setPokemonSunFont(36f);
 		int x = 125;
 		int y = 530;
 		buttonArr = new Button[4];
@@ -248,7 +248,7 @@ public class BattleScreen extends FullFunctionScreen{
 			}
 			//System.out.println(Inventory.pokemon.getMoves().get(temp));
 			if(Inventory.pokemon.getMoves().get(temp) != null) {
-				Button button = new Button(x,y,500,65,(Inventory.pokemon.getMoves().get(temp).getName()), null);
+				Button button = new Button(x,y,500,65,Inventory.pokemon.getMoves().get(temp).getName() + " " + Inventory.pokemon.getMoves().get(temp).getCurrentPp() + "/" + Inventory.pokemon.getMoves().get(temp).getPp(), null);
 				x+= 520;
 				viewObjects.add(button);
 				button.setBackground(new Color(0,0,0,140));
