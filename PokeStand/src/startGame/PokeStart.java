@@ -11,6 +11,7 @@ import RestScreen.RestScreen;
 import audioPlayer.AudioTest;
 import battle.BattleScreen;
 import displayAbilities.AbilityScreen;
+import fahadStartupandMenuScreen.BattleItemScreen;
 import fahadStartupandMenuScreen.LoadScreen;
 import fahadStartupandMenuScreen.MainMenuScreen;
 import fahadStartupandMenuScreen.StartScreen;
@@ -39,6 +40,7 @@ public class PokeStart extends GUIApplication {
 	public static RickyInteractScreen interactScreen;
 	public static RestScreen restScreen;
 	public static CreditsScreen creditScreen;
+	public static BattleItemScreen itemScreen;
 	public static int randomSound;
 
 	public PokeStart(int width, int height) {
@@ -69,12 +71,12 @@ public class PokeStart extends GUIApplication {
 		start = new PokeStart(1280, 720);
 		Thread go = new Thread(start);
 		go.start();
-		AudioTest.changeVolume(.6);
+		AudioTest.changeVolume(-.6);
 		mainScreen = true;
 	}
 	
 	public static Screen getScreen(int i) {
-		Screen[] mainScreens = {trainingScreen,interactScreen, restScreen,abilityScreen,loadScreen,shopScreen};
+		Screen[] mainScreens = {trainingScreen,interactScreen, restScreen,abilityScreen,itemScreen,shopScreen};
 		if(PokeStart.inventory.daysLeft == 0) {
 			mainScreens[0] = battleScreen;
 		}

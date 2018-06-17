@@ -28,7 +28,7 @@ public class BattleScreen extends FullFunctionScreen{
 	private Button[] buttonArr;
 	
 	private Pokemon enemyPokemon;
-	private Pokemon userPokemon;
+	public static Pokemon userPokemon;
 	private TextLabel enemyName;
 	private CustomRect enemyCurrentHp;
 	private Move currentAttack;

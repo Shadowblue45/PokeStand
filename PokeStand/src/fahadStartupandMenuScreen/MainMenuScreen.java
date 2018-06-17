@@ -57,6 +57,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		PokeStart.interactScreen = new RickyInteractScreen(getWidth(), getHeight());
 		PokeStart.restScreen = new RestScreen(getWidth(), getHeight());
 		PokeStart.trainingScreen = new StatTrainingScreen(getWidth(), getHeight());
+		PokeStart.itemScreen = new BattleItemScreen(getWidth(), getHeight());
 		
 		//===================================================
 		

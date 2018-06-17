@@ -17,7 +17,7 @@ import startGame.PokeStart;
  
 public class RickyScreen extends FullFunctionScreen {
 
-	private ArrayList<String> itemsInShop;
+	public ArrayList<String> itemsInShop;
 	private ArrayList<String> itemDesc;
 	private int dollars;
 	private ArrayList<Integer> priceAmount;

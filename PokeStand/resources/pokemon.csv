@@ -1,7 +1,7 @@
-Mudkip,Water,,500,70,500,50,500,40,resources/water/Mudkip.png,5
-Growl,Normal,0,100,40,false,0,1
+Snivy,Grass,,45,45,55,45,55,63,resources/grass/Snivy.png,5
+Leer,Normal,0,100,30,false,1,1
 Tackle,Normal,40,100,35,false,-1,0
-Water Gun,Water,40,100,25,true,-1,0
-Mud-Slap,Ground,20,100,10,true,-1,0
+Vine Whip,Grass,45,100,25,false,-1,0
+null
 0,30,0,0,2000
 0,0,0,0,0,0,0,0,
