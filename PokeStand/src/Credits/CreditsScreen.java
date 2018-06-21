@@ -22,7 +22,7 @@ public class CreditsScreen extends FullFunctionScreen {
 
 	
 	public void initAllObjects(List<Visible> viewObjects) {
-		PokeStart.setPokemonFont(24f);
+		PokeStart.setPokemonSunFont(24f);
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/Dogs.jpg");
 		CustomRect rect = new CustomRect(40, 60, 1200, 600);
 		TextArea credit = new TextArea(40, 60, 1200, 600, "Selection,Rest & Ability Screen: \n David Li \n\nStart, Load & Menu Screen: \n Fahadullah Asif \n\nInventory & Training Screen: \n Garrett Chen \n\nShop, Interact & Upgrade Screen: \n Ricky Pong \n\nBattle Screen: \n David Yashayev");

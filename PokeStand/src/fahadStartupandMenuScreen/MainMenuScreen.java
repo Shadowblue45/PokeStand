@@ -43,7 +43,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 	
 		//temp setters=======================================
 
-		String[] names = {"Training", "Interact", "Rest", "Abilities", "Upgrades", "Shop"};
+		String[] names = {"Training", "Interact", "Rest", "Abilities", "Shop", "Back"};
 		String[] pokeNames = PokeStart.inventory.getNames();
 		String[] pokeLink = PokeStart.inventory.getPokemonImages();
 		int index = PokeStart.inventory.pokemonIndex;
@@ -64,7 +64,7 @@ public class MainMenuScreen extends FullFunctionScreen {
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "resources/field.jpg");
 		
 		//To be deleted later once testing is over
-		Button battleButton = new Button (900, 500, 200,70,"Battle",new Action() {
+		Button battleButton = new Button (1060, 530, 200,70,"Battle",new Action() {
 
 			public void act() {
 

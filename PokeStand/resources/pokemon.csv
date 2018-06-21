@@ -1,7 +1,7 @@
-Snivy,Grass,,45,45,55,45,55,63,resources/grass/Snivy.png,5
-Leer,Normal,0,100,30,false,1,1
-Tackle,Normal,40,100,35,false,-1,0
-Vine Whip,Grass,45,100,25,false,-1,0
-null
+Popplio,Water,,50,54,54,66,56,40,resources/water/Popplio.png,5
+Growl,Normal,0,100,40,false,0,1
+Pound,Normal,40,100,35,false,-1,0
+Water Gun,Water,40,100,25,true,-1,0
+Aqua Jet,Water,40,100,20,true,-1,0
 0,30,0,0,2000
 0,0,0,0,0,0,0,0,

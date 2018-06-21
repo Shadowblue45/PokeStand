@@ -71,12 +71,12 @@ public class PokeStart extends GUIApplication {
 		start = new PokeStart(1280, 720);
 		Thread go = new Thread(start);
 		go.start();
-		AudioTest.changeVolume(-.6);
+		AudioTest.changeVolume(.6);
 		mainScreen = true;
 	}
 	
 	public static Screen getScreen(int i) {
-		Screen[] mainScreens = {trainingScreen,interactScreen, restScreen,abilityScreen,itemScreen,shopScreen};
+		Screen[] mainScreens = {trainingScreen,interactScreen, restScreen,abilityScreen,shopScreen,loadScreen};
 		if(PokeStart.inventory.daysLeft == 0) {
 			mainScreens[0] = battleScreen;
 		}

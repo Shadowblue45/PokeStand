@@ -31,15 +31,19 @@ public class BattleItemScreen extends FullFunctionScreen {
 	public void createButtons(List<Visible> viewObjects) {
 		ArrayList<String> tempImages = PokeStart.shopScreen.itemsInShop;
 		for(int i = 0; i < tempImages.size(); i++) {
-			Button button = new Button(60, 50 + i*50, 50, 50,"Use",new Action() {
+			final int temp = i;
+			Button button = new Button(60, 50 + i*50, 400, 50,"Use",new Action() {
 
 				@Override
 				public void act() {
-					
+					if (temp == 3 || temp == 7) {
+						updateHealth(userPokemon.getHp());
+					}
+					PokeStart.battleScreen.startBattle();
 				}
 
 			});
-			Graphic a = new Graphic(60, 50 + i*50, 50, 50, tempImages.get(i));
+			Graphic a = new Graphic(60, 50 + i*50, 400, 50, tempImages.get(i));
 
 			viewObjects.add(a); 
 			viewObjects.add(button);
