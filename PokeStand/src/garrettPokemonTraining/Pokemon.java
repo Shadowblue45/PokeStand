@@ -94,29 +94,41 @@ public class Pokemon {
 
 	public void increaseStats() {
 		setHp(getHp() + 10);
-		setAtk(getAtk() + 5);
-		setDef(getDef() + 5);
-		setsAtk(getsAtk() + 5);
-		setsDef(getsDef() + 5);
-		setSpd(getSpd() + 5);
+		setAtk(getAtk() + 10);
+		setDef(getDef() + 10);
+		setsAtk(getsAtk() + 10);
+		setsDef(getsDef() + 10);
+		setSpd(getSpd() + 10);
 	}
 
 	public void trainStat(String s) {
 		setHp(getHp() + 1);
 		if(s.equals("atk")) {
-			setAtk(getAtk() + 3);
+			setAtk(getAtk() + 4);
+			setsAtk(getsAtk() + 2);
+			setSpd(getSpd() + 1);
 		}
 		if(s.equals("def")) {
-			setDef(getDef() + 3);
+			setDef(getDef() + 4);
+			setsDef(getsDef() + 2);
+			setSpd(getSpd() + 1);
 		}
 		if(s.equals("sAtk")) {
-			setsAtk(getsAtk() + 3);
+			setsAtk(getsAtk() + 4);
+			setAtk(getAtk() + 2);
+			setSpd(getSpd() + 1);
 		}
 		if(s.equals("sDef")) {
-			setsDef(getsDef() + 3);
+			setsDef(getsDef() + 4);
+			setDef(getDef() + 2);
+			setSpd(getSpd() + 1);
 		}
 		if(s.equals("spd")) {
-			setSpd(getSpd() + 3);
+			setSpd(getSpd() + 4);
+			setAtk(getAtk() + 1);
+			setDef(getDef() + 1);
+			setsAtk(getsAtk() + 1);
+			setsDef(getsDef() + 1);
 		}
 	}
 
